@@ -1,249 +1,287 @@
-> A hidden line of text. A plastic duck. A phone number. A recorded voice that says "very good."
-< And it all started with a message on the one website built to make everything disappear.
-[pause 0.7]
-> Three rounds of puzzles. Thousands of strangers. Clues on three continents.
-< And then, silence. The last message anyone could verify came in April 2017.
-It said: ignore everything else.
+> A hidden message in an image. A cipher from ancient Rome. A phone number that played a recording.
+< And behind all of it, an anonymous group that wanted to hire the smartest codebreakers on Earth.
+[pause 0.6]
+> Nobody has ever proved who they were.
+< The last message they signed arrived in April 2017. After that, nothing verified.
+> So who built this? What did they want? And why did they stop?
+The best explanation is coming. But first, you have to climb the ladder the way the first solvers did.
+One rung at a time.
+
 [pause 0.5]
-> Who was recruiting? And for what?
-There is a best explanation. It has holes in it. We'll get there.
-But first, let's go back to a Friday night in January 2012.
-
-It's ten at night in Brooklyn.
-A man is sitting alone in his studio. He's thirty-two. He's working on a doctoral paper about institutional secrecy and the national security apparatus.
-He is not working very hard.
-His desk shakes every time a train crosses the Williamsburg Bridge. The bars downstairs are loud.
-So he does what anyone does when they're procrastinating.
-He opens 4chan.
-
-> Now, you need to understand this place.
-4chan is an image board. No search function. No tags. No registration.
-Nobody has to show their face.
-< And there is no formal archive. Most of its million-plus daily posts expire, or get deleted, within hours.
-Everything there is built to vanish.
-It is also where LOLcats came from. And Rickrolling. And, by most accounts, it helped spawn Anonymous.
-So when a strange image appears on the /b/ board, the sensible assumption is simple.
-It's a prank.
-
-But this one has people talking.
-Some commenters are saying the image might be a recruiting exercise.
-Some are saying the National Security Agency is known to scout for hackers on this very site.
-Our man had read the same thing.
-He follows the thread. Around forty people are discussing it. And here's the odd part.
-Many of them are taking it seriously.
-
-> Someone suggests opening the image in WordPad.
-He does.
-At the very bottom, past the picture data, there's a line of text.
-< TIBERIVS CLAVDIVS CAESAR says...
-and then a string of gibberish. Letters, symbols, slashes.
-[pause 0.7]
-Caesar. That's the hint.
-A Caesar cipher swaps each letter for one a fixed number of places along the alphabet.
-And Tiberius Claudius? He was the fourth Roman emperor.
+> Rung one. January 4, 2012.
+A post appears on 4chan.
+If you have never seen 4chan, here is what matters. It is an anonymous image board.
+No registration. No names.
+There is no formal archive. Most posts expire, or get deleted, within hours.
+< It is a place where things vanish.
+So a puzzle posted there should have vanished too.
+> It did not.
+The message was an image. Nothing special about how it looked.
+But one commenter suggested opening it in a plain text editor.
+One early solver, scrolling that board late on a Friday night in January, tried it.
+At the bottom of the file, there was text.
+< TIBERIVS CLAVDIVS CAESAR says, and then a string of nonsense characters.
+[pause 0.6]
+Nonsense, if you do not know Rome.
+> Tiberius Claudius was the fourth Roman emperor.
 Four.
-> So shift everything back four letters.
-It works.
-The gibberish turns into a web address.
+> And a Caesar cipher swaps each letter for another a fixed number of places along the alphabet.
+So shift the letters back four places.
+< It worked.
+The nonsense turned into a web address.
+Rung one, cleared in minutes.
 
-He clicks it.
-And finds a picture of a plastic duck.
-The caption reads: "WOOPS just decoys this way. Looks like you can't guess how to get the message out."
-< A joke? A dead end?
-Not quite.
-Somebody in the thread notices two words. "Guess." And "out."
-> Guess. Out. OutGuess.
-It's the name of a program that hides data inside images.
-They run the duck through it.
-Out comes a link to a subreddit.
+[pause 0.5]
+> Rung two. The duck.
+The address led to a picture of a plastic duck.
+Under it, the words: "WOOPS just decoys this way."
+And then: "Looks like you can't guess how to get the message out."
+Odd phrasing.
+> Guess. Out.
+Somebody in the thread noticed that those two words might be a hint.
+There is a piece of software called OutGuess. It extracts data hidden inside images.
+That is steganography. Hiding a message inside something that looks harmless.
+They ran the duck through it.
+< It gave up a link to a subreddit.
 And on that page?
-A row of Mayan numerals. Lines of garbled letters. Two images, labeled "welcome" and "problems?"
+> A row of Mayan numerals.
+Several lines of garbled letters.
+Two images, labeled "welcome" and "problems?"
+[pause 0.5]
+That is the point where the game stops looking like a prank.
+Because pranksters are lazy.
+This was layered.
+Each step needed a different kind of thinking. Ancient ciphers. Modern software. Number systems from another continent.
+> And the solvers were not alone anymore.
+Someone posted a link to an anonymous chat room.
+Dozens of strangers. Screen names only.
+Everyone chasing the same thread, in a place where the original posts were already disappearing.
+The solver we have been following later said this was the moment it started to feel a bit creepy.
+Because most trolls, they pointed out, do not put this much energy into a joke.
 
-Now the chase leaves 4chan.
-Someone posts a link to an anonymous chat room. Names are screen names. Nothing disappears.
-Dozens of strangers, all staring at the same riddle.
-Our man says that's when it started to feel a little creepy.
-Because, in his words, most trolls don't put this much energy into what they're doing.
-It's eleven at night. His roommates are heading to a bar. He invites himself out of the invitation. He mumbles an excuse, and goes to his bedroom.
-> There, with index cards, he works through book codes.
-King Arthur.
-The quest for the Holy Grail.
-And at last, one message surfaces from the cards.
+[pause 0.6]
+< Here is the first thing you should know about the theories.
+Some of the commenters that night suspected something specific.
+They thought this was a recruiting exercise.
+And they thought the recruiter might be the NSA.
+That idea would follow this puzzle for years.
+It would never be proved.
+Hold onto it.
+
+[pause 0.5]
+> Rung three. The Holy Grail.
+Back at home, that same solver kept going alone.
+Scribbling on index cards.
+The next layers involved book codes. King Arthur. The quest for the Holy Grail.
+> A book code, by the way, is a cipher that points into a specific text.
+No book, no answer.
+So you have to work out which book.
+Hours went by.
+Then a message began to emerge from the cards.
 < "Call us on us tele phone number..."
-followed by digits.
-
-> He shouts it into the chat room.
-"I'm getting a phone number!"
-The more advanced solvers don't believe him.
-The less advanced insult him.
+And then digits.
 [pause 0.6]
-Then a private message arrives.
-< "You're way ahead of the others."
-And an invitation to a smaller, private room.
-He dials the number.
-A recording answers.
-< "Very good. You have done well."
-It goes on. There are three prime numbers associated with the original image. 3301 is one of them. Find the other two. Multiply all three together. Add dot com.
+> The solver blurted it into the chat room.
+"I'm getting a phone number."
+And the room did not believe them.
+The more advanced commenters doubted it.
+The less advanced insulted them.
+That is the internet for you.
+> But a private message arrived.
+"You're way ahead of the others."
+An invitation to a smaller, private chat.
+So, with that, the solver dialed.
 [pause 0.7]
-He checks the picture's size in pixels.
-509 by 503.
-Both primes.
-He multiplies. He adds the dot com.
-And a new page opens.
-An image of a cicada.
+< A recording answered.
+
+> Here is what it said, close to word for word.
+"Very good. You have done well."
+"There are three prime numbers associated with the original final image."
+"3301 is one of them. You will have to find the other two."
+"Multiply all three of these numbers together and add a dot com on the end to find the next step."
+"Good luck. Good-bye."
+[pause 0.6]
+> And that is where the number comes from.
+3301.
+A prime.
+> The solver checked the first image.
+The pixel dimensions were 509 by 503.
+< Both prime.
+Two primes, hidden in plain sight, in the shape of the picture itself.
+Multiply them with 3301, add dot com, and you get an address.
+An image of a cicada appeared.
 Above it, a countdown. Three days.
-Hidden inside the cicada, another message.
-< "You have done well to come this far. Patience is a virtue."
-Check back at 17:00 UTC on Monday, January 9, 2012.
+And hidden inside the cicada, run through OutGuess once more, another message.
+"You have done well to come this far."
+"Patience is a virtue."
+"Check back at 17:00 on Monday, 9 January 2012, UTC."
+[pause 0.7]
+It was around two in the morning.
+> The solver had reached the next level.
+And what had begun as an online lark was about to leave the screen and enter the real world.
 
-It's two in the morning.
-He slumps in his chair.
-> And the game is only beginning.
-Because what started as a puzzle on a screen was about to step out into the physical world.
 [pause 0.8]
-But before we follow it out there, ask yourself something.
-Who builds a trail like that?
-Think about what it required.
-A Roman emperor. A duck. A steganography tool. Mayan numerals. A phone line with a recording. Prime numbers hidden in an image's dimensions.
-Someone designed every one of those steps to be solved in order.
-By strangers.
-At night.
+> That is where one magazine's account of the story breaks off.
+So let me tell you what else is on record.
+Because the puzzle did not stay online.
 
-> So here is what the record shows.
+> The clues ran across several kinds of medium.
+Digital images with hidden information.
+A telephone message.
+Websites.
+< And paper signs, with QR codes on them.
+Physical things. Out in the world.
+Solvers met cryptography. Steganography.
+References to literature, poetry, art and music.
+Among the works the puzzle used were a poem called Agrippa, a poem from the Mabinogion, and a book called The Book of the Law.
+> And every clue carried the same signature.
+The same OpenPGP private key.
+That is a cryptographic way of proving a message came from the same author.
+Anyone can copy a logo.
+< Nobody can fake that key.
+It is the one thing that let solvers tell the real thing from imitations.
+Remember that. It matters later.
 
-The first puzzle began on January 4, 2012, on 4chan.
-It ran for nearly a month.
-A second round began on January 4, 2013.
-A third was posted on Twitter on January 4, 2014.
-> Same date. Every year.
-And the group behind it signed itself with a single number. 3301.
-The name "Cicada" comes from that image of the insect.
-Nobody has ever stepped forward to claim it.
-
-What did the puzzles contain?
-Digital images with hidden information. A telephone message. Websites.
-And, in the physical world, paper signs bearing QR codes.
-< Real paper. Put up in real places.
-The puzzles drew on cryptography, steganography, data security and internet anonymity.
-They also reached for literature, poetry, art and music.
-Among the works pulled in: a poem called "Agrippa," another from the Mabinogion, and a book called The Book of the Law.
-> And here is the detail that matters.
-Every clue was signed with the same OpenPGP private key.
-That is how solvers knew a clue was real.
-It is also how they would later know when something was fake.
-
-Now, the question.
-What was it for?
-< The stated goal, every year, was to recruit "intelligent individuals."
-That's all. Nobody has ever confirmed more than that.
 [pause 0.6]
-> So people guessed.
-The NSA. The CIA. Britain's MI6. Israel's Mossad.
-A "Masonic conspiracy."
-A cyber mercenary group.
-A secret society trying to improve cryptography, privacy and anonymity.
-A cult. Even a religion.
-Or an alternate reality game, an elaborate puzzle hunt made for fun.
-That last one has a problem, though.
-< No company and no individual has tried to monetize it.
-An ordinary game usually wants something. Players, money, a sequel.
-This one never asked for a thing.
-[pause 0.7]
-But that was not the strangest part.
+> The first puzzle ran for nearly a month.
+Then it ended.
+And one year later, on January 4, 2013, a second round began.
+Same day. Same date. Like clockwork.
+And on January 4, 2014, a third round appeared. This time on Twitter.
+< The third puzzle remains unsolved.
+Not "unsolved for a while." Unsolved.
+[pause 0.5]
+> But was the second round solved?
+Yes.
+One of the people who solved the first puzzle of 2013 later described what came next.
+Those who solved it were asked questions.
+About their support for information freedom.
+About online privacy.
+About freedom, and rejecting censorship.
+> Answer well, and you got an invitation.
+To a private forum.
+And once in, you were given an assignment.
+Devise a project. Finish it. A project meant to further the ideals of the group.
+[pause 0.6]
+< That solver did not finish.
+They had been working on a method of general decryption.
+And the website was removed.
+Just like that.
+A second winner documented the experience in a video series.
+The description calls it a "more realistic, fact based view of the organization."
+Realistic. Fact based.
+That tells you something about what the rest of the internet was saying.
+Today that winner helps run community efforts around Cicada 3301 on a Discord server.
+Other communities of solvers still gather on message boards and forums.
+Still looking.
 
-Because some people did get through.
-One person who solved a first puzzle of the 2013 round says the next stage was a set of questions.
-Not about code.
-About beliefs.
-Their support for information freedom. Online privacy. And their rejection of censorship.
-Answer well, and you were invited into a private forum.
-There, the task was to devise and complete a project that furthered the group's ideals.
-> Not a test of skill alone. A test of values.
-And that fits something several 2012 solvers have said.
-According to them, the group usually recruits by other methods entirely.
-The puzzles were a special case.
-They wanted people with cryptography and computer security skills.
-< So the public hunt may have been a net, cast wide, for a specific kind of person.
-That solver says they didn't finish their own project, a method of general decryption.
-And then the website was removed.
 [pause 0.7]
-Another winner of the 2013 round later documented the experience in a video series.
-Her description promised "a more realistic, fact-based view of the organization."
-Realistic. Not mythical.
-And today, she helps run a community around the puzzles on a Discord server.
-Other solvers still gather on old message boards and forums.
-> Still looking.
+> So who were they?
+Let's go through the theories.
+Theory one. A spy agency.
+< The NSA. The CIA. MI6. Mossad.
+Every one of these has been floated as a recruiter.
+The logic is easy to follow.
+Cryptography, security, anonymity. Exactly the skills an intelligence agency wants.
+And remember those commenters on that first night.
+> Theory two. A cyber mercenary group.
+A private outfit hiring hackers.
+> Theory three. A "Masonic conspiracy."
+That one is in the record, though I would not bet on it.
+> Theory four. A secret society.
+One with a goal of improving cryptography, privacy and anonymity.
+> Theory five. A cult. Or a religion.
+> And theory six. A game.
+An alternate reality game.
+Except that there is a problem with that one.
+< No company or individual has tried to monetize it.
+No product. No sponsor. No reveal.
+A game with no seller is an odd kind of game.
+[pause 0.6]
+Now, what do the people who actually solved the puzzle say?
+According to several who solved the 2012 round, the group normally recruits by other means. Not by puzzle.
+But they wanted people with cryptography and computer security skills.
+So they built a puzzle to find them.
+Which is a clue in itself.
+> A puzzle is a filter.
+Anyone who gets through it has proved something.
+Whoever built it wanted to test the very skills the puzzle demanded.
+< But that tells us what they wanted. Not who they were.
 
-Now, the name Cicada attracted trouble.
-In 2012, police in a province of Chile, the Investigative Police, said the group was a "hacker group" involved in illegal activities.
-Cicada answered.
-With a PGP-signed statement.
-It denied any involvement in anything illegal.
-And in July 2015, a group calling itself "3301" broke into the database of Planned Parenthood.
-It looked like the same number. The same name.
-< It wasn't.
-Cicada issued another signed statement, saying they were not associated with the group "in any way," and did not condone use of their name, number, or symbolism.
-The hacking group later confirmed it had no connection.
 [pause 0.7]
-> Think about that.
-Someone could copy the number. They could copy the look.
-But they couldn't copy the signature.
-That key is the one thing that proved the real thing.
+> There is one more twist.
+The accusations.
+In 2012, police in a province of Chile, the Investigative Police, claimed that Cicada 3301 was a hacker group.
+They said it engaged in illegal activities.
+And Cicada answered.
+With a signed statement.
+Denying any involvement in illegal activity.
+> Then, July 2015.
+A group calling itself "3301" hacked into Planned Parenthood's database.
+Same number. Same name, near enough.
+For a moment, the two looked like one.
+< But Cicada issued another signed statement.
+They were "not associated with this group in any way."
+And they did not "condone their use of our name, number, or symbolism."
+Later, the hacker group confirmed it. There was no connection.
+> Notice what happened there.
+The real Cicada could be told from the fake.
+By the signature.
 
-Which brings us to the ending. Or the lack of one.
-The 2012 puzzle was solved.
-The 2013 puzzle was solved.
-< The 2014 puzzle remains unsolved.
-To this day.
+[pause 0.7]
+> Then it went quiet.
 A new clue appeared on Twitter on January 5, 2016.
-Then in April 2017, the last verified PGP-signed message.
-It denied the validity of any puzzle that was not signed.
-Since then, nothing verified.
-No new round. No explanation.
-Every puzzle since is, by their own words, not theirs.
+One day after the date everyone had learned to expect.
+And then, in April 2017, the last verified, signed message.
+< It denied the validity of any unsigned puzzle.
+Read that again.
+It means that anything posted after, anything claiming to be a new round, without that key, is not them.
+And no verified signed puzzle has appeared since.
+[pause 0.6]
+Those are the facts. Now, what is the best explanation?
 
-So what is the best explanation?
-Let's lay it out the way an investigator would.
-> First: the puzzles are real.
-They were elaborate, global and consistent. One key signed them all.
-> Second: they were recruiting.
-They said so. And a solver was asked about privacy and censorship, not about money.
-> Third: whoever they are, they care about cryptography and anonymity.
-Every clue pointed there.
-That much is supported.
+> Honestly?
+The evidence supports a narrow conclusion.
+Somebody built a recruitment filter.
+It was hard enough to need serious skill in cryptography and security.
+It asked about privacy, freedom of information, and censorship.
+It then put winners to work on projects meant to further those ideals.
+That is consistent with a group that cared about privacy.
+< But it is also consistent with almost everything else.
+An agency could build that.
+A society could.
+A group of enthusiasts could.
+> There is no confirmed answer.
+And the weak points are real.
+The agency theory has no confirmation from any agency.
+The mercenary theory has no known payout.
+The game theory has no known seller.
+The society theory has no known members willing to say so on the record.
+< Every theory is missing the same piece.
+Proof.
 [pause 0.7]
-Now the weak points.
-If this were a government agency, why would it ask about information freedom and rejecting censorship?
-That doesn't prove it's not one. But it's an odd fit.
-If it were a game, why was there no money, no sequel, no reveal?
-If it were a criminal outfit, why issue public, signed denials?
-And if it were a secret society with a mission, why has nothing come out of it that anyone can point to?
-< Every theory has a piece that doesn't fit.
-That's why, after more than a decade, the answer is still: nobody knows.
-Even the people who got inside don't claim to.
-
-The puzzles did leave a mark.
-In 2014, the United States Navy released its own cryptographic challenge, based on the Cicada recruitment puzzles.
+> And the legacy is strange.
+In 2014, the United States Navy released a cryptographic challenge based on these recruitment puzzles.
 It was called Project Architeuthis.
-In 2015, an episode of Person of Interest, called "Nautilus," featured a worldwide cryptographic game with a nautilus shell in place of a cicada.
-Its creator said that Cicada 3301 was the inspiration.
-His words: "Look up Cicada 3301 on the Internet. It's a very interesting concept."
-And in 2021, a comedy-thriller, Dark Web: Cicada 3301, directed by Alan Ritchson, followed a hacker playing the recruitment game while evading the NSA.
-The Washington Post listed it among the top five eeriest unsolved mysteries of the internet.
-Others have called it the most elaborate and mysterious puzzle of the internet age.
-
-> But go back to that Friday night in Brooklyn.
-A man procrastinating on a site that deletes everything.
-A line of text at the bottom of a picture.
-< And a stranger, somewhere, who had spent months building a trail so that the right people would find it.
+> In 2015, a Person of Interest episode called "Nautilus" featured a large worldwide game of cryptographic puzzles.
+A nautilus shell instead of a cicada.
+The creator said on record that Cicada 3301 was the inspiration.
+He called it, quote, "a very interesting concept out there."
+And in 2021 came a comedy thriller, Dark Web: Cicada 3301, directed by Alan Ritchson.
+The Washington Post once listed it among the top five eeriest unsolved mysteries of the internet.
+Another description called it the most elaborate and mysterious puzzle of the internet age.
+> Yet at the center there is a plastic duck.
+A Roman emperor.
+And a number.
+< A prime number.
+3301.
 [pause 0.8]
-Who were they looking for?
-Did they find them?
-And if the door was open for only a few years, who was standing behind it?
-The signed messages stopped.
-The key is still out there.
-Maybe the next real clue will carry it.
-Maybe not.
+Think about the first night.
+A few dozen strangers, in a place built to forget everything, remembering one thing together.
+And one of them said: it's a phone number.
+And nobody believed them.
+> They were right.
 
-If you want more stories from the internet's locked rooms, subscribe to Closed Tabs.
-And tell me in the comments which theory you believe.
+[pause 0.6]
+If this kind of story keeps you up at night, subscribe.
+There are more tabs to open.
