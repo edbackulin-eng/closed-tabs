@@ -44,8 +44,18 @@ meter = pyln.Meter(SR)
 TARGET_LUFS = -20.0
 TRIES = 4
 
+NUMBER_WORDS = set("zero one two three four five six seven eight nine ten eleven twelve "
+                   "thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty "
+                   "thirty forty fifty sixty seventy eighty ninety hundred thousand million "
+                   "first second third fourth fifth sixth seventh eighth ninth tenth".split())
+
 def words(s):
-    return re.findall(r"[a-z0-9']+", s.lower().replace("2012", "twenty twelve"))
+    # Whisper writes numbers as digits ("January 4, 2012") however they were
+    # spoken, so numbers are left out of the comparison on both sides; a line
+    # that differed only there was being redrawn four times for nothing.
+    toks = re.findall(r"[a-z0-9']+", s.lower())
+    return [t for t in toks if not re.fullmatch(r"[0-9]+(st|nd|rd|th)?", t)
+            and t not in NUMBER_WORDS]
 
 def score(want, got):
     return difflib.SequenceMatcher(None, words(want), words(got)).ratio()

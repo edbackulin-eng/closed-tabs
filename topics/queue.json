@@ -14,210 +14,341 @@
       "name": "Cicada 3301",
       "wikipedia": "Cicada 3301",
       "pitch": "An anonymous puzzle that recruited codebreakers worldwide in 2012-2014 and then went silent.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Cicada_3301",
+        "https://web.archive.org/web/20150920023142/http://mentalfloss.com/article/31932/chasing-cicada-exploring-darkest-corridors-internet"
+      ]
     },
     {
       "slug": "max-headroom-hijack",
       "name": "Max Headroom signal hijacking",
       "wikipedia": "Max Headroom signal hijackings",
       "pitch": "Someone in a Max Headroom mask hijacked two Chicago TV stations in 1987 and was never identified.",
-      "status": "queued"
+      "status": "queued",
+      "aliases": [
+        "Max Headroom"
+      ],
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Max_Headroom_signal_hijackings",
+        "https://www.damninteresting.com/remember-remember-the-22nd-of-november/"
+      ]
     },
     {
       "slug": "captain-midnight",
       "name": "Captain Midnight",
       "wikipedia": "Captain Midnight broadcast signal intrusion",
       "pitch": "In 1986 a satellite engineer overrode HBO's feed across the US to protest a scrambling fee.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Captain_Midnight_broadcast_signal_intrusion",
+        "http://mentalfloss.com/article/75907/when-captain-midnight-hacked-hbo"
+      ]
     },
     {
       "slug": "unfavorable-semicircle",
       "name": "Unfavorable Semicircle",
       "wikipedia": "Unfavorable Semicircle",
       "pitch": "A YouTube channel posted thousands of cryptic videos a day in 2015-2016, then vanished.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Unfavorable_Semicircle",
+        "http://www.bbc.com/future/story/20160225-the-quest-to-solve-youtubes-strangest-mystery"
+      ]
     },
     {
       "slug": "webdriver-torso",
       "name": "Webdriver Torso",
       "wikipedia": "Webdriver Torso",
       "pitch": "Hundreds of thousands of videos of red and blue rectangles and beeps, until Google explained.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Webdriver_Torso",
+        "https://www.engadget.com/2014/06/06/this-is-the-truth-behind-webdriver-torso/"
+      ]
     },
     {
       "slug": "polybius",
       "name": "Polybius",
       "wikipedia": "Polybius (urban legend)",
       "pitch": "An arcade cabinet said to vanish after players fell ill, and whether it ever existed at all.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Polybius_(urban_legend)",
+        "http://www.coinop.org/Game/103223/Polybius"
+      ]
     },
     {
       "slug": "markovian-parallax",
       "name": "Markovian Parallax Denigrate",
       "wikipedia": "Markovian Parallax Denigrate",
       "pitch": "Hundreds of nonsense Usenet posts from 1996 that nobody has decoded in almost thirty years.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Markovian_Parallax_Denigrate",
+        "https://www.atlasobscura.com/articles/markovian-parallax-denigrate-mystery-internet"
+      ]
     },
     {
       "slug": "ted-the-caver",
       "name": "Ted the Caver",
       "wikipedia": "Ted the Caver",
       "pitch": "A 2001 caving diary website that got stranger with every update and became an internet legend.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Ted_the_Caver",
+        "https://screenrant.com/living-dark-ted-caver-movie-creepypasta-adaptation/"
+      ]
     },
     {
       "slug": "candle-cove",
       "name": "Candle Cove",
       "wikipedia": "Candle Cove",
       "pitch": "A forum thread about a children's show nobody else remembered, and how a story became shared memory.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Candle_Cove",
+        "http://www.atlasobscura.com/articles/do-you-remember-candle-cove"
+      ]
     },
     {
       "slug": "backrooms",
       "name": "The Backrooms",
       "wikipedia": "The Backrooms",
       "pitch": "One photo of an empty yellow office, posted in 2019, grew into a vast collaborative mythology.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/The_Backrooms",
+        "https://happymag.tv/the-backrooms/"
+      ]
     },
     {
       "slug": "i-love-bees",
       "name": "I Love Bees",
       "wikipedia": "I Love Bees",
       "pitch": "A beekeeping site was 'hacked' in 2004 and pulled thousands of strangers to ringing payphones.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/I_Love_Bees",
+        "http://www.theage.com.au/articles/2005/02/24/1109180026375.html"
+      ]
     },
     {
       "slug": "the-beast",
       "name": "The Beast",
       "wikipedia": "The Beast (game)",
       "pitch": "A hidden credit on a movie poster opened the first great alternate reality game, in 2001.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/The_Beast_(game)",
+        "http://www.polygon.com/features/2013/10/25/4849252/six-to-start-walk-zombies-run"
+      ]
     },
     {
       "slug": "year-zero",
       "name": "Year Zero",
       "wikipedia": "Year Zero (game)",
       "pitch": "USB drives left in concert toilets carried leaked songs from a dystopian future.",
-      "status": "queued"
+      "status": "queued",
+      "aliases": [
+        "Year Zero",
+        "Nine Inch Nails"
+      ],
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Year_Zero_(game)",
+        "http://www.ninwiki.com/Year_Zero_Research"
+      ]
     },
     {
       "slug": "ongs-hat",
       "name": "Ong's Hat",
       "wikipedia": "Ong's Hat",
       "pitch": "A New Jersey ghost town became the setting of an internet legend about a portal to other worlds.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Ong%27s_Hat",
+        "https://web.archive.org/web/20060715194507/http://www.newworlddisorder.ca/issuetwo/interviews/matheny.html"
+      ]
     },
     {
       "slug": "john-titor",
       "name": "John Titor",
       "wikipedia": "John Titor",
       "pitch": "A forum poster in 2000-2001 claimed to be a soldier from 2036, and made predictions.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/John_Titor",
+        "https://web.archive.org/web/20170622161305/http://www.telegraph.co.uk/news/science/11945420/Who-was-John-Titor-the-time-traveller-who-came-from-2036-to-warn-us-of-a-nuclear-war.html"
+      ]
     },
     {
       "slug": "uvb-76",
       "name": "UVB-76",
       "wikipedia": "UVB-76",
       "pitch": "A shortwave station has broadcast a buzz for decades, broken only by rare spoken codes.",
-      "status": "queued"
+      "status": "queued",
+      "aliases": [
+        "The Buzzer",
+        "UVB 76"
+      ],
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/UVB-76",
+        "https://web.archive.org/web/20120910123245/http://blog.kwasd.ru/%D0%BD%D0%B5%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9-%D1%84%D0%BE%D1%82%D0%BE%D0%BE%D1%82%D1%87%D0%B5%D1%82-%D1%81-%D1%83%D0%B2%D0%B1-76-the-buzzer-%D0%B6%D1%83%D0%B6%D0%B6%D0%B0%D0%BB%D0%BA/"
+      ]
     },
     {
       "slug": "dead-internet",
       "name": "Dead Internet theory",
       "wikipedia": "Dead Internet theory",
       "pitch": "The claim that most of the internet stopped being human, and what the evidence actually shows.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Dead_Internet_theory",
+        "https://thestory.au/articles/ai-chatgpt-storytelling/"
+      ]
     },
     {
       "slug": "bielefeld",
       "name": "The Bielefeld Conspiracy",
       "wikipedia": "Bielefeld conspiracy",
       "pitch": "A German city that, according to the internet, does not exist.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Bielefeld_conspiracy",
+        "https://www.newsweek.com/bielefeld-conspiracy-reward-1455502"
+      ]
     },
     {
       "slug": "this-man",
       "name": "This Man",
       "wikipedia": "This Man",
       "pitch": "A face thousands of people said they had seen in their dreams, and who drew it.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/This_Man",
+        "https://web.archive.org/web/20190504014005/https://www.crunchyroll.com/anime-news/2018/08/18/bloody-monday-artist-publishes-manga-based-on-urban-legend"
+      ]
     },
     {
       "slug": "zombo-com",
       "name": "Zombo.com",
       "wikipedia": "Zombo.com",
       "pitch": "A 1999 website that promised you could do anything, and is still waiting.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Zombo.com",
+        "https://www.theguardian.com/technology/2002/aug/22/onlinesupplement"
+      ]
     },
     {
       "slug": "million-dollar-homepage",
       "name": "The Million Dollar Homepage",
       "wikipedia": "The Million Dollar Homepage",
       "pitch": "A student sold a million pixels in 2005, and how many of those links still work.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/The_Million_Dollar_Homepage",
+        "http://www.entrepreneur.com/worklife/successstories/article82936.html"
+      ]
     },
     {
       "slug": "domesday-project",
       "name": "The BBC Domesday Project",
       "wikipedia": "BBC Domesday Project",
       "pitch": "A 1986 digital record of Britain that became unreadable within fifteen years.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/BBC_Domesday_Project",
+        "http://catless.ncl.ac.uk/Risks/25.44.html#subj7"
+      ]
     },
     {
       "slug": "nintendo-playstation",
       "name": "The Nintendo PlayStation",
       "wikipedia": "Super NES CD-ROM",
       "pitch": "A console that was never released, until one prototype turned up in an attic.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Super_NES_CD-ROM",
+        "http://kotaku.com/hacker-makes-the-nintendo-playstation-fully-operational-1794968886"
+      ]
     },
     {
       "slug": "horse-ebooks",
       "name": "Horse_ebooks",
       "wikipedia": "Horse ebooks",
       "pitch": "A spam account whose strange poetry made it famous, and the secret behind it.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Horse_ebooks",
+        "http://bits.blogs.nytimes.com/2012/01/06/web-comic-draws-inspiration-from-a-spam-bot/"
+      ]
     },
     {
       "slug": "marble-hornets",
       "name": "Marble Hornets",
       "wikipedia": "Marble Hornets",
       "pitch": "A YouTube series that convinced viewers its found footage was real.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Marble_Hornets",
+        "http://www.joblo.com/horror-movies/news/web-series-marble-hornets-flying-to-big-screen"
+      ]
     },
     {
       "slug": "lonelygirl15",
       "name": "Lonelygirl15",
       "wikipedia": "Lonelygirl15",
       "pitch": "A vlogger who became one of YouTube's first stars, and was never real.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Lonelygirl15",
+        "https://www.theguardian.com/technology/2016/jun/16/lonelygirl15-bree-video-blog-youtube"
+      ]
     },
     {
       "slug": "twitch-plays-pokemon",
       "name": "Twitch Plays Pokémon",
       "wikipedia": "Twitch Plays Pokémon",
       "pitch": "A million strangers typing commands at once somehow finished a game.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Twitch_Plays_Pok%C3%A9mon",
+        "https://arstechnica.com/gaming/2014/02/the-bizarre-mind-numbing-mesmerizing-beauty-of-twitch-plays-pokemon/"
+      ]
     },
     {
       "slug": "kryptos",
       "name": "Kryptos",
       "wikipedia": "Kryptos",
       "pitch": "A sculpture at CIA headquarters whose last passage has been unsolved since 1990.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Kryptos",
+        "http://elonka.com/kryptos/faq.html"
+      ]
     },
     {
       "slug": "london-after-midnight",
       "name": "London After Midnight",
       "wikipedia": "London After Midnight (film)",
       "pitch": "The most searched-for lost film, last known copy believed destroyed in a 1965 vault fire.",
-      "status": "queued"
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/London_After_Midnight_(film)",
+        "http://www.electricsheepmagazine.co.uk/features/2013/11/08/london-after-midnight/"
+      ]
     },
     {
       "slug": "11b-x-1371",
       "name": "11B-X-1371",
       "wikipedia": "11B-X-1371",
-      "pitch": "A masked figure in a 2017 video hid a message in its soundtrack.",
-      "status": "queued"
+      "pitch": "A masked figure in a 2015 video hid a message in its soundtrack.",
+      "status": "queued",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/11B-X-1371",
+        "http://gadgetzz.com/2015/10/12/this-creepy-puzzle-arrived-in-our-mail/"
+      ]
     }
   ],
   "backup": [
@@ -231,19 +362,31 @@
       "slug": "geocities",
       "name": "GeoCities",
       "wikipedia": "GeoCities",
-      "status": "backup"
+      "status": "backup",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/GeoCities",
+        "https://techcrunch.com/2009/04/23/yahoo-quietly-pulls-the-plug-on-geocities/"
+      ]
     },
     {
       "slug": "mountain-eagle",
       "name": "The Mountain Eagle",
       "wikipedia": "The Mountain Eagle",
-      "status": "backup"
+      "status": "backup",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/The_Mountain_Eagle",
+        "http://old.bfi.org.uk/nationalarchive/news/mostwanted/mountain-eagle.html"
+      ]
     },
     {
       "slug": "lincolnshire-poacher",
       "name": "Lincolnshire Poacher",
       "wikipedia": "Lincolnshire Poacher (numbers station)",
-      "status": "backup"
+      "status": "backup",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Lincolnshire_Poacher_(numbers_station)",
+        "https://web.archive.org/web/20190202060629/http://www.simonmason.karoo.net/page14.html"
+      ]
     }
   ]
 }
