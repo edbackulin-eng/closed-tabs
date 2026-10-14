@@ -78,7 +78,11 @@ def _metadata(username, slug, title):
 
 
 def _run(args, check=True):
-    result = subprocess.run(args, capture_output=True, text=True)
+    # The Kaggle CLI prints non-ASCII; under a Windows cp1251 console it crashed
+    # while writing a downloaded log, after the kernel itself had finished.
+    env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
+    result = subprocess.run(args, capture_output=True, text=True, encoding="utf-8",
+                            errors="replace", env=env)
     if check and result.returncode != 0:
         raise RuntimeError(f"{' '.join(args)} failed:\n{result.stdout}\n{result.stderr}")
     return result
@@ -182,9 +186,11 @@ def wait(ref, poll_s=30, timeout_s=3 * 3600):
         status = text.lower()
         elapsed = int(time.time() - started)
         print(f"  [{elapsed:5d}s] {text[:110]}", flush=True)
-        if "complete" in status:
+        # Only the status line counts. A dropped connection prints a traceback
+        # that mentions errors without the kernel having failed at all.
+        if "kernelworkerstatus.complete" in status:
             return True
-        if "error" in status or "cancel" in status:
+        if "kernelworkerstatus.error" in status or "kernelworkerstatus.cancel" in status:
             return False
         time.sleep(poll_s)
     print("timed out waiting for the kernel")

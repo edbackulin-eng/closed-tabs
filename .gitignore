@@ -44,3 +44,7 @@ voice_samples/
 *.jpg
 *.jpeg
 *.webp
+kaggle/build_voice/
+kaggle/results_voice/
+kaggle/build/
+kaggle/results/

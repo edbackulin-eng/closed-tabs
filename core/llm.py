@@ -27,7 +27,10 @@ GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:ge
 # models/gemini-2.5-flash, which then 404s with "no longer available to new
 # users". The rolling "-latest" alias is the one that actually answers, and it
 # keeps working when Google retires a numbered release.
-GEMINI_MODEL = "gemini-flash-latest"
+# Closed Tabs runs on its own Google project and key (GEMINI_API_KEY_CT), so its
+# twenty requests a day per model are not shared with What If.
+GEMINI_MODEL = "gemini-flash-lite-latest"
+GEMINI_KEY_NAME = "GEMINI_API_KEY_CT"
 # Separate free-tier quota bucket from GEMINI_MODEL, for bulk work.
 GEMINI_BULK_MODEL = "gemini-flash-lite-latest"
 
@@ -210,9 +213,9 @@ def _call_gemini(prompt, system, max_tokens, temperature, json_mode,
     makes; fact-checking passes a real budget (and a matching max_tokens) where
     the reasoning is worth paying for.
     """
-    key = get_key("GEMINI_API_KEY")
+    key = get_key(GEMINI_KEY_NAME)
     if not key:
-        raise LLMError("GEMINI_API_KEY is not set")
+        raise LLMError(f"{GEMINI_KEY_NAME} is not set")
     payload = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {
@@ -273,22 +276,63 @@ def _call_gemini(prompt, system, max_tokens, temperature, json_mode,
 
 # --- public API ------------------------------------------------------------
 
-@retry(attempts=3, base_delay=4)
-def complete(prompt, system=None, max_tokens=4096, temperature=0.8, json_mode=False,
-             thinking_budget=0, model=None):
-    """Gemini, falling back to Groq. Raises LLMError when no provider answers.
+CLAUDE_TIMEOUT_S = 900
+PROVIDERS = ("claude", "gemini", "groq")
 
-    The order is reversed from yt-factory: here Gemini is the checker the channel
-    actually relies on, and Groq is only the emergency spare.
+
+def _call_claude(prompt, system, max_tokens, temperature, json_mode):
+    """Headless Claude through the CLI, on the subscription.
+
+    In CI it authenticates with CLAUDE_CODE_OAUTH_TOKEN (from `claude setup-token`);
+    locally with the logged-in CLI. max_tokens and temperature are not exposed by
+    the CLI and are ignored.
     """
+    import shutil
+    import subprocess
+    exe = shutil.which("claude")
+    if not exe:
+        raise LLMError("claude CLI is not installed")
+    full = prompt if not system else f"{system}\n\n{prompt}"
+    if json_mode:
+        full += "\n\nReply with JSON only, no prose, no code fences."
+    started = time.monotonic()
     try:
-        return _call_gemini(prompt, system, max_tokens, temperature, json_mode,
-                            thinking_budget, model)
-    except LLMError as gemini_error:
-        if not get_key("GROQ_API_KEY"):
-            raise
-        log.warning("gemini failed (%s), falling back to groq", gemini_error)
-        return _call_groq(prompt, system, max_tokens, temperature, json_mode)
+        r = subprocess.run([exe, "-p", full, "--output-format", "text"],
+                           capture_output=True, text=True, encoding="utf-8",
+                           timeout=CLAUDE_TIMEOUT_S, env=os.environ.copy())
+    except subprocess.TimeoutExpired as e:
+        raise LLMError(f"claude timed out after {CLAUDE_TIMEOUT_S}s") from e
+    if r.returncode != 0:
+        raise LLMError(f"claude -p exit {r.returncode}: {(r.stderr or r.stdout)[:300]}")
+    text = (r.stdout or "").strip()
+    if not text:
+        raise LLMError("claude -p returned nothing")
+    log.info("claude | %d chars | %.1fs", len(text), time.monotonic() - started)
+    return text
+
+
+def complete(prompt, system=None, max_tokens=4096, temperature=0.8, json_mode=False,
+             thinking_budget=0, model=None, providers=PROVIDERS):
+    """Claude, then Gemini, then Groq. Raises LLMError when none answers.
+
+    Not wrapped in @retry: each provider already retries its own transient
+    failures, and retrying the whole chain would run a slow Claude call three
+    times before Gemini was ever asked.
+    """
+    errors = []
+    for name in providers:
+        try:
+            if name == "claude":
+                return _call_claude(prompt, system, max_tokens, temperature, json_mode)
+            if name == "gemini":
+                return _call_gemini(prompt, system, max_tokens, temperature, json_mode,
+                                    thinking_budget, model)
+            if name == "groq":
+                return _call_groq(prompt, system, max_tokens, temperature, json_mode)
+        except LLMError as e:
+            errors.append(f"{name}: {e}")
+            log.warning("%s failed (%s), trying the next provider", name, e)
+    raise LLMError("no provider answered: " + " | ".join(errors))
 
 
 def extract_json(text):
