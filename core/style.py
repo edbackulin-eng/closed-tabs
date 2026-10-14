@@ -32,7 +32,8 @@ NEGATIVE = (
     "no split screen, no cartoon, no anime, no illustration, no painting, "
     "no 3d render look, no gore, no blood, no weapons, no corpses, "
     "no oversaturated colour, no lens flare, no fisheye, no tilted horizon, "
-    "no extra limbs, no deformed faces"
+    "no extra limbs, no deformed faces, "
+    "no letterbox, no black bars, no cinematic bars, image fills the whole frame"
 )
 
 # A person may be in shot for scale and mood, never as someone identifiable:

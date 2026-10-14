@@ -79,8 +79,11 @@ def check_edges(path_or_img, band=0.03, floor=0.18):
     bh, bw = max(2, int(h * band)), max(2, int(w * band))
     inner = np.median(a[bh:h - bh, bw:w - bw]) + 1e-3
     strips = {"top": a[:bh], "bottom": a[h - bh:], "left": a[:, :bw], "right": a[:, w - bw:]}
+    # A letterbox band is flat as well as dark. A night scene's dark edge still
+    # has grain, falloff and detail in it; requiring the strip to be nearly
+    # uniform keeps this channel's dark rooms from being read as borders.
     problems = [name for name, s in strips.items()
-                if s.mean() < 12 and s.mean() < inner * floor]
+                if s.mean() < 12 and s.mean() < inner * floor and s.std() < 3.0]
     return not problems, problems
 
 
