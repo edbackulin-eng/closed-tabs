@@ -51,3 +51,6 @@ kaggle/results/
 *.log
 work/
 queue/*/build/
+branding/
+youtube_token.json
+client_secret*.json

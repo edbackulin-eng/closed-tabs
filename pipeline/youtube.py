@@ -1,14 +1,17 @@
-"""Upload a finished episode to YouTube: video, thumbnail, subtitles, metadata.
+"""YouTube for Closed Tabs: upload, schedule, captions, thumbnail, branding.
 
-Scheduled rather than published immediately: the video goes up `private` with a
-`publishAt`, and YouTube makes it public at that moment. That keeps the channel
-on a fixed rhythm regardless of when a build actually finishes, which on free
-runners is anywhere in a several-hour window.
+Every upload goes up private with a publishAt, on the nearest free slot of the
+channel's week (Mon, Tue, Thu, Fri, Sat at 17:00 UTC) that is at least two
+hours away. Every video declares containsSyntheticMedia=true and madeForKids=false
+and sits in Entertainment.
 
-The first upload is treated as a test. After its publish moment passes, the
-pipeline asks the API whether the video really did turn public, because an
-unaudited project holding a video private forever looks exactly like one that
-published correctly.
+A video is never uploaded twice. The moment YouTube returns an id it is written
+to uploaded.json beside the episode, and the upload stage refuses to run for any
+episode that already has one, whatever the episode database says - the stoicism
+channel uploaded the same video twice when its database push was lost.
+
+Scopes: youtube.upload to upload, youtube (full) to set captions, change privacy
+and edit branding.
 """
 import json
 import os
@@ -22,27 +25,26 @@ log = get_logger("youtube")
 
 ROOT = Path(__file__).resolve().parent.parent
 TOKEN_FILE = ROOT / "youtube_token.json"
+SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
+          "https://www.googleapis.com/auth/youtube"]
 
-CATEGORY_SCIENCE_TECH = "28"
-PUBLISH_HOUR_UTC = 15          # evening in Europe, daytime in the US
+CATEGORY_ENTERTAINMENT = "24"
+SLOT_WEEKDAYS = (0, 1, 3, 4, 5)        # Mon, Tue, Thu, Fri, Sat
+SLOT_HOUR_UTC = 17
+MIN_LEAD = timedelta(hours=2)
 CHUNK_MB = 8
 
 
-def _credentials():
-    """Build credentials from the environment in CI, or the local file."""
-    from google.oauth2.credentials import Credentials
+# --- auth ----------------------------------------------------------------------
 
+def _credentials():
+    from google.oauth2.credentials import Credentials
     raw = os.environ.get("YT_TOKEN_JSON")
-    data = json.loads(raw) if raw else json.loads(
-        TOKEN_FILE.read_text(encoding="utf-8"))
-    return Credentials(
-        token=None,
-        refresh_token=data["refresh_token"],
-        client_id=data["client_id"],
-        client_secret=data["client_secret"],
-        token_uri=data.get("token_uri", "https://oauth2.googleapis.com/token"),
-        scopes=data.get("scopes"),
-    )
+    data = json.loads(raw) if raw else json.loads(TOKEN_FILE.read_text(encoding="utf-8"))
+    return Credentials(token=None, refresh_token=data["refresh_token"],
+                       client_id=data["client_id"], client_secret=data["client_secret"],
+                       token_uri=data.get("token_uri", "https://oauth2.googleapis.com/token"),
+                       scopes=data.get("scopes") or SCOPES)
 
 
 def service():
@@ -50,148 +52,169 @@ def service():
     return build("youtube", "v3", credentials=_credentials(), cache_discovery=False)
 
 
-def channel_name(yt=None):
+def authorize(client_secret, token_out=TOKEN_FILE):
+    """Local browser consent; writes the refresh token. Run once, by hand."""
+    from google_auth_oauthlib.flow import InstalledAppFlow
+    flow = InstalledAppFlow.from_client_secrets_file(str(client_secret), SCOPES)
+    creds = flow.run_local_server(port=0, prompt="consent", access_type="offline")
+    data = {"refresh_token": creds.refresh_token, "client_id": creds.client_id,
+            "client_secret": creds.client_secret, "token_uri": creds.token_uri,
+            "scopes": SCOPES}
+    Path(token_out).write_text(json.dumps(data), encoding="utf-8")
+    return data
+
+
+def channel(yt=None):
     yt = yt or service()
-    items = yt.channels().list(part="snippet", mine=True).execute().get("items", [])
-    return (items[0]["snippet"]["title"], items[0]["id"]) if items else (None, None)
+    items = yt.channels().list(part="snippet,contentDetails,brandingSettings,statistics",
+                               mine=True).execute().get("items", [])
+    return items[0] if items else None
 
 
-def next_publish_at(last_scheduled=None, now=None, hour=PUBLISH_HOUR_UTC):
-    """The slot one day after the last one taken, never in the past.
+# --- the schedule ----------------------------------------------------------------
 
-    Counted from the end of the queue rather than from "now + n days": a runner
-    that starts late would otherwise book a slot later than the video before it,
-    leaving a hole on the channel.
+def next_slot(taken=(), now=None):
+    """The nearest free publishing slot at least two hours from now.
+
+    `taken` is every publishAt already handed to YouTube. A slot is free when no
+    video of ours already holds that day.
     """
     now = now or datetime.now(timezone.utc)
-    at = now.replace(hour=hour, minute=0, second=0, microsecond=0)
-    if at <= now + timedelta(minutes=30):
-        at += timedelta(days=1)
-    if last_scheduled:
-        if isinstance(last_scheduled, str):
-            last_scheduled = datetime.fromisoformat(
-                last_scheduled.replace("Z", "+00:00"))
-        after_queue = last_scheduled.replace(
-            hour=hour, minute=0, second=0, microsecond=0) + timedelta(days=1)
-        at = max(at, after_queue)
-    return at
+    taken_days = set()
+    for t in taken:
+        if isinstance(t, str):
+            t = datetime.fromisoformat(t.replace("Z", "+00:00"))
+        taken_days.add(t.astimezone(timezone.utc).date())
+    day = now.replace(hour=SLOT_HOUR_UTC, minute=0, second=0, microsecond=0)
+    for _ in range(60):
+        if (day.weekday() in SLOT_WEEKDAYS and day - now >= MIN_LEAD
+                and day.date() not in taken_days):
+            return day
+        day += timedelta(days=1)
+    raise RuntimeError("no free slot in the next 60 days")
 
 
-def _parse_metadata(path):
-    """Read title, description, tags and hashtags out of metadata.txt."""
-    text = Path(path).read_text(encoding="utf-8")
-    out, section, buf = {}, None, []
+# --- upload ----------------------------------------------------------------------
 
-    def flush():
-        if section:
-            out[section] = "\n".join(buf).strip()
-
-    for line in text.splitlines():
-        head = line.strip()
-        if head.startswith("TITLE"):
-            flush(); section, buf = "title", []
-        elif head.startswith("DESCRIPTION"):
-            flush(); section, buf = "description", []
-        elif head.startswith("TAGS"):
-            flush(); section, buf = "tags", []
-        elif head.startswith("HASHTAGS"):
-            flush(); section, buf = "hashtags", []
-        elif head.startswith("UPLOAD SETTINGS"):
-            flush(); section, buf = None, []
-        elif section:
-            buf.append(line)
-    flush()
-    tags = [t.strip() for t in out.get("tags", "").split(",") if t.strip()]
-    return out.get("title", "").strip(), out.get("description", "").strip(), tags
-
-
-def upload(package_dir, publish_at=None, synthetic_media=True):
-    """Upload the package in `package_dir`. Returns the video id."""
-    from googleapiclient.http import MediaFileUpload
-
-    package_dir = Path(package_dir)
-    video = package_dir / "video.mp4"
-    title, description, tags = _parse_metadata(package_dir / "metadata.txt")
-    publish_at = publish_at or next_publish_at()
-
-    yt = service()
-    name, cid = channel_name(yt)
-    log.info("uploading to %s (%s)", name, cid)
-    log.info("scheduled for %s", publish_at.strftime("%Y-%m-%d %H:%M UTC"))
-
-    body = {
-        "snippet": {
-            "title": title[:100],
-            "description": description[:5000],
-            "tags": tags,
-            "categoryId": CATEGORY_SCIENCE_TECH,
-            "defaultLanguage": "en",
-            "defaultAudioLanguage": "en",
-        },
-        "status": {
-            # private + publishAt is what makes YouTube flip it public on time.
-            "privacyStatus": "private",
-            "publishAt": publish_at.strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "selfDeclaredMadeForKids": False,
-            "containsSyntheticMedia": synthetic_media,
-        },
+def body(title, description, tags, publish_at, language="en"):
+    return {
+        "snippet": {"title": title[:100], "description": description[:5000],
+                    "tags": tags, "categoryId": CATEGORY_ENTERTAINMENT,
+                    "defaultLanguage": language, "defaultAudioLanguage": language},
+        "status": {"privacyStatus": "private",
+                   "publishAt": publish_at.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                   "selfDeclaredMadeForKids": False,
+                   "containsSyntheticMedia": True},
     }
-    media = MediaFileUpload(str(video), chunksize=CHUNK_MB * 1024 * 1024,
-                            resumable=True, mimetype="video/mp4")
-    request = yt.videos().insert(part="snippet,status", body=body, media_body=media)
 
+
+def upload(episode_dir, title, description, tags, publish_at, yt=None):
+    """Upload video.mp4 from episode_dir. Returns the video id.
+
+    Refuses when uploaded.json already exists, and writes it before anything else
+    can fail."""
+    from googleapiclient.http import MediaFileUpload
+    episode_dir = Path(episode_dir)
+    marker = episode_dir / "uploaded.json"
+    if marker.exists():
+        saved = json.loads(marker.read_text(encoding="utf-8"))
+        log.warning("already uploaded as %s; not uploading again", saved["youtube_id"])
+        return saved["youtube_id"]
+    yt = yt or service()
+    media = MediaFileUpload(str(episode_dir / "video.mp4"), chunksize=CHUNK_MB * 1024 * 1024,
+                            resumable=True, mimetype="video/mp4")
+    req = yt.videos().insert(part="snippet,status",
+                             body=body(title, description, tags, publish_at), media_body=media)
     response, last = None, -1
     while response is None:
-        status, response = request.next_chunk()
+        status, response = req.next_chunk()
         if status and int(status.progress() * 100) >= last + 10:
             last = int(status.progress() * 100)
             log.info("  upload %d%%", last)
-    video_id = response["id"]
-    log.info("uploaded: https://youtu.be/%s", video_id)
+    vid = response["id"]
+    marker.write_text(json.dumps({"youtube_id": vid,
+                                  "publish_at": publish_at.strftime("%Y-%m-%dT%H:%M:%SZ")}),
+                      encoding="utf-8")
+    log.info("uploaded https://youtu.be/%s for %s", vid, publish_at.isoformat())
+    return vid
 
-    thumb = package_dir / "thumbnail.png"
+
+def attach(video_id, episode_dir, yt=None):
+    """Thumbnail and English subtitles."""
+    from googleapiclient.http import MediaFileUpload
+    yt = yt or service()
+    episode_dir = Path(episode_dir)
+    thumb = episode_dir / "thumbnail.jpg"
     if thumb.exists():
-        yt.thumbnails().set(videoId=video_id,
-                            media_body=MediaFileUpload(str(thumb))).execute()
+        yt.thumbnails().set(videoId=video_id, media_body=MediaFileUpload(str(thumb))).execute()
         log.info("thumbnail set")
-
-    subs = package_dir / "subs.srt"
-    if subs.exists():
-        yt.captions().insert(
-            part="snippet",
-            body={"snippet": {"videoId": video_id, "language": "en",
-                              "name": "English", "isDraft": False}},
-            media_body=MediaFileUpload(str(subs))).execute()
+    srt = episode_dir / "subs.srt"
+    if srt.exists():
+        yt.captions().insert(part="snippet",
+                             body={"snippet": {"videoId": video_id, "language": "en",
+                                               "name": "English", "isDraft": False}},
+                             media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream"),
+                             ).execute()
         log.info("subtitles attached")
 
-    return video_id, publish_at
 
-
-def is_public(video_id, yt=None):
-    """What privacy status YouTube currently reports for a video."""
+def status_of(video_id, yt=None):
     yt = yt or service()
     items = yt.videos().list(part="status", id=video_id).execute().get("items", [])
-    if not items:
-        return None
-    return items[0]["status"].get("privacyStatus")
+    return items[0]["status"] if items else None
 
 
-def verify_went_public(video_id, publish_at, grace_minutes=20):
-    """After the publish moment, confirm the video actually turned public.
+# --- the channel ---------------------------------------------------------------------
 
-    An unaudited project that silently holds uploads private forever is
-    indistinguishable from one that works, until somebody looks. This is the
-    look.
-    """
-    now = datetime.now(timezone.utc)
-    due = publish_at + timedelta(minutes=grace_minutes)
-    if now < due:
-        return {"checked": False,
-                "reason": f"not due until {due:%Y-%m-%d %H:%M UTC}"}
-    status = is_public(video_id)
-    ok = status == "public"
-    if not ok:
-        log.error("video %s is still '%s' %d minutes after its publish moment. "
-                  "If this persists, the project needs the API audit.",
-                  video_id, status, grace_minutes)
-    return {"checked": True, "status": status, "public": ok}
+def all_uploads(yt=None):
+    """Every video on the channel: (id, title, privacy)."""
+    yt = yt or service()
+    ch = channel(yt)
+    playlist = ch["contentDetails"]["relatedPlaylists"]["uploads"]
+    out, token = [], None
+    while True:
+        r = yt.playlistItems().list(part="contentDetails,snippet", playlistId=playlist,
+                                    maxResults=50, pageToken=token).execute()
+        ids = [i["contentDetails"]["videoId"] for i in r.get("items", [])]
+        if ids:
+            for v in yt.videos().list(part="status,snippet", id=",".join(ids)).execute()["items"]:
+                out.append((v["id"], v["snippet"]["title"], v["status"]["privacyStatus"]))
+        token = r.get("nextPageToken")
+        if not token:
+            return out
+
+
+def make_all_private(yt=None, dry_run=False):
+    """Every existing video to private. Nothing is deleted."""
+    yt = yt or service()
+    changed = []
+    for vid, title, privacy in all_uploads(yt):
+        if privacy == "private":
+            continue
+        if not dry_run:
+            v = yt.videos().list(part="status", id=vid).execute()["items"][0]
+            st = v["status"]
+            st["privacyStatus"] = "private"
+            st.pop("publishAt", None)
+            yt.videos().update(part="status", body={"id": vid, "status": st}).execute()
+            time.sleep(0.5)
+        changed.append((vid, title, privacy))
+    return changed
+
+
+def set_branding(description, keywords, banner_path=None, yt=None):
+    """Channel description, keywords and banner. The profile picture cannot be set
+    through the Data API; it is uploaded in YouTube Studio."""
+    from googleapiclient.http import MediaFileUpload
+    yt = yt or service()
+    ch = channel(yt)
+    settings = ch.get("brandingSettings", {})
+    settings.setdefault("channel", {})
+    settings["channel"]["description"] = description
+    settings["channel"]["keywords"] = keywords
+    if banner_path:
+        r = yt.channelBanners().insert(media_body=MediaFileUpload(str(banner_path))).execute()
+        settings.setdefault("image", {})["bannerExternalUrl"] = r["url"]
+    yt.channels().update(part="brandingSettings",
+                         body={"id": ch["id"], "brandingSettings": settings}).execute()
+    return ch["id"]
