@@ -255,3 +255,77 @@ def write_report(verdicts, path):
     Path(path).write_text(json.dumps(payload, indent=2, ensure_ascii=False),
                           encoding="utf-8")
     return payload
+
+
+THUMB_SYSTEM = """You judge candidate YouTube thumbnail photographs. Each shows a person
+pointing at a computer monitor in a dark room. Be strict: a bad hand or a stare into
+the lens costs clicks and trust.
+
+Reject (ok=false) when ANY of these is clearly true:
+- hands: a visible hand without exactly five fingers, fused or extra fingers, a
+  malformed or melted hand, a pointing finger that bends wrongly.
+- face: the face is distorted, asymmetric in an unnatural way, or melted.
+- gaze: the person looks into the camera instead of at the monitor.
+- screen: the monitor screen shows text, letters, symbols or an interface instead of
+  being blank.
+- text: any lettering, logo or watermark anywhere in the image.
+Otherwise ok=true. Reply with valid JSON only."""
+
+THUMB_PROMPT = """For each image, in order, return:
+{"results":[{"i":<index>,"ok":true|false,"defect":"hands|face|gaze|screen|text|none",
+"note":"<a few words>",
+"screen":[[x,y],[x,y],[x,y],[x,y]],
+"face":[x0,y0,x1,y1],
+"score":<1-10, how strongly the image reads as genuine shock at something on screen>}]}
+"screen" is the four corners of the monitor's display area, clockwise from top-left;
+"face" is the box around the person's head. All coordinates are fractions 0-1."""
+
+
+def judge_thumbnails(paths, model=VISION_MODEL):
+    """{path: verdict} for thumbnail bases: hands, face, gaze, blank screen,
+    plus where the screen and the face are, and a score for picking the best."""
+    key = llm.get_key(llm.GEMINI_KEY_NAME)
+    if not key:
+        raise llm.LLMError(f"{llm.GEMINI_KEY_NAME} is not set")
+    out = {}
+    paths = [Path(p) for p in paths]
+    for start in range(0, len(paths), 4):
+        batch = paths[start:start + 4]
+        parts = [{"text": THUMB_PROMPT}]
+        for i, p in enumerate(batch):
+            parts.append({"text": f"image {i}:"})
+            parts.append({"inline_data": {"mime_type": "image/jpeg", "data": _encode(p, 1024)}})
+        payload = {"contents": [{"role": "user", "parts": parts}],
+                   "systemInstruction": {"parts": [{"text": THUMB_SYSTEM}]},
+                   "generationConfig": {"maxOutputTokens": 2048, "temperature": 0.0,
+                                        "responseMimeType": "application/json"}}
+        data = None
+        for attempt in range(RETRIES):
+            _throttle()
+            req = urllib.request.Request(llm.GEMINI_URL.format(model=model),
+                                         data=json.dumps(payload).encode(), method="POST",
+                                         headers={"Content-Type": "application/json",
+                                                  "x-goog-api-key": key})
+            try:
+                with urllib.request.urlopen(req, timeout=180) as resp:
+                    data = json.loads(resp.read().decode("utf-8", "replace"))
+                break
+            except urllib.error.HTTPError as e:
+                if e.code not in (429, 500, 502, 503, 504):
+                    raise
+                time.sleep(4 * (attempt + 1))
+        results = []
+        if data:
+            cand = (data.get("candidates") or [{}])[0]
+            text = "".join(p.get("text", "") for p in cand.get("content", {}).get("parts", [])
+                           if "text" in p)
+            results = llm.extract_json(text).get("results", [])
+        by_i = {r.get("i"): r for r in results}
+        for i, p in enumerate(batch):
+            r = by_i.get(i)
+            out[p] = ({"ok": False, "defect": "unchecked", "note": "no verdict", "score": 0}
+                      if r is None else
+                      {"ok": bool(r.get("ok", False)), "defect": (r.get("defect") or "none").lower(),
+                       "note": r.get("note", ""), "screen": r.get("screen"), "face": r.get("face"),
+                       "score": float(r.get("score") or 0)})
+    return out

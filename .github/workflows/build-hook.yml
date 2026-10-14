@@ -52,9 +52,11 @@ jobs:
         run: |
           extra=""
           [ "${{ inputs.force_window }}" = "true" ] && extra="--force-window"
-          python automation/stills.py "queue/${{ inputs.slug }}/build/hook_plan.json" $extra
+          python automation/stills.py "queue/${{ inputs.slug }}/build/hook_plan.json" --thumbs 8 $extra
       - name: Build the hook
         run: python automation/build_hook.py "${{ inputs.slug }}"
+      - name: Thumbnail
+        run: python automation/make_thumbnail.py "${{ inputs.slug }}"
       - name: Contact sheet
         if: always()
         run: |
@@ -72,6 +74,8 @@ jobs:
             queue/${{ inputs.slug }}/build/*.json
             queue/${{ inputs.slug }}/build/hook_script.txt
             queue/${{ inputs.slug }}/build/stills/*.png
+            queue/${{ inputs.slug }}/build/thumbs/*.jpg
+            queue/${{ inputs.slug }}/build/thumb_bases/*.png
       - name: Keep the GPU ledger
         if: always()
         run: |

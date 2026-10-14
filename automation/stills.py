@@ -74,6 +74,8 @@ def main():
     ap.add_argument("plan")
     ap.add_argument("--force-window", action="store_true",
                     help="allow a run outside the GPU window (by hand only)")
+    ap.add_argument("--thumbs", type=int, default=0,
+                    help="also draw this many thumbnail bases in the same kernel")
     args = ap.parse_args()
     plan_path = Path(args.plan)
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
@@ -82,9 +84,24 @@ def main():
     shots = {s["move"]: s for s in plan["shots"]}
     prompts = {int(k): v for k, v in plan["prompts"].items()}
 
+    # Thumbnail bases ride in the same kernel as the stills: one model load, not
+    # two. They are numbered from 900 so they never collide with a shot.
+    slug = plan_path.parent.parent.name
+    if args.thumbs:
+        from pipeline import thumbnail
+        seed = sum(map(ord, slug))
+        for n, p in enumerate(thumbnail.base_prompts(seed, args.thumbs)):
+            prompts.setdefault(900 + n, p)
     todo = {k: v for k, v in prompts.items() if not (dest / f"{k:03d}.png").exists()}
     if todo:
         _generate(todo, 3301, dest, "a", args.force_window)
+    thumbs = {k: prompts.pop(k) for k in [k for k in prompts if k >= 900]}
+    if thumbs:
+        tdir = plan_path.parent / "thumb_bases"
+        tdir.mkdir(exist_ok=True)
+        for k in thumbs:
+            if (dest / f"{k:03d}.png").exists():
+                shutil.move(str(dest / f"{k:03d}.png"), tdir / f"{k:03d}.png")
 
     report = {"rounds": []}
     for round_no, (seed, label) in enumerate(((4401, "b"), (5501, "c")), 1):
