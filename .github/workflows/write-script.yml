@@ -1,0 +1,42 @@
+name: write-script
+
+# Writes one script (text only) and commits it to queue/<slug>/.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: topic slug from topics/queue.json
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  write:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Write
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PYTHONUTF8: 1
+        run: python automation/write_script.py "${{ github.event.inputs.slug }}"
+      - name: Commit the script
+        run: |
+          python scripts/check_repo.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add queue/
+          git commit -m "Script: ${{ github.event.inputs.slug }}" || exit 0
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 10; done
+          exit 1
