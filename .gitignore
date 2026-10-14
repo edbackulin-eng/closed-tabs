@@ -48,3 +48,4 @@ kaggle/build_voice/
 kaggle/results_voice/
 kaggle/build/
 kaggle/results/
+*.log
