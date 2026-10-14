@@ -1,0 +1,99 @@
+name: daily
+
+# One episode a run while fewer than three are scheduled ahead. Runs at 20:00 UTC,
+# inside the Closed Tabs Kaggle window (What If's build is long finished by then).
+#
+# The schedule stays switched off until the first full video is approved; until
+# then this runs by hand only.
+on:
+  # schedule:
+  #   - cron: "0 20 * * *"
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: upload to YouTube
+        default: "true"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  produce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    env:
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+      PYTHONUTF8: 1
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: pip install -q -r requirements.txt
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Models and music
+        run: |
+          python automation/fetch_models.py
+          python automation/fetch_music.py
+      - name: Produce and schedule
+        id: run
+        run: |
+          flag=""
+          [ "${{ inputs.upload }}" = "false" ] && flag="--no-upload"
+          python automation/daily.py $flag
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: episode-${{ github.run_id }}
+          retention-days: 3
+          path: |
+            queue/*/out/*
+            queue/*/build_full/*.json
+      - name: Save the state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/ queue/*/script.txt queue/*/meta.json queue/*/out/uploaded.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          cp state/episodes.json "$RUNNER_TEMP/episodes.json"
+          git commit -m "State after daily ${{ github.run_id }} (${{ steps.run.outcome }})"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main || { git rebase --abort; git reset --hard origin/main; cp "$RUNNER_TEMP/episodes.json" state/episodes.json; git add state/; git commit -m "State after daily ${{ github.run_id }}"; }
+            if git push origin HEAD:main; then
+              git fetch origin main
+              if git show origin/main:state/episodes.json | cmp -s - "$RUNNER_TEMP/episodes.json"; then
+                echo "state pushed and verified"; exit 0
+              fi
+            fi
+            sleep $((i * 10))
+          done
+          echo "::error::the episode state could not be saved; the next run could upload again"
+          exit 1
+      - name: Email on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list --label run-log --state open --json number --jq '.[0].number // empty')
+          if [ -z "$n" ]; then
+            gh label create run-log --color b60205 --description "daily run failures" 2>/dev/null || true
+            n=$(gh issue create --title "Daily run failures" --label run-log \
+                --body "A comment here mentioning the owner arrives as an email." | grep -o '[0-9]*$')
+          fi
+          gh issue comment "$n" --body "@${{ github.repository_owner }} daily run failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

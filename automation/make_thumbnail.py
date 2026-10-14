@@ -11,9 +11,9 @@ sys.path.insert(0, str(ROOT))
 from pipeline import thumbnail, visualqc  # noqa: E402
 
 
-def main(slug):
+def main(slug, build="build"):
     q = ROOT / "queue" / slug
-    b = q / "build"
+    b = q / build
     meta = json.loads((q / "meta.json").read_text(encoding="utf-8"))
     bases = sorted((b / "thumb_bases").glob("*.png"))
     if not bases:
@@ -34,4 +34,4 @@ def main(slug):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1]))
+    sys.exit(main(*sys.argv[1:3]))
