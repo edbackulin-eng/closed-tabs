@@ -1,0 +1,168 @@
+{
+  "source_note": "Incompetech (Kevin MacLeod), CC BY 4.0. Cleared for commercial use including monetised YouTube; the attribution line must appear in the description of every video using the track. Chosen at KT2 over Pixabay and the YouTube Audio Library because one author under one clear licence keeps the Content ID risk low.",
+  "mood_note": "The mood tags come from measured features - event density, spectral brightness and dynamic ratio over a minute from the middle of each track - not from listening. They are a defensible starting point, not a substitute for an ear.",
+  "fetch_note": "The mp3s are not in the repository, which holds code only. They are fetched from these URLs on the runner and cached against this file's hash.",
+  "attribution_required": true,
+  "tracks": [
+    {
+      "file": "echoes-of-time.mp3",
+      "title": "Echoes of Time v2",
+      "artist": "Kevin MacLeod",
+      "source": "incompetech.com",
+      "license": "CC BY 4.0",
+      "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Echoes%20of%20Time%20v2.mp3",
+      "duration_s": 285,
+      "lufs": -15.7,
+      "moods": [
+        "tense",
+        "driving"
+      ],
+      "character": "a dark insistent pulse, 17 events a minute with the energy low in the spectrum",
+      "measured": {
+        "onsets_per_min": 17.0,
+        "brightness_hz": 483,
+        "dynamic_ratio": 0.47
+      }
+    },
+    {
+      "file": "long-note-four.mp3",
+      "title": "Long Note Four",
+      "artist": "Kevin MacLeod",
+      "source": "incompetech.com",
+      "license": "CC BY 4.0",
+      "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Note%20Four.mp3",
+      "duration_s": 600,
+      "lufs": -27.4,
+      "moods": [
+        "wonder",
+        "curious"
+      ],
+      "character": "almost no event at all - 2 a minute - and dark: a drone that sits under explanation",
+      "measured": {
+        "onsets_per_min": 2.0,
+        "brightness_hz": 547,
+        "dynamic_ratio": 0.68
+      }
+    },
+    {
+      "file": "dark-times.mp3",
+      "title": "Dark Times",
+      "artist": "Kevin MacLeod",
+      "source": "incompetech.com",
+      "license": "CC BY 4.0",
+      "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dark%20Times.mp3",
+      "duration_s": 184,
+      "lufs": -22.6,
+      "moods": [
+        "tense",
+        "wonder"
+      ],
+      "character": "slow and even, 3 events a minute, mid spectrum: foreboding without movement",
+      "measured": {
+        "onsets_per_min": 3.0,
+        "brightness_hz": 1320,
+        "dynamic_ratio": 0.45
+      }
+    },
+    {
+      "file": "impact-andante.mp3",
+      "title": "Impact Andante",
+      "artist": "Kevin MacLeod",
+      "source": "incompetech.com",
+      "license": "CC BY 4.0",
+      "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Andante.mp3",
+      "duration_s": 169,
+      "lufs": -17.7,
+      "moods": [
+        "wonder",
+        "curious"
+      ],
+      "character": "the brightest in the library by a wide margin and very steady: scale and aftermath",
+      "measured": {
+        "onsets_per_min": 5.0,
+        "brightness_hz": 2353,
+        "dynamic_ratio": 0.32
+      }
+    },
+    {
+      "file": "ossuary-6-air.mp3",
+      "title": "Ossuary 6 - Air",
+      "artist": "Kevin MacLeod",
+      "source": "incompetech.com",
+      "license": "CC BY 4.0",
+      "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ossuary%206%20-%20Air.mp3",
+      "duration_s": 250,
+      "lufs": -22.5,
+      "moods": [
+        "curious",
+        "wonder"
+      ],
+      "character": "airy and sparse, 7 events a minute: room left for numbers and evidence",
+      "measured": {
+        "onsets_per_min": 7.0,
+        "brightness_hz": 1408,
+        "dynamic_ratio": 0.48
+      }
+    },
+    {
+      "file": "deep-haze.mp3",
+      "title": "Deep Haze",
+      "artist": "Kevin MacLeod",
+      "source": "incompetech.com",
+      "license": "CC BY 4.0",
+      "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Deep%20Haze.mp3",
+      "duration_s": 122,
+      "lufs": -14.7,
+      "moods": [
+        "curious",
+        "driving"
+      ],
+      "character": "a busy but very even texture, the least dynamic of all: momentum without accents",
+      "measured": {
+        "onsets_per_min": 21.0,
+        "brightness_hz": 1223,
+        "dynamic_ratio": 0.31
+      }
+    },
+    {
+      "file": "ghost-processional.mp3",
+      "title": "Ghost Processional",
+      "artist": "Kevin MacLeod",
+      "source": "incompetech.com",
+      "license": "CC BY 4.0",
+      "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ghost%20Processional.mp3",
+      "duration_s": 104,
+      "lufs": -23.5,
+      "moods": [
+        "tense",
+        "driving"
+      ],
+      "character": "the most strongly accented track here, dark and processional: something arriving",
+      "measured": {
+        "onsets_per_min": 25.0,
+        "brightness_hz": 725,
+        "dynamic_ratio": 1.18
+      }
+    },
+    {
+      "file": "lightless-dawn.mp3",
+      "title": "Lightless Dawn",
+      "artist": "Kevin MacLeod",
+      "source": "incompetech.com",
+      "license": "CC BY 4.0",
+      "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Lightless%20Dawn.mp3",
+      "duration_s": 380,
+      "lufs": -24.3,
+      "moods": [
+        "driving",
+        "tense"
+      ],
+      "character": "the busiest, 51 events a minute, and dark with it: events in sequence",
+      "measured": {
+        "onsets_per_min": 51.0,
+        "brightness_hz": 569,
+        "dynamic_ratio": 0.63
+      }
+    }
+  ]
+}

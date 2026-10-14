@@ -49,3 +49,5 @@ kaggle/results_voice/
 kaggle/build/
 kaggle/results/
 *.log
+work/
+queue/*/build/

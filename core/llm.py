@@ -357,10 +357,10 @@ def extract_json(text):
 
 
 def complete_json(prompt, system=None, max_tokens=4096, temperature=0.7,
-                  thinking_budget=0, model=None):
+                  thinking_budget=0, model=None, providers=PROVIDERS):
     """complete() that returns parsed JSON, with one stricter re-ask on a parse failure."""
     text = complete(prompt, system, max_tokens, temperature, json_mode=True,
-                    thinking_budget=thinking_budget, model=model)
+                    thinking_budget=thinking_budget, model=model, providers=providers)
     try:
         return extract_json(text)
     except ValueError as e:
@@ -369,5 +369,5 @@ def complete_json(prompt, system=None, max_tokens=4096, temperature=0.7,
                   "Your previous answer was not valid JSON. Reply with valid JSON only. "
                   "No prose, no markdown, no code fences.")
         text = complete(strict, system, max_tokens, temperature=0.2,
-                        json_mode=True, model=model)
+                        json_mode=True, model=model, providers=providers)
         return extract_json(text)

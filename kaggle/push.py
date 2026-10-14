@@ -157,7 +157,12 @@ def wait_for_free_gpu(poll_s=60, timeout_s=GPU_WAIT_TIMEOUT_S):
         time.sleep(poll_s)
 
 
-def push(job, slug, title):
+def push(job, slug, title, job_hours=None, force_window=False):
+    import gpu_budget
+    ok, why = gpu_budget.check(job_hours or gpu_budget.DEFAULT_JOB_H)
+    if not ok and not (force_window and "window" in why):
+        raise RuntimeError(f"not submitting to Kaggle: {why}")
+    print(why)
     wait_for_free_gpu()
     BUILD.mkdir(parents=True, exist_ok=True)
     derived = _slugify(title)
@@ -177,7 +182,17 @@ def push(job, slug, title):
 
 
 def wait(ref, poll_s=30, timeout_s=3 * 3600):
-    """Block until the kernel stops running. Kaggle has no webhook, so we poll."""
+    """Block until the kernel stops running, and log its GPU time to the ledger."""
+    import gpu_budget
+    from datetime import datetime, timezone
+    began = datetime.now(timezone.utc)
+    try:
+        return _wait(ref, poll_s, timeout_s)
+    finally:
+        gpu_budget.record(ref, began, datetime.now(timezone.utc))
+
+
+def _wait(ref, poll_s, timeout_s):
     started = time.time()
     while time.time() - started < timeout_s:
         result = _run([sys.executable, "-m", "kaggle", "kernels", "status", ref],

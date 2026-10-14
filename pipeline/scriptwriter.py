@@ -29,6 +29,10 @@ HARD RULES
 - Use ONLY facts stated in the SOURCES. If the sources do not say it, do not say it.
   Where sources disagree or are unsure, say so in the narration. Never invent dates,
   numbers, quotes, names or events.
+- Never talk about "the sources", "the encyclopedia", "our magazine account" or "the
+  report we are using". Attribute the way a journalist would, inside the story: "one
+  account from 2014 says...", "investigators at the time...", "a technology magazine
+  reported...". The sources are listed in the description; the narration is a story.
 - Never name private individuals. Never discuss real deaths, suicides, crime victims,
   minors, active criminal cases, or graphic violence.
 - No greeting, no channel intro, no "in this video", no request to subscribe until the

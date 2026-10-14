@@ -48,7 +48,7 @@ SCREEN = "the screen shows only soft featureless light, nothing legible"
 _SCREEN_WORDS = re.compile(
     r"\b(screen|monitor|display|computer|laptop|phone|crt|tv|television)s?\b", re.I)
 
-ASPECT = {"width": 1360, "height": 768}      # 16:9, a size schnell handles well
+ASPECT = {"width": 1344, "height": 768}      # 16:9-ish and a multiple of 64; filled to 1920x1080 by a slight crop
 STEPS = 4                                     # schnell is distilled to 4 steps
 GUIDANCE = 0.0                                # and ignores CFG entirely
 
