@@ -1,0 +1,46 @@
+# Secrets. Never commit: this repository is public.
+.env
+*.pem
+kaggle.json
+client_secret.json
+youtube_token.json
+
+# Generated media. The repository holds code and scripts, nothing heavy.
+dataset/
+output/
+ready/
+logs/
+assets/models/
+assets/music/*
+!assets/music/library.json
+assets/sfx/
+kaggle/build/
+kaggle/results/
+
+# Kaggle job files are generated at submit time and briefly carry a token.
+kaggle/kt3_*.json
+kaggle/job_*.json
+
+# The queue keeps its text - that is the point of it - but not its media.
+queue/*/narration.wav
+queue/*/*.wav
+queue/*/*.mp4
+queue/*/*.png
+queue/*/*.jpg
+queue/*/assets/
+
+__pycache__/
+*.pyc
+.venv/
+
+# Closed Tabs: everything rendered or recorded stays off the repository.
+samples/
+voice_samples/
+*.wav
+*.mp3
+*.mp4
+*.m4a
+*.png
+*.jpg
+*.jpeg
+*.webp

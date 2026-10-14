@@ -1,0 +1,249 @@
+{
+  "filters": [
+    "no real deaths or suicides",
+    "no crime victims",
+    "no private individuals named",
+    "no minors",
+    "no active criminal cases",
+    "no graphic violence"
+  ],
+  "sources_rule": "at least 2 sources: the Wikipedia article plus one independent open source; the script is written only from them",
+  "topics": [
+    {
+      "slug": "cicada-3301",
+      "name": "Cicada 3301",
+      "wikipedia": "Cicada 3301",
+      "pitch": "An anonymous puzzle that recruited codebreakers worldwide in 2012-2014 and then went silent.",
+      "status": "queued"
+    },
+    {
+      "slug": "max-headroom-hijack",
+      "name": "Max Headroom signal hijacking",
+      "wikipedia": "Max Headroom signal hijackings",
+      "pitch": "Someone in a Max Headroom mask hijacked two Chicago TV stations in 1987 and was never identified.",
+      "status": "queued"
+    },
+    {
+      "slug": "captain-midnight",
+      "name": "Captain Midnight",
+      "wikipedia": "Captain Midnight broadcast signal intrusion",
+      "pitch": "In 1986 a satellite engineer overrode HBO's feed across the US to protest a scrambling fee.",
+      "status": "queued"
+    },
+    {
+      "slug": "unfavorable-semicircle",
+      "name": "Unfavorable Semicircle",
+      "wikipedia": "Unfavorable Semicircle",
+      "pitch": "A YouTube channel posted thousands of cryptic videos a day in 2015-2016, then vanished.",
+      "status": "queued"
+    },
+    {
+      "slug": "webdriver-torso",
+      "name": "Webdriver Torso",
+      "wikipedia": "Webdriver Torso",
+      "pitch": "Hundreds of thousands of videos of red and blue rectangles and beeps, until Google explained.",
+      "status": "queued"
+    },
+    {
+      "slug": "polybius",
+      "name": "Polybius",
+      "wikipedia": "Polybius (urban legend)",
+      "pitch": "An arcade cabinet said to vanish after players fell ill, and whether it ever existed at all.",
+      "status": "queued"
+    },
+    {
+      "slug": "markovian-parallax",
+      "name": "Markovian Parallax Denigrate",
+      "wikipedia": "Markovian Parallax Denigrate",
+      "pitch": "Hundreds of nonsense Usenet posts from 1996 that nobody has decoded in almost thirty years.",
+      "status": "queued"
+    },
+    {
+      "slug": "ted-the-caver",
+      "name": "Ted the Caver",
+      "wikipedia": "Ted the Caver",
+      "pitch": "A 2001 caving diary website that got stranger with every update and became an internet legend.",
+      "status": "queued"
+    },
+    {
+      "slug": "candle-cove",
+      "name": "Candle Cove",
+      "wikipedia": "Candle Cove",
+      "pitch": "A forum thread about a children's show nobody else remembered, and how a story became shared memory.",
+      "status": "queued"
+    },
+    {
+      "slug": "backrooms",
+      "name": "The Backrooms",
+      "wikipedia": "The Backrooms",
+      "pitch": "One photo of an empty yellow office, posted in 2019, grew into a vast collaborative mythology.",
+      "status": "queued"
+    },
+    {
+      "slug": "i-love-bees",
+      "name": "I Love Bees",
+      "wikipedia": "I Love Bees",
+      "pitch": "A beekeeping site was 'hacked' in 2004 and pulled thousands of strangers to ringing payphones.",
+      "status": "queued"
+    },
+    {
+      "slug": "the-beast",
+      "name": "The Beast",
+      "wikipedia": "The Beast (game)",
+      "pitch": "A hidden credit on a movie poster opened the first great alternate reality game, in 2001.",
+      "status": "queued"
+    },
+    {
+      "slug": "year-zero",
+      "name": "Year Zero",
+      "wikipedia": "Year Zero (game)",
+      "pitch": "USB drives left in concert toilets carried leaked songs from a dystopian future.",
+      "status": "queued"
+    },
+    {
+      "slug": "ongs-hat",
+      "name": "Ong's Hat",
+      "wikipedia": "Ong's Hat",
+      "pitch": "A New Jersey ghost town became the setting of an internet legend about a portal to other worlds.",
+      "status": "queued"
+    },
+    {
+      "slug": "john-titor",
+      "name": "John Titor",
+      "wikipedia": "John Titor",
+      "pitch": "A forum poster in 2000-2001 claimed to be a soldier from 2036, and made predictions.",
+      "status": "queued"
+    },
+    {
+      "slug": "uvb-76",
+      "name": "UVB-76",
+      "wikipedia": "UVB-76",
+      "pitch": "A shortwave station has broadcast a buzz for decades, broken only by rare spoken codes.",
+      "status": "queued"
+    },
+    {
+      "slug": "dead-internet",
+      "name": "Dead Internet theory",
+      "wikipedia": "Dead Internet theory",
+      "pitch": "The claim that most of the internet stopped being human, and what the evidence actually shows.",
+      "status": "queued"
+    },
+    {
+      "slug": "bielefeld",
+      "name": "The Bielefeld Conspiracy",
+      "wikipedia": "Bielefeld conspiracy",
+      "pitch": "A German city that, according to the internet, does not exist.",
+      "status": "queued"
+    },
+    {
+      "slug": "this-man",
+      "name": "This Man",
+      "wikipedia": "This Man",
+      "pitch": "A face thousands of people said they had seen in their dreams, and who drew it.",
+      "status": "queued"
+    },
+    {
+      "slug": "zombo-com",
+      "name": "Zombo.com",
+      "wikipedia": "Zombo.com",
+      "pitch": "A 1999 website that promised you could do anything, and is still waiting.",
+      "status": "queued"
+    },
+    {
+      "slug": "million-dollar-homepage",
+      "name": "The Million Dollar Homepage",
+      "wikipedia": "The Million Dollar Homepage",
+      "pitch": "A student sold a million pixels in 2005, and how many of those links still work.",
+      "status": "queued"
+    },
+    {
+      "slug": "domesday-project",
+      "name": "The BBC Domesday Project",
+      "wikipedia": "BBC Domesday Project",
+      "pitch": "A 1986 digital record of Britain that became unreadable within fifteen years.",
+      "status": "queued"
+    },
+    {
+      "slug": "nintendo-playstation",
+      "name": "The Nintendo PlayStation",
+      "wikipedia": "Super NES CD-ROM",
+      "pitch": "A console that was never released, until one prototype turned up in an attic.",
+      "status": "queued"
+    },
+    {
+      "slug": "horse-ebooks",
+      "name": "Horse_ebooks",
+      "wikipedia": "Horse ebooks",
+      "pitch": "A spam account whose strange poetry made it famous, and the secret behind it.",
+      "status": "queued"
+    },
+    {
+      "slug": "marble-hornets",
+      "name": "Marble Hornets",
+      "wikipedia": "Marble Hornets",
+      "pitch": "A YouTube series that convinced viewers its found footage was real.",
+      "status": "queued"
+    },
+    {
+      "slug": "lonelygirl15",
+      "name": "Lonelygirl15",
+      "wikipedia": "Lonelygirl15",
+      "pitch": "A vlogger who became one of YouTube's first stars, and was never real.",
+      "status": "queued"
+    },
+    {
+      "slug": "twitch-plays-pokemon",
+      "name": "Twitch Plays Pokémon",
+      "wikipedia": "Twitch Plays Pokémon",
+      "pitch": "A million strangers typing commands at once somehow finished a game.",
+      "status": "queued"
+    },
+    {
+      "slug": "kryptos",
+      "name": "Kryptos",
+      "wikipedia": "Kryptos",
+      "pitch": "A sculpture at CIA headquarters whose last passage has been unsolved since 1990.",
+      "status": "queued"
+    },
+    {
+      "slug": "london-after-midnight",
+      "name": "London After Midnight",
+      "wikipedia": "London After Midnight (film)",
+      "pitch": "The most searched-for lost film, last known copy believed destroyed in a 1965 vault fire.",
+      "status": "queued"
+    },
+    {
+      "slug": "11b-x-1371",
+      "name": "11B-X-1371",
+      "wikipedia": "11B-X-1371",
+      "pitch": "A masked figure in a 2017 video hid a message in its soundtrack.",
+      "status": "queued"
+    }
+  ],
+  "backup": [
+    {
+      "slug": "doctor-who-missing",
+      "name": "Doctor Who missing episodes",
+      "wikipedia": "Doctor Who missing episodes",
+      "status": "backup"
+    },
+    {
+      "slug": "geocities",
+      "name": "GeoCities",
+      "wikipedia": "GeoCities",
+      "status": "backup"
+    },
+    {
+      "slug": "mountain-eagle",
+      "name": "The Mountain Eagle",
+      "wikipedia": "The Mountain Eagle",
+      "status": "backup"
+    },
+    {
+      "slug": "lincolnshire-poacher",
+      "name": "Lincolnshire Poacher",
+      "wikipedia": "Lincolnshire Poacher (numbers station)",
+      "status": "backup"
+    }
+  ]
+}
