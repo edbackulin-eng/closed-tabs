@@ -33,7 +33,10 @@ HARD RULES
   report we are using". Attribute the way a journalist would, inside the story: "one
   account from 2014 says...", "investigators at the time...", "a technology magazine
   reported...". The sources are listed in the description; the narration is a story.
-- Never name private individuals. Never discuss real deaths, suicides, crime victims,
+- Never name private individuals, and never describe one by identifying detail.
+  Solvers, witnesses, users and anyone a journalist interviewed are "one early solver",
+  "a user", "a researcher": no age, no home city or neighbourhood, no job, school,
+  thesis or family detail. Tell the story through what happened, not who it happened to. Never discuss real deaths, suicides, crime victims,
   minors, active criminal cases, or graphic violence.
 - No greeting, no channel intro, no "in this video", no request to subscribe until the
   final twenty seconds.
