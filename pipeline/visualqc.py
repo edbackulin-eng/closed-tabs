@@ -38,16 +38,22 @@ MAX_SIDE = 768
 # Photographic frames and drawn cards fail in opposite directions: a photo must
 # contain no lettering at all, while a card is nothing but lettering. Judging
 # both with one rulebook flagged every clean card as a "text" defect.
-PHOTO_SYSTEM = """You inspect photographic frames from a science documentary.
+PHOTO_SYSTEM = """You inspect generated photographic frames for a documentary channel about
+internet mysteries. Many frames are dark rooms lit by screens; darkness is the look.
 
 Report a defect ONLY when you can clearly see one of these:
-- text: ANY lettering, words, captions, signage, UI, or a screen displaying
-  characters - including text that is blurry, garbled or nonsensical. Garbled
-  lettering is the most important defect to catch.
-- face: a person facing the camera with their features LIT AND VISIBLE - you
-  can make out eyes, nose and mouth and read an expression. Group shots count:
-  three people standing and facing the lens is the same defect as one.
-- anatomy: malformed hands, extra or missing limbs, distorted bodies
+- text: ANY lettering, words, numbers, captions, signage, user interface, or a screen
+  displaying characters - including text that is blurry, garbled or nonsensical.
+  Garbled lettering is the most important defect to catch.
+- watermark: a watermark, logo, brand mark, signature, or a recognisable real website,
+  app or product.
+- face: a person facing the camera with their features LIT AND VISIBLE - you can make
+  out eyes, nose and mouth and read an expression - or anyone looking into the lens.
+- anatomy: malformed hands, wrong number of fingers, extra or missing limbs, distorted
+  bodies or faces.
+- graphic: blood, injury, weapons, bodies, anything violent; or a child.
+- border: a black or dark band along an edge that is not part of the scene
+  (letterboxing, a frame inside the frame).
 
 FINE, and never a defect: anyone seen from behind or turned away; a figure
 backlit or silhouetted so the face reads as a dark shape, even in profile; a
@@ -91,8 +97,13 @@ Correct spelling, complete words and numbers are FINE however large.
 Reply with valid JSON only."""
 
 PROMPT = """For each image, in order, return:
-{"results":[{"i":<index>,"ok":true|false,"defect":"text|face|anatomy|card|none",
-"note":"<a few words, only when ok is false>"}]}"""
+{"results":[{"i":<index>,"ok":true|false,
+"defect":"text|watermark|face|anatomy|graphic|border|card|none",
+"note":"<a few words, only when ok is false>",
+"focus":[x, y, r]}]}
+"focus" is the single most striking object or detail in the frame - the thing a red
+circle should go around - as its centre x, y and radius r, each between 0 and 1 of the
+image size. Always give it, even when ok is true."""
 
 
 def _encode(path, max_side=MAX_SIDE):
@@ -120,9 +131,9 @@ def _throttle():
 
 
 def _inspect_batch(paths, model=VISION_MODEL, kind="photo"):
-    key = llm.get_key("GEMINI_API_KEY")
+    key = llm.get_key(llm.GEMINI_KEY_NAME)
     if not key:
-        raise llm.LLMError("GEMINI_API_KEY is not set")
+        raise llm.LLMError(f"{llm.GEMINI_KEY_NAME} is not set")
     parts = [{"text": PROMPT}]
     for i, p in enumerate(paths):
         parts.append({"text": f"image {i}:"})
@@ -211,10 +222,20 @@ def inspect(paths, model=VISION_MODEL, kinds=None):
                 continue
             by_i = {r.get("i"): r for r in results}
             for i, p in enumerate(batch):
-                r = by_i.get(i, {})
-                verdicts[p] = {"ok": bool(r.get("ok", True)),
+                r = by_i.get(i)
+                if r is None:
+                    # The model skipped this image. Defaulting to ok here would be
+                    # the same fail-open the 503 path was fixed for.
+                    verdicts[p] = {"ok": False, "defect": "unchecked",
+                                   "note": "no verdict returned for this image", "focus": None}
+                    continue
+                focus = r.get("focus")
+                if not (isinstance(focus, list) and len(focus) == 3
+                        and all(isinstance(v, (int, float)) and 0 <= v <= 1 for v in focus)):
+                    focus = None
+                verdicts[p] = {"ok": bool(r.get("ok", False)),
                                "defect": (r.get("defect") or "none").lower(),
-                               "note": r.get("note", "") or ""}
+                               "note": r.get("note", "") or "", "focus": focus}
             done += len(batch)
             log.info("inspected %d/%d frames", done, len(paths))
 
