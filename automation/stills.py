@@ -107,7 +107,12 @@ def main():
     for round_no, (seed, label) in enumerate(((4401, "b"), (5501, "c")), 1):
         paths = [dest / f"{k:03d}.png" for k in sorted(prompts)]
         verdicts = _inspect(paths)
-        bad = {int(p.stem): v for p, v in verdicts.items() if not v["ok"]}
+        # A still nobody could look at (quota, a 503) is re-inspected next round,
+        # not regenerated: drawing it again proves nothing and spends GPU time.
+        unchecked = [p for p, v in verdicts.items() if v.get("defect") == "unchecked"]
+        bad = {int(p.stem): v for p, v in verdicts.items()
+               if not v["ok"] and v.get("defect") != "unchecked"}
+        report.setdefault("unchecked", {})[f"round{round_no}"] = [p.name for p in unchecked]
         report["rounds"].append({"checked": len(paths),
                                  "failed": {f"{k:03d}": f"{v['defect']}: {v['note']}"
                                             for k, v in bad.items()}})

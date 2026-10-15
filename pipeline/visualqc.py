@@ -25,7 +25,7 @@ log = get_logger("visualqc")
 
 # A third quota bucket, separate from the fact-check and the scene planner.
 VISION_MODEL = "gemini-flash-lite-latest"
-BATCH = 6                 # frames per request; each image costs tokens
+BATCH = 16                # frames per request: the free tier allows ~20 requests a day per model, and an episode has ~140 stills
 # A 223-frame video is ~38 requests. Fired back to back, a third of them came
 # back 429 and those frames went unchecked - which defeats the point of the
 # check. Pacing them and retrying on rejection costs a couple of minutes.
