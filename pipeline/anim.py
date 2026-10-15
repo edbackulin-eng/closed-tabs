@@ -391,7 +391,9 @@ def quote(out_path, duration, text, accent=None):
     """A line of the narration set large, word by word, one word in red."""
     clip = Clip(out_path, duration)
     words = text.split()
-    accent = accent or max(words, key=lambda w: len(w.strip(".,!?;:\"'")), default="")
+    # the longest word, and among equals the later one: the stress of a line
+    # falls at its end ("things VANISH", not "THINGS vanish")
+    accent = accent or max(reversed(words), key=lambda w: len(w.strip(".,!?;:\"'")), default="")
     size, lines = fonts.fit(text.upper(), "title", W * 0.8, H * 0.62, 150, spacing=1.08)
     f = fonts.font("title", size)
     reveal = duration * 0.55
