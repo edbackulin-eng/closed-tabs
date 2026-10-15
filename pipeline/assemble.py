@@ -206,7 +206,7 @@ def finish(video, audio, accents, out, work, vhs=True):
     # above YouTube's own 1080p30 recommendation and keeps a 13-minute video
     # around 1.2 GB.
     _ff(*inputs, "-filter_complex", graph, "-map", f"[{last}]", "-map", "1:a",
-        "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-maxrate", "12M",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-maxrate", "12M",
         "-bufsize", "24M", "-pix_fmt", "yuv420p", "-r", str(FPS),
         "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(out))
     return out
