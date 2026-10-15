@@ -117,6 +117,32 @@ def _spoken(words, a, b):
 
 # --- content ------------------------------------------------------------------
 
+def _whole_sentences(text):
+    """Complete sentences only. A beat starts and ends wherever a cut fell, so its
+    first and last pieces are usually halves of sentences ("...decryption. And the
+    website was removed. Just") and are dropped."""
+    parts = re.split(r"(?<=[.!?])\s+", text.strip())
+    out = []
+    for k, p in enumerate(parts):
+        p = p.strip()
+        if not p:
+            continue
+        starts = p[:1].isupper() or p[:1].isdigit()
+        ends = p[-1:] in ".!?"
+        if (k == 0 and not starts) or (k == len(parts) - 1 and not ends):
+            continue
+        out.append(p)
+    return out
+
+
+def _redactable(sentence):
+    """Words worth a censor bar: names and numbers, never the first word."""
+    words = sentence.split()
+    return [w.strip(".,;:!?\"'") for k, w in enumerate(words)
+            if k > 0 and (w[:1].isupper() or any(c.isdigit() for c in w))
+            and len(w.strip(".,;:!?\"'")) > 1]
+
+
 def _default(t, text, i, still=None):
     """A safe beat of type `t` when the model's answer cannot be used.
 
@@ -142,19 +168,29 @@ def _default(t, text, i, still=None):
         return {"type": t, "prompt": still, "app": "Inbox", "text": " ".join(words[:12]) or "New message"}
     if t == "cursor":
         return {"type": t, "prompt": still}
-    if t == "quote":
-        return {"type": t, "text": " ".join(words[:14]) or "..."}
+    if t in ("quote", "censor"):
+        sents = _whole_sentences(text)
+        if t == "censor":
+            lines = sents[:3]
+            redact = [w for s in lines for w in _redactable(s)][:3]
+            if lines and redact:
+                return {"type": t, "heading": "file", "lines": lines, "redact": redact}
+            # nothing worth blacking out: a quote says more than random bars
+        best = max((s for s in sents if len(s.split()) <= 14), key=lambda s: len(s.split()),
+                   default=None)
+        if not best:
+            best = " ".join(words[:12]).rstrip(",;:") + "..." if words else "..."
+        return {"type": "quote", "text": best}
     if t == "counter":
         n = re.search(r"\d[\d,]*", text)
         return {"type": t, "label": " ".join(words[:4]) or "count",
                 "end": int(n.group(0).replace(",", "")) if n else 1}
     if t == "timeline":
-        years = re.findall(r"\b(19|20)\d\d\b", text)
-        return {"type": "censor", "heading": "file", "lines": [text[:60], text[60:120]] if text else ["..."],
-                "redact": [w for w in words if len(w) > 6][:1]} if len(years) < 2 else \
-            {"type": t, "events": [[y, ""] for y in re.findall(r"\b(?:19|20)\d\d\b", text)[:4]]}
-    return {"type": "censor", "heading": "file", "lines": [text[:60], text[60:120]] if text else ["..."],
-            "redact": [w for w in words if len(w) > 6][:1] or words[:1]}
+        years = re.findall(r"\b(?:19|20)\d\d\b", text)
+        if len(set(years)) >= 2:
+            return {"type": t, "events": [[y, ""] for y in dict.fromkeys(years)][:4]}
+        return _default("quote", text, i, still)
+    return _default("quote", text, i, still)
 
 
 _ALIASES = {"url": "address", "link": "address", "title": "heading", "headline": "heading",

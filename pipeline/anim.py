@@ -195,13 +195,21 @@ def chat(out_path, duration, messages, header="Thread"):
     """Bubbles appear one by one, alternating sides. messages: [(who, text)]."""
     clip = Clip(out_path, duration)
     step = duration * 0.85 / max(1, len(messages))
+    # The panel is sized to what it holds and centred, so one or two messages do
+    # not sit at the top of an empty window.
+    heights = []
+    for _, msg in messages:
+        size, lines = fonts.fit(msg, "sans", 960 - 70, 240, 54)
+        heights.append(int(len(lines) * size * 1.25 + 90))
+    content = 140 + sum(heights) + 26 * max(0, len(heights) - 1) + 40
+    top = max(70, (H - content) // 2)
     for i in range(clip.n):
         t = i / FPS
         im = backdrop()
         d = ImageDraw.Draw(im)
-        d.rounded_rectangle((330, 70, W - 330, H - 70), 22, fill=PANEL)
-        text_box(d, (380, 100), (W - 760, 60), header, "sans_bold", 44, DIM)
-        y = 210
+        d.rounded_rectangle((330, top, W - 330, top + content), 22, fill=PANEL)
+        text_box(d, (380, top + 30), (W - 760, 60), header, "sans_bold", 44, DIM)
+        y = top + 140
         for k, (who, msg) in enumerate(messages):
             t0 = k * step
             if t < t0:
