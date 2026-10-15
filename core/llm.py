@@ -297,7 +297,10 @@ def _call_claude(prompt, system, max_tokens, temperature, json_mode):
         full += "\n\nReply with JSON only, no prose, no code fences."
     started = time.monotonic()
     try:
-        r = subprocess.run([exe, "-p", full, "--output-format", "text"],
+        # The prompt goes in on stdin, not as an argument: a script prompt with two
+        # long sources failed with "the command line is too long", and argument
+        # limits differ by platform while stdin has none.
+        r = subprocess.run([exe, "-p", "--output-format", "text"], input=full,
                            capture_output=True, text=True, encoding="utf-8",
                            timeout=CLAUDE_TIMEOUT_S, env=os.environ.copy())
     except subprocess.TimeoutExpired as e:
