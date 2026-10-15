@@ -178,6 +178,8 @@ def _default(t, text, i, still=None):
             # nothing worth blacking out: a quote says more than random bars
         best = max((s for s in sents if len(s.split()) <= 14), key=lambda s: len(s.split()),
                    default=None)
+        if not best and sents:                  # a long whole sentence beats a fragment
+            best = min(sents, key=lambda s: len(s.split()))
         if not best:
             best = " ".join(words[:12]).rstrip(",;:") + "..." if words else "..."
         return {"type": "quote", "text": best}
