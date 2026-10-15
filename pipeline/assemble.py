@@ -76,6 +76,8 @@ def render_shot(shot, frames, work, still_cache):
                          prefix=shot.get("prefix", ""), suffix=shot.get("suffix", ""))
     elif t == "timeline":
         r = anim.timeline(out, d, [tuple(e) for e in shot["events"]][:4])
+    elif t == "quote":
+        r = anim.quote(out, d, shot["text"])
     elif t == "censor":
         r = anim.censor(out, d, shot.get("heading", "file"), shot["lines"][:4], shot["redact"][:3])
     else:

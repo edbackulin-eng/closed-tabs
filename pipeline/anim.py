@@ -383,3 +383,37 @@ def censor(out_path, duration, heading, lines, redact):
     for m in range(len(redact)):
         clip.cue(bar_t0 + 0.25 * m, "whoosh")
     return clip.close()
+
+
+# --- a pull quote ----------------------------------------------------------------
+
+def quote(out_path, duration, text, accent=None):
+    """A line of the narration set large, word by word, one word in red."""
+    clip = Clip(out_path, duration)
+    words = text.split()
+    accent = accent or max(words, key=lambda w: len(w.strip(".,!?;:\"'")), default="")
+    size, lines = fonts.fit(text.upper(), "title", W * 0.8, H * 0.62, 150, spacing=1.08)
+    f = fonts.font("title", size)
+    reveal = duration * 0.55
+    for i in range(clip.n):
+        t = i / FPS
+        im = backdrop()
+        d = ImageDraw.Draw(im)
+        shown = int(len(words) * ease_out(t / reveal) + 0.999)
+        k = 0
+        y = (H - len(lines) * size * 1.08) / 2
+        for line in lines:
+            parts = line.split()
+            x = (W - f.getlength(line)) / 2
+            for p in parts:
+                if k < shown:
+                    red = p.strip(".,!?;:\"'").lower() == accent.strip(".,!?;:\"'").lower()
+                    d.text((x, y), p, font=f, fill=RED if red else TEXT,
+                           stroke_width=max(3, size // 26), stroke_fill=(0, 0, 0))
+                x += f.getlength(p + " ")
+                k += 1
+            y += size * 1.08
+        clip.frame(im)
+    for k in range(len(words)):
+        clip.cue(reveal * k / max(1, len(words)), "tick")
+    return clip.close()

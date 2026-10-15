@@ -27,9 +27,10 @@ FAMILIES = ("photo", "screen", "data")
 TYPES = {
     "photo": ("flux", "annotate"),
     "screen": ("browser", "chat", "notification", "cursor"),
-    "data": ("counter", "timeline", "censor"),
+    "data": ("quote", "counter", "timeline", "censor"),
 }
 TRANSITIONS = ("vhs", "rgb", "fade")
+PLAN_BATCH = 25
 
 PLANNER_SYSTEM = """You plan the pictures for a documentary-style YouTube video about an
 internet mystery. You are given beats: a few seconds of narration each, and the visual
@@ -63,6 +64,7 @@ TYPES AND FIELDS
   counter:      {"label": "...", "end": 123, "prefix": "", "suffix": ""}   (only for a number the narration says)
   timeline:     {"events": [["when", "what"], ...]}                      (2-4 events from the narration)
   censor:       {"heading": "...", "lines": ["...", "..."], "redact": ["word", ...]}
+  quote:        {"text": "the 6-14 most striking words of this beat, exactly as spoken"}
 
 Return: {"beats": [{"i": 0, "type": "...", ...fields}, ...]}
 """
@@ -95,12 +97,16 @@ def assign_families(cuts, seed=0):
     first fifteen seconds sell the story, and a moving still does that better
     than a window of text."""
     rng = random.Random(seed + 1)
-    order = list(FAMILIES)
+    # Photo every other block, screen and data taking turns between: about half
+    # the running time is moving stills, a quarter each screens and data. Equal
+    # thirds made a third of a 14-minute video text cards.
+    order = ["photo", "screen", "photo", "data"]
+    span = {"photo": (26, 36), "screen": (22, 32), "data": (20, 26)}
     fams, f, block_end = [], len(order) - 1, 0.0      # first increment lands on photo
     for a, b in zip(cuts, cuts[1:]):
         if a >= block_end:
-            f = (f + 1) % 3
-            block_end = a + rng.uniform(BLOCK_MIN + 4, BLOCK_MAX - 6)
+            f = (f + 1) % len(order)
+            block_end = a + rng.uniform(*span[order[f]])
         fams.append(order[f])
     return fams
 
@@ -111,13 +117,13 @@ def _spoken(words, a, b):
 
 # --- content ------------------------------------------------------------------
 
-def _default(t, text, i):
+def _default(t, text, i, still=None):
     """A safe beat of type `t` when the model's answer cannot be used.
 
     Per type, not per family, so a bad answer does not undo the rotation that keeps
     two identical shots from following each other.
     """
-    still = SAFE_STILLS[i % len(SAFE_STILLS)]
+    still = still or SAFE_STILLS[i % len(SAFE_STILLS)]
     words = text.split()
     if t == "flux":
         return {"type": t, "prompt": still}
@@ -136,6 +142,8 @@ def _default(t, text, i):
         return {"type": t, "prompt": still, "app": "Inbox", "text": " ".join(words[:12]) or "New message"}
     if t == "cursor":
         return {"type": t, "prompt": still}
+    if t == "quote":
+        return {"type": t, "text": " ".join(words[:14]) or "..."}
     if t == "counter":
         n = re.search(r"\d[\d,]*", text)
         return {"type": t, "label": " ".join(words[:4]) or "count",
@@ -193,7 +201,8 @@ def _why_invalid(b, family):
         return f"type {t!r} not in {family}"
     need = {"flux": ["prompt"], "annotate": ["prompt", "circle"], "browser": ["address", "heading", "body"],
             "chat": ["messages"], "notification": ["prompt", "app", "text"], "cursor": ["prompt"],
-            "counter": ["label", "end"], "timeline": ["events"], "censor": ["lines", "redact"]}[t]
+            "counter": ["label", "end"], "timeline": ["events"], "censor": ["lines", "redact"],
+            "quote": ["text"]}[t]
     missing = [k for k in need if k not in b or b[k] in ("", [], None)]
     return f"{t} missing {missing}" if missing else None
 
@@ -215,6 +224,10 @@ def _facts_hold(b, narration):
         return bool(b.get("events"))
     if t == "counter":
         return str(b.get("end")).replace(",", "") in said
+    if t == "quote":
+        spoken = set(re.findall(r"[a-z0-9']+", narration.lower()))
+        q = re.findall(r"[a-z0-9']+", str(b.get("text", "")).lower())
+        return bool(q) and sum(w in spoken for w in q) / len(q) >= 0.8
     for field in ("heading", "body", "text", "label"):
         for num in re.findall(r"\d[\d,.]*", str(b.get(field, "")).replace(",", "")):
             if num not in said:
@@ -228,7 +241,8 @@ def _valid(b, family):
         return False
     need = {"flux": ["prompt"], "annotate": ["prompt", "circle"], "browser": ["address", "heading", "body"],
             "chat": ["messages"], "notification": ["prompt", "app", "text"], "cursor": ["prompt"],
-            "counter": ["label", "end"], "timeline": ["events"], "censor": ["lines", "redact"]}[t]
+            "counter": ["label", "end"], "timeline": ["events"], "censor": ["lines", "redact"],
+            "quote": ["text"]}[t]
     if any(k not in b or b[k] in ("", [], None) for k in need):
         return False
     if t == "counter":
@@ -261,7 +275,38 @@ SAFE_STILLS = [
     "an old rotary telephone on a wooden table in a dark room, lamp light",
     "a shortwave radio on a shelf, its dial glowing amber in the dark",
     "a hand resting on a computer mouse beside a glowing monitor, seen from behind",
+    "a payphone on an empty street corner at night under a sodium streetlight",
+    "a row of server racks receding into darkness, small green lights",
+    "a cold mug of coffee beside a keyboard in a dark room, screen glow on the wall",
+    "a dusty attic with a single bare bulb and cardboard boxes in shadow",
+    "a city skyline at night seen from a high window, one apartment light on",
+    "an old television set glowing in an empty living room",
+    "a long empty hallway with fluorescent tubes, one of them out",
+    "a desk lamp pooling warm light on a dark wooden desk, nothing else on it",
+    "a satellite dish on a rooftop at night against a deep blue sky",
+    "a rain-soaked parking lot at night, one car under a flickering light",
+    "a tall radio antenna mast at dusk with red warning lights",
+    "a dark stairwell lit by a single green exit glow",
+    "headphones resting on a desk beside a glowing monitor in a dark room",
+    "a window at 3 a.m., blinds half closed, the street lamp outside",
+    "an empty swivel chair in front of a glowing monitor, seen from behind",
+    "a pile of old computer hard drives under a lamp in a dark workshop",
+    "a basement with exposed pipes and a single glowing computer in the corner",
+    "fog over an empty road at night, distant headlights",
+    "a laptop closed on a bed, a faint light leaking from its edge",
+    "a wall of old CRT monitors, all glowing blank blue in a dark room",
+    "a quiet suburban street at night, one window lit upstairs",
+    "a tangle of old cables and a modem with blinking lights on a carpet",
+    "a hand holding a phone face down on a table, the edge glowing",
+    "an empty internet cafe at night, rows of dark monitors, one still on",
 ]
+
+REPAIR_SYSTEM = """You rewrite image prompts for a photo generator that cannot draw text.
+Each prompt below was refused because it names something that carries writing (a
+calendar, a page, a sign, a screen showing content, a website...). Rewrite each as a
+moody photograph of a place or object with NO writing anywhere: screens are only
+glow, nothing is printed, nothing is labelled. Keep the mood and the idea. One
+sentence each. Return JSON only: {"prompts": [{"i": <index>, "prompt": "..."}]}"""
 
 
 def assign_types(beats):
@@ -271,9 +316,10 @@ def assign_types(beats):
     for b in beats:
         options = list(TYPES[b["family"]])
         if b["family"] == "data":
-            has_number = bool(re.search(r"\d", b["text"]))
-            if not has_number:
+            if not re.search(r"\d", b["text"]):
                 options = [t for t in options if t != "counter"]
+            if len(re.findall(r"(?:19|20)\d\d", b["text"])) < 2:
+                options = [t for t in options if t != "timeline"]
         if b["family"] == "photo":
             options = ["flux", "flux", "annotate"]      # mostly moving stills
         k = turn[b["family"]]
@@ -292,25 +338,57 @@ def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
     beats = [{"i": i, "start": a, "end": b, "family": fams[i], "text": _spoken(words, a, b)}
              for i, (a, b) in enumerate(zip(cuts, cuts[1:]))]
     assign_types(beats)
-    ask = json.dumps([{"i": b["i"], "type": b["type"], "narration": b["text"]} for b in beats],
-                     ensure_ascii=False)
-    try:
-        answer = llm.complete_json(f"BEATS:\n{ask}", system=PLANNER_SYSTEM, max_tokens=6000,
-                                   temperature=0.6, providers=providers)
-        rows = answer.get("beats", []) if isinstance(answer, dict) else answer
-        filled = {int(x.get("i", -1)): x for x in rows if isinstance(x, dict)}
-    except Exception as e:                                       # noqa: BLE001
-        log.warning("planner failed (%s); every beat gets its family's default", e)
-        filled = {}
+    # In batches: two hundred beats in one request came back truncated and every
+    # one of them fell to a default. A batch that fails costs only its own beats.
+    filled = {}
+    for k in range(0, len(beats), PLAN_BATCH):
+        part = beats[k:k + PLAN_BATCH]
+        ask = json.dumps([{"i": b["i"], "type": b["type"], "narration": b["text"]} for b in part],
+                         ensure_ascii=False)
+        try:
+            answer = llm.complete_json(f"BEATS:\n{ask}", system=PLANNER_SYSTEM, max_tokens=6000,
+                                       temperature=0.6, providers=providers)
+            rows = answer.get("beats", []) if isinstance(answer, dict) else answer
+            filled.update({int(x.get("i", -1)): x for x in rows if isinstance(x, dict)})
+        except Exception as e:                                   # noqa: BLE001
+            log.warning("planner batch %d failed (%s); its beats get defaults", k // PLAN_BATCH, e)
+    # Prompts that ask for lettering go back to the model once, to be rewritten
+    # without it; only what is still refused after that falls to the safe pool.
+    bad = {i: x["prompt"] for i, x in ((i, _normalise(x)) for i, x in filled.items())
+           if x.get("prompt") and _TEXT_OBJECTS.search(x["prompt"])}
+    for k in range(0, len(bad), PLAN_BATCH):
+        part = dict(list(bad.items())[k:k + PLAN_BATCH])
+        try:
+            a = llm.complete_json("PROMPTS:\n" + json.dumps([{"i": i, "prompt": p} for i, p in part.items()]),
+                                  system=REPAIR_SYSTEM, max_tokens=3000, temperature=0.5,
+                                  providers=providers)
+            for r in (a.get("prompts", []) if isinstance(a, dict) else a):
+                i, p = int(r.get("i", -1)), str(r.get("prompt", ""))
+                if i in filled and p and not _TEXT_OBJECTS.search(p):
+                    filled[i]["prompt"] = p
+        except Exception as e:                                   # noqa: BLE001
+            log.warning("prompt repair failed (%s)", e)
+
     shots, used_defaults, refused = [], 0, 0
-    spare = [p for p in SAFE_STILLS]            # each safe still used once per plan
+    # One pool for every substitute still, so no two shots draw the same one
+    # until all of them are used; then a still nobody has used for a while.
+    spare = list(SAFE_STILLS)
+    used_at = {}
+
+    def next_safe(i):
+        if spare:
+            p = spare.pop(0)
+        else:
+            p = min(SAFE_STILLS, key=lambda q: used_at.get(q, -999))
+        used_at[p] = i
+        return p
     for b in beats:
         got = _normalise(filled.get(b["i"], {}))
         got["type"] = b["type"]
         if got.get("prompt") and _TEXT_OBJECTS.search(got["prompt"]):
             log.info("beat %d: prompt asks for lettering (%s), replaced", b["i"],
                      _TEXT_OBJECTS.search(got["prompt"]).group(0))
-            got["prompt"] = spare.pop(0) if spare else SAFE_STILLS[b["i"] % len(SAFE_STILLS)]
+            got["prompt"] = next_safe(b["i"])
             refused += 1
         if got.get("type") == "chat":
             # Nobody real speaks in these threads: handles are always faceless.
@@ -318,12 +396,12 @@ def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
                                for k, m in enumerate(got.get("messages") or [])][:3]
         if not _valid(got, b["family"]):
             log.info("beat %d: %s; default used", b["i"], _why_invalid(got, b["family"]))
-            got = _default(b["type"], b["text"], b["i"])
+            got = _default(b["type"], b["text"], b["i"], next_safe(b["i"]))
             used_defaults += 1
         elif not _facts_hold(got, b["text"]):
             log.info("beat %d: %s shows a number the narration does not say; default used",
                      b["i"], got["type"])
-            got = _default(b["type"], b["text"], b["i"])
+            got = _default(b["type"], b["text"], b["i"], next_safe(b["i"]))
             used_defaults += 1
         got.update({"start": b["start"], "end": b["end"], "family": b["family"],
                     "narration": b["text"]})

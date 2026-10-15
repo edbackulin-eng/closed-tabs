@@ -1,0 +1,23 @@
+name: checkpoint
+
+# One-off: start the checkpoint builds when the Closed Tabs Kaggle window opens,
+# from GitHub rather than from a PC that may be asleep. Remove after use.
+on:
+  schedule:
+    - cron: "5 20 15 10 *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  start:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run build-hook.yml --repo ${{ github.repository }} -f slug=cicada-3301
+          sleep 90
+          gh workflow run build-episode.yml --repo ${{ github.repository }} -f slug=cicada-3301

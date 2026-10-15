@@ -1,0 +1,1759 @@
+[
+ {
+  "text": "A hidden message in an image. A cipher from ancient Rome. A phone number that played a recording.",
+  "kind": "fast",
+  "start": 0.0,
+  "end": 5.655,
+  "speed": 1.12
+ },
+ {
+  "text": "And behind all of it, an anonymous group that wanted to hire the smartest codebreakers on Earth.",
+  "kind": "slow",
+  "start": 6.555,
+  "end": 12.639,
+  "speed": 0.973
+ },
+ {
+  "text": "Nobody has ever proved who they were.",
+  "kind": "fast",
+  "start": 13.239,
+  "end": 15.382,
+  "speed": 1.12
+ },
+ {
+  "text": "The last message they signed arrived in April 2017. After that, nothing verified.",
+  "kind": "slow",
+  "start": 16.282,
+  "end": 23.132,
+  "speed": 0.973
+ },
+ {
+  "text": "So who built this? What did they want? And why did they stop?",
+  "kind": "fast",
+  "start": 23.252,
+  "end": 27.403,
+  "speed": 1.12
+ },
+ {
+  "text": "The best explanation is coming. But first, you have to climb the ladder the way the first solvers did.",
+  "kind": "base",
+  "start": 27.523,
+  "end": 33.676,
+  "speed": 1.045
+ },
+ {
+  "text": "One rung at a time.",
+  "kind": "base",
+  "start": 33.796,
+  "end": 35.184,
+  "speed": 1.045
+ },
+ {
+  "text": "Rung one. January 4, 2012.",
+  "kind": "fast",
+  "start": 35.684,
+  "end": 38.877,
+  "speed": 1.12
+ },
+ {
+  "text": "A post appears on 4chan.",
+  "kind": "base",
+  "start": 38.997,
+  "end": 40.921,
+  "speed": 1.045
+ },
+ {
+  "text": "If you have never seen 4chan, here is what matters. It is an anonymous image board.",
+  "kind": "base",
+  "start": 41.041,
+  "end": 46.481,
+  "speed": 1.045
+ },
+ {
+  "text": "No registration. No names.",
+  "kind": "base",
+  "start": 46.601,
+  "end": 49.041,
+  "speed": 1.045
+ },
+ {
+  "text": "There is no formal archive. Most posts expire, or get deleted, within hours.",
+  "kind": "base",
+  "start": 49.161,
+  "end": 54.546,
+  "speed": 1.045
+ },
+ {
+  "text": "It is a place where things vanish.",
+  "kind": "slow",
+  "start": 55.356,
+  "end": 57.523,
+  "speed": 0.973
+ },
+ {
+  "text": "So a puzzle posted there should have vanished too.",
+  "kind": "base",
+  "start": 57.643,
+  "end": 60.117,
+  "speed": 1.045
+ },
+ {
+  "text": "It did not.",
+  "kind": "fast",
+  "start": 60.237,
+  "end": 61.24,
+  "speed": 1.12
+ },
+ {
+  "text": "The message was an image. Nothing special about how it looked.",
+  "kind": "base",
+  "start": 61.36,
+  "end": 65.16,
+  "speed": 1.045
+ },
+ {
+  "text": "But one commenter suggested opening it in a plain text editor.",
+  "kind": "base",
+  "start": 65.28,
+  "end": 69.323,
+  "speed": 1.045
+ },
+ {
+  "text": "One early solver, scrolling that board late on a Friday night in January, tried it.",
+  "kind": "base",
+  "start": 69.443,
+  "end": 74.874,
+  "speed": 1.045
+ },
+ {
+  "text": "At the bottom of the file, there was text.",
+  "kind": "base",
+  "start": 74.994,
+  "end": 77.409,
+  "speed": 1.045
+ },
+ {
+  "text": "TIBERIVS CLAVDIVS CAESAR says, and then a string of nonsense characters.",
+  "kind": "slow",
+  "start": 78.309,
+  "end": 82.986,
+  "speed": 0.973
+ },
+ {
+  "text": "Nonsense, if you do not know Rome.",
+  "kind": "base",
+  "start": 83.586,
+  "end": 85.793,
+  "speed": 1.045
+ },
+ {
+  "text": "Tiberius Claudius was the fourth Roman emperor.",
+  "kind": "fast",
+  "start": 85.913,
+  "end": 89.067,
+  "speed": 1.12
+ },
+ {
+  "text": "Four.",
+  "kind": "base",
+  "start": 89.187,
+  "end": 89.97,
+  "speed": 1.045
+ },
+ {
+  "text": "And a Caesar cipher swaps each letter for another a fixed number of places along the alphabet.",
+  "kind": "fast",
+  "start": 90.09,
+  "end": 95.673,
+  "speed": 1.12
+ },
+ {
+  "text": "So shift the letters back four places.",
+  "kind": "base",
+  "start": 95.793,
+  "end": 98.205,
+  "speed": 1.045
+ },
+ {
+  "text": "It worked.",
+  "kind": "slow",
+  "start": 98.955,
+  "end": 99.971,
+  "speed": 0.973
+ },
+ {
+  "text": "The nonsense turned into a web address.",
+  "kind": "base",
+  "start": 100.091,
+  "end": 102.424,
+  "speed": 1.045
+ },
+ {
+  "text": "Rung one, cleared in minutes.",
+  "kind": "base",
+  "start": 102.544,
+  "end": 104.204,
+  "speed": 1.045
+ },
+ {
+  "text": "Rung two. The duck.",
+  "kind": "fast",
+  "start": 104.704,
+  "end": 106.438,
+  "speed": 1.12
+ },
+ {
+  "text": "The address led to a picture of a plastic duck.",
+  "kind": "base",
+  "start": 106.558,
+  "end": 109.549,
+  "speed": 1.045
+ },
+ {
+  "text": "Under it, the words: \"WOOPS just decoys this way.\"",
+  "kind": "base",
+  "start": 109.669,
+  "end": 112.886,
+  "speed": 1.045
+ },
+ {
+  "text": "And then: \"Looks like you can't guess how to get the message out.\"",
+  "kind": "base",
+  "start": 113.006,
+  "end": 116.187,
+  "speed": 1.045
+ },
+ {
+  "text": "Odd phrasing.",
+  "kind": "base",
+  "start": 116.307,
+  "end": 117.42,
+  "speed": 1.045
+ },
+ {
+  "text": "Guess. Out.",
+  "kind": "fast",
+  "start": 117.54,
+  "end": 119.018,
+  "speed": 1.12
+ },
+ {
+  "text": "Somebody in the thread noticed that those two words might be a hint.",
+  "kind": "base",
+  "start": 119.138,
+  "end": 123.247,
+  "speed": 1.045
+ },
+ {
+  "text": "There is a piece of software called OutGuess. It extracts data hidden inside images.",
+  "kind": "base",
+  "start": 123.367,
+  "end": 128.557,
+  "speed": 1.045
+ },
+ {
+  "text": "That is steganography. Hiding a message inside something that looks harmless.",
+  "kind": "base",
+  "start": 128.677,
+  "end": 133.598,
+  "speed": 1.045
+ },
+ {
+  "text": "They ran the duck through it.",
+  "kind": "base",
+  "start": 133.718,
+  "end": 135.249,
+  "speed": 1.045
+ },
+ {
+  "text": "It gave up a link to a subreddit.",
+  "kind": "slow",
+  "start": 136.089,
+  "end": 138.042,
+  "speed": 0.973
+ },
+ {
+  "text": "And on that page?",
+  "kind": "base",
+  "start": 138.162,
+  "end": 139.632,
+  "speed": 1.045
+ },
+ {
+  "text": "A row of Mayan numerals.",
+  "kind": "fast",
+  "start": 139.752,
+  "end": 141.508,
+  "speed": 1.12
+ },
+ {
+  "text": "Several lines of garbled letters.",
+  "kind": "base",
+  "start": 141.628,
+  "end": 143.896,
+  "speed": 1.045
+ },
+ {
+  "text": "Two images, labeled \"welcome\" and \"problems?\"",
+  "kind": "base",
+  "start": 144.016,
+  "end": 147.007,
+  "speed": 1.045
+ },
+ {
+  "text": "That is the point where the game stops looking like a prank.",
+  "kind": "base",
+  "start": 147.507,
+  "end": 150.81,
+  "speed": 1.045
+ },
+ {
+  "text": "Because pranksters are lazy.",
+  "kind": "base",
+  "start": 150.93,
+  "end": 152.769,
+  "speed": 1.045
+ },
+ {
+  "text": "This was layered.",
+  "kind": "base",
+  "start": 152.889,
+  "end": 154.099,
+  "speed": 1.045
+ },
+ {
+  "text": "Each step needed a different kind of thinking. Ancient ciphers. Modern software. Number systems from another continent.",
+  "kind": "base",
+  "start": 154.219,
+  "end": 161.428,
+  "speed": 1.045
+ },
+ {
+  "text": "And the solvers were not alone anymore.",
+  "kind": "fast",
+  "start": 161.548,
+  "end": 163.77,
+  "speed": 1.12
+ },
+ {
+  "text": "Someone posted a link to an anonymous chat room.",
+  "kind": "base",
+  "start": 163.89,
+  "end": 166.834,
+  "speed": 1.045
+ },
+ {
+  "text": "Dozens of strangers. Screen names only.",
+  "kind": "base",
+  "start": 166.954,
+  "end": 169.966,
+  "speed": 1.045
+ },
+ {
+  "text": "Everyone chasing the same thread, in a place where the original posts were already disappearing.",
+  "kind": "base",
+  "start": 170.086,
+  "end": 175.901,
+  "speed": 1.045
+ },
+ {
+  "text": "The solver we have been following later said this was the moment it started to feel a bit creepy.",
+  "kind": "base",
+  "start": 176.021,
+  "end": 181.507,
+  "speed": 1.045
+ },
+ {
+  "text": "Because most trolls, they pointed out, do not put this much energy into a joke.",
+  "kind": "base",
+  "start": 181.627,
+  "end": 186.564,
+  "speed": 1.045
+ },
+ {
+  "text": "Here is the first thing you should know about the theories.",
+  "kind": "slow",
+  "start": 187.464,
+  "end": 190.604,
+  "speed": 0.973
+ },
+ {
+  "text": "Some of the commenters that night suspected something specific.",
+  "kind": "base",
+  "start": 190.724,
+  "end": 194.355,
+  "speed": 1.045
+ },
+ {
+  "text": "They thought this was a recruiting exercise.",
+  "kind": "base",
+  "start": 194.475,
+  "end": 197.094,
+  "speed": 1.045
+ },
+ {
+  "text": "And they thought the recruiter might be the NSA.",
+  "kind": "base",
+  "start": 197.214,
+  "end": 199.809,
+  "speed": 1.045
+ },
+ {
+  "text": "That idea would follow this puzzle for years.",
+  "kind": "base",
+  "start": 199.929,
+  "end": 202.658,
+  "speed": 1.045
+ },
+ {
+  "text": "It would never be proved.",
+  "kind": "base",
+  "start": 202.778,
+  "end": 204.409,
+  "speed": 1.045
+ },
+ {
+  "text": "Hold onto it.",
+  "kind": "base",
+  "start": 204.529,
+  "end": 205.732,
+  "speed": 1.045
+ },
+ {
+  "text": "Rung three. The Holy Grail.",
+  "kind": "fast",
+  "start": 206.232,
+  "end": 208.353,
+  "speed": 1.12
+ },
+ {
+  "text": "Back at home, that same solver kept going alone.",
+  "kind": "base",
+  "start": 208.473,
+  "end": 211.63,
+  "speed": 1.045
+ },
+ {
+  "text": "Scribbling on index cards.",
+  "kind": "base",
+  "start": 211.75,
+  "end": 213.594,
+  "speed": 1.045
+ },
+ {
+  "text": "The next layers involved book codes. King Arthur. The quest for the Holy Grail.",
+  "kind": "base",
+  "start": 213.714,
+  "end": 218.762,
+  "speed": 1.045
+ },
+ {
+  "text": "A book code, by the way, is a cipher that points into a specific text.",
+  "kind": "fast",
+  "start": 218.882,
+  "end": 223.061,
+  "speed": 1.12
+ },
+ {
+  "text": "No book, no answer.",
+  "kind": "base",
+  "start": 223.181,
+  "end": 224.645,
+  "speed": 1.045
+ },
+ {
+  "text": "So you have to work out which book.",
+  "kind": "base",
+  "start": 224.765,
+  "end": 226.692,
+  "speed": 1.045
+ },
+ {
+  "text": "Hours went by.",
+  "kind": "base",
+  "start": 226.812,
+  "end": 228.039,
+  "speed": 1.045
+ },
+ {
+  "text": "Then a message began to emerge from the cards.",
+  "kind": "base",
+  "start": 228.159,
+  "end": 231.15,
+  "speed": 1.045
+ },
+ {
+  "text": "\"Call us on us tele phone number...\"",
+  "kind": "slow",
+  "start": 231.96,
+  "end": 234.181,
+  "speed": 0.973
+ },
+ {
+  "text": "And then digits.",
+  "kind": "base",
+  "start": 234.301,
+  "end": 235.552,
+  "speed": 1.045
+ },
+ {
+  "text": "The solver blurted it into the chat room.",
+  "kind": "fast",
+  "start": 236.152,
+  "end": 238.464,
+  "speed": 1.12
+ },
+ {
+  "text": "\"I'm getting a phone number.\"",
+  "kind": "base",
+  "start": 238.584,
+  "end": 240.211,
+  "speed": 1.045
+ },
+ {
+  "text": "And the room did not believe them.",
+  "kind": "base",
+  "start": 240.331,
+  "end": 242.346,
+  "speed": 1.045
+ },
+ {
+  "text": "The more advanced commenters doubted it.",
+  "kind": "base",
+  "start": 242.466,
+  "end": 244.595,
+  "speed": 1.045
+ },
+ {
+  "text": "The less advanced insulted them.",
+  "kind": "base",
+  "start": 244.715,
+  "end": 246.777,
+  "speed": 1.045
+ },
+ {
+  "text": "That is the internet for you.",
+  "kind": "base",
+  "start": 246.897,
+  "end": 248.619,
+  "speed": 1.045
+ },
+ {
+  "text": "But a private message arrived.",
+  "kind": "fast",
+  "start": 248.739,
+  "end": 250.562,
+  "speed": 1.12
+ },
+ {
+  "text": "\"You're way ahead of the others.\"",
+  "kind": "base",
+  "start": 250.682,
+  "end": 252.324,
+  "speed": 1.045
+ },
+ {
+  "text": "An invitation to a smaller, private chat.",
+  "kind": "base",
+  "start": 252.444,
+  "end": 254.93,
+  "speed": 1.045
+ },
+ {
+  "text": "So, with that, the solver dialed.",
+  "kind": "base",
+  "start": 255.05,
+  "end": 257.111,
+  "speed": 1.045
+ },
+ {
+  "text": "A recording answered.",
+  "kind": "slow",
+  "start": 257.861,
+  "end": 259.316,
+  "speed": 0.973
+ },
+ {
+  "text": "Here is what it said, close to word for word.",
+  "kind": "fast",
+  "start": 259.436,
+  "end": 262.12,
+  "speed": 1.12
+ },
+ {
+  "text": "\"Very good. You have done well.\"",
+  "kind": "base",
+  "start": 262.24,
+  "end": 264.474,
+  "speed": 1.045
+ },
+ {
+  "text": "\"There are three prime numbers associated with the original final image.\"",
+  "kind": "base",
+  "start": 264.594,
+  "end": 269.41,
+  "speed": 1.045
+ },
+ {
+  "text": "\"3301 is one of them. You will have to find the other two.\"",
+  "kind": "base",
+  "start": 269.53,
+  "end": 274.351,
+  "speed": 1.045
+ },
+ {
+  "text": "\"Multiply all three of these numbers together and add a dot com on the end to find the next step.\"",
+  "kind": "base",
+  "start": 274.471,
+  "end": 280.648,
+  "speed": 1.045
+ },
+ {
+  "text": "\"Good luck. Good-bye.\"",
+  "kind": "base",
+  "start": 280.768,
+  "end": 282.662,
+  "speed": 1.045
+ },
+ {
+  "text": "And that is where the number comes from.",
+  "kind": "fast",
+  "start": 283.262,
+  "end": 285.207,
+  "speed": 1.12
+ },
+ {
+  "text": "3301.",
+  "kind": "base",
+  "start": 285.327,
+  "end": 287.282,
+  "speed": 1.045
+ },
+ {
+  "text": "A prime.",
+  "kind": "base",
+  "start": 287.402,
+  "end": 288.398,
+  "speed": 1.045
+ },
+ {
+  "text": "The solver checked the first image.",
+  "kind": "fast",
+  "start": 288.518,
+  "end": 290.467,
+  "speed": 1.12
+ },
+ {
+  "text": "The pixel dimensions were 509 by 503.",
+  "kind": "base",
+  "start": 290.587,
+  "end": 294.777,
+  "speed": 1.045
+ },
+ {
+  "text": "Both prime.",
+  "kind": "slow",
+  "start": 295.527,
+  "end": 296.732,
+  "speed": 0.973
+ },
+ {
+  "text": "Two primes, hidden in plain sight, in the shape of the picture itself.",
+  "kind": "base",
+  "start": 296.852,
+  "end": 301.191,
+  "speed": 1.045
+ },
+ {
+  "text": "Multiply them with 3301, add dot com, and you get an address.",
+  "kind": "base",
+  "start": 301.311,
+  "end": 307.162,
+  "speed": 1.045
+ },
+ {
+  "text": "An image of a cicada appeared.",
+  "kind": "base",
+  "start": 307.282,
+  "end": 309.271,
+  "speed": 1.045
+ },
+ {
+  "text": "Above it, a countdown. Three days.",
+  "kind": "base",
+  "start": 309.391,
+  "end": 311.953,
+  "speed": 1.045
+ },
+ {
+  "text": "And hidden inside the cicada, run through OutGuess once more, another message.",
+  "kind": "base",
+  "start": 312.073,
+  "end": 317.017,
+  "speed": 1.045
+ },
+ {
+  "text": "\"You have done well to come this far.\"",
+  "kind": "base",
+  "start": 317.137,
+  "end": 319.251,
+  "speed": 1.045
+ },
+ {
+  "text": "\"Patience is a virtue.\"",
+  "kind": "base",
+  "start": 319.371,
+  "end": 320.942,
+  "speed": 1.045
+ },
+ {
+  "text": "\"Check back at 17:00 on Monday, 9 January 2012, UTC.\"",
+  "kind": "base",
+  "start": 321.062,
+  "end": 327.623,
+  "speed": 1.045
+ },
+ {
+  "text": "It was around two in the morning.",
+  "kind": "base",
+  "start": 328.323,
+  "end": 330.098,
+  "speed": 1.045
+ },
+ {
+  "text": "The solver had reached the next level.",
+  "kind": "fast",
+  "start": 330.218,
+  "end": 332.329,
+  "speed": 1.12
+ },
+ {
+  "text": "And what had begun as an online lark was about to leave the screen and enter the real world.",
+  "kind": "base",
+  "start": 332.449,
+  "end": 338.464,
+  "speed": 1.045
+ },
+ {
+  "text": "That is where one magazine's account of the story breaks off.",
+  "kind": "fast",
+  "start": 339.264,
+  "end": 342.635,
+  "speed": 1.12
+ },
+ {
+  "text": "So let me tell you what else is on record.",
+  "kind": "base",
+  "start": 342.755,
+  "end": 345.224,
+  "speed": 1.045
+ },
+ {
+  "text": "Because the puzzle did not stay online.",
+  "kind": "base",
+  "start": 345.344,
+  "end": 347.743,
+  "speed": 1.045
+ },
+ {
+  "text": "The clues ran across several kinds of medium.",
+  "kind": "fast",
+  "start": 347.863,
+  "end": 350.596,
+  "speed": 1.12
+ },
+ {
+  "text": "Digital images with hidden information.",
+  "kind": "base",
+  "start": 350.716,
+  "end": 353.499,
+  "speed": 1.045
+ },
+ {
+  "text": "A telephone message.",
+  "kind": "base",
+  "start": 353.619,
+  "end": 355.103,
+  "speed": 1.045
+ },
+ {
+  "text": "Websites.",
+  "kind": "base",
+  "start": 355.223,
+  "end": 356.216,
+  "speed": 1.045
+ },
+ {
+  "text": "And paper signs, with QR codes on them.",
+  "kind": "slow",
+  "start": 357.056,
+  "end": 360.048,
+  "speed": 0.973
+ },
+ {
+  "text": "Physical things. Out in the world.",
+  "kind": "base",
+  "start": 360.168,
+  "end": 362.675,
+  "speed": 1.045
+ },
+ {
+  "text": "Solvers met cryptography. Steganography.",
+  "kind": "base",
+  "start": 362.795,
+  "end": 365.989,
+  "speed": 1.045
+ },
+ {
+  "text": "References to literature, poetry, art and music.",
+  "kind": "base",
+  "start": 366.109,
+  "end": 369.51,
+  "speed": 1.045
+ },
+ {
+  "text": "Among the works the puzzle used were a poem called Agrippa, a poem from the Mabinogion, and a book called The Book of the Law.",
+  "kind": "base",
+  "start": 369.63,
+  "end": 377.152,
+  "speed": 1.045
+ },
+ {
+  "text": "And every clue carried the same signature.",
+  "kind": "fast",
+  "start": 377.272,
+  "end": 379.638,
+  "speed": 1.12
+ },
+ {
+  "text": "The same OpenPGP private key.",
+  "kind": "base",
+  "start": 379.758,
+  "end": 382.316,
+  "speed": 1.045
+ },
+ {
+  "text": "That is a cryptographic way of proving a message came from the same author.",
+  "kind": "base",
+  "start": 382.436,
+  "end": 386.938,
+  "speed": 1.045
+ },
+ {
+  "text": "Anyone can copy a logo.",
+  "kind": "base",
+  "start": 387.058,
+  "end": 388.874,
+  "speed": 1.045
+ },
+ {
+  "text": "Nobody can fake that key.",
+  "kind": "slow",
+  "start": 389.624,
+  "end": 391.486,
+  "speed": 0.973
+ },
+ {
+  "text": "It is the one thing that let solvers tell the real thing from imitations.",
+  "kind": "base",
+  "start": 391.606,
+  "end": 395.928,
+  "speed": 1.045
+ },
+ {
+  "text": "Remember that. It matters later.",
+  "kind": "base",
+  "start": 396.048,
+  "end": 398.378,
+  "speed": 1.045
+ },
+ {
+  "text": "The first puzzle ran for nearly a month.",
+  "kind": "fast",
+  "start": 398.978,
+  "end": 401.474,
+  "speed": 1.12
+ },
+ {
+  "text": "Then it ended.",
+  "kind": "base",
+  "start": 401.594,
+  "end": 402.737,
+  "speed": 1.045
+ },
+ {
+  "text": "And one year later, on January 4, 2013, a second round began.",
+  "kind": "base",
+  "start": 402.857,
+  "end": 408.357,
+  "speed": 1.045
+ },
+ {
+  "text": "Same day. Same date. Like clockwork.",
+  "kind": "base",
+  "start": 408.477,
+  "end": 411.741,
+  "speed": 1.045
+ },
+ {
+  "text": "And on January 4, 2014, a third round appeared. This time on Twitter.",
+  "kind": "base",
+  "start": 411.861,
+  "end": 417.596,
+  "speed": 1.045
+ },
+ {
+  "text": "The third puzzle remains unsolved.",
+  "kind": "slow",
+  "start": 418.346,
+  "end": 420.677,
+  "speed": 0.973
+ },
+ {
+  "text": "Not \"unsolved for a while.\" Unsolved.",
+  "kind": "base",
+  "start": 420.797,
+  "end": 423.672,
+  "speed": 1.045
+ },
+ {
+  "text": "But was the second round solved?",
+  "kind": "fast",
+  "start": 424.172,
+  "end": 426.173,
+  "speed": 1.12
+ },
+ {
+  "text": "Yes.",
+  "kind": "base",
+  "start": 426.293,
+  "end": 427.057,
+  "speed": 1.045
+ },
+ {
+  "text": "One of the people who solved the first puzzle of 2013 later described what came next.",
+  "kind": "base",
+  "start": 427.177,
+  "end": 433.612,
+  "speed": 1.045
+ },
+ {
+  "text": "Those who solved it were asked questions.",
+  "kind": "base",
+  "start": 433.732,
+  "end": 436.035,
+  "speed": 1.045
+ },
+ {
+  "text": "About their support for information freedom.",
+  "kind": "base",
+  "start": 436.155,
+  "end": 438.728,
+  "speed": 1.045
+ },
+ {
+  "text": "About online privacy.",
+  "kind": "base",
+  "start": 438.848,
+  "end": 440.573,
+  "speed": 1.045
+ },
+ {
+  "text": "About freedom, and rejecting censorship.",
+  "kind": "base",
+  "start": 440.693,
+  "end": 443.359,
+  "speed": 1.045
+ },
+ {
+  "text": "Answer well, and you got an invitation.",
+  "kind": "fast",
+  "start": 443.479,
+  "end": 445.808,
+  "speed": 1.12
+ },
+ {
+  "text": "To a private forum.",
+  "kind": "base",
+  "start": 445.928,
+  "end": 447.382,
+  "speed": 1.045
+ },
+ {
+  "text": "And once in, you were given an assignment.",
+  "kind": "base",
+  "start": 447.502,
+  "end": 449.916,
+  "speed": 1.045
+ },
+ {
+  "text": "Devise a project. Finish it. A project meant to further the ideals of the group.",
+  "kind": "base",
+  "start": 450.036,
+  "end": 455.679,
+  "speed": 1.045
+ },
+ {
+  "text": "That solver did not finish.",
+  "kind": "slow",
+  "start": 456.429,
+  "end": 458.298,
+  "speed": 0.973
+ },
+ {
+  "text": "They had been working on a method of general decryption.",
+  "kind": "base",
+  "start": 458.418,
+  "end": 461.6,
+  "speed": 1.045
+ },
+ {
+  "text": "And the website was removed.",
+  "kind": "base",
+  "start": 461.72,
+  "end": 463.462,
+  "speed": 1.045
+ },
+ {
+  "text": "Just like that.",
+  "kind": "base",
+  "start": 463.582,
+  "end": 464.726,
+  "speed": 1.045
+ },
+ {
+  "text": "A second winner documented the experience in a video series.",
+  "kind": "base",
+  "start": 464.846,
+  "end": 468.63,
+  "speed": 1.045
+ },
+ {
+  "text": "The description calls it a \"more realistic, fact based view of the organization.\"",
+  "kind": "base",
+  "start": 468.75,
+  "end": 474.049,
+  "speed": 1.045
+ },
+ {
+  "text": "Realistic. Fact based.",
+  "kind": "base",
+  "start": 474.169,
+  "end": 476.345,
+  "speed": 1.045
+ },
+ {
+  "text": "That tells you something about what the rest of the internet was saying.",
+  "kind": "base",
+  "start": 476.465,
+  "end": 480.494,
+  "speed": 1.045
+ },
+ {
+  "text": "Today that winner helps run community efforts around Cicada 3301 on a Discord server.",
+  "kind": "base",
+  "start": 480.614,
+  "end": 488.128,
+  "speed": 1.045
+ },
+ {
+  "text": "Other communities of solvers still gather on message boards and forums.",
+  "kind": "base",
+  "start": 488.248,
+  "end": 492.728,
+  "speed": 1.045
+ },
+ {
+  "text": "Still looking.",
+  "kind": "base",
+  "start": 492.848,
+  "end": 493.906,
+  "speed": 1.045
+ },
+ {
+  "text": "So who were they?",
+  "kind": "fast",
+  "start": 494.606,
+  "end": 495.882,
+  "speed": 1.12
+ },
+ {
+  "text": "Let's go through the theories.",
+  "kind": "base",
+  "start": 496.002,
+  "end": 497.679,
+  "speed": 1.045
+ },
+ {
+  "text": "Theory one. A spy agency.",
+  "kind": "base",
+  "start": 497.799,
+  "end": 500.211,
+  "speed": 1.045
+ },
+ {
+  "text": "The NSA. The CIA. MI6. Mossad.",
+  "kind": "slow",
+  "start": 500.991,
+  "end": 505.455,
+  "speed": 0.973
+ },
+ {
+  "text": "Every one of these has been floated as a recruiter.",
+  "kind": "base",
+  "start": 505.575,
+  "end": 508.665,
+  "speed": 1.045
+ },
+ {
+  "text": "The logic is easy to follow.",
+  "kind": "base",
+  "start": 508.785,
+  "end": 510.827,
+  "speed": 1.045
+ },
+ {
+  "text": "Cryptography, security, anonymity. Exactly the skills an intelligence agency wants.",
+  "kind": "base",
+  "start": 510.947,
+  "end": 516.752,
+  "speed": 1.045
+ },
+ {
+  "text": "And remember those commenters on that first night.",
+  "kind": "base",
+  "start": 516.872,
+  "end": 519.626,
+  "speed": 1.045
+ },
+ {
+  "text": "Theory two. A cyber mercenary group.",
+  "kind": "fast",
+  "start": 519.746,
+  "end": 522.486,
+  "speed": 1.12
+ },
+ {
+  "text": "A private outfit hiring hackers.",
+  "kind": "base",
+  "start": 522.606,
+  "end": 524.775,
+  "speed": 1.045
+ },
+ {
+  "text": "Theory three. A \"Masonic conspiracy.\"",
+  "kind": "fast",
+  "start": 524.895,
+  "end": 527.641,
+  "speed": 1.12
+ },
+ {
+  "text": "That one is in the record, though I would not bet on it.",
+  "kind": "base",
+  "start": 527.761,
+  "end": 530.886,
+  "speed": 1.045
+ },
+ {
+  "text": "Theory four. A secret society.",
+  "kind": "fast",
+  "start": 531.006,
+  "end": 533.505,
+  "speed": 1.12
+ },
+ {
+  "text": "One with a goal of improving cryptography, privacy and anonymity.",
+  "kind": "base",
+  "start": 533.625,
+  "end": 538.062,
+  "speed": 1.045
+ },
+ {
+  "text": "Theory five. A cult. Or a religion.",
+  "kind": "fast",
+  "start": 538.182,
+  "end": 541.23,
+  "speed": 1.12
+ },
+ {
+  "text": "And theory six. A game.",
+  "kind": "fast",
+  "start": 541.35,
+  "end": 543.408,
+  "speed": 1.12
+ },
+ {
+  "text": "An alternate reality game.",
+  "kind": "base",
+  "start": 543.528,
+  "end": 545.301,
+  "speed": 1.045
+ },
+ {
+  "text": "Except that there is a problem with that one.",
+  "kind": "base",
+  "start": 545.421,
+  "end": 547.945,
+  "speed": 1.045
+ },
+ {
+  "text": "No company or individual has tried to monetize it.",
+  "kind": "slow",
+  "start": 548.815,
+  "end": 552.729,
+  "speed": 0.973
+ },
+ {
+  "text": "No product. No sponsor. No reveal.",
+  "kind": "base",
+  "start": 552.849,
+  "end": 556.228,
+  "speed": 1.045
+ },
+ {
+  "text": "A game with no seller is an odd kind of game.",
+  "kind": "base",
+  "start": 556.348,
+  "end": 559.28,
+  "speed": 1.045
+ },
+ {
+  "text": "Now, what do the people who actually solved the puzzle say?",
+  "kind": "base",
+  "start": 559.88,
+  "end": 563.242,
+  "speed": 1.045
+ },
+ {
+  "text": "According to several who solved the 2012 round, the group normally recruits by other means. Not by puzzle.",
+  "kind": "base",
+  "start": 563.362,
+  "end": 570.896,
+  "speed": 1.045
+ },
+ {
+  "text": "But they wanted people with cryptography and computer security skills.",
+  "kind": "base",
+  "start": 571.016,
+  "end": 575.402,
+  "speed": 1.045
+ },
+ {
+  "text": "So they built a puzzle to find them.",
+  "kind": "base",
+  "start": 575.522,
+  "end": 577.647,
+  "speed": 1.045
+ },
+ {
+  "text": "Which is a clue in itself.",
+  "kind": "base",
+  "start": 577.767,
+  "end": 579.422,
+  "speed": 1.045
+ },
+ {
+  "text": "A puzzle is a filter.",
+  "kind": "fast",
+  "start": 579.542,
+  "end": 580.981,
+  "speed": 1.12
+ },
+ {
+  "text": "Anyone who gets through it has proved something.",
+  "kind": "base",
+  "start": 581.101,
+  "end": 583.718,
+  "speed": 1.045
+ },
+ {
+  "text": "Whoever built it wanted to test the very skills the puzzle demanded.",
+  "kind": "base",
+  "start": 583.838,
+  "end": 587.898,
+  "speed": 1.045
+ },
+ {
+  "text": "But that tells us what they wanted. Not who they were.",
+  "kind": "slow",
+  "start": 588.798,
+  "end": 592.156,
+  "speed": 0.973
+ },
+ {
+  "text": "There is one more twist.",
+  "kind": "fast",
+  "start": 592.856,
+  "end": 594.368,
+  "speed": 1.12
+ },
+ {
+  "text": "The accusations.",
+  "kind": "base",
+  "start": 594.488,
+  "end": 595.836,
+  "speed": 1.045
+ },
+ {
+  "text": "In 2012, police in a province of Chile, the Investigative Police, claimed that Cicada 3301 was a hacker group.",
+  "kind": "base",
+  "start": 595.956,
+  "end": 606.2,
+  "speed": 1.045
+ },
+ {
+  "text": "They said it engaged in illegal activities.",
+  "kind": "base",
+  "start": 606.32,
+  "end": 609.192,
+  "speed": 1.045
+ },
+ {
+  "text": "And Cicada answered.",
+  "kind": "base",
+  "start": 609.312,
+  "end": 610.828,
+  "speed": 1.045
+ },
+ {
+  "text": "With a signed statement.",
+  "kind": "base",
+  "start": 610.948,
+  "end": 612.395,
+  "speed": 1.045
+ },
+ {
+  "text": "Denying any involvement in illegal activity.",
+  "kind": "base",
+  "start": 612.515,
+  "end": 615.494,
+  "speed": 1.045
+ },
+ {
+  "text": "Then, July 2015.",
+  "kind": "fast",
+  "start": 615.614,
+  "end": 617.662,
+  "speed": 1.12
+ },
+ {
+  "text": "A group calling itself \"3301\" hacked into Planned Parenthood's database.",
+  "kind": "base",
+  "start": 617.782,
+  "end": 623.973,
+  "speed": 1.045
+ },
+ {
+  "text": "Same number. Same name, near enough.",
+  "kind": "base",
+  "start": 624.093,
+  "end": 626.643,
+  "speed": 1.045
+ },
+ {
+  "text": "For a moment, the two looked like one.",
+  "kind": "base",
+  "start": 626.763,
+  "end": 628.838,
+  "speed": 1.045
+ },
+ {
+  "text": "But Cicada issued another signed statement.",
+  "kind": "slow",
+  "start": 629.618,
+  "end": 632.523,
+  "speed": 0.973
+ },
+ {
+  "text": "They were \"not associated with this group in any way.\"",
+  "kind": "base",
+  "start": 632.643,
+  "end": 635.729,
+  "speed": 1.045
+ },
+ {
+  "text": "And they did not \"condone their use of our name, number, or symbolism.\"",
+  "kind": "base",
+  "start": 635.849,
+  "end": 640.261,
+  "speed": 1.045
+ },
+ {
+  "text": "Later, the hacker group confirmed it. There was no connection.",
+  "kind": "base",
+  "start": 640.381,
+  "end": 643.775,
+  "speed": 1.045
+ },
+ {
+  "text": "Notice what happened there.",
+  "kind": "fast",
+  "start": 643.895,
+  "end": 645.437,
+  "speed": 1.12
+ },
+ {
+  "text": "The real Cicada could be told from the fake.",
+  "kind": "base",
+  "start": 645.557,
+  "end": 648.349,
+  "speed": 1.045
+ },
+ {
+  "text": "By the signature.",
+  "kind": "base",
+  "start": 648.469,
+  "end": 649.655,
+  "speed": 1.045
+ },
+ {
+  "text": "Then it went quiet.",
+  "kind": "fast",
+  "start": 650.355,
+  "end": 651.603,
+  "speed": 1.12
+ },
+ {
+  "text": "A new clue appeared on Twitter on January 5, 2016.",
+  "kind": "base",
+  "start": 651.723,
+  "end": 656.43,
+  "speed": 1.045
+ },
+ {
+  "text": "One day after the date everyone had learned to expect.",
+  "kind": "base",
+  "start": 656.55,
+  "end": 660.027,
+  "speed": 1.045
+ },
+ {
+  "text": "And then, in April 2017, the last verified, signed message.",
+  "kind": "base",
+  "start": 660.147,
+  "end": 665.262,
+  "speed": 1.045
+ },
+ {
+  "text": "It denied the validity of any unsigned puzzle.",
+  "kind": "slow",
+  "start": 666.102,
+  "end": 669.135,
+  "speed": 0.973
+ },
+ {
+  "text": "Read that again.",
+  "kind": "base",
+  "start": 669.255,
+  "end": 670.43,
+  "speed": 1.045
+ },
+ {
+  "text": "It means that anything posted after, anything claiming to be a new round, without that key, is not them.",
+  "kind": "base",
+  "start": 670.55,
+  "end": 677.424,
+  "speed": 1.045
+ },
+ {
+  "text": "And no verified signed puzzle has appeared since.",
+  "kind": "base",
+  "start": 677.544,
+  "end": 680.513,
+  "speed": 1.045
+ },
+ {
+  "text": "Those are the facts. Now, what is the best explanation?",
+  "kind": "base",
+  "start": 681.113,
+  "end": 684.827,
+  "speed": 1.045
+ },
+ {
+  "text": "Honestly?",
+  "kind": "fast",
+  "start": 684.947,
+  "end": 685.916,
+  "speed": 1.12
+ },
+ {
+  "text": "The evidence supports a narrow conclusion.",
+  "kind": "base",
+  "start": 686.036,
+  "end": 688.6,
+  "speed": 1.045
+ },
+ {
+  "text": "Somebody built a recruitment filter.",
+  "kind": "base",
+  "start": 688.72,
+  "end": 690.957,
+  "speed": 1.045
+ },
+ {
+  "text": "It was hard enough to need serious skill in cryptography and security.",
+  "kind": "base",
+  "start": 691.077,
+  "end": 695.535,
+  "speed": 1.045
+ },
+ {
+  "text": "It asked about privacy, freedom of information, and censorship.",
+  "kind": "base",
+  "start": 695.655,
+  "end": 699.575,
+  "speed": 1.045
+ },
+ {
+  "text": "It then put winners to work on projects meant to further those ideals.",
+  "kind": "base",
+  "start": 699.695,
+  "end": 703.926,
+  "speed": 1.045
+ },
+ {
+  "text": "That is consistent with a group that cared about privacy.",
+  "kind": "base",
+  "start": 704.046,
+  "end": 707.531,
+  "speed": 1.045
+ },
+ {
+  "text": "But it is also consistent with almost everything else.",
+  "kind": "slow",
+  "start": 708.401,
+  "end": 711.755,
+  "speed": 0.973
+ },
+ {
+  "text": "An agency could build that.",
+  "kind": "base",
+  "start": 711.875,
+  "end": 713.672,
+  "speed": 1.045
+ },
+ {
+  "text": "A society could.",
+  "kind": "base",
+  "start": 713.792,
+  "end": 715.081,
+  "speed": 1.045
+ },
+ {
+  "text": "A group of enthusiasts could.",
+  "kind": "base",
+  "start": 715.201,
+  "end": 717.082,
+  "speed": 1.045
+ },
+ {
+  "text": "There is no confirmed answer.",
+  "kind": "fast",
+  "start": 717.202,
+  "end": 718.971,
+  "speed": 1.12
+ },
+ {
+  "text": "And the weak points are real.",
+  "kind": "base",
+  "start": 719.091,
+  "end": 720.797,
+  "speed": 1.045
+ },
+ {
+  "text": "The agency theory has no confirmation from any agency.",
+  "kind": "base",
+  "start": 720.917,
+  "end": 725.015,
+  "speed": 1.045
+ },
+ {
+  "text": "The mercenary theory has no known payout.",
+  "kind": "base",
+  "start": 725.135,
+  "end": 728.006,
+  "speed": 1.045
+ },
+ {
+  "text": "The game theory has no known seller.",
+  "kind": "base",
+  "start": 728.126,
+  "end": 730.46,
+  "speed": 1.045
+ },
+ {
+  "text": "The society theory has no known members willing to say so on the record.",
+  "kind": "base",
+  "start": 730.58,
+  "end": 735.176,
+  "speed": 1.045
+ },
+ {
+  "text": "Every theory is missing the same piece.",
+  "kind": "slow",
+  "start": 735.986,
+  "end": 738.445,
+  "speed": 0.973
+ },
+ {
+  "text": "Proof.",
+  "kind": "base",
+  "start": 738.565,
+  "end": 739.366,
+  "speed": 1.045
+ },
+ {
+  "text": "And the legacy is strange.",
+  "kind": "fast",
+  "start": 740.066,
+  "end": 741.718,
+  "speed": 1.12
+ },
+ {
+  "text": "In 2014, the United States Navy released a cryptographic challenge based on these recruitment puzzles.",
+  "kind": "base",
+  "start": 741.838,
+  "end": 749.148,
+  "speed": 1.045
+ },
+ {
+  "text": "It was called Project Architeuthis.",
+  "kind": "base",
+  "start": 749.268,
+  "end": 751.655,
+  "speed": 1.045
+ },
+ {
+  "text": "In 2015, a Person of Interest episode called \"Nautilus\" featured a large worldwide game of cryptographic puzzles.",
+  "kind": "fast",
+  "start": 751.775,
+  "end": 760.481,
+  "speed": 1.12
+ },
+ {
+  "text": "A nautilus shell instead of a cicada.",
+  "kind": "base",
+  "start": 760.601,
+  "end": 763.008,
+  "speed": 1.045
+ },
+ {
+  "text": "The creator said on record that Cicada 3301 was the inspiration.",
+  "kind": "base",
+  "start": 763.128,
+  "end": 769.04,
+  "speed": 1.045
+ },
+ {
+  "text": "He called it, quote, \"a very interesting concept out there.\"",
+  "kind": "base",
+  "start": 769.16,
+  "end": 772.784,
+  "speed": 1.045
+ },
+ {
+  "text": "And in 2021 came a comedy thriller, Dark Web: Cicada 3301, directed by Alan Ritchson.",
+  "kind": "base",
+  "start": 772.904,
+  "end": 781.947,
+  "speed": 1.045
+ },
+ {
+  "text": "The Washington Post once listed it among the top five eeriest unsolved mysteries of the internet.",
+  "kind": "base",
+  "start": 782.067,
+  "end": 788.052,
+  "speed": 1.045
+ },
+ {
+  "text": "Another description called it the most elaborate and mysterious puzzle of the internet age.",
+  "kind": "base",
+  "start": 788.172,
+  "end": 793.71,
+  "speed": 1.045
+ },
+ {
+  "text": "Yet at the center there is a plastic duck.",
+  "kind": "fast",
+  "start": 793.83,
+  "end": 796.256,
+  "speed": 1.12
+ },
+ {
+  "text": "A Roman emperor.",
+  "kind": "base",
+  "start": 796.376,
+  "end": 797.697,
+  "speed": 1.045
+ },
+ {
+  "text": "And a number.",
+  "kind": "base",
+  "start": 797.817,
+  "end": 798.851,
+  "speed": 1.045
+ },
+ {
+  "text": "A prime number.",
+  "kind": "slow",
+  "start": 799.601,
+  "end": 800.858,
+  "speed": 0.973
+ },
+ {
+  "text": "3301.",
+  "kind": "base",
+  "start": 800.978,
+  "end": 802.934,
+  "speed": 1.045
+ },
+ {
+  "text": "Think about the first night.",
+  "kind": "base",
+  "start": 803.734,
+  "end": 805.238,
+  "speed": 1.045
+ },
+ {
+  "text": "A few dozen strangers, in a place built to forget everything, remembering one thing together.",
+  "kind": "base",
+  "start": 805.358,
+  "end": 811.362,
+  "speed": 1.045
+ },
+ {
+  "text": "And one of them said: it's a phone number.",
+  "kind": "base",
+  "start": 811.482,
+  "end": 814.009,
+  "speed": 1.045
+ },
+ {
+  "text": "And nobody believed them.",
+  "kind": "base",
+  "start": 814.129,
+  "end": 815.849,
+  "speed": 1.045
+ },
+ {
+  "text": "They were right.",
+  "kind": "fast",
+  "start": 815.969,
+  "end": 816.963,
+  "speed": 1.12
+ },
+ {
+  "text": "If this kind of story keeps you up at night, subscribe.",
+  "kind": "base",
+  "start": 817.563,
+  "end": 820.717,
+  "speed": 1.045
+ },
+ {
+  "text": "There are more tabs to open.",
+  "kind": "base",
+  "start": 820.837,
+  "end": 822.556,
+  "speed": 1.045
+ }
+]

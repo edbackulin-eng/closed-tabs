@@ -1,0 +1,10122 @@
+[
+ {
+  "word": "a",
+  "start": 0.0,
+  "end": 0.12
+ },
+ {
+  "word": "hidden",
+  "start": 0.12,
+  "end": 0.26
+ },
+ {
+  "word": "message",
+  "start": 0.26,
+  "end": 0.72
+ },
+ {
+  "word": "in",
+  "start": 0.72,
+  "end": 1.0
+ },
+ {
+  "word": "an",
+  "start": 1.0,
+  "end": 1.12
+ },
+ {
+  "word": "image,",
+  "start": 1.12,
+  "end": 1.52
+ },
+ {
+  "word": "a",
+  "start": 1.88,
+  "end": 1.94
+ },
+ {
+  "word": "cipher",
+  "start": 1.94,
+  "end": 2.22
+ },
+ {
+  "word": "from",
+  "start": 2.22,
+  "end": 2.5
+ },
+ {
+  "word": "ancient",
+  "start": 2.5,
+  "end": 2.8
+ },
+ {
+  "word": "Rome,",
+  "start": 2.8,
+  "end": 3.14
+ },
+ {
+  "word": "a",
+  "start": 3.5,
+  "end": 3.6
+ },
+ {
+  "word": "phone",
+  "start": 3.6,
+  "end": 3.9
+ },
+ {
+  "word": "number",
+  "start": 3.9,
+  "end": 4.26
+ },
+ {
+  "word": "that",
+  "start": 4.26,
+  "end": 4.54
+ },
+ {
+  "word": "played",
+  "start": 4.54,
+  "end": 4.76
+ },
+ {
+  "word": "a",
+  "start": 4.76,
+  "end": 4.9
+ },
+ {
+  "word": "recording.",
+  "start": 4.9,
+  "end": 5.38
+ },
+ {
+  "word": "And",
+  "start": 6.48,
+  "end": 6.68
+ },
+ {
+  "word": "behind",
+  "start": 6.68,
+  "end": 7.0
+ },
+ {
+  "word": "all",
+  "start": 7.0,
+  "end": 7.4
+ },
+ {
+  "word": "of",
+  "start": 7.4,
+  "end": 7.54
+ },
+ {
+  "word": "it,",
+  "start": 7.54,
+  "end": 7.8
+ },
+ {
+  "word": "an",
+  "start": 8.08,
+  "end": 8.26
+ },
+ {
+  "word": "anonymous",
+  "start": 8.26,
+  "end": 8.76
+ },
+ {
+  "word": "group",
+  "start": 8.76,
+  "end": 9.16
+ },
+ {
+  "word": "that",
+  "start": 9.16,
+  "end": 9.42
+ },
+ {
+  "word": "wanted",
+  "start": 9.42,
+  "end": 9.62
+ },
+ {
+  "word": "to",
+  "start": 9.62,
+  "end": 9.86
+ },
+ {
+  "word": "hire",
+  "start": 9.86,
+  "end": 10.1
+ },
+ {
+  "word": "the",
+  "start": 10.1,
+  "end": 10.38
+ },
+ {
+  "word": "smartest",
+  "start": 10.38,
+  "end": 10.86
+ },
+ {
+  "word": "code",
+  "start": 10.86,
+  "end": 11.24
+ },
+ {
+  "word": "breakers",
+  "start": 11.24,
+  "end": 11.72
+ },
+ {
+  "word": "on",
+  "start": 11.72,
+  "end": 11.94
+ },
+ {
+  "word": "earth.",
+  "start": 11.94,
+  "end": 12.26
+ },
+ {
+  "word": "Nobody",
+  "start": 13.24,
+  "end": 13.58
+ },
+ {
+  "word": "has",
+  "start": 13.58,
+  "end": 13.84
+ },
+ {
+  "word": "ever",
+  "start": 13.84,
+  "end": 14.16
+ },
+ {
+  "word": "proved",
+  "start": 14.16,
+  "end": 14.52
+ },
+ {
+  "word": "who",
+  "start": 14.52,
+  "end": 14.72
+ },
+ {
+  "word": "they",
+  "start": 14.72,
+  "end": 14.9
+ },
+ {
+  "word": "were.",
+  "start": 14.9,
+  "end": 15.18
+ },
+ {
+  "word": "The",
+  "start": 16.12,
+  "end": 16.42
+ },
+ {
+  "word": "last",
+  "start": 16.42,
+  "end": 16.76
+ },
+ {
+  "word": "message",
+  "start": 16.76,
+  "end": 17.16
+ },
+ {
+  "word": "they",
+  "start": 17.16,
+  "end": 17.44
+ },
+ {
+  "word": "signed",
+  "start": 17.44,
+  "end": 17.96
+ },
+ {
+  "word": "arrived",
+  "start": 17.96,
+  "end": 18.52
+ },
+ {
+  "word": "in",
+  "start": 18.52,
+  "end": 19.04
+ },
+ {
+  "word": "April",
+  "start": 19.04,
+  "end": 19.42
+ },
+ {
+  "word": "2017.",
+  "start": 19.42,
+  "end": 20.52
+ },
+ {
+  "word": "After",
+  "start": 21.14,
+  "end": 21.34
+ },
+ {
+  "word": "that,",
+  "start": 21.34,
+  "end": 21.68
+ },
+ {
+  "word": "nothing",
+  "start": 21.86,
+  "end": 22.08
+ },
+ {
+  "word": "verified.",
+  "start": 22.08,
+  "end": 22.68
+ },
+ {
+  "word": "So",
+  "start": 23.26,
+  "end": 23.42
+ },
+ {
+  "word": "who",
+  "start": 23.42,
+  "end": 23.58
+ },
+ {
+  "word": "built",
+  "start": 23.58,
+  "end": 23.82
+ },
+ {
+  "word": "this?",
+  "start": 23.82,
+  "end": 24.12
+ },
+ {
+  "word": "What",
+  "start": 24.56,
+  "end": 24.76
+ },
+ {
+  "word": "did",
+  "start": 24.76,
+  "end": 24.9
+ },
+ {
+  "word": "they",
+  "start": 24.9,
+  "end": 25.08
+ },
+ {
+  "word": "want?",
+  "start": 25.08,
+  "end": 25.38
+ },
+ {
+  "word": "And",
+  "start": 25.84,
+  "end": 26.02
+ },
+ {
+  "word": "why",
+  "start": 26.02,
+  "end": 26.26
+ },
+ {
+  "word": "did",
+  "start": 26.26,
+  "end": 26.42
+ },
+ {
+  "word": "they",
+  "start": 26.42,
+  "end": 26.6
+ },
+ {
+  "word": "stop?",
+  "start": 26.6,
+  "end": 26.92
+ },
+ {
+  "word": "The",
+  "start": 27.42,
+  "end": 27.64
+ },
+ {
+  "word": "best",
+  "start": 27.64,
+  "end": 27.86
+ },
+ {
+  "word": "explanation",
+  "start": 27.86,
+  "end": 28.38
+ },
+ {
+  "word": "is",
+  "start": 28.38,
+  "end": 28.82
+ },
+ {
+  "word": "coming.",
+  "start": 28.82,
+  "end": 29.18
+ },
+ {
+  "word": "But",
+  "start": 29.18,
+  "end": 29.58
+ },
+ {
+  "word": "first,",
+  "start": 29.58,
+  "end": 29.94
+ },
+ {
+  "word": "you",
+  "start": 30.34,
+  "end": 30.38
+ },
+ {
+  "word": "have",
+  "start": 30.38,
+  "end": 30.52
+ },
+ {
+  "word": "to",
+  "start": 30.52,
+  "end": 30.68
+ },
+ {
+  "word": "climb",
+  "start": 30.68,
+  "end": 30.98
+ },
+ {
+  "word": "the",
+  "start": 30.98,
+  "end": 31.2
+ },
+ {
+  "word": "ladder",
+  "start": 31.2,
+  "end": 31.52
+ },
+ {
+  "word": "the",
+  "start": 31.52,
+  "end": 31.9
+ },
+ {
+  "word": "way",
+  "start": 31.9,
+  "end": 32.06
+ },
+ {
+  "word": "the",
+  "start": 32.06,
+  "end": 32.24
+ },
+ {
+  "word": "first",
+  "start": 32.24,
+  "end": 32.52
+ },
+ {
+  "word": "solvers",
+  "start": 32.52,
+  "end": 33.0
+ },
+ {
+  "word": "did.",
+  "start": 33.0,
+  "end": 33.4
+ },
+ {
+  "word": "One",
+  "start": 33.8,
+  "end": 34.02
+ },
+ {
+  "word": "rung",
+  "start": 34.02,
+  "end": 34.32
+ },
+ {
+  "word": "at",
+  "start": 34.32,
+  "end": 34.42
+ },
+ {
+  "word": "a",
+  "start": 34.42,
+  "end": 34.58
+ },
+ {
+  "word": "time.",
+  "start": 34.58,
+  "end": 34.98
+ },
+ {
+  "word": "Rung",
+  "start": 35.82,
+  "end": 36.02
+ },
+ {
+  "word": "1,",
+  "start": 36.02,
+  "end": 36.24
+ },
+ {
+  "word": "January",
+  "start": 36.72,
+  "end": 36.86
+ },
+ {
+  "word": "4,",
+  "start": 36.86,
+  "end": 37.4
+ },
+ {
+  "word": "2012.",
+  "start": 37.64,
+  "end": 38.44
+ },
+ {
+  "word": "A",
+  "start": 39.08,
+  "end": 39.12
+ },
+ {
+  "word": "post",
+  "start": 39.12,
+  "end": 39.36
+ },
+ {
+  "word": "appears",
+  "start": 39.36,
+  "end": 39.76
+ },
+ {
+  "word": "on",
+  "start": 39.76,
+  "end": 40.04
+ },
+ {
+  "word": "4chan.",
+  "start": 40.04,
+  "end": 40.52
+ },
+ {
+  "word": "If",
+  "start": 41.06,
+  "end": 41.14
+ },
+ {
+  "word": "you",
+  "start": 41.14,
+  "end": 41.3
+ },
+ {
+  "word": "have",
+  "start": 41.3,
+  "end": 41.4
+ },
+ {
+  "word": "never",
+  "start": 41.4,
+  "end": 41.64
+ },
+ {
+  "word": "seen",
+  "start": 41.64,
+  "end": 41.94
+ },
+ {
+  "word": "4chan,",
+  "start": 41.94,
+  "end": 42.52
+ },
+ {
+  "word": "here",
+  "start": 42.86,
+  "end": 43.14
+ },
+ {
+  "word": "is",
+  "start": 43.14,
+  "end": 43.32
+ },
+ {
+  "word": "what",
+  "start": 43.32,
+  "end": 43.52
+ },
+ {
+  "word": "matters.",
+  "start": 43.52,
+  "end": 43.88
+ },
+ {
+  "word": "It",
+  "start": 44.34,
+  "end": 44.46
+ },
+ {
+  "word": "is",
+  "start": 44.46,
+  "end": 44.6
+ },
+ {
+  "word": "an",
+  "start": 44.6,
+  "end": 44.76
+ },
+ {
+  "word": "anonymous",
+  "start": 44.76,
+  "end": 45.34
+ },
+ {
+  "word": "image",
+  "start": 45.34,
+  "end": 45.76
+ },
+ {
+  "word": "board.",
+  "start": 45.76,
+  "end": 46.16
+ },
+ {
+  "word": "No",
+  "start": 46.64,
+  "end": 46.86
+ },
+ {
+  "word": "registration,",
+  "start": 46.86,
+  "end": 47.44
+ },
+ {
+  "word": "no",
+  "start": 48.0,
+  "end": 48.26
+ },
+ {
+  "word": "names.",
+  "start": 48.26,
+  "end": 48.6
+ },
+ {
+  "word": "There",
+  "start": 49.16,
+  "end": 49.28
+ },
+ {
+  "word": "is",
+  "start": 49.28,
+  "end": 49.4
+ },
+ {
+  "word": "no",
+  "start": 49.4,
+  "end": 49.68
+ },
+ {
+  "word": "formal",
+  "start": 49.68,
+  "end": 50.12
+ },
+ {
+  "word": "archive.",
+  "start": 50.12,
+  "end": 50.62
+ },
+ {
+  "word": "Most",
+  "start": 51.08,
+  "end": 51.28
+ },
+ {
+  "word": "posts",
+  "start": 51.28,
+  "end": 51.62
+ },
+ {
+  "word": "expire",
+  "start": 51.62,
+  "end": 52.14
+ },
+ {
+  "word": "or",
+  "start": 52.14,
+  "end": 52.72
+ },
+ {
+  "word": "get",
+  "start": 52.72,
+  "end": 52.88
+ },
+ {
+  "word": "deleted",
+  "start": 52.88,
+  "end": 53.36
+ },
+ {
+  "word": "within",
+  "start": 53.36,
+  "end": 53.68
+ },
+ {
+  "word": "hours.",
+  "start": 53.68,
+  "end": 54.08
+ },
+ {
+  "word": "It",
+  "start": 55.14,
+  "end": 55.46
+ },
+ {
+  "word": "is",
+  "start": 55.46,
+  "end": 55.58
+ },
+ {
+  "word": "a",
+  "start": 55.58,
+  "end": 55.7
+ },
+ {
+  "word": "place",
+  "start": 55.7,
+  "end": 56.0
+ },
+ {
+  "word": "where",
+  "start": 56.0,
+  "end": 56.32
+ },
+ {
+  "word": "things",
+  "start": 56.32,
+  "end": 56.64
+ },
+ {
+  "word": "vanish.",
+  "start": 56.64,
+  "end": 57.12
+ },
+ {
+  "word": "So",
+  "start": 57.42,
+  "end": 57.74
+ },
+ {
+  "word": "a",
+  "start": 57.74,
+  "end": 57.9
+ },
+ {
+  "word": "puzzle",
+  "start": 57.9,
+  "end": 58.12
+ },
+ {
+  "word": "posted",
+  "start": 58.12,
+  "end": 58.62
+ },
+ {
+  "word": "there",
+  "start": 58.62,
+  "end": 58.9
+ },
+ {
+  "word": "should",
+  "start": 58.9,
+  "end": 59.02
+ },
+ {
+  "word": "have",
+  "start": 59.02,
+  "end": 59.14
+ },
+ {
+  "word": "vanished",
+  "start": 59.14,
+  "end": 59.46
+ },
+ {
+  "word": "too.",
+  "start": 59.46,
+  "end": 59.88
+ },
+ {
+  "word": "It",
+  "start": 60.34,
+  "end": 60.34
+ },
+ {
+  "word": "did",
+  "start": 60.34,
+  "end": 60.52
+ },
+ {
+  "word": "not.",
+  "start": 60.52,
+  "end": 60.86
+ },
+ {
+  "word": "The",
+  "start": 61.46,
+  "end": 61.46
+ },
+ {
+  "word": "message",
+  "start": 61.46,
+  "end": 61.82
+ },
+ {
+  "word": "was",
+  "start": 61.82,
+  "end": 62.12
+ },
+ {
+  "word": "an",
+  "start": 62.12,
+  "end": 62.3
+ },
+ {
+  "word": "image.",
+  "start": 62.3,
+  "end": 62.74
+ },
+ {
+  "word": "Nothing",
+  "start": 63.14,
+  "end": 63.34
+ },
+ {
+  "word": "special",
+  "start": 63.34,
+  "end": 63.8
+ },
+ {
+  "word": "about",
+  "start": 63.8,
+  "end": 64.14
+ },
+ {
+  "word": "how",
+  "start": 64.14,
+  "end": 64.4
+ },
+ {
+  "word": "it",
+  "start": 64.4,
+  "end": 64.56
+ },
+ {
+  "word": "looked.",
+  "start": 64.56,
+  "end": 64.86
+ },
+ {
+  "word": "But",
+  "start": 65.3,
+  "end": 65.4
+ },
+ {
+  "word": "one",
+  "start": 65.4,
+  "end": 65.7
+ },
+ {
+  "word": "commenter",
+  "start": 65.7,
+  "end": 66.2
+ },
+ {
+  "word": "suggested",
+  "start": 66.2,
+  "end": 66.66
+ },
+ {
+  "word": "opening",
+  "start": 66.66,
+  "end": 67.26
+ },
+ {
+  "word": "it",
+  "start": 67.26,
+  "end": 67.58
+ },
+ {
+  "word": "in",
+  "start": 67.58,
+  "end": 67.9
+ },
+ {
+  "word": "a",
+  "start": 67.9,
+  "end": 68.0
+ },
+ {
+  "word": "plain",
+  "start": 68.0,
+  "end": 68.28
+ },
+ {
+  "word": "text",
+  "start": 68.28,
+  "end": 68.64
+ },
+ {
+  "word": "editor.",
+  "start": 68.64,
+  "end": 69.08
+ },
+ {
+  "word": "One",
+  "start": 69.56,
+  "end": 69.68
+ },
+ {
+  "word": "early",
+  "start": 69.68,
+  "end": 70.06
+ },
+ {
+  "word": "solver,",
+  "start": 70.06,
+  "end": 70.62
+ },
+ {
+  "word": "scrolling",
+  "start": 70.94,
+  "end": 71.4
+ },
+ {
+  "word": "that",
+  "start": 71.4,
+  "end": 71.74
+ },
+ {
+  "word": "board",
+  "start": 71.74,
+  "end": 72.02
+ },
+ {
+  "word": "late",
+  "start": 72.02,
+  "end": 72.34
+ },
+ {
+  "word": "on",
+  "start": 72.34,
+  "end": 72.5
+ },
+ {
+  "word": "a",
+  "start": 72.5,
+  "end": 72.64
+ },
+ {
+  "word": "Friday",
+  "start": 72.64,
+  "end": 72.96
+ },
+ {
+  "word": "night",
+  "start": 72.96,
+  "end": 73.26
+ },
+ {
+  "word": "in",
+  "start": 73.26,
+  "end": 73.44
+ },
+ {
+  "word": "January,",
+  "start": 73.44,
+  "end": 74.0
+ },
+ {
+  "word": "tried",
+  "start": 74.18,
+  "end": 74.48
+ },
+ {
+  "word": "it.",
+  "start": 74.48,
+  "end": 74.72
+ },
+ {
+  "word": "At",
+  "start": 75.02,
+  "end": 75.14
+ },
+ {
+  "word": "the",
+  "start": 75.14,
+  "end": 75.28
+ },
+ {
+  "word": "bottom",
+  "start": 75.28,
+  "end": 75.5
+ },
+ {
+  "word": "of",
+  "start": 75.5,
+  "end": 75.7
+ },
+ {
+  "word": "the",
+  "start": 75.7,
+  "end": 75.82
+ },
+ {
+  "word": "file,",
+  "start": 75.82,
+  "end": 76.18
+ },
+ {
+  "word": "there",
+  "start": 76.36,
+  "end": 76.48
+ },
+ {
+  "word": "was",
+  "start": 76.48,
+  "end": 76.64
+ },
+ {
+  "word": "text.",
+  "start": 76.64,
+  "end": 77.1
+ },
+ {
+  "word": "Tiberyv's",
+  "start": 78.48,
+  "end": 78.88
+ },
+ {
+  "word": "clavdiv",
+  "start": 78.88,
+  "end": 79.38
+ },
+ {
+  "word": "Caesar",
+  "start": 79.38,
+  "end": 79.7
+ },
+ {
+  "word": "says.",
+  "start": 79.7,
+  "end": 80.08
+ },
+ {
+  "word": "And",
+  "start": 80.72,
+  "end": 80.82
+ },
+ {
+  "word": "then",
+  "start": 80.82,
+  "end": 80.96
+ },
+ {
+  "word": "a",
+  "start": 80.96,
+  "end": 81.1
+ },
+ {
+  "word": "string",
+  "start": 81.1,
+  "end": 81.36
+ },
+ {
+  "word": "of",
+  "start": 81.36,
+  "end": 81.62
+ },
+ {
+  "word": "nonsense",
+  "start": 81.62,
+  "end": 81.94
+ },
+ {
+  "word": "characters.",
+  "start": 81.94,
+  "end": 82.46
+ },
+ {
+  "word": "Nonsense",
+  "start": 83.64,
+  "end": 84.02
+ },
+ {
+  "word": "if",
+  "start": 84.02,
+  "end": 84.38
+ },
+ {
+  "word": "you",
+  "start": 84.38,
+  "end": 84.52
+ },
+ {
+  "word": "do",
+  "start": 84.52,
+  "end": 84.64
+ },
+ {
+  "word": "not",
+  "start": 84.64,
+  "end": 84.84
+ },
+ {
+  "word": "know",
+  "start": 84.84,
+  "end": 85.1
+ },
+ {
+  "word": "Rome.",
+  "start": 85.1,
+  "end": 85.48
+ },
+ {
+  "word": "Tiberius",
+  "start": 85.48,
+  "end": 86.48
+ },
+ {
+  "word": "Claudius",
+  "start": 86.48,
+  "end": 87.06
+ },
+ {
+  "word": "was",
+  "start": 87.06,
+  "end": 87.42
+ },
+ {
+  "word": "the",
+  "start": 87.42,
+  "end": 87.58
+ },
+ {
+  "word": "fourth",
+  "start": 87.58,
+  "end": 87.92
+ },
+ {
+  "word": "Roman",
+  "start": 87.92,
+  "end": 88.28
+ },
+ {
+  "word": "emperor.",
+  "start": 88.28,
+  "end": 88.76
+ },
+ {
+  "word": "Four,",
+  "start": 89.56,
+  "end": 89.56
+ },
+ {
+  "word": "and",
+  "start": 90.0,
+  "end": 90.18
+ },
+ {
+  "word": "a",
+  "start": 90.18,
+  "end": 90.3
+ },
+ {
+  "word": "Caesar",
+  "start": 90.3,
+  "end": 90.58
+ },
+ {
+  "word": "cipher",
+  "start": 90.58,
+  "end": 91.08
+ },
+ {
+  "word": "swaps",
+  "start": 91.08,
+  "end": 91.54
+ },
+ {
+  "word": "each",
+  "start": 91.54,
+  "end": 91.84
+ },
+ {
+  "word": "letter",
+  "start": 91.84,
+  "end": 92.14
+ },
+ {
+  "word": "for",
+  "start": 92.14,
+  "end": 92.36
+ },
+ {
+  "word": "another,",
+  "start": 92.36,
+  "end": 92.7
+ },
+ {
+  "word": "a",
+  "start": 93.02,
+  "end": 93.08
+ },
+ {
+  "word": "fixed",
+  "start": 93.08,
+  "end": 93.32
+ },
+ {
+  "word": "number",
+  "start": 93.32,
+  "end": 93.54
+ },
+ {
+  "word": "of",
+  "start": 93.54,
+  "end": 93.74
+ },
+ {
+  "word": "places",
+  "start": 93.74,
+  "end": 94.12
+ },
+ {
+  "word": "along",
+  "start": 94.12,
+  "end": 94.74
+ },
+ {
+  "word": "the",
+  "start": 94.74,
+  "end": 94.94
+ },
+ {
+  "word": "alphabet.",
+  "start": 94.94,
+  "end": 95.42
+ },
+ {
+  "word": "So",
+  "start": 95.96,
+  "end": 96.0
+ },
+ {
+  "word": "shift",
+  "start": 96.0,
+  "end": 96.3
+ },
+ {
+  "word": "the",
+  "start": 96.3,
+  "end": 96.54
+ },
+ {
+  "word": "letters",
+  "start": 96.54,
+  "end": 96.8
+ },
+ {
+  "word": "back",
+  "start": 96.8,
+  "end": 97.08
+ },
+ {
+  "word": "four",
+  "start": 97.08,
+  "end": 97.38
+ },
+ {
+  "word": "places.",
+  "start": 97.38,
+  "end": 97.82
+ },
+ {
+  "word": "It",
+  "start": 99.02,
+  "end": 99.16
+ },
+ {
+  "word": "worked.",
+  "start": 99.16,
+  "end": 99.54
+ },
+ {
+  "word": "The",
+  "start": 100.08,
+  "end": 100.2
+ },
+ {
+  "word": "nonsense",
+  "start": 100.2,
+  "end": 100.52
+ },
+ {
+  "word": "turned",
+  "start": 100.52,
+  "end": 100.98
+ },
+ {
+  "word": "into",
+  "start": 100.98,
+  "end": 101.32
+ },
+ {
+  "word": "a",
+  "start": 101.32,
+  "end": 101.48
+ },
+ {
+  "word": "web",
+  "start": 101.48,
+  "end": 101.66
+ },
+ {
+  "word": "address.",
+  "start": 101.66,
+  "end": 102.12
+ },
+ {
+  "word": "Rung",
+  "start": 102.72,
+  "end": 102.84
+ },
+ {
+  "word": "1",
+  "start": 102.84,
+  "end": 102.98
+ },
+ {
+  "word": "cleared",
+  "start": 102.98,
+  "end": 103.32
+ },
+ {
+  "word": "in",
+  "start": 103.32,
+  "end": 103.5
+ },
+ {
+  "word": "minutes.",
+  "start": 103.5,
+  "end": 103.88
+ },
+ {
+  "word": "Rung",
+  "start": 104.82,
+  "end": 105.02
+ },
+ {
+  "word": "2,",
+  "start": 105.02,
+  "end": 105.32
+ },
+ {
+  "word": "the",
+  "start": 105.58,
+  "end": 105.78
+ },
+ {
+  "word": "duck.",
+  "start": 105.78,
+  "end": 106.08
+ },
+ {
+  "word": "The",
+  "start": 106.54,
+  "end": 106.66
+ },
+ {
+  "word": "address",
+  "start": 106.66,
+  "end": 107.02
+ },
+ {
+  "word": "led",
+  "start": 107.02,
+  "end": 107.3
+ },
+ {
+  "word": "to",
+  "start": 107.3,
+  "end": 107.5
+ },
+ {
+  "word": "a",
+  "start": 107.5,
+  "end": 107.66
+ },
+ {
+  "word": "picture",
+  "start": 107.66,
+  "end": 108.0
+ },
+ {
+  "word": "of",
+  "start": 108.0,
+  "end": 108.34
+ },
+ {
+  "word": "a",
+  "start": 108.34,
+  "end": 108.48
+ },
+ {
+  "word": "plastic",
+  "start": 108.48,
+  "end": 108.9
+ },
+ {
+  "word": "duck.",
+  "start": 108.9,
+  "end": 109.26
+ },
+ {
+  "word": "Under",
+  "start": 109.68,
+  "end": 109.94
+ },
+ {
+  "word": "it,",
+  "start": 109.94,
+  "end": 110.1
+ },
+ {
+  "word": "the",
+  "start": 110.18,
+  "end": 110.24
+ },
+ {
+  "word": "words,",
+  "start": 110.24,
+  "end": 110.64
+ },
+ {
+  "word": "whoops,",
+  "start": 111.16,
+  "end": 111.34
+ },
+ {
+  "word": "just",
+  "start": 111.44,
+  "end": 111.56
+ },
+ {
+  "word": "decoys",
+  "start": 111.56,
+  "end": 112.02
+ },
+ {
+  "word": "this",
+  "start": 112.02,
+  "end": 112.26
+ },
+ {
+  "word": "way.",
+  "start": 112.26,
+  "end": 112.62
+ },
+ {
+  "word": "And",
+  "start": 112.88,
+  "end": 113.14
+ },
+ {
+  "word": "then,",
+  "start": 113.14,
+  "end": 113.42
+ },
+ {
+  "word": "looks",
+  "start": 113.56,
+  "end": 113.84
+ },
+ {
+  "word": "like",
+  "start": 113.84,
+  "end": 114.06
+ },
+ {
+  "word": "you",
+  "start": 114.06,
+  "end": 114.24
+ },
+ {
+  "word": "can't",
+  "start": 114.24,
+  "end": 114.58
+ },
+ {
+  "word": "guess",
+  "start": 114.58,
+  "end": 114.7
+ },
+ {
+  "word": "how",
+  "start": 114.7,
+  "end": 114.92
+ },
+ {
+  "word": "to",
+  "start": 114.92,
+  "end": 115.06
+ },
+ {
+  "word": "get",
+  "start": 115.06,
+  "end": 115.2
+ },
+ {
+  "word": "the",
+  "start": 115.2,
+  "end": 115.34
+ },
+ {
+  "word": "message",
+  "start": 115.34,
+  "end": 115.64
+ },
+ {
+  "word": "out.",
+  "start": 115.64,
+  "end": 116.04
+ },
+ {
+  "word": "Odd",
+  "start": 116.36,
+  "end": 116.54
+ },
+ {
+  "word": "phrasing,",
+  "start": 116.54,
+  "end": 117.12
+ },
+ {
+  "word": "guess,",
+  "start": 117.74,
+  "end": 117.84
+ },
+ {
+  "word": "out,",
+  "start": 118.3,
+  "end": 118.64
+ },
+ {
+  "word": "somebody",
+  "start": 119.2,
+  "end": 119.56
+ },
+ {
+  "word": "in",
+  "start": 119.56,
+  "end": 119.8
+ },
+ {
+  "word": "the",
+  "start": 119.8,
+  "end": 119.94
+ },
+ {
+  "word": "thread,",
+  "start": 119.94,
+  "end": 120.26
+ },
+ {
+  "word": "notice",
+  "start": 120.68,
+  "end": 120.98
+ },
+ {
+  "word": "that",
+  "start": 120.98,
+  "end": 121.32
+ },
+ {
+  "word": "those",
+  "start": 121.32,
+  "end": 121.52
+ },
+ {
+  "word": "two",
+  "start": 121.52,
+  "end": 121.8
+ },
+ {
+  "word": "words",
+  "start": 121.8,
+  "end": 122.12
+ },
+ {
+  "word": "might",
+  "start": 122.12,
+  "end": 122.38
+ },
+ {
+  "word": "be",
+  "start": 122.38,
+  "end": 122.56
+ },
+ {
+  "word": "a",
+  "start": 122.56,
+  "end": 122.68
+ },
+ {
+  "word": "hint.",
+  "start": 122.68,
+  "end": 122.9
+ },
+ {
+  "word": "There",
+  "start": 123.34,
+  "end": 123.48
+ },
+ {
+  "word": "is",
+  "start": 123.48,
+  "end": 123.58
+ },
+ {
+  "word": "a",
+  "start": 123.58,
+  "end": 123.68
+ },
+ {
+  "word": "piece",
+  "start": 123.68,
+  "end": 123.84
+ },
+ {
+  "word": "of",
+  "start": 123.84,
+  "end": 124.1
+ },
+ {
+  "word": "software",
+  "start": 124.1,
+  "end": 124.5
+ },
+ {
+  "word": "called",
+  "start": 124.5,
+  "end": 124.86
+ },
+ {
+  "word": "OutGuess.",
+  "start": 124.86,
+  "end": 125.46
+ },
+ {
+  "word": "It",
+  "start": 125.82,
+  "end": 125.92
+ },
+ {
+  "word": "extracts",
+  "start": 125.92,
+  "end": 126.3
+ },
+ {
+  "word": "data",
+  "start": 126.3,
+  "end": 126.74
+ },
+ {
+  "word": "hidden",
+  "start": 126.74,
+  "end": 127.04
+ },
+ {
+  "word": "inside",
+  "start": 127.04,
+  "end": 127.68
+ },
+ {
+  "word": "images.",
+  "start": 127.68,
+  "end": 128.18
+ },
+ {
+  "word": "That",
+  "start": 128.66,
+  "end": 128.84
+ },
+ {
+  "word": "is",
+  "start": 128.84,
+  "end": 129.0
+ },
+ {
+  "word": "steganography,",
+  "start": 129.0,
+  "end": 129.86
+ },
+ {
+  "word": "hiding",
+  "start": 130.22,
+  "end": 130.48
+ },
+ {
+  "word": "a",
+  "start": 130.48,
+  "end": 130.72
+ },
+ {
+  "word": "message",
+  "start": 130.72,
+  "end": 131.12
+ },
+ {
+  "word": "inside",
+  "start": 131.12,
+  "end": 131.74
+ },
+ {
+  "word": "something",
+  "start": 131.74,
+  "end": 132.28
+ },
+ {
+  "word": "that",
+  "start": 132.28,
+  "end": 132.48
+ },
+ {
+  "word": "looks",
+  "start": 132.48,
+  "end": 132.7
+ },
+ {
+  "word": "harmless.",
+  "start": 132.7,
+  "end": 133.22
+ },
+ {
+  "word": "They",
+  "start": 133.68,
+  "end": 133.86
+ },
+ {
+  "word": "ran",
+  "start": 133.86,
+  "end": 134.12
+ },
+ {
+  "word": "the",
+  "start": 134.12,
+  "end": 134.32
+ },
+ {
+  "word": "duck",
+  "start": 134.32,
+  "end": 134.5
+ },
+ {
+  "word": "through",
+  "start": 134.5,
+  "end": 134.8
+ },
+ {
+  "word": "it.",
+  "start": 134.8,
+  "end": 135.06
+ },
+ {
+  "word": "It",
+  "start": 135.9,
+  "end": 136.22
+ },
+ {
+  "word": "gave",
+  "start": 136.22,
+  "end": 136.4
+ },
+ {
+  "word": "up",
+  "start": 136.4,
+  "end": 136.58
+ },
+ {
+  "word": "a",
+  "start": 136.58,
+  "end": 136.72
+ },
+ {
+  "word": "link",
+  "start": 136.72,
+  "end": 136.9
+ },
+ {
+  "word": "to",
+  "start": 136.9,
+  "end": 137.16
+ },
+ {
+  "word": "a",
+  "start": 137.16,
+  "end": 137.36
+ },
+ {
+  "word": "subreddit.",
+  "start": 137.36,
+  "end": 137.72
+ },
+ {
+  "word": "And",
+  "start": 138.26,
+  "end": 138.34
+ },
+ {
+  "word": "on",
+  "start": 138.34,
+  "end": 138.48
+ },
+ {
+  "word": "that",
+  "start": 138.48,
+  "end": 138.7
+ },
+ {
+  "word": "page,",
+  "start": 138.7,
+  "end": 139.1
+ },
+ {
+  "word": "a",
+  "start": 139.76,
+  "end": 139.86
+ },
+ {
+  "word": "row",
+  "start": 139.86,
+  "end": 140.08
+ },
+ {
+  "word": "of",
+  "start": 140.08,
+  "end": 140.34
+ },
+ {
+  "word": "myon",
+  "start": 140.34,
+  "end": 140.7
+ },
+ {
+  "word": "numerals,",
+  "start": 140.7,
+  "end": 141.22
+ },
+ {
+  "word": "several",
+  "start": 141.22,
+  "end": 141.86
+ },
+ {
+  "word": "lines",
+  "start": 141.86,
+  "end": 142.44
+ },
+ {
+  "word": "of",
+  "start": 142.44,
+  "end": 142.7
+ },
+ {
+  "word": "garbled",
+  "start": 142.7,
+  "end": 143.1
+ },
+ {
+  "word": "letters,",
+  "start": 143.1,
+  "end": 143.58
+ },
+ {
+  "word": "two",
+  "start": 144.08,
+  "end": 144.18
+ },
+ {
+  "word": "images",
+  "start": 144.18,
+  "end": 144.74
+ },
+ {
+  "word": "labeled",
+  "start": 144.74,
+  "end": 145.36
+ },
+ {
+  "word": "welcome",
+  "start": 145.36,
+  "end": 145.78
+ },
+ {
+  "word": "and",
+  "start": 145.78,
+  "end": 146.06
+ },
+ {
+  "word": "problems.",
+  "start": 146.06,
+  "end": 146.58
+ },
+ {
+  "word": "That",
+  "start": 147.58,
+  "end": 147.68
+ },
+ {
+  "word": "is",
+  "start": 147.68,
+  "end": 147.84
+ },
+ {
+  "word": "the",
+  "start": 147.84,
+  "end": 148.02
+ },
+ {
+  "word": "point",
+  "start": 148.02,
+  "end": 148.28
+ },
+ {
+  "word": "where",
+  "start": 148.28,
+  "end": 148.6
+ },
+ {
+  "word": "the",
+  "start": 148.6,
+  "end": 148.76
+ },
+ {
+  "word": "game",
+  "start": 148.76,
+  "end": 149.0
+ },
+ {
+  "word": "stops",
+  "start": 149.0,
+  "end": 149.42
+ },
+ {
+  "word": "looking",
+  "start": 149.42,
+  "end": 149.78
+ },
+ {
+  "word": "like",
+  "start": 149.78,
+  "end": 150.0
+ },
+ {
+  "word": "a",
+  "start": 150.0,
+  "end": 150.2
+ },
+ {
+  "word": "prank,",
+  "start": 150.2,
+  "end": 150.46
+ },
+ {
+  "word": "because",
+  "start": 150.78,
+  "end": 151.18
+ },
+ {
+  "word": "pranksters",
+  "start": 151.18,
+  "end": 151.72
+ },
+ {
+  "word": "are",
+  "start": 151.72,
+  "end": 151.96
+ },
+ {
+  "word": "lazy.",
+  "start": 151.96,
+  "end": 152.32
+ },
+ {
+  "word": "This",
+  "start": 152.88,
+  "end": 153.06
+ },
+ {
+  "word": "was",
+  "start": 153.06,
+  "end": 153.28
+ },
+ {
+  "word": "layered.",
+  "start": 153.28,
+  "end": 153.72
+ },
+ {
+  "word": "Each",
+  "start": 154.22,
+  "end": 154.4
+ },
+ {
+  "word": "step",
+  "start": 154.4,
+  "end": 154.74
+ },
+ {
+  "word": "needed",
+  "start": 154.74,
+  "end": 155.08
+ },
+ {
+  "word": "a",
+  "start": 155.08,
+  "end": 155.34
+ },
+ {
+  "word": "different",
+  "start": 155.34,
+  "end": 155.62
+ },
+ {
+  "word": "kind",
+  "start": 155.62,
+  "end": 155.84
+ },
+ {
+  "word": "of",
+  "start": 155.84,
+  "end": 156.0
+ },
+ {
+  "word": "thinking.",
+  "start": 156.0,
+  "end": 156.38
+ },
+ {
+  "word": "Ancient",
+  "start": 156.74,
+  "end": 157.0
+ },
+ {
+  "word": "ciphers,",
+  "start": 157.0,
+  "end": 157.6
+ },
+ {
+  "word": "modern",
+  "start": 158.02,
+  "end": 158.2
+ },
+ {
+  "word": "software,",
+  "start": 158.2,
+  "end": 158.86
+ },
+ {
+  "word": "number",
+  "start": 159.28,
+  "end": 159.4
+ },
+ {
+  "word": "systems",
+  "start": 159.4,
+  "end": 159.94
+ },
+ {
+  "word": "from",
+  "start": 159.94,
+  "end": 160.26
+ },
+ {
+  "word": "another",
+  "start": 160.26,
+  "end": 160.62
+ },
+ {
+  "word": "continent,",
+  "start": 160.62,
+  "end": 161.1
+ },
+ {
+  "word": "and",
+  "start": 161.5,
+  "end": 161.64
+ },
+ {
+  "word": "the",
+  "start": 161.64,
+  "end": 161.76
+ },
+ {
+  "word": "solvers",
+  "start": 161.76,
+  "end": 162.22
+ },
+ {
+  "word": "were",
+  "start": 162.22,
+  "end": 162.46
+ },
+ {
+  "word": "not",
+  "start": 162.46,
+  "end": 162.64
+ },
+ {
+  "word": "alone",
+  "start": 162.64,
+  "end": 163.06
+ },
+ {
+  "word": "anymore.",
+  "start": 163.06,
+  "end": 163.38
+ },
+ {
+  "word": "Someone",
+  "start": 163.96,
+  "end": 164.2
+ },
+ {
+  "word": "posted",
+  "start": 164.2,
+  "end": 164.6
+ },
+ {
+  "word": "a",
+  "start": 164.6,
+  "end": 164.78
+ },
+ {
+  "word": "link",
+  "start": 164.78,
+  "end": 164.98
+ },
+ {
+  "word": "to",
+  "start": 164.98,
+  "end": 165.32
+ },
+ {
+  "word": "an",
+  "start": 165.32,
+  "end": 165.42
+ },
+ {
+  "word": "anonymous",
+  "start": 165.42,
+  "end": 165.92
+ },
+ {
+  "word": "chat",
+  "start": 165.92,
+  "end": 166.26
+ },
+ {
+  "word": "room.",
+  "start": 166.26,
+  "end": 166.62
+ },
+ {
+  "word": "Dozens",
+  "start": 167.3,
+  "end": 167.3
+ },
+ {
+  "word": "of",
+  "start": 167.3,
+  "end": 167.56
+ },
+ {
+  "word": "strangers,",
+  "start": 167.56,
+  "end": 168.1
+ },
+ {
+  "word": "screen",
+  "start": 168.66,
+  "end": 168.9
+ },
+ {
+  "word": "names",
+  "start": 168.9,
+  "end": 169.22
+ },
+ {
+  "word": "only,",
+  "start": 169.22,
+  "end": 169.7
+ },
+ {
+  "word": "everyone",
+  "start": 169.7,
+  "end": 170.48
+ },
+ {
+  "word": "chasing",
+  "start": 170.48,
+  "end": 170.88
+ },
+ {
+  "word": "the",
+  "start": 170.88,
+  "end": 171.2
+ },
+ {
+  "word": "same",
+  "start": 171.2,
+  "end": 171.48
+ },
+ {
+  "word": "thread,",
+  "start": 171.48,
+  "end": 171.92
+ },
+ {
+  "word": "in",
+  "start": 172.38,
+  "end": 172.54
+ },
+ {
+  "word": "a",
+  "start": 172.54,
+  "end": 172.66
+ },
+ {
+  "word": "place",
+  "start": 172.66,
+  "end": 172.94
+ },
+ {
+  "word": "where",
+  "start": 172.94,
+  "end": 173.28
+ },
+ {
+  "word": "the",
+  "start": 173.28,
+  "end": 173.42
+ },
+ {
+  "word": "original",
+  "start": 173.42,
+  "end": 173.82
+ },
+ {
+  "word": "posts",
+  "start": 173.82,
+  "end": 174.26
+ },
+ {
+  "word": "were",
+  "start": 174.26,
+  "end": 174.58
+ },
+ {
+  "word": "already",
+  "start": 174.58,
+  "end": 174.92
+ },
+ {
+  "word": "disappearing.",
+  "start": 174.92,
+  "end": 175.5
+ },
+ {
+  "word": "The",
+  "start": 175.98,
+  "end": 176.16
+ },
+ {
+  "word": "solver",
+  "start": 176.16,
+  "end": 176.62
+ },
+ {
+  "word": "we",
+  "start": 176.62,
+  "end": 176.82
+ },
+ {
+  "word": "have",
+  "start": 176.82,
+  "end": 176.92
+ },
+ {
+  "word": "been",
+  "start": 176.92,
+  "end": 177.12
+ },
+ {
+  "word": "following",
+  "start": 177.12,
+  "end": 177.52
+ },
+ {
+  "word": "later",
+  "start": 177.52,
+  "end": 177.9
+ },
+ {
+  "word": "said",
+  "start": 177.9,
+  "end": 178.18
+ },
+ {
+  "word": "this,",
+  "start": 178.18,
+  "end": 178.54
+ },
+ {
+  "word": "was",
+  "start": 178.8,
+  "end": 179.04
+ },
+ {
+  "word": "the",
+  "start": 179.04,
+  "end": 179.24
+ },
+ {
+  "word": "moment",
+  "start": 179.24,
+  "end": 179.5
+ },
+ {
+  "word": "it",
+  "start": 179.5,
+  "end": 179.72
+ },
+ {
+  "word": "started",
+  "start": 179.72,
+  "end": 179.98
+ },
+ {
+  "word": "to",
+  "start": 179.98,
+  "end": 180.24
+ },
+ {
+  "word": "feel",
+  "start": 180.24,
+  "end": 180.48
+ },
+ {
+  "word": "a",
+  "start": 180.48,
+  "end": 180.64
+ },
+ {
+  "word": "bit",
+  "start": 180.64,
+  "end": 180.8
+ },
+ {
+  "word": "creepy,",
+  "start": 180.8,
+  "end": 181.2
+ },
+ {
+  "word": "because",
+  "start": 181.56,
+  "end": 181.82
+ },
+ {
+  "word": "most",
+  "start": 181.82,
+  "end": 182.14
+ },
+ {
+  "word": "trolls,",
+  "start": 182.14,
+  "end": 182.58
+ },
+ {
+  "word": "they",
+  "start": 182.8,
+  "end": 182.94
+ },
+ {
+  "word": "pointed",
+  "start": 182.94,
+  "end": 183.24
+ },
+ {
+  "word": "out,",
+  "start": 183.24,
+  "end": 183.56
+ },
+ {
+  "word": "do",
+  "start": 183.88,
+  "end": 184.06
+ },
+ {
+  "word": "not",
+  "start": 184.06,
+  "end": 184.24
+ },
+ {
+  "word": "put",
+  "start": 184.24,
+  "end": 184.42
+ },
+ {
+  "word": "this",
+  "start": 184.42,
+  "end": 184.62
+ },
+ {
+  "word": "much",
+  "start": 184.62,
+  "end": 184.88
+ },
+ {
+  "word": "energy",
+  "start": 184.88,
+  "end": 185.34
+ },
+ {
+  "word": "into",
+  "start": 185.34,
+  "end": 185.68
+ },
+ {
+  "word": "a",
+  "start": 185.68,
+  "end": 185.9
+ },
+ {
+  "word": "joke.",
+  "start": 185.9,
+  "end": 186.18
+ },
+ {
+  "word": "Here",
+  "start": 187.36,
+  "end": 187.78
+ },
+ {
+  "word": "is",
+  "start": 187.78,
+  "end": 188.06
+ },
+ {
+  "word": "the",
+  "start": 188.06,
+  "end": 188.24
+ },
+ {
+  "word": "first",
+  "start": 188.24,
+  "end": 188.5
+ },
+ {
+  "word": "thing",
+  "start": 188.5,
+  "end": 188.76
+ },
+ {
+  "word": "you",
+  "start": 188.76,
+  "end": 188.94
+ },
+ {
+  "word": "should",
+  "start": 188.94,
+  "end": 189.1
+ },
+ {
+  "word": "know",
+  "start": 189.1,
+  "end": 189.32
+ },
+ {
+  "word": "about",
+  "start": 189.32,
+  "end": 189.56
+ },
+ {
+  "word": "the",
+  "start": 189.56,
+  "end": 189.78
+ },
+ {
+  "word": "theories.",
+  "start": 189.78,
+  "end": 190.16
+ },
+ {
+  "word": "Some",
+  "start": 190.72,
+  "end": 190.9
+ },
+ {
+  "word": "of",
+  "start": 190.9,
+  "end": 190.98
+ },
+ {
+  "word": "the",
+  "start": 190.98,
+  "end": 191.1
+ },
+ {
+  "word": "commenters",
+  "start": 191.1,
+  "end": 191.56
+ },
+ {
+  "word": "that",
+  "start": 191.56,
+  "end": 192.02
+ },
+ {
+  "word": "night",
+  "start": 192.02,
+  "end": 192.3
+ },
+ {
+  "word": "suspected",
+  "start": 192.3,
+  "end": 192.9
+ },
+ {
+  "word": "something",
+  "start": 192.9,
+  "end": 193.36
+ },
+ {
+  "word": "specific.",
+  "start": 193.36,
+  "end": 193.96
+ },
+ {
+  "word": "They",
+  "start": 194.4,
+  "end": 194.64
+ },
+ {
+  "word": "thought",
+  "start": 194.64,
+  "end": 194.84
+ },
+ {
+  "word": "this",
+  "start": 194.84,
+  "end": 195.08
+ },
+ {
+  "word": "was",
+  "start": 195.08,
+  "end": 195.3
+ },
+ {
+  "word": "a",
+  "start": 195.3,
+  "end": 195.48
+ },
+ {
+  "word": "recruiting",
+  "start": 195.48,
+  "end": 195.92
+ },
+ {
+  "word": "exercise,",
+  "start": 195.92,
+  "end": 196.6
+ },
+ {
+  "word": "and",
+  "start": 197.02,
+  "end": 197.3
+ },
+ {
+  "word": "they",
+  "start": 197.3,
+  "end": 197.44
+ },
+ {
+  "word": "thought",
+  "start": 197.44,
+  "end": 197.68
+ },
+ {
+  "word": "the",
+  "start": 197.68,
+  "end": 197.88
+ },
+ {
+  "word": "recruiter",
+  "start": 197.88,
+  "end": 198.28
+ },
+ {
+  "word": "might",
+  "start": 198.28,
+  "end": 198.5
+ },
+ {
+  "word": "be",
+  "start": 198.5,
+  "end": 198.72
+ },
+ {
+  "word": "the",
+  "start": 198.72,
+  "end": 198.88
+ },
+ {
+  "word": "NSA.",
+  "start": 198.88,
+  "end": 199.32
+ },
+ {
+  "word": "That",
+  "start": 199.92,
+  "end": 200.06
+ },
+ {
+  "word": "idea",
+  "start": 200.06,
+  "end": 200.46
+ },
+ {
+  "word": "would",
+  "start": 200.46,
+  "end": 200.74
+ },
+ {
+  "word": "follow",
+  "start": 200.74,
+  "end": 201.12
+ },
+ {
+  "word": "this",
+  "start": 201.12,
+  "end": 201.36
+ },
+ {
+  "word": "puzzle",
+  "start": 201.36,
+  "end": 201.66
+ },
+ {
+  "word": "for",
+  "start": 201.66,
+  "end": 201.88
+ },
+ {
+  "word": "years.",
+  "start": 201.88,
+  "end": 202.22
+ },
+ {
+  "word": "It",
+  "start": 202.76,
+  "end": 202.88
+ },
+ {
+  "word": "would",
+  "start": 202.88,
+  "end": 203.04
+ },
+ {
+  "word": "never",
+  "start": 203.04,
+  "end": 203.3
+ },
+ {
+  "word": "be",
+  "start": 203.3,
+  "end": 203.56
+ },
+ {
+  "word": "proved.",
+  "start": 203.56,
+  "end": 204.06
+ },
+ {
+  "word": "Hold",
+  "start": 204.6,
+  "end": 204.82
+ },
+ {
+  "word": "on",
+  "start": 204.82,
+  "end": 205.08
+ },
+ {
+  "word": "to",
+  "start": 205.08,
+  "end": 205.32
+ },
+ {
+  "word": "it.",
+  "start": 205.32,
+  "end": 205.66
+ },
+ {
+  "word": "Rung",
+  "start": 206.38,
+  "end": 206.58
+ },
+ {
+  "word": "three,",
+  "start": 206.58,
+  "end": 206.82
+ },
+ {
+  "word": "the",
+  "start": 207.22,
+  "end": 207.32
+ },
+ {
+  "word": "holy",
+  "start": 207.32,
+  "end": 207.66
+ },
+ {
+  "word": "grail.",
+  "start": 207.66,
+  "end": 208.14
+ },
+ {
+  "word": "Back",
+  "start": 208.5,
+  "end": 208.64
+ },
+ {
+  "word": "at",
+  "start": 208.64,
+  "end": 208.78
+ },
+ {
+  "word": "home,",
+  "start": 208.78,
+  "end": 209.1
+ },
+ {
+  "word": "that",
+  "start": 209.34,
+  "end": 209.5
+ },
+ {
+  "word": "same",
+  "start": 209.5,
+  "end": 209.82
+ },
+ {
+  "word": "solver",
+  "start": 209.82,
+  "end": 210.26
+ },
+ {
+  "word": "kept",
+  "start": 210.26,
+  "end": 210.46
+ },
+ {
+  "word": "going",
+  "start": 210.46,
+  "end": 210.82
+ },
+ {
+  "word": "alone,",
+  "start": 210.82,
+  "end": 211.36
+ },
+ {
+  "word": "scribbling",
+  "start": 211.86,
+  "end": 212.2
+ },
+ {
+  "word": "on",
+  "start": 212.2,
+  "end": 212.4
+ },
+ {
+  "word": "index",
+  "start": 212.4,
+  "end": 212.76
+ },
+ {
+  "word": "cards.",
+  "start": 212.76,
+  "end": 213.24
+ },
+ {
+  "word": "The",
+  "start": 213.68,
+  "end": 213.82
+ },
+ {
+  "word": "next",
+  "start": 213.82,
+  "end": 214.02
+ },
+ {
+  "word": "layers",
+  "start": 214.02,
+  "end": 214.34
+ },
+ {
+  "word": "involved",
+  "start": 214.34,
+  "end": 214.84
+ },
+ {
+  "word": "book",
+  "start": 214.84,
+  "end": 215.18
+ },
+ {
+  "word": "codes.",
+  "start": 215.18,
+  "end": 215.68
+ },
+ {
+  "word": "King",
+  "start": 216.04,
+  "end": 216.16
+ },
+ {
+  "word": "Arthur,",
+  "start": 216.16,
+  "end": 216.62
+ },
+ {
+  "word": "the",
+  "start": 217.02,
+  "end": 217.14
+ },
+ {
+  "word": "quest",
+  "start": 217.14,
+  "end": 217.34
+ },
+ {
+  "word": "for",
+  "start": 217.34,
+  "end": 217.62
+ },
+ {
+  "word": "the",
+  "start": 217.62,
+  "end": 217.76
+ },
+ {
+  "word": "holy",
+  "start": 217.76,
+  "end": 218.04
+ },
+ {
+  "word": "grail.",
+  "start": 218.04,
+  "end": 218.54
+ },
+ {
+  "word": "A",
+  "start": 218.84,
+  "end": 218.98
+ },
+ {
+  "word": "book",
+  "start": 218.98,
+  "end": 219.14
+ },
+ {
+  "word": "code,",
+  "start": 219.14,
+  "end": 219.46
+ },
+ {
+  "word": "by",
+  "start": 219.52,
+  "end": 219.68
+ },
+ {
+  "word": "the",
+  "start": 219.68,
+  "end": 219.8
+ },
+ {
+  "word": "way,",
+  "start": 219.8,
+  "end": 220.06
+ },
+ {
+  "word": "is",
+  "start": 220.26,
+  "end": 220.52
+ },
+ {
+  "word": "a",
+  "start": 220.52,
+  "end": 220.7
+ },
+ {
+  "word": "cipher",
+  "start": 220.7,
+  "end": 220.98
+ },
+ {
+  "word": "that",
+  "start": 220.98,
+  "end": 221.28
+ },
+ {
+  "word": "points",
+  "start": 221.28,
+  "end": 221.5
+ },
+ {
+  "word": "into",
+  "start": 221.5,
+  "end": 221.8
+ },
+ {
+  "word": "a",
+  "start": 221.8,
+  "end": 221.92
+ },
+ {
+  "word": "specific",
+  "start": 221.92,
+  "end": 222.28
+ },
+ {
+  "word": "text.",
+  "start": 222.28,
+  "end": 222.74
+ },
+ {
+  "word": "No",
+  "start": 223.2,
+  "end": 223.42
+ },
+ {
+  "word": "book,",
+  "start": 223.42,
+  "end": 223.64
+ },
+ {
+  "word": "no",
+  "start": 223.82,
+  "end": 223.88
+ },
+ {
+  "word": "answer.",
+  "start": 223.88,
+  "end": 224.3
+ },
+ {
+  "word": "So",
+  "start": 224.3,
+  "end": 224.9
+ },
+ {
+  "word": "you",
+  "start": 224.9,
+  "end": 225.06
+ },
+ {
+  "word": "have",
+  "start": 225.06,
+  "end": 225.24
+ },
+ {
+  "word": "to",
+  "start": 225.24,
+  "end": 225.4
+ },
+ {
+  "word": "work",
+  "start": 225.4,
+  "end": 225.6
+ },
+ {
+  "word": "out",
+  "start": 225.6,
+  "end": 225.8
+ },
+ {
+  "word": "which",
+  "start": 225.8,
+  "end": 226.04
+ },
+ {
+  "word": "book.",
+  "start": 226.04,
+  "end": 226.4
+ },
+ {
+  "word": "Hours",
+  "start": 227.12,
+  "end": 227.12
+ },
+ {
+  "word": "went",
+  "start": 227.12,
+  "end": 227.38
+ },
+ {
+  "word": "by,",
+  "start": 227.38,
+  "end": 227.76
+ },
+ {
+  "word": "then",
+  "start": 228.22,
+  "end": 228.38
+ },
+ {
+  "word": "a",
+  "start": 228.38,
+  "end": 228.64
+ },
+ {
+  "word": "message",
+  "start": 228.64,
+  "end": 228.98
+ },
+ {
+  "word": "began",
+  "start": 228.98,
+  "end": 229.42
+ },
+ {
+  "word": "to",
+  "start": 229.42,
+  "end": 229.64
+ },
+ {
+  "word": "emerge",
+  "start": 229.64,
+  "end": 229.94
+ },
+ {
+  "word": "from",
+  "start": 229.94,
+  "end": 230.24
+ },
+ {
+  "word": "the",
+  "start": 230.24,
+  "end": 230.4
+ },
+ {
+  "word": "cards.",
+  "start": 230.4,
+  "end": 230.78
+ },
+ {
+  "word": "Call",
+  "start": 232.08,
+  "end": 232.16
+ },
+ {
+  "word": "us",
+  "start": 232.16,
+  "end": 232.34
+ },
+ {
+  "word": "on",
+  "start": 232.34,
+  "end": 232.5
+ },
+ {
+  "word": "a",
+  "start": 232.5,
+  "end": 232.72
+ },
+ {
+  "word": "telephone",
+  "start": 232.72,
+  "end": 233.2
+ },
+ {
+  "word": "number,",
+  "start": 233.2,
+  "end": 233.86
+ },
+ {
+  "word": "and",
+  "start": 234.2,
+  "end": 234.44
+ },
+ {
+  "word": "then",
+  "start": 234.44,
+  "end": 234.66
+ },
+ {
+  "word": "digits.",
+  "start": 234.66,
+  "end": 235.14
+ },
+ {
+  "word": "The",
+  "start": 236.08,
+  "end": 236.28
+ },
+ {
+  "word": "solver",
+  "start": 236.28,
+  "end": 236.72
+ },
+ {
+  "word": "blurted",
+  "start": 236.72,
+  "end": 237.22
+ },
+ {
+  "word": "it",
+  "start": 237.22,
+  "end": 237.38
+ },
+ {
+  "word": "into",
+  "start": 237.38,
+  "end": 237.54
+ },
+ {
+  "word": "the",
+  "start": 237.54,
+  "end": 237.7
+ },
+ {
+  "word": "chat",
+  "start": 237.7,
+  "end": 237.9
+ },
+ {
+  "word": "room.",
+  "start": 237.9,
+  "end": 238.22
+ },
+ {
+  "word": "I'm",
+  "start": 238.68,
+  "end": 238.86
+ },
+ {
+  "word": "getting",
+  "start": 238.86,
+  "end": 239.04
+ },
+ {
+  "word": "a",
+  "start": 239.04,
+  "end": 239.26
+ },
+ {
+  "word": "phone",
+  "start": 239.26,
+  "end": 239.52
+ },
+ {
+  "word": "number.",
+  "start": 239.52,
+  "end": 239.92
+ },
+ {
+  "word": "And",
+  "start": 240.34,
+  "end": 240.52
+ },
+ {
+  "word": "the",
+  "start": 240.52,
+  "end": 240.64
+ },
+ {
+  "word": "room",
+  "start": 240.64,
+  "end": 240.9
+ },
+ {
+  "word": "did",
+  "start": 240.9,
+  "end": 241.18
+ },
+ {
+  "word": "not",
+  "start": 241.18,
+  "end": 241.44
+ },
+ {
+  "word": "believe",
+  "start": 241.44,
+  "end": 241.78
+ },
+ {
+  "word": "them.",
+  "start": 241.78,
+  "end": 242.08
+ },
+ {
+  "word": "The",
+  "start": 242.44,
+  "end": 242.56
+ },
+ {
+  "word": "more",
+  "start": 242.56,
+  "end": 242.74
+ },
+ {
+  "word": "advanced",
+  "start": 242.74,
+  "end": 243.18
+ },
+ {
+  "word": "commenters",
+  "start": 243.18,
+  "end": 243.74
+ },
+ {
+  "word": "doubted",
+  "start": 243.74,
+  "end": 244.12
+ },
+ {
+  "word": "it.",
+  "start": 244.12,
+  "end": 244.46
+ },
+ {
+  "word": "The",
+  "start": 244.66,
+  "end": 244.84
+ },
+ {
+  "word": "less",
+  "start": 244.84,
+  "end": 245.02
+ },
+ {
+  "word": "advanced",
+  "start": 245.02,
+  "end": 245.56
+ },
+ {
+  "word": "insulted",
+  "start": 245.56,
+  "end": 246.08
+ },
+ {
+  "word": "them.",
+  "start": 246.08,
+  "end": 246.52
+ },
+ {
+  "word": "That",
+  "start": 246.88,
+  "end": 247.06
+ },
+ {
+  "word": "is",
+  "start": 247.06,
+  "end": 247.2
+ },
+ {
+  "word": "the",
+  "start": 247.2,
+  "end": 247.4
+ },
+ {
+  "word": "internet",
+  "start": 247.4,
+  "end": 247.76
+ },
+ {
+  "word": "for",
+  "start": 247.76,
+  "end": 248.08
+ },
+ {
+  "word": "you.",
+  "start": 248.08,
+  "end": 248.4
+ },
+ {
+  "word": "But",
+  "start": 248.66,
+  "end": 248.84
+ },
+ {
+  "word": "a",
+  "start": 248.84,
+  "end": 248.96
+ },
+ {
+  "word": "private",
+  "start": 248.96,
+  "end": 249.3
+ },
+ {
+  "word": "message",
+  "start": 249.3,
+  "end": 249.68
+ },
+ {
+  "word": "arrived.",
+  "start": 249.68,
+  "end": 250.14
+ },
+ {
+  "word": "You're",
+  "start": 250.7,
+  "end": 250.92
+ },
+ {
+  "word": "way",
+  "start": 250.92,
+  "end": 251.08
+ },
+ {
+  "word": "ahead",
+  "start": 251.08,
+  "end": 251.38
+ },
+ {
+  "word": "of",
+  "start": 251.38,
+  "end": 251.52
+ },
+ {
+  "word": "the",
+  "start": 251.52,
+  "end": 251.64
+ },
+ {
+  "word": "others.",
+  "start": 251.64,
+  "end": 251.92
+ },
+ {
+  "word": "An",
+  "start": 252.26,
+  "end": 252.54
+ },
+ {
+  "word": "invitation",
+  "start": 252.54,
+  "end": 252.92
+ },
+ {
+  "word": "to",
+  "start": 252.92,
+  "end": 253.32
+ },
+ {
+  "word": "a",
+  "start": 253.32,
+  "end": 253.46
+ },
+ {
+  "word": "smaller",
+  "start": 253.46,
+  "end": 253.88
+ },
+ {
+  "word": "private",
+  "start": 253.88,
+  "end": 254.32
+ },
+ {
+  "word": "chat.",
+  "start": 254.32,
+  "end": 254.72
+ },
+ {
+  "word": "So",
+  "start": 255.22,
+  "end": 255.22
+ },
+ {
+  "word": "with",
+  "start": 255.22,
+  "end": 255.4
+ },
+ {
+  "word": "that,",
+  "start": 255.4,
+  "end": 255.68
+ },
+ {
+  "word": "the",
+  "start": 255.88,
+  "end": 255.88
+ },
+ {
+  "word": "solver",
+  "start": 255.88,
+  "end": 256.3
+ },
+ {
+  "word": "dialed.",
+  "start": 256.3,
+  "end": 257.04
+ },
+ {
+  "word": "A",
+  "start": 257.96,
+  "end": 257.98
+ },
+ {
+  "word": "recording",
+  "start": 257.98,
+  "end": 258.4
+ },
+ {
+  "word": "answered.",
+  "start": 258.4,
+  "end": 258.94
+ },
+ {
+  "word": "Here",
+  "start": 259.5,
+  "end": 259.62
+ },
+ {
+  "word": "is",
+  "start": 259.62,
+  "end": 259.78
+ },
+ {
+  "word": "what",
+  "start": 259.78,
+  "end": 259.96
+ },
+ {
+  "word": "it",
+  "start": 259.96,
+  "end": 260.1
+ },
+ {
+  "word": "said,",
+  "start": 260.1,
+  "end": 260.38
+ },
+ {
+  "word": "close",
+  "start": 260.72,
+  "end": 260.82
+ },
+ {
+  "word": "to",
+  "start": 260.82,
+  "end": 261.04
+ },
+ {
+  "word": "word",
+  "start": 261.04,
+  "end": 261.22
+ },
+ {
+  "word": "for",
+  "start": 261.22,
+  "end": 261.44
+ },
+ {
+  "word": "word.",
+  "start": 261.44,
+  "end": 261.86
+ },
+ {
+  "word": "Very",
+  "start": 262.28,
+  "end": 262.56
+ },
+ {
+  "word": "good,",
+  "start": 262.56,
+  "end": 262.86
+ },
+ {
+  "word": "you",
+  "start": 263.22,
+  "end": 263.4
+ },
+ {
+  "word": "have",
+  "start": 263.4,
+  "end": 263.58
+ },
+ {
+  "word": "done",
+  "start": 263.58,
+  "end": 263.8
+ },
+ {
+  "word": "well.",
+  "start": 263.8,
+  "end": 264.14
+ },
+ {
+  "word": "There",
+  "start": 264.58,
+  "end": 264.72
+ },
+ {
+  "word": "are",
+  "start": 264.72,
+  "end": 264.92
+ },
+ {
+  "word": "three",
+  "start": 264.92,
+  "end": 265.22
+ },
+ {
+  "word": "prime",
+  "start": 265.22,
+  "end": 265.62
+ },
+ {
+  "word": "numbers",
+  "start": 265.62,
+  "end": 266.1
+ },
+ {
+  "word": "associated",
+  "start": 266.1,
+  "end": 266.84
+ },
+ {
+  "word": "with",
+  "start": 266.84,
+  "end": 267.32
+ },
+ {
+  "word": "the",
+  "start": 267.32,
+  "end": 267.48
+ },
+ {
+  "word": "original",
+  "start": 267.48,
+  "end": 268.06
+ },
+ {
+  "word": "final",
+  "start": 268.06,
+  "end": 268.52
+ },
+ {
+  "word": "image.",
+  "start": 268.52,
+  "end": 269.08
+ },
+ {
+  "word": "3",
+  "start": 269.7,
+  "end": 269.9
+ },
+ {
+  "word": ",301",
+  "start": 269.9,
+  "end": 270.86
+ },
+ {
+  "word": "is",
+  "start": 270.86,
+  "end": 271.74
+ },
+ {
+  "word": "one",
+  "start": 271.74,
+  "end": 271.94
+ },
+ {
+  "word": "of",
+  "start": 271.94,
+  "end": 272.06
+ },
+ {
+  "word": "them.",
+  "start": 272.06,
+  "end": 272.26
+ },
+ {
+  "word": "You",
+  "start": 272.54,
+  "end": 272.64
+ },
+ {
+  "word": "will",
+  "start": 272.64,
+  "end": 272.76
+ },
+ {
+  "word": "have",
+  "start": 272.76,
+  "end": 272.92
+ },
+ {
+  "word": "to",
+  "start": 272.92,
+  "end": 273.12
+ },
+ {
+  "word": "find",
+  "start": 273.12,
+  "end": 273.38
+ },
+ {
+  "word": "the",
+  "start": 273.38,
+  "end": 273.52
+ },
+ {
+  "word": "other",
+  "start": 273.52,
+  "end": 273.68
+ },
+ {
+  "word": "two.",
+  "start": 273.68,
+  "end": 274.02
+ },
+ {
+  "word": "Multiply",
+  "start": 274.56,
+  "end": 275.1
+ },
+ {
+  "word": "all",
+  "start": 275.1,
+  "end": 275.48
+ },
+ {
+  "word": "three",
+  "start": 275.48,
+  "end": 275.8
+ },
+ {
+  "word": "of",
+  "start": 275.8,
+  "end": 275.94
+ },
+ {
+  "word": "these",
+  "start": 275.94,
+  "end": 276.16
+ },
+ {
+  "word": "numbers",
+  "start": 276.16,
+  "end": 276.48
+ },
+ {
+  "word": "together",
+  "start": 276.48,
+  "end": 276.94
+ },
+ {
+  "word": "and",
+  "start": 277.3,
+  "end": 277.58
+ },
+ {
+  "word": "add",
+  "start": 277.58,
+  "end": 277.84
+ },
+ {
+  "word": "a",
+  "start": 277.84,
+  "end": 278.0
+ },
+ {
+  "word": "dot",
+  "start": 278.0,
+  "end": 278.22
+ },
+ {
+  "word": "com",
+  "start": 278.22,
+  "end": 278.54
+ },
+ {
+  "word": "on",
+  "start": 278.54,
+  "end": 278.8
+ },
+ {
+  "word": "the",
+  "start": 278.8,
+  "end": 278.92
+ },
+ {
+  "word": "end",
+  "start": 278.92,
+  "end": 279.16
+ },
+ {
+  "word": "to",
+  "start": 279.16,
+  "end": 279.38
+ },
+ {
+  "word": "find",
+  "start": 279.38,
+  "end": 279.62
+ },
+ {
+  "word": "the",
+  "start": 279.62,
+  "end": 279.78
+ },
+ {
+  "word": "next",
+  "start": 279.78,
+  "end": 279.96
+ },
+ {
+  "word": "step.",
+  "start": 279.96,
+  "end": 280.34
+ },
+ {
+  "word": "Good",
+  "start": 280.82,
+  "end": 281.04
+ },
+ {
+  "word": "luck.",
+  "start": 281.04,
+  "end": 281.3
+ },
+ {
+  "word": "Good",
+  "start": 281.3,
+  "end": 281.9
+ },
+ {
+  "word": "bye.",
+  "start": 281.9,
+  "end": 282.32
+ },
+ {
+  "word": "And",
+  "start": 283.3,
+  "end": 283.38
+ },
+ {
+  "word": "that",
+  "start": 283.38,
+  "end": 283.62
+ },
+ {
+  "word": "is",
+  "start": 283.62,
+  "end": 283.84
+ },
+ {
+  "word": "where",
+  "start": 283.84,
+  "end": 284.0
+ },
+ {
+  "word": "the",
+  "start": 284.0,
+  "end": 284.14
+ },
+ {
+  "word": "number",
+  "start": 284.14,
+  "end": 284.3
+ },
+ {
+  "word": "comes",
+  "start": 284.3,
+  "end": 284.66
+ },
+ {
+  "word": "from.",
+  "start": 284.66,
+  "end": 285.02
+ },
+ {
+  "word": "3",
+  "start": 285.58,
+  "end": 285.58
+ },
+ {
+  "word": ",301,",
+  "start": 285.58,
+  "end": 286.74
+ },
+ {
+  "word": "a",
+  "start": 287.4,
+  "end": 287.58
+ },
+ {
+  "word": "prime.",
+  "start": 287.58,
+  "end": 288.0
+ },
+ {
+  "word": "The",
+  "start": 288.54,
+  "end": 288.64
+ },
+ {
+  "word": "solver",
+  "start": 288.64,
+  "end": 289.02
+ },
+ {
+  "word": "checked",
+  "start": 289.02,
+  "end": 289.24
+ },
+ {
+  "word": "the",
+  "start": 289.24,
+  "end": 289.46
+ },
+ {
+  "word": "first",
+  "start": 289.46,
+  "end": 289.7
+ },
+ {
+  "word": "image.",
+  "start": 289.7,
+  "end": 290.12
+ },
+ {
+  "word": "The",
+  "start": 290.6,
+  "end": 290.7
+ },
+ {
+  "word": "pixel",
+  "start": 290.7,
+  "end": 290.96
+ },
+ {
+  "word": "dimensions",
+  "start": 290.96,
+  "end": 291.54
+ },
+ {
+  "word": "were",
+  "start": 291.54,
+  "end": 291.86
+ },
+ {
+  "word": "509",
+  "start": 291.86,
+  "end": 293.0
+ },
+ {
+  "word": "by",
+  "start": 293.0,
+  "end": 293.46
+ },
+ {
+  "word": "503.",
+  "start": 293.46,
+  "end": 294.26
+ },
+ {
+  "word": "Both",
+  "start": 295.52,
+  "end": 295.84
+ },
+ {
+  "word": "prime,",
+  "start": 295.84,
+  "end": 296.3
+ },
+ {
+  "word": "two",
+  "start": 296.8,
+  "end": 297.02
+ },
+ {
+  "word": "primes",
+  "start": 297.02,
+  "end": 297.6
+ },
+ {
+  "word": "hidden",
+  "start": 297.6,
+  "end": 297.88
+ },
+ {
+  "word": "in",
+  "start": 297.88,
+  "end": 298.14
+ },
+ {
+  "word": "plain",
+  "start": 298.14,
+  "end": 298.4
+ },
+ {
+  "word": "sight",
+  "start": 298.4,
+  "end": 298.8
+ },
+ {
+  "word": "in",
+  "start": 298.8,
+  "end": 299.28
+ },
+ {
+  "word": "the",
+  "start": 299.28,
+  "end": 299.46
+ },
+ {
+  "word": "shape",
+  "start": 299.46,
+  "end": 299.68
+ },
+ {
+  "word": "of",
+  "start": 299.68,
+  "end": 299.86
+ },
+ {
+  "word": "the",
+  "start": 299.86,
+  "end": 300.0
+ },
+ {
+  "word": "picture",
+  "start": 300.0,
+  "end": 300.32
+ },
+ {
+  "word": "itself.",
+  "start": 300.32,
+  "end": 300.8
+ },
+ {
+  "word": "Multiply",
+  "start": 301.4,
+  "end": 301.92
+ },
+ {
+  "word": "them",
+  "start": 301.92,
+  "end": 302.16
+ },
+ {
+  "word": "with",
+  "start": 302.16,
+  "end": 302.36
+ },
+ {
+  "word": "3",
+  "start": 302.36,
+  "end": 302.78
+ },
+ {
+  "word": ",301.",
+  "start": 302.78,
+  "end": 303.82
+ },
+ {
+  "word": "Add",
+  "start": 304.68,
+  "end": 304.74
+ },
+ {
+  "word": "dot",
+  "start": 304.74,
+  "end": 305.06
+ },
+ {
+  "word": "com",
+  "start": 305.06,
+  "end": 305.42
+ },
+ {
+  "word": "and",
+  "start": 305.42,
+  "end": 306.0
+ },
+ {
+  "word": "you",
+  "start": 306.0,
+  "end": 306.12
+ },
+ {
+  "word": "get",
+  "start": 306.12,
+  "end": 306.26
+ },
+ {
+  "word": "an",
+  "start": 306.26,
+  "end": 306.38
+ },
+ {
+  "word": "address.",
+  "start": 306.38,
+  "end": 306.76
+ },
+ {
+  "word": "An",
+  "start": 307.3,
+  "end": 307.4
+ },
+ {
+  "word": "image",
+  "start": 307.4,
+  "end": 307.72
+ },
+ {
+  "word": "of",
+  "start": 307.72,
+  "end": 307.9
+ },
+ {
+  "word": "a",
+  "start": 307.9,
+  "end": 308.04
+ },
+ {
+  "word": "cicada",
+  "start": 308.04,
+  "end": 308.48
+ },
+ {
+  "word": "appeared.",
+  "start": 308.48,
+  "end": 308.9
+ },
+ {
+  "word": "Above",
+  "start": 309.34,
+  "end": 309.64
+ },
+ {
+  "word": "it,",
+  "start": 309.64,
+  "end": 309.84
+ },
+ {
+  "word": "a",
+  "start": 310.02,
+  "end": 310.02
+ },
+ {
+  "word": "countdown.",
+  "start": 310.02,
+  "end": 310.34
+ },
+ {
+  "word": "Three",
+  "start": 310.94,
+  "end": 311.2
+ },
+ {
+  "word": "days",
+  "start": 311.2,
+  "end": 311.5
+ },
+ {
+  "word": "and",
+  "start": 311.5,
+  "end": 312.2
+ },
+ {
+  "word": "hidden",
+  "start": 312.2,
+  "end": 312.42
+ },
+ {
+  "word": "inside",
+  "start": 312.42,
+  "end": 312.92
+ },
+ {
+  "word": "the",
+  "start": 312.92,
+  "end": 313.12
+ },
+ {
+  "word": "cicada",
+  "start": 313.12,
+  "end": 313.62
+ },
+ {
+  "word": "run",
+  "start": 313.62,
+  "end": 314.12
+ },
+ {
+  "word": "throughout",
+  "start": 314.12,
+  "end": 314.6
+ },
+ {
+  "word": "guests",
+  "start": 314.6,
+  "end": 314.88
+ },
+ {
+  "word": "once",
+  "start": 314.88,
+  "end": 315.12
+ },
+ {
+  "word": "more.",
+  "start": 315.12,
+  "end": 315.56
+ },
+ {
+  "word": "Another",
+  "start": 315.92,
+  "end": 316.18
+ },
+ {
+  "word": "message.",
+  "start": 316.18,
+  "end": 316.62
+ },
+ {
+  "word": "You",
+  "start": 317.14,
+  "end": 317.24
+ },
+ {
+  "word": "have",
+  "start": 317.24,
+  "end": 317.36
+ },
+ {
+  "word": "done",
+  "start": 317.36,
+  "end": 317.58
+ },
+ {
+  "word": "well",
+  "start": 317.58,
+  "end": 317.88
+ },
+ {
+  "word": "to",
+  "start": 317.88,
+  "end": 318.12
+ },
+ {
+  "word": "come",
+  "start": 318.12,
+  "end": 318.32
+ },
+ {
+  "word": "this",
+  "start": 318.32,
+  "end": 318.54
+ },
+ {
+  "word": "far.",
+  "start": 318.54,
+  "end": 318.96
+ },
+ {
+  "word": "Patience",
+  "start": 319.52,
+  "end": 319.8
+ },
+ {
+  "word": "is",
+  "start": 319.8,
+  "end": 320.0
+ },
+ {
+  "word": "a",
+  "start": 320.0,
+  "end": 320.16
+ },
+ {
+  "word": "virtue.",
+  "start": 320.16,
+  "end": 320.56
+ },
+ {
+  "word": "Check",
+  "start": 321.06,
+  "end": 321.26
+ },
+ {
+  "word": "back",
+  "start": 321.26,
+  "end": 321.52
+ },
+ {
+  "word": "at",
+  "start": 321.52,
+  "end": 321.72
+ },
+ {
+  "word": "17,",
+  "start": 321.72,
+  "end": 322.3
+ },
+ {
+  "word": "00",
+  "start": 322.58,
+  "end": 323.0
+ },
+ {
+  "word": "on",
+  "start": 323.0,
+  "end": 323.58
+ },
+ {
+  "word": "Monday,",
+  "start": 323.58,
+  "end": 323.94
+ },
+ {
+  "word": "9",
+  "start": 324.56,
+  "end": 324.68
+ },
+ {
+  "word": "January",
+  "start": 324.68,
+  "end": 325.18
+ },
+ {
+  "word": "2012",
+  "start": 325.18,
+  "end": 326.28
+ },
+ {
+  "word": "UTC.",
+  "start": 326.28,
+  "end": 326.96
+ },
+ {
+  "word": "It",
+  "start": 328.26,
+  "end": 328.42
+ },
+ {
+  "word": "was",
+  "start": 328.42,
+  "end": 328.5
+ },
+ {
+  "word": "around",
+  "start": 328.5,
+  "end": 328.78
+ },
+ {
+  "word": "two",
+  "start": 328.78,
+  "end": 329.14
+ },
+ {
+  "word": "in",
+  "start": 329.14,
+  "end": 329.34
+ },
+ {
+  "word": "the",
+  "start": 329.34,
+  "end": 329.46
+ },
+ {
+  "word": "morning.",
+  "start": 329.46,
+  "end": 329.78
+ },
+ {
+  "word": "The",
+  "start": 330.22,
+  "end": 330.36
+ },
+ {
+  "word": "solver",
+  "start": 330.36,
+  "end": 330.8
+ },
+ {
+  "word": "had",
+  "start": 330.8,
+  "end": 331.06
+ },
+ {
+  "word": "reached",
+  "start": 331.06,
+  "end": 331.32
+ },
+ {
+  "word": "the",
+  "start": 331.32,
+  "end": 331.5
+ },
+ {
+  "word": "next",
+  "start": 331.5,
+  "end": 331.7
+ },
+ {
+  "word": "level",
+  "start": 331.7,
+  "end": 332.08
+ },
+ {
+  "word": "and",
+  "start": 332.08,
+  "end": 332.56
+ },
+ {
+  "word": "what",
+  "start": 332.56,
+  "end": 332.72
+ },
+ {
+  "word": "had",
+  "start": 332.72,
+  "end": 332.86
+ },
+ {
+  "word": "begun",
+  "start": 332.86,
+  "end": 333.24
+ },
+ {
+  "word": "as",
+  "start": 333.24,
+  "end": 333.6
+ },
+ {
+  "word": "an",
+  "start": 333.6,
+  "end": 333.74
+ },
+ {
+  "word": "online",
+  "start": 333.74,
+  "end": 334.26
+ },
+ {
+  "word": "lark",
+  "start": 334.26,
+  "end": 334.7
+ },
+ {
+  "word": "was",
+  "start": 334.7,
+  "end": 335.12
+ },
+ {
+  "word": "about",
+  "start": 335.12,
+  "end": 335.42
+ },
+ {
+  "word": "to",
+  "start": 335.42,
+  "end": 335.58
+ },
+ {
+  "word": "leave",
+  "start": 335.58,
+  "end": 335.8
+ },
+ {
+  "word": "the",
+  "start": 335.8,
+  "end": 335.98
+ },
+ {
+  "word": "screen",
+  "start": 335.98,
+  "end": 336.4
+ },
+ {
+  "word": "and",
+  "start": 336.4,
+  "end": 336.92
+ },
+ {
+  "word": "enter",
+  "start": 336.92,
+  "end": 337.2
+ },
+ {
+  "word": "the",
+  "start": 337.2,
+  "end": 337.38
+ },
+ {
+  "word": "real",
+  "start": 337.38,
+  "end": 337.66
+ },
+ {
+  "word": "world.",
+  "start": 337.66,
+  "end": 338.12
+ },
+ {
+  "word": "That",
+  "start": 338.9,
+  "end": 339.38
+ },
+ {
+  "word": "is",
+  "start": 339.38,
+  "end": 339.52
+ },
+ {
+  "word": "where",
+  "start": 339.52,
+  "end": 339.76
+ },
+ {
+  "word": "one",
+  "start": 339.76,
+  "end": 340.06
+ },
+ {
+  "word": "magazine's",
+  "start": 340.06,
+  "end": 340.84
+ },
+ {
+  "word": "account",
+  "start": 340.84,
+  "end": 341.1
+ },
+ {
+  "word": "of",
+  "start": 341.1,
+  "end": 341.26
+ },
+ {
+  "word": "the",
+  "start": 341.26,
+  "end": 341.38
+ },
+ {
+  "word": "story",
+  "start": 341.38,
+  "end": 341.68
+ },
+ {
+  "word": "breaks",
+  "start": 341.68,
+  "end": 342.0
+ },
+ {
+  "word": "off.",
+  "start": 342.0,
+  "end": 342.36
+ },
+ {
+  "word": "So",
+  "start": 342.9,
+  "end": 342.92
+ },
+ {
+  "word": "let",
+  "start": 342.92,
+  "end": 343.08
+ },
+ {
+  "word": "me",
+  "start": 343.08,
+  "end": 343.24
+ },
+ {
+  "word": "tell",
+  "start": 343.24,
+  "end": 343.44
+ },
+ {
+  "word": "you",
+  "start": 343.44,
+  "end": 343.64
+ },
+ {
+  "word": "what",
+  "start": 343.64,
+  "end": 343.84
+ },
+ {
+  "word": "else",
+  "start": 343.84,
+  "end": 344.08
+ },
+ {
+  "word": "is",
+  "start": 344.08,
+  "end": 344.3
+ },
+ {
+  "word": "on",
+  "start": 344.3,
+  "end": 344.52
+ },
+ {
+  "word": "record.",
+  "start": 344.52,
+  "end": 344.88
+ },
+ {
+  "word": "Because",
+  "start": 345.36,
+  "end": 345.58
+ },
+ {
+  "word": "the",
+  "start": 345.58,
+  "end": 345.78
+ },
+ {
+  "word": "puzzle",
+  "start": 345.78,
+  "end": 346.12
+ },
+ {
+  "word": "did",
+  "start": 346.12,
+  "end": 346.34
+ },
+ {
+  "word": "not",
+  "start": 346.34,
+  "end": 346.54
+ },
+ {
+  "word": "stay",
+  "start": 346.54,
+  "end": 346.86
+ },
+ {
+  "word": "online,",
+  "start": 346.86,
+  "end": 347.4
+ },
+ {
+  "word": "the",
+  "start": 347.94,
+  "end": 348.0
+ },
+ {
+  "word": "clues",
+  "start": 348.0,
+  "end": 348.32
+ },
+ {
+  "word": "ran",
+  "start": 348.32,
+  "end": 348.7
+ },
+ {
+  "word": "across",
+  "start": 348.7,
+  "end": 349.0
+ },
+ {
+  "word": "several",
+  "start": 349.0,
+  "end": 349.5
+ },
+ {
+  "word": "kinds",
+  "start": 349.5,
+  "end": 349.78
+ },
+ {
+  "word": "of",
+  "start": 349.78,
+  "end": 349.98
+ },
+ {
+  "word": "medium.",
+  "start": 349.98,
+  "end": 350.32
+ },
+ {
+  "word": "Digital",
+  "start": 351.14,
+  "end": 351.14
+ },
+ {
+  "word": "images",
+  "start": 351.14,
+  "end": 351.66
+ },
+ {
+  "word": "with",
+  "start": 351.66,
+  "end": 352.18
+ },
+ {
+  "word": "hidden",
+  "start": 352.18,
+  "end": 352.5
+ },
+ {
+  "word": "information,",
+  "start": 352.5,
+  "end": 353.16
+ },
+ {
+  "word": "a",
+  "start": 353.62,
+  "end": 353.74
+ },
+ {
+  "word": "telephone",
+  "start": 353.74,
+  "end": 354.18
+ },
+ {
+  "word": "message,",
+  "start": 354.18,
+  "end": 354.82
+ },
+ {
+  "word": "websites,",
+  "start": 355.36,
+  "end": 355.7
+ },
+ {
+  "word": "and",
+  "start": 357.06,
+  "end": 357.18
+ },
+ {
+  "word": "paper",
+  "start": 357.18,
+  "end": 357.44
+ },
+ {
+  "word": "signs",
+  "start": 357.44,
+  "end": 357.9
+ },
+ {
+  "word": "with",
+  "start": 357.9,
+  "end": 358.46
+ },
+ {
+  "word": "QR",
+  "start": 358.46,
+  "end": 358.86
+ },
+ {
+  "word": "codes",
+  "start": 358.86,
+  "end": 359.22
+ },
+ {
+  "word": "on",
+  "start": 359.22,
+  "end": 359.52
+ },
+ {
+  "word": "them.",
+  "start": 359.52,
+  "end": 359.8
+ },
+ {
+  "word": "Physical",
+  "start": 360.3,
+  "end": 360.54
+ },
+ {
+  "word": "things",
+  "start": 360.54,
+  "end": 361.1
+ },
+ {
+  "word": "out",
+  "start": 361.1,
+  "end": 361.66
+ },
+ {
+  "word": "in",
+  "start": 361.66,
+  "end": 361.88
+ },
+ {
+  "word": "the",
+  "start": 361.88,
+  "end": 362.0
+ },
+ {
+  "word": "world.",
+  "start": 362.0,
+  "end": 362.4
+ },
+ {
+  "word": "Solvers",
+  "start": 363.02,
+  "end": 363.24
+ },
+ {
+  "word": "met",
+  "start": 363.24,
+  "end": 363.54
+ },
+ {
+  "word": "cryptography,",
+  "start": 363.54,
+  "end": 364.24
+ },
+ {
+  "word": "steganography,",
+  "start": 364.96,
+  "end": 365.6
+ },
+ {
+  "word": "references",
+  "start": 366.2,
+  "end": 366.48
+ },
+ {
+  "word": "to",
+  "start": 366.48,
+  "end": 366.82
+ },
+ {
+  "word": "literature,",
+  "start": 366.82,
+  "end": 367.28
+ },
+ {
+  "word": "poetry,",
+  "start": 367.28,
+  "end": 367.8
+ },
+ {
+  "word": "art,",
+  "start": 368.34,
+  "end": 368.58
+ },
+ {
+  "word": "and",
+  "start": 368.76,
+  "end": 368.84
+ },
+ {
+  "word": "music.",
+  "start": 368.84,
+  "end": 369.18
+ },
+ {
+  "word": "Among",
+  "start": 369.66,
+  "end": 369.82
+ },
+ {
+  "word": "the",
+  "start": 369.82,
+  "end": 370.0
+ },
+ {
+  "word": "works",
+  "start": 370.0,
+  "end": 370.2
+ },
+ {
+  "word": "the",
+  "start": 370.2,
+  "end": 370.44
+ },
+ {
+  "word": "puzzle",
+  "start": 370.44,
+  "end": 370.68
+ },
+ {
+  "word": "used",
+  "start": 370.68,
+  "end": 371.14
+ },
+ {
+  "word": "were",
+  "start": 371.14,
+  "end": 371.34
+ },
+ {
+  "word": "a",
+  "start": 371.34,
+  "end": 371.54
+ },
+ {
+  "word": "poem",
+  "start": 371.54,
+  "end": 371.76
+ },
+ {
+  "word": "called",
+  "start": 371.76,
+  "end": 372.16
+ },
+ {
+  "word": "Agrippa,",
+  "start": 372.16,
+  "end": 372.82
+ },
+ {
+  "word": "a",
+  "start": 373.22,
+  "end": 373.4
+ },
+ {
+  "word": "poem",
+  "start": 373.4,
+  "end": 373.7
+ },
+ {
+  "word": "from",
+  "start": 373.7,
+  "end": 373.98
+ },
+ {
+  "word": "the",
+  "start": 373.98,
+  "end": 374.14
+ },
+ {
+  "word": "Mabinogen,",
+  "start": 374.14,
+  "end": 374.76
+ },
+ {
+  "word": "and",
+  "start": 375.24,
+  "end": 375.36
+ },
+ {
+  "word": "a",
+  "start": 375.36,
+  "end": 375.48
+ },
+ {
+  "word": "book",
+  "start": 375.48,
+  "end": 375.66
+ },
+ {
+  "word": "called",
+  "start": 375.66,
+  "end": 375.98
+ },
+ {
+  "word": "The",
+  "start": 375.98,
+  "end": 376.12
+ },
+ {
+  "word": "Book",
+  "start": 376.12,
+  "end": 376.28
+ },
+ {
+  "word": "of",
+  "start": 376.28,
+  "end": 376.42
+ },
+ {
+  "word": "the",
+  "start": 376.42,
+  "end": 376.6
+ },
+ {
+  "word": "Law.",
+  "start": 376.6,
+  "end": 376.84
+ },
+ {
+  "word": "And",
+  "start": 377.3,
+  "end": 377.4
+ },
+ {
+  "word": "every",
+  "start": 377.4,
+  "end": 377.66
+ },
+ {
+  "word": "clue",
+  "start": 377.66,
+  "end": 377.96
+ },
+ {
+  "word": "carried",
+  "start": 377.96,
+  "end": 378.3
+ },
+ {
+  "word": "the",
+  "start": 378.3,
+  "end": 378.54
+ },
+ {
+  "word": "same",
+  "start": 378.54,
+  "end": 378.76
+ },
+ {
+  "word": "signature,",
+  "start": 378.76,
+  "end": 379.34
+ },
+ {
+  "word": "the",
+  "start": 379.74,
+  "end": 379.88
+ },
+ {
+  "word": "same",
+  "start": 379.88,
+  "end": 380.14
+ },
+ {
+  "word": "open",
+  "start": 380.14,
+  "end": 380.58
+ },
+ {
+  "word": "PGP",
+  "start": 380.58,
+  "end": 381.22
+ },
+ {
+  "word": "private",
+  "start": 381.22,
+  "end": 381.62
+ },
+ {
+  "word": "key.",
+  "start": 381.62,
+  "end": 381.98
+ },
+ {
+  "word": "That",
+  "start": 382.32,
+  "end": 382.64
+ },
+ {
+  "word": "is",
+  "start": 382.64,
+  "end": 382.8
+ },
+ {
+  "word": "a",
+  "start": 382.8,
+  "end": 383.04
+ },
+ {
+  "word": "cryptographic",
+  "start": 383.04,
+  "end": 383.48
+ },
+ {
+  "word": "way",
+  "start": 383.48,
+  "end": 383.98
+ },
+ {
+  "word": "of",
+  "start": 383.98,
+  "end": 384.3
+ },
+ {
+  "word": "proving",
+  "start": 384.3,
+  "end": 384.64
+ },
+ {
+  "word": "a",
+  "start": 384.64,
+  "end": 384.82
+ },
+ {
+  "word": "message",
+  "start": 384.82,
+  "end": 385.2
+ },
+ {
+  "word": "came",
+  "start": 385.2,
+  "end": 385.56
+ },
+ {
+  "word": "from",
+  "start": 385.56,
+  "end": 385.78
+ },
+ {
+  "word": "the",
+  "start": 385.78,
+  "end": 385.98
+ },
+ {
+  "word": "same",
+  "start": 385.98,
+  "end": 386.24
+ },
+ {
+  "word": "author.",
+  "start": 386.24,
+  "end": 386.64
+ },
+ {
+  "word": "Anyone",
+  "start": 387.1,
+  "end": 387.36
+ },
+ {
+  "word": "can",
+  "start": 387.36,
+  "end": 387.64
+ },
+ {
+  "word": "copy",
+  "start": 387.64,
+  "end": 388.02
+ },
+ {
+  "word": "a",
+  "start": 388.02,
+  "end": 388.18
+ },
+ {
+  "word": "logo.",
+  "start": 388.18,
+  "end": 388.46
+ },
+ {
+  "word": "Nobody",
+  "start": 389.58,
+  "end": 389.98
+ },
+ {
+  "word": "can",
+  "start": 389.98,
+  "end": 390.28
+ },
+ {
+  "word": "fake",
+  "start": 390.28,
+  "end": 390.54
+ },
+ {
+  "word": "that",
+  "start": 390.54,
+  "end": 390.84
+ },
+ {
+  "word": "key.",
+  "start": 390.84,
+  "end": 391.14
+ },
+ {
+  "word": "It",
+  "start": 391.54,
+  "end": 391.72
+ },
+ {
+  "word": "is",
+  "start": 391.72,
+  "end": 391.82
+ },
+ {
+  "word": "the",
+  "start": 391.82,
+  "end": 391.98
+ },
+ {
+  "word": "one",
+  "start": 391.98,
+  "end": 392.22
+ },
+ {
+  "word": "thing",
+  "start": 392.22,
+  "end": 392.54
+ },
+ {
+  "word": "that",
+  "start": 392.54,
+  "end": 392.8
+ },
+ {
+  "word": "lets",
+  "start": 392.8,
+  "end": 393.02
+ },
+ {
+  "word": "solvers",
+  "start": 393.02,
+  "end": 393.5
+ },
+ {
+  "word": "tell",
+  "start": 393.5,
+  "end": 393.8
+ },
+ {
+  "word": "the",
+  "start": 393.8,
+  "end": 394.06
+ },
+ {
+  "word": "real",
+  "start": 394.06,
+  "end": 394.32
+ },
+ {
+  "word": "thing",
+  "start": 394.32,
+  "end": 394.66
+ },
+ {
+  "word": "from",
+  "start": 394.66,
+  "end": 394.9
+ },
+ {
+  "word": "imitations.",
+  "start": 394.9,
+  "end": 395.44
+ },
+ {
+  "word": "Remember",
+  "start": 396.0,
+  "end": 396.36
+ },
+ {
+  "word": "that",
+  "start": 396.36,
+  "end": 396.8
+ },
+ {
+  "word": "it",
+  "start": 396.8,
+  "end": 397.26
+ },
+ {
+  "word": "matters",
+  "start": 397.26,
+  "end": 397.62
+ },
+ {
+  "word": "later.",
+  "start": 397.62,
+  "end": 398.06
+ },
+ {
+  "word": "The",
+  "start": 399.08,
+  "end": 399.08
+ },
+ {
+  "word": "first",
+  "start": 399.08,
+  "end": 399.36
+ },
+ {
+  "word": "puzzle",
+  "start": 399.36,
+  "end": 399.76
+ },
+ {
+  "word": "ran",
+  "start": 399.76,
+  "end": 400.24
+ },
+ {
+  "word": "for",
+  "start": 400.24,
+  "end": 400.48
+ },
+ {
+  "word": "nearly",
+  "start": 400.48,
+  "end": 400.66
+ },
+ {
+  "word": "a",
+  "start": 400.66,
+  "end": 400.92
+ },
+ {
+  "word": "month.",
+  "start": 400.92,
+  "end": 401.18
+ },
+ {
+  "word": "Then",
+  "start": 401.66,
+  "end": 401.8
+ },
+ {
+  "word": "it",
+  "start": 401.8,
+  "end": 401.98
+ },
+ {
+  "word": "ended.",
+  "start": 401.98,
+  "end": 402.4
+ },
+ {
+  "word": "And",
+  "start": 402.98,
+  "end": 402.98
+ },
+ {
+  "word": "one",
+  "start": 402.98,
+  "end": 403.22
+ },
+ {
+  "word": "year",
+  "start": 403.22,
+  "end": 403.44
+ },
+ {
+  "word": "later",
+  "start": 403.44,
+  "end": 403.78
+ },
+ {
+  "word": "on",
+  "start": 403.78,
+  "end": 404.02
+ },
+ {
+  "word": "January",
+  "start": 404.02,
+  "end": 404.46
+ },
+ {
+  "word": "4,",
+  "start": 404.46,
+  "end": 405.02
+ },
+ {
+  "word": "2013,",
+  "start": 405.4,
+  "end": 406.2
+ },
+ {
+  "word": "a",
+  "start": 406.86,
+  "end": 406.98
+ },
+ {
+  "word": "second",
+  "start": 406.98,
+  "end": 407.26
+ },
+ {
+  "word": "round",
+  "start": 407.26,
+  "end": 407.58
+ },
+ {
+  "word": "began.",
+  "start": 407.58,
+  "end": 408.04
+ },
+ {
+  "word": "Same",
+  "start": 408.5,
+  "end": 408.76
+ },
+ {
+  "word": "day,",
+  "start": 408.76,
+  "end": 409.12
+ },
+ {
+  "word": "same",
+  "start": 409.48,
+  "end": 409.74
+ },
+ {
+  "word": "date,",
+  "start": 409.74,
+  "end": 410.2
+ },
+ {
+  "word": "like",
+  "start": 410.48,
+  "end": 410.74
+ },
+ {
+  "word": "clockwork.",
+  "start": 410.74,
+  "end": 411.38
+ },
+ {
+  "word": "And",
+  "start": 411.86,
+  "end": 411.96
+ },
+ {
+  "word": "on",
+  "start": 411.96,
+  "end": 412.06
+ },
+ {
+  "word": "January",
+  "start": 412.06,
+  "end": 412.48
+ },
+ {
+  "word": "4,",
+  "start": 412.48,
+  "end": 413.02
+ },
+ {
+  "word": "2014,",
+  "start": 413.16,
+  "end": 414.04
+ },
+ {
+  "word": "a",
+  "start": 414.62,
+  "end": 414.74
+ },
+ {
+  "word": "third",
+  "start": 414.74,
+  "end": 415.1
+ },
+ {
+  "word": "round",
+  "start": 415.1,
+  "end": 415.4
+ },
+ {
+  "word": "appeared.",
+  "start": 415.4,
+  "end": 415.84
+ },
+ {
+  "word": "This",
+  "start": 416.08,
+  "end": 416.34
+ },
+ {
+  "word": "time",
+  "start": 416.34,
+  "end": 416.6
+ },
+ {
+  "word": "on",
+  "start": 416.6,
+  "end": 416.9
+ },
+ {
+  "word": "Twitter.",
+  "start": 416.9,
+  "end": 417.18
+ },
+ {
+  "word": "The",
+  "start": 418.24,
+  "end": 418.46
+ },
+ {
+  "word": "third",
+  "start": 418.46,
+  "end": 418.72
+ },
+ {
+  "word": "puzzle",
+  "start": 418.72,
+  "end": 419.08
+ },
+ {
+  "word": "remains",
+  "start": 419.08,
+  "end": 419.52
+ },
+ {
+  "word": "unsolved.",
+  "start": 419.52,
+  "end": 420.16
+ },
+ {
+  "word": "Not",
+  "start": 420.76,
+  "end": 421.02
+ },
+ {
+  "word": "unsolved",
+  "start": 421.02,
+  "end": 421.6
+ },
+ {
+  "word": "for",
+  "start": 421.6,
+  "end": 421.9
+ },
+ {
+  "word": "a",
+  "start": 421.9,
+  "end": 422.02
+ },
+ {
+  "word": "while,",
+  "start": 422.02,
+  "end": 422.3
+ },
+ {
+  "word": "unsolved.",
+  "start": 422.74,
+  "end": 423.16
+ },
+ {
+  "word": "But",
+  "start": 423.9,
+  "end": 424.22
+ },
+ {
+  "word": "was",
+  "start": 424.22,
+  "end": 424.4
+ },
+ {
+  "word": "the",
+  "start": 424.4,
+  "end": 424.58
+ },
+ {
+  "word": "second",
+  "start": 424.58,
+  "end": 424.86
+ },
+ {
+  "word": "round",
+  "start": 424.86,
+  "end": 425.12
+ },
+ {
+  "word": "solved?",
+  "start": 425.12,
+  "end": 425.58
+ },
+ {
+  "word": "Yes,",
+  "start": 426.4,
+  "end": 426.62
+ },
+ {
+  "word": "one",
+  "start": 427.18,
+  "end": 427.32
+ },
+ {
+  "word": "of",
+  "start": 427.32,
+  "end": 427.44
+ },
+ {
+  "word": "the",
+  "start": 427.44,
+  "end": 427.54
+ },
+ {
+  "word": "people",
+  "start": 427.54,
+  "end": 427.8
+ },
+ {
+  "word": "who",
+  "start": 427.8,
+  "end": 428.04
+ },
+ {
+  "word": "solved",
+  "start": 428.04,
+  "end": 428.4
+ },
+ {
+  "word": "the",
+  "start": 428.4,
+  "end": 428.62
+ },
+ {
+  "word": "first",
+  "start": 428.62,
+  "end": 428.94
+ },
+ {
+  "word": "puzzle",
+  "start": 428.94,
+  "end": 429.42
+ },
+ {
+  "word": "of",
+  "start": 429.42,
+  "end": 429.7
+ },
+ {
+  "word": "2013",
+  "start": 429.7,
+  "end": 430.68
+ },
+ {
+  "word": "later",
+  "start": 430.68,
+  "end": 431.38
+ },
+ {
+  "word": "described",
+  "start": 431.38,
+  "end": 432.24
+ },
+ {
+  "word": "what",
+  "start": 432.24,
+  "end": 432.58
+ },
+ {
+  "word": "came",
+  "start": 432.58,
+  "end": 432.82
+ },
+ {
+  "word": "next.",
+  "start": 432.82,
+  "end": 433.38
+ },
+ {
+  "word": "Those",
+  "start": 433.82,
+  "end": 433.94
+ },
+ {
+  "word": "who",
+  "start": 433.94,
+  "end": 434.14
+ },
+ {
+  "word": "solved",
+  "start": 434.14,
+  "end": 434.54
+ },
+ {
+  "word": "it",
+  "start": 434.54,
+  "end": 434.66
+ },
+ {
+  "word": "were",
+  "start": 434.66,
+  "end": 434.76
+ },
+ {
+  "word": "asked",
+  "start": 434.76,
+  "end": 435.12
+ },
+ {
+  "word": "questions",
+  "start": 435.12,
+  "end": 435.66
+ },
+ {
+  "word": "about",
+  "start": 435.66,
+  "end": 436.36
+ },
+ {
+  "word": "their",
+  "start": 436.36,
+  "end": 436.62
+ },
+ {
+  "word": "support",
+  "start": 436.62,
+  "end": 437.06
+ },
+ {
+  "word": "for",
+  "start": 437.06,
+  "end": 437.34
+ },
+ {
+  "word": "information",
+  "start": 437.34,
+  "end": 437.84
+ },
+ {
+  "word": "freedom,",
+  "start": 437.84,
+  "end": 438.5
+ },
+ {
+  "word": "about",
+  "start": 438.86,
+  "end": 439.08
+ },
+ {
+  "word": "online",
+  "start": 439.08,
+  "end": 439.6
+ },
+ {
+  "word": "privacy,",
+  "start": 439.6,
+  "end": 440.26
+ },
+ {
+  "word": "about",
+  "start": 440.72,
+  "end": 441.0
+ },
+ {
+  "word": "freedom",
+  "start": 441.0,
+  "end": 441.48
+ },
+ {
+  "word": "and",
+  "start": 441.48,
+  "end": 441.88
+ },
+ {
+  "word": "rejecting",
+  "start": 441.88,
+  "end": 442.32
+ },
+ {
+  "word": "censorship.",
+  "start": 442.32,
+  "end": 443.0
+ },
+ {
+  "word": "Answer",
+  "start": 443.58,
+  "end": 443.78
+ },
+ {
+  "word": "well",
+  "start": 443.78,
+  "end": 444.1
+ },
+ {
+  "word": "and",
+  "start": 444.1,
+  "end": 444.44
+ },
+ {
+  "word": "you",
+  "start": 444.44,
+  "end": 444.58
+ },
+ {
+  "word": "got",
+  "start": 444.58,
+  "end": 444.76
+ },
+ {
+  "word": "an",
+  "start": 444.76,
+  "end": 444.88
+ },
+ {
+  "word": "invitation",
+  "start": 444.88,
+  "end": 445.4
+ },
+ {
+  "word": "to",
+  "start": 445.72,
+  "end": 446.04
+ },
+ {
+  "word": "a",
+  "start": 446.04,
+  "end": 446.22
+ },
+ {
+  "word": "private",
+  "start": 446.22,
+  "end": 446.54
+ },
+ {
+  "word": "forum.",
+  "start": 446.54,
+  "end": 447.06
+ },
+ {
+  "word": "And",
+  "start": 447.5,
+  "end": 447.62
+ },
+ {
+  "word": "once",
+  "start": 447.62,
+  "end": 447.82
+ },
+ {
+  "word": "in,",
+  "start": 447.82,
+  "end": 448.12
+ },
+ {
+  "word": "you",
+  "start": 448.32,
+  "end": 448.52
+ },
+ {
+  "word": "were",
+  "start": 448.52,
+  "end": 448.62
+ },
+ {
+  "word": "given",
+  "start": 448.62,
+  "end": 448.82
+ },
+ {
+  "word": "an",
+  "start": 448.82,
+  "end": 448.98
+ },
+ {
+  "word": "assignment.",
+  "start": 448.98,
+  "end": 449.56
+ },
+ {
+  "word": "Devise",
+  "start": 450.12,
+  "end": 450.44
+ },
+ {
+  "word": "a",
+  "start": 450.44,
+  "end": 450.6
+ },
+ {
+  "word": "project,",
+  "start": 450.6,
+  "end": 451.08
+ },
+ {
+  "word": "finish",
+  "start": 451.62,
+  "end": 451.78
+ },
+ {
+  "word": "it.",
+  "start": 451.78,
+  "end": 452.16
+ },
+ {
+  "word": "A",
+  "start": 452.16,
+  "end": 452.62
+ },
+ {
+  "word": "project",
+  "start": 452.62,
+  "end": 453.12
+ },
+ {
+  "word": "meant",
+  "start": 453.12,
+  "end": 453.52
+ },
+ {
+  "word": "to",
+  "start": 453.52,
+  "end": 453.7
+ },
+ {
+  "word": "further",
+  "start": 453.7,
+  "end": 453.94
+ },
+ {
+  "word": "the",
+  "start": 453.94,
+  "end": 454.22
+ },
+ {
+  "word": "ideals",
+  "start": 454.22,
+  "end": 454.7
+ },
+ {
+  "word": "of",
+  "start": 454.7,
+  "end": 454.98
+ },
+ {
+  "word": "the",
+  "start": 454.98,
+  "end": 455.12
+ },
+ {
+  "word": "group.",
+  "start": 455.12,
+  "end": 455.38
+ },
+ {
+  "word": "That",
+  "start": 456.46,
+  "end": 456.6
+ },
+ {
+  "word": "solver",
+  "start": 456.6,
+  "end": 457.08
+ },
+ {
+  "word": "did",
+  "start": 457.08,
+  "end": 457.26
+ },
+ {
+  "word": "not",
+  "start": 457.26,
+  "end": 457.5
+ },
+ {
+  "word": "finish.",
+  "start": 457.5,
+  "end": 457.94
+ },
+ {
+  "word": "They",
+  "start": 458.42,
+  "end": 458.54
+ },
+ {
+  "word": "had",
+  "start": 458.54,
+  "end": 458.64
+ },
+ {
+  "word": "been",
+  "start": 458.64,
+  "end": 458.82
+ },
+ {
+  "word": "working",
+  "start": 458.82,
+  "end": 459.12
+ },
+ {
+  "word": "on",
+  "start": 459.12,
+  "end": 459.4
+ },
+ {
+  "word": "a",
+  "start": 459.4,
+  "end": 459.56
+ },
+ {
+  "word": "method",
+  "start": 459.56,
+  "end": 459.9
+ },
+ {
+  "word": "of",
+  "start": 459.9,
+  "end": 460.3
+ },
+ {
+  "word": "general",
+  "start": 460.3,
+  "end": 460.72
+ },
+ {
+  "word": "decryption.",
+  "start": 460.72,
+  "end": 461.3
+ },
+ {
+  "word": "And",
+  "start": 461.74,
+  "end": 461.82
+ },
+ {
+  "word": "the",
+  "start": 461.82,
+  "end": 461.94
+ },
+ {
+  "word": "website",
+  "start": 461.94,
+  "end": 462.32
+ },
+ {
+  "word": "was",
+  "start": 462.32,
+  "end": 462.56
+ },
+ {
+  "word": "removed.",
+  "start": 462.56,
+  "end": 463.04
+ },
+ {
+  "word": "Just",
+  "start": 463.6,
+  "end": 463.84
+ },
+ {
+  "word": "like",
+  "start": 463.84,
+  "end": 464.08
+ },
+ {
+  "word": "that,",
+  "start": 464.08,
+  "end": 464.42
+ },
+ {
+  "word": "a",
+  "start": 464.84,
+  "end": 464.98
+ },
+ {
+  "word": "second",
+  "start": 464.98,
+  "end": 465.32
+ },
+ {
+  "word": "winner",
+  "start": 465.32,
+  "end": 465.6
+ },
+ {
+  "word": "documented",
+  "start": 465.6,
+  "end": 466.32
+ },
+ {
+  "word": "the",
+  "start": 466.32,
+  "end": 466.6
+ },
+ {
+  "word": "experience",
+  "start": 466.6,
+  "end": 467.24
+ },
+ {
+  "word": "in",
+  "start": 467.24,
+  "end": 467.48
+ },
+ {
+  "word": "a",
+  "start": 467.48,
+  "end": 467.6
+ },
+ {
+  "word": "video",
+  "start": 467.6,
+  "end": 467.78
+ },
+ {
+  "word": "series.",
+  "start": 467.78,
+  "end": 468.24
+ },
+ {
+  "word": "The",
+  "start": 468.68,
+  "end": 468.86
+ },
+ {
+  "word": "description",
+  "start": 468.86,
+  "end": 469.2
+ },
+ {
+  "word": "calls",
+  "start": 469.2,
+  "end": 469.64
+ },
+ {
+  "word": "it",
+  "start": 469.64,
+  "end": 469.86
+ },
+ {
+  "word": "a",
+  "start": 469.86,
+  "end": 470.08
+ },
+ {
+  "word": "more",
+  "start": 470.08,
+  "end": 470.58
+ },
+ {
+  "word": "realistic,",
+  "start": 470.58,
+  "end": 471.3
+ },
+ {
+  "word": "fact",
+  "start": 471.86,
+  "end": 472.0
+ },
+ {
+  "word": "-based",
+  "start": 472.0,
+  "end": 472.28
+ },
+ {
+  "word": "view",
+  "start": 472.28,
+  "end": 472.62
+ },
+ {
+  "word": "of",
+  "start": 472.62,
+  "end": 472.82
+ },
+ {
+  "word": "the",
+  "start": 472.82,
+  "end": 472.94
+ },
+ {
+  "word": "organization.",
+  "start": 472.94,
+  "end": 473.6
+ },
+ {
+  "word": "Realistic,",
+  "start": 474.28,
+  "end": 474.88
+ },
+ {
+  "word": "fact",
+  "start": 475.38,
+  "end": 475.52
+ },
+ {
+  "word": "-based,",
+  "start": 475.52,
+  "end": 475.96
+ },
+ {
+  "word": "that",
+  "start": 476.38,
+  "end": 476.62
+ },
+ {
+  "word": "tells",
+  "start": 476.62,
+  "end": 476.88
+ },
+ {
+  "word": "you",
+  "start": 476.88,
+  "end": 477.16
+ },
+ {
+  "word": "something",
+  "start": 477.16,
+  "end": 477.46
+ },
+ {
+  "word": "about",
+  "start": 477.46,
+  "end": 477.88
+ },
+ {
+  "word": "what",
+  "start": 477.88,
+  "end": 478.38
+ },
+ {
+  "word": "the",
+  "start": 478.38,
+  "end": 478.54
+ },
+ {
+  "word": "rest",
+  "start": 478.54,
+  "end": 478.76
+ },
+ {
+  "word": "of",
+  "start": 478.76,
+  "end": 478.98
+ },
+ {
+  "word": "the",
+  "start": 478.98,
+  "end": 479.12
+ },
+ {
+  "word": "internet",
+  "start": 479.12,
+  "end": 479.44
+ },
+ {
+  "word": "was",
+  "start": 479.44,
+  "end": 479.76
+ },
+ {
+  "word": "saying.",
+  "start": 479.76,
+  "end": 480.14
+ },
+ {
+  "word": "Today,",
+  "start": 480.14,
+  "end": 480.88
+ },
+ {
+  "word": "that",
+  "start": 481.16,
+  "end": 481.2
+ },
+ {
+  "word": "winner",
+  "start": 481.2,
+  "end": 481.4
+ },
+ {
+  "word": "helps",
+  "start": 481.4,
+  "end": 481.76
+ },
+ {
+  "word": "run",
+  "start": 481.76,
+  "end": 482.06
+ },
+ {
+  "word": "community",
+  "start": 482.06,
+  "end": 482.52
+ },
+ {
+  "word": "efforts",
+  "start": 482.52,
+  "end": 483.06
+ },
+ {
+  "word": "around",
+  "start": 483.06,
+  "end": 483.5
+ },
+ {
+  "word": "Cicada",
+  "start": 483.5,
+  "end": 484.34
+ },
+ {
+  "word": "3",
+  "start": 484.34,
+  "end": 484.82
+ },
+ {
+  "word": ",301",
+  "start": 484.82,
+  "end": 485.98
+ },
+ {
+  "word": "on",
+  "start": 485.98,
+  "end": 486.88
+ },
+ {
+  "word": "a",
+  "start": 486.88,
+  "end": 487.02
+ },
+ {
+  "word": "Discord",
+  "start": 487.02,
+  "end": 487.36
+ },
+ {
+  "word": "server.",
+  "start": 487.36,
+  "end": 487.86
+ },
+ {
+  "word": "Other",
+  "start": 488.3,
+  "end": 488.44
+ },
+ {
+  "word": "communities",
+  "start": 488.44,
+  "end": 488.92
+ },
+ {
+  "word": "of",
+  "start": 488.92,
+  "end": 489.2
+ },
+ {
+  "word": "solvers",
+  "start": 489.2,
+  "end": 489.7
+ },
+ {
+  "word": "still",
+  "start": 489.7,
+  "end": 490.2
+ },
+ {
+  "word": "gather",
+  "start": 490.2,
+  "end": 490.54
+ },
+ {
+  "word": "on",
+  "start": 490.54,
+  "end": 490.86
+ },
+ {
+  "word": "message",
+  "start": 490.86,
+  "end": 491.2
+ },
+ {
+  "word": "boards",
+  "start": 491.2,
+  "end": 491.56
+ },
+ {
+  "word": "and",
+  "start": 491.56,
+  "end": 491.86
+ },
+ {
+  "word": "forums,",
+  "start": 491.86,
+  "end": 492.32
+ },
+ {
+  "word": "still",
+  "start": 492.84,
+  "end": 493.14
+ },
+ {
+  "word": "looking.",
+  "start": 493.14,
+  "end": 493.54
+ },
+ {
+  "word": "So",
+  "start": 494.56,
+  "end": 494.82
+ },
+ {
+  "word": "who",
+  "start": 494.82,
+  "end": 495.02
+ },
+ {
+  "word": "were",
+  "start": 495.02,
+  "end": 495.26
+ },
+ {
+  "word": "they?",
+  "start": 495.26,
+  "end": 495.52
+ },
+ {
+  "word": "Let's",
+  "start": 495.98,
+  "end": 496.32
+ },
+ {
+  "word": "go",
+  "start": 496.32,
+  "end": 496.48
+ },
+ {
+  "word": "through",
+  "start": 496.48,
+  "end": 496.72
+ },
+ {
+  "word": "the",
+  "start": 496.72,
+  "end": 496.88
+ },
+ {
+  "word": "theories.",
+  "start": 496.88,
+  "end": 497.28
+ },
+ {
+  "word": "Theory",
+  "start": 498.18,
+  "end": 498.18
+ },
+ {
+  "word": "one,",
+  "start": 498.18,
+  "end": 498.54
+ },
+ {
+  "word": "a",
+  "start": 498.9,
+  "end": 498.98
+ },
+ {
+  "word": "spy",
+  "start": 498.98,
+  "end": 499.28
+ },
+ {
+  "word": "agency.",
+  "start": 499.28,
+  "end": 499.84
+ },
+ {
+  "word": "The",
+  "start": 500.98,
+  "end": 501.14
+ },
+ {
+  "word": "NSA,",
+  "start": 501.14,
+  "end": 501.56
+ },
+ {
+  "word": "the",
+  "start": 502.22,
+  "end": 502.32
+ },
+ {
+  "word": "CIA,",
+  "start": 502.32,
+  "end": 502.78
+ },
+ {
+  "word": "My6,",
+  "start": 503.62,
+  "end": 503.98
+ },
+ {
+  "word": "Mossad,",
+  "start": 504.64,
+  "end": 505.16
+ },
+ {
+  "word": "every",
+  "start": 505.6,
+  "end": 505.8
+ },
+ {
+  "word": "one",
+  "start": 505.8,
+  "end": 506.0
+ },
+ {
+  "word": "of",
+  "start": 506.0,
+  "end": 506.1
+ },
+ {
+  "word": "these",
+  "start": 506.1,
+  "end": 506.38
+ },
+ {
+  "word": "has",
+  "start": 506.38,
+  "end": 506.76
+ },
+ {
+  "word": "been",
+  "start": 506.76,
+  "end": 506.98
+ },
+ {
+  "word": "floated",
+  "start": 506.98,
+  "end": 507.4
+ },
+ {
+  "word": "as",
+  "start": 507.4,
+  "end": 507.76
+ },
+ {
+  "word": "a",
+  "start": 507.76,
+  "end": 507.9
+ },
+ {
+  "word": "recruiter.",
+  "start": 507.9,
+  "end": 508.38
+ },
+ {
+  "word": "The",
+  "start": 508.38,
+  "end": 508.88
+ },
+ {
+  "word": "logic",
+  "start": 508.88,
+  "end": 509.26
+ },
+ {
+  "word": "is",
+  "start": 509.26,
+  "end": 509.54
+ },
+ {
+  "word": "easy",
+  "start": 509.54,
+  "end": 509.92
+ },
+ {
+  "word": "to",
+  "start": 509.92,
+  "end": 510.14
+ },
+ {
+  "word": "follow.",
+  "start": 510.14,
+  "end": 510.64
+ },
+ {
+  "word": "Cryptography,",
+  "start": 511.12,
+  "end": 511.68
+ },
+ {
+  "word": "security,",
+  "start": 512.02,
+  "end": 512.34
+ },
+ {
+  "word": "anonymity.",
+  "start": 512.64,
+  "end": 513.0
+ },
+ {
+  "word": "Exactly",
+  "start": 513.6,
+  "end": 513.86
+ },
+ {
+  "word": "the",
+  "start": 513.86,
+  "end": 514.22
+ },
+ {
+  "word": "skills",
+  "start": 514.22,
+  "end": 514.54
+ },
+ {
+  "word": "an",
+  "start": 514.54,
+  "end": 514.84
+ },
+ {
+  "word": "intelligence",
+  "start": 514.84,
+  "end": 515.38
+ },
+ {
+  "word": "agency",
+  "start": 515.38,
+  "end": 515.88
+ },
+ {
+  "word": "wants.",
+  "start": 515.88,
+  "end": 516.36
+ },
+ {
+  "word": "And",
+  "start": 516.9,
+  "end": 516.98
+ },
+ {
+  "word": "remember",
+  "start": 516.98,
+  "end": 517.4
+ },
+ {
+  "word": "those",
+  "start": 517.4,
+  "end": 517.68
+ },
+ {
+  "word": "commenters",
+  "start": 517.68,
+  "end": 518.2
+ },
+ {
+  "word": "on",
+  "start": 518.2,
+  "end": 518.56
+ },
+ {
+  "word": "that",
+  "start": 518.56,
+  "end": 518.76
+ },
+ {
+  "word": "first",
+  "start": 518.76,
+  "end": 519.04
+ },
+ {
+  "word": "night.",
+  "start": 519.04,
+  "end": 519.46
+ },
+ {
+  "word": "Theory",
+  "start": 520.0,
+  "end": 520.0
+ },
+ {
+  "word": "two,",
+  "start": 520.0,
+  "end": 520.38
+ },
+ {
+  "word": "a",
+  "start": 520.76,
+  "end": 520.82
+ },
+ {
+  "word": "cyber",
+  "start": 520.82,
+  "end": 521.22
+ },
+ {
+  "word": "mercenary",
+  "start": 521.22,
+  "end": 521.72
+ },
+ {
+  "word": "group.",
+  "start": 521.72,
+  "end": 522.18
+ },
+ {
+  "word": "A",
+  "start": 522.56,
+  "end": 522.72
+ },
+ {
+  "word": "private",
+  "start": 522.72,
+  "end": 523.02
+ },
+ {
+  "word": "outfit",
+  "start": 523.02,
+  "end": 523.46
+ },
+ {
+  "word": "hiring",
+  "start": 523.46,
+  "end": 523.88
+ },
+ {
+  "word": "hackers.",
+  "start": 523.88,
+  "end": 524.36
+ },
+ {
+  "word": "Theory",
+  "start": 525.06,
+  "end": 525.12
+ },
+ {
+  "word": "three,",
+  "start": 525.12,
+  "end": 525.6
+ },
+ {
+  "word": "a",
+  "start": 526.04,
+  "end": 526.08
+ },
+ {
+  "word": "Masonic",
+  "start": 526.08,
+  "end": 526.52
+ },
+ {
+  "word": "conspiracy.",
+  "start": 526.52,
+  "end": 527.08
+ },
+ {
+  "word": "That",
+  "start": 527.76,
+  "end": 527.96
+ },
+ {
+  "word": "one",
+  "start": 527.96,
+  "end": 528.18
+ },
+ {
+  "word": "is",
+  "start": 528.18,
+  "end": 528.36
+ },
+ {
+  "word": "in",
+  "start": 528.36,
+  "end": 528.52
+ },
+ {
+  "word": "the",
+  "start": 528.52,
+  "end": 528.64
+ },
+ {
+  "word": "record,",
+  "start": 528.64,
+  "end": 529.04
+ },
+ {
+  "word": "though",
+  "start": 529.34,
+  "end": 529.52
+ },
+ {
+  "word": "I",
+  "start": 529.52,
+  "end": 529.68
+ },
+ {
+  "word": "would",
+  "start": 529.68,
+  "end": 529.82
+ },
+ {
+  "word": "not",
+  "start": 529.82,
+  "end": 530.04
+ },
+ {
+  "word": "bet",
+  "start": 530.04,
+  "end": 530.3
+ },
+ {
+  "word": "on",
+  "start": 530.3,
+  "end": 530.54
+ },
+ {
+  "word": "it.",
+  "start": 530.54,
+  "end": 530.8
+ },
+ {
+  "word": "Theory",
+  "start": 531.18,
+  "end": 531.26
+ },
+ {
+  "word": "four,",
+  "start": 531.26,
+  "end": 531.7
+ },
+ {
+  "word": "a",
+  "start": 532.08,
+  "end": 532.16
+ },
+ {
+  "word": "secret",
+  "start": 532.16,
+  "end": 532.46
+ },
+ {
+  "word": "society.",
+  "start": 532.46,
+  "end": 533.16
+ },
+ {
+  "word": "One",
+  "start": 533.6,
+  "end": 533.84
+ },
+ {
+  "word": "with",
+  "start": 533.84,
+  "end": 534.04
+ },
+ {
+  "word": "a",
+  "start": 534.04,
+  "end": 534.18
+ },
+ {
+  "word": "goal",
+  "start": 534.18,
+  "end": 534.4
+ },
+ {
+  "word": "of",
+  "start": 534.4,
+  "end": 534.58
+ },
+ {
+  "word": "improving",
+  "start": 534.58,
+  "end": 535.06
+ },
+ {
+  "word": "cryptography,",
+  "start": 535.06,
+  "end": 535.78
+ },
+ {
+  "word": "privacy,",
+  "start": 536.42,
+  "end": 536.84
+ },
+ {
+  "word": "and",
+  "start": 537.12,
+  "end": 537.22
+ },
+ {
+  "word": "anonymity.",
+  "start": 537.22,
+  "end": 537.7
+ },
+ {
+  "word": "Theory",
+  "start": 537.7,
+  "end": 538.44
+ },
+ {
+  "word": "five,",
+  "start": 538.44,
+  "end": 538.92
+ },
+ {
+  "word": "a",
+  "start": 539.36,
+  "end": 539.38
+ },
+ {
+  "word": "cult",
+  "start": 539.38,
+  "end": 539.74
+ },
+ {
+  "word": "or",
+  "start": 539.74,
+  "end": 540.24
+ },
+ {
+  "word": "a",
+  "start": 540.24,
+  "end": 540.42
+ },
+ {
+  "word": "religion.",
+  "start": 540.42,
+  "end": 540.9
+ },
+ {
+  "word": "And",
+  "start": 541.4,
+  "end": 541.5
+ },
+ {
+  "word": "theory",
+  "start": 541.5,
+  "end": 541.74
+ },
+ {
+  "word": "six,",
+  "start": 541.74,
+  "end": 542.18
+ },
+ {
+  "word": "a",
+  "start": 542.66,
+  "end": 542.74
+ },
+ {
+  "word": "game,",
+  "start": 542.74,
+  "end": 543.06
+ },
+ {
+  "word": "an",
+  "start": 543.54,
+  "end": 543.64
+ },
+ {
+  "word": "alternate",
+  "start": 543.64,
+  "end": 544.14
+ },
+ {
+  "word": "reality",
+  "start": 544.14,
+  "end": 544.6
+ },
+ {
+  "word": "game.",
+  "start": 544.6,
+  "end": 545.12
+ },
+ {
+  "word": "Except",
+  "start": 545.38,
+  "end": 545.7
+ },
+ {
+  "word": "that",
+  "start": 545.7,
+  "end": 546.0
+ },
+ {
+  "word": "there",
+  "start": 546.0,
+  "end": 546.24
+ },
+ {
+  "word": "is",
+  "start": 546.24,
+  "end": 546.38
+ },
+ {
+  "word": "a",
+  "start": 546.38,
+  "end": 546.54
+ },
+ {
+  "word": "problem",
+  "start": 546.54,
+  "end": 546.88
+ },
+ {
+  "word": "with",
+  "start": 546.88,
+  "end": 547.18
+ },
+ {
+  "word": "that",
+  "start": 547.18,
+  "end": 547.4
+ },
+ {
+  "word": "one.",
+  "start": 547.4,
+  "end": 547.74
+ },
+ {
+  "word": "No",
+  "start": 548.8,
+  "end": 549.08
+ },
+ {
+  "word": "company",
+  "start": 549.08,
+  "end": 549.54
+ },
+ {
+  "word": "or",
+  "start": 549.54,
+  "end": 550.04
+ },
+ {
+  "word": "individual",
+  "start": 550.04,
+  "end": 550.72
+ },
+ {
+  "word": "has",
+  "start": 550.72,
+  "end": 551.2
+ },
+ {
+  "word": "tried",
+  "start": 551.2,
+  "end": 551.54
+ },
+ {
+  "word": "to",
+  "start": 551.54,
+  "end": 551.7
+ },
+ {
+  "word": "monetize",
+  "start": 551.7,
+  "end": 552.3
+ },
+ {
+  "word": "it.",
+  "start": 552.3,
+  "end": 552.56
+ },
+ {
+  "word": "No",
+  "start": 552.86,
+  "end": 553.1
+ },
+ {
+  "word": "product,",
+  "start": 553.1,
+  "end": 553.6
+ },
+ {
+  "word": "no",
+  "start": 554.02,
+  "end": 554.26
+ },
+ {
+  "word": "sponsor,",
+  "start": 554.26,
+  "end": 554.86
+ },
+ {
+  "word": "no",
+  "start": 555.24,
+  "end": 555.46
+ },
+ {
+  "word": "reveal.",
+  "start": 555.46,
+  "end": 555.84
+ },
+ {
+  "word": "A",
+  "start": 556.36,
+  "end": 556.48
+ },
+ {
+  "word": "game",
+  "start": 556.48,
+  "end": 556.7
+ },
+ {
+  "word": "with",
+  "start": 556.7,
+  "end": 556.86
+ },
+ {
+  "word": "no",
+  "start": 556.86,
+  "end": 557.12
+ },
+ {
+  "word": "seller",
+  "start": 557.12,
+  "end": 557.46
+ },
+ {
+  "word": "is",
+  "start": 557.46,
+  "end": 557.86
+ },
+ {
+  "word": "an",
+  "start": 557.86,
+  "end": 558.0
+ },
+ {
+  "word": "odd",
+  "start": 558.0,
+  "end": 558.3
+ },
+ {
+  "word": "kind",
+  "start": 558.3,
+  "end": 558.54
+ },
+ {
+  "word": "of",
+  "start": 558.54,
+  "end": 558.72
+ },
+ {
+  "word": "game.",
+  "start": 558.72,
+  "end": 558.98
+ },
+ {
+  "word": "Now",
+  "start": 559.96,
+  "end": 560.16
+ },
+ {
+  "word": "what",
+  "start": 560.16,
+  "end": 560.46
+ },
+ {
+  "word": "do",
+  "start": 560.46,
+  "end": 560.6
+ },
+ {
+  "word": "the",
+  "start": 560.6,
+  "end": 560.72
+ },
+ {
+  "word": "people",
+  "start": 560.72,
+  "end": 560.98
+ },
+ {
+  "word": "who",
+  "start": 560.98,
+  "end": 561.18
+ },
+ {
+  "word": "actually",
+  "start": 561.18,
+  "end": 561.68
+ },
+ {
+  "word": "solve",
+  "start": 561.68,
+  "end": 562.04
+ },
+ {
+  "word": "the",
+  "start": 562.04,
+  "end": 562.26
+ },
+ {
+  "word": "puzzle",
+  "start": 562.26,
+  "end": 562.5
+ },
+ {
+  "word": "say?",
+  "start": 562.5,
+  "end": 562.86
+ },
+ {
+  "word": "According",
+  "start": 563.36,
+  "end": 563.64
+ },
+ {
+  "word": "to",
+  "start": 563.64,
+  "end": 563.94
+ },
+ {
+  "word": "several",
+  "start": 563.94,
+  "end": 564.3
+ },
+ {
+  "word": "who",
+  "start": 564.3,
+  "end": 564.56
+ },
+ {
+  "word": "solved",
+  "start": 564.56,
+  "end": 564.9
+ },
+ {
+  "word": "the",
+  "start": 564.9,
+  "end": 565.14
+ },
+ {
+  "word": "2012",
+  "start": 565.14,
+  "end": 565.8
+ },
+ {
+  "word": "round,",
+  "start": 565.8,
+  "end": 566.42
+ },
+ {
+  "word": "the",
+  "start": 566.42,
+  "end": 567.06
+ },
+ {
+  "word": "group",
+  "start": 567.06,
+  "end": 567.28
+ },
+ {
+  "word": "normally",
+  "start": 567.28,
+  "end": 567.88
+ },
+ {
+  "word": "recruits",
+  "start": 567.88,
+  "end": 568.34
+ },
+ {
+  "word": "by",
+  "start": 568.34,
+  "end": 568.64
+ },
+ {
+  "word": "other",
+  "start": 568.64,
+  "end": 568.9
+ },
+ {
+  "word": "means.",
+  "start": 568.9,
+  "end": 569.36
+ },
+ {
+  "word": "Not",
+  "start": 569.9,
+  "end": 569.9
+ },
+ {
+  "word": "by",
+  "start": 569.9,
+  "end": 570.16
+ },
+ {
+  "word": "puzzle,",
+  "start": 570.16,
+  "end": 570.54
+ },
+ {
+  "word": "but",
+  "start": 570.92,
+  "end": 571.12
+ },
+ {
+  "word": "they",
+  "start": 571.12,
+  "end": 571.3
+ },
+ {
+  "word": "wanted",
+  "start": 571.3,
+  "end": 571.6
+ },
+ {
+  "word": "people",
+  "start": 571.6,
+  "end": 572.08
+ },
+ {
+  "word": "with",
+  "start": 572.08,
+  "end": 572.32
+ },
+ {
+  "word": "cryptography",
+  "start": 572.32,
+  "end": 572.98
+ },
+ {
+  "word": "and",
+  "start": 572.98,
+  "end": 573.68
+ },
+ {
+  "word": "computer",
+  "start": 573.68,
+  "end": 574.04
+ },
+ {
+  "word": "security",
+  "start": 574.04,
+  "end": 574.6
+ },
+ {
+  "word": "skills.",
+  "start": 574.6,
+  "end": 575.04
+ },
+ {
+  "word": "So",
+  "start": 575.48,
+  "end": 575.68
+ },
+ {
+  "word": "they",
+  "start": 575.68,
+  "end": 575.82
+ },
+ {
+  "word": "built",
+  "start": 575.82,
+  "end": 576.06
+ },
+ {
+  "word": "a",
+  "start": 576.06,
+  "end": 576.3
+ },
+ {
+  "word": "puzzle",
+  "start": 576.3,
+  "end": 576.58
+ },
+ {
+  "word": "to",
+  "start": 576.58,
+  "end": 576.8
+ },
+ {
+  "word": "find",
+  "start": 576.8,
+  "end": 577.1
+ },
+ {
+  "word": "them,",
+  "start": 577.1,
+  "end": 577.42
+ },
+ {
+  "word": "which",
+  "start": 577.74,
+  "end": 577.92
+ },
+ {
+  "word": "is",
+  "start": 577.92,
+  "end": 578.1
+ },
+ {
+  "word": "a",
+  "start": 578.1,
+  "end": 578.22
+ },
+ {
+  "word": "clue",
+  "start": 578.22,
+  "end": 578.46
+ },
+ {
+  "word": "in",
+  "start": 578.46,
+  "end": 578.62
+ },
+ {
+  "word": "itself.",
+  "start": 578.62,
+  "end": 579.0
+ },
+ {
+  "word": "A",
+  "start": 579.66,
+  "end": 579.66
+ },
+ {
+  "word": "puzzle",
+  "start": 579.66,
+  "end": 579.94
+ },
+ {
+  "word": "is",
+  "start": 579.94,
+  "end": 580.14
+ },
+ {
+  "word": "a",
+  "start": 580.14,
+  "end": 580.28
+ },
+ {
+  "word": "filter.",
+  "start": 580.28,
+  "end": 580.62
+ },
+ {
+  "word": "Anyone",
+  "start": 581.1,
+  "end": 581.32
+ },
+ {
+  "word": "who",
+  "start": 581.32,
+  "end": 581.6
+ },
+ {
+  "word": "gets",
+  "start": 581.6,
+  "end": 581.8
+ },
+ {
+  "word": "through",
+  "start": 581.8,
+  "end": 582.18
+ },
+ {
+  "word": "it",
+  "start": 582.18,
+  "end": 582.46
+ },
+ {
+  "word": "has",
+  "start": 582.46,
+  "end": 582.6
+ },
+ {
+  "word": "proved",
+  "start": 582.6,
+  "end": 582.92
+ },
+ {
+  "word": "something.",
+  "start": 582.92,
+  "end": 583.42
+ },
+ {
+  "word": "Whoever",
+  "start": 583.86,
+  "end": 584.02
+ },
+ {
+  "word": "built",
+  "start": 584.02,
+  "end": 584.38
+ },
+ {
+  "word": "it",
+  "start": 584.38,
+  "end": 584.58
+ },
+ {
+  "word": "wanted",
+  "start": 584.58,
+  "end": 584.76
+ },
+ {
+  "word": "to",
+  "start": 584.76,
+  "end": 585.0
+ },
+ {
+  "word": "test",
+  "start": 585.0,
+  "end": 585.26
+ },
+ {
+  "word": "the",
+  "start": 585.26,
+  "end": 585.64
+ },
+ {
+  "word": "very",
+  "start": 585.64,
+  "end": 585.92
+ },
+ {
+  "word": "skills",
+  "start": 585.92,
+  "end": 586.46
+ },
+ {
+  "word": "the",
+  "start": 586.46,
+  "end": 586.78
+ },
+ {
+  "word": "puzzle",
+  "start": 586.78,
+  "end": 587.04
+ },
+ {
+  "word": "demanded.",
+  "start": 587.04,
+  "end": 587.54
+ },
+ {
+  "word": "But",
+  "start": 588.62,
+  "end": 588.9
+ },
+ {
+  "word": "that",
+  "start": 588.9,
+  "end": 589.1
+ },
+ {
+  "word": "tells",
+  "start": 589.1,
+  "end": 589.4
+ },
+ {
+  "word": "us",
+  "start": 589.4,
+  "end": 589.7
+ },
+ {
+  "word": "what",
+  "start": 589.7,
+  "end": 589.94
+ },
+ {
+  "word": "they",
+  "start": 589.94,
+  "end": 590.16
+ },
+ {
+  "word": "wanted,",
+  "start": 590.16,
+  "end": 590.6
+ },
+ {
+  "word": "not",
+  "start": 590.88,
+  "end": 591.16
+ },
+ {
+  "word": "who",
+  "start": 591.16,
+  "end": 591.38
+ },
+ {
+  "word": "they",
+  "start": 591.38,
+  "end": 591.6
+ },
+ {
+  "word": "were.",
+  "start": 591.6,
+  "end": 591.9
+ },
+ {
+  "word": "There",
+  "start": 592.72,
+  "end": 592.98
+ },
+ {
+  "word": "is",
+  "start": 592.98,
+  "end": 593.14
+ },
+ {
+  "word": "one",
+  "start": 593.14,
+  "end": 593.36
+ },
+ {
+  "word": "more",
+  "start": 593.36,
+  "end": 593.64
+ },
+ {
+  "word": "twist,",
+  "start": 593.64,
+  "end": 593.98
+ },
+ {
+  "word": "the",
+  "start": 594.48,
+  "end": 594.6
+ },
+ {
+  "word": "accusations.",
+  "start": 594.6,
+  "end": 595.2
+ },
+ {
+  "word": "In",
+  "start": 595.64,
+  "end": 596.06
+ },
+ {
+  "word": "2012,",
+  "start": 596.06,
+  "end": 596.98
+ },
+ {
+  "word": "police",
+  "start": 597.96,
+  "end": 597.96
+ },
+ {
+  "word": "in",
+  "start": 597.96,
+  "end": 598.26
+ },
+ {
+  "word": "a",
+  "start": 598.26,
+  "end": 598.32
+ },
+ {
+  "word": "province",
+  "start": 598.32,
+  "end": 598.68
+ },
+ {
+  "word": "of",
+  "start": 598.68,
+  "end": 598.84
+ },
+ {
+  "word": "Chile,",
+  "start": 598.84,
+  "end": 599.22
+ },
+ {
+  "word": "the",
+  "start": 599.7,
+  "end": 599.76
+ },
+ {
+  "word": "investigative",
+  "start": 599.76,
+  "end": 600.5
+ },
+ {
+  "word": "police,",
+  "start": 600.5,
+  "end": 601.12
+ },
+ {
+  "word": "claimed",
+  "start": 601.62,
+  "end": 601.84
+ },
+ {
+  "word": "that",
+  "start": 601.84,
+  "end": 602.14
+ },
+ {
+  "word": "Cicada",
+  "start": 602.14,
+  "end": 602.74
+ },
+ {
+  "word": "3",
+  "start": 602.74,
+  "end": 603.26
+ },
+ {
+  "word": ",301",
+  "start": 603.26,
+  "end": 604.4
+ },
+ {
+  "word": "was",
+  "start": 604.4,
+  "end": 605.06
+ },
+ {
+  "word": "a",
+  "start": 605.06,
+  "end": 605.24
+ },
+ {
+  "word": "hacker",
+  "start": 605.24,
+  "end": 605.5
+ },
+ {
+  "word": "group.",
+  "start": 605.5,
+  "end": 605.94
+ },
+ {
+  "word": "They",
+  "start": 606.34,
+  "end": 606.46
+ },
+ {
+  "word": "said",
+  "start": 606.46,
+  "end": 606.68
+ },
+ {
+  "word": "it",
+  "start": 606.68,
+  "end": 606.78
+ },
+ {
+  "word": "engaged",
+  "start": 606.78,
+  "end": 607.36
+ },
+ {
+  "word": "in",
+  "start": 607.36,
+  "end": 607.76
+ },
+ {
+  "word": "illegal",
+  "start": 607.76,
+  "end": 608.12
+ },
+ {
+  "word": "activities.",
+  "start": 608.12,
+  "end": 608.78
+ },
+ {
+  "word": "And",
+  "start": 609.26,
+  "end": 609.46
+ },
+ {
+  "word": "Cicada",
+  "start": 609.46,
+  "end": 609.92
+ },
+ {
+  "word": "answered",
+  "start": 609.92,
+  "end": 610.5
+ },
+ {
+  "word": "with",
+  "start": 610.5,
+  "end": 611.08
+ },
+ {
+  "word": "a",
+  "start": 611.08,
+  "end": 611.24
+ },
+ {
+  "word": "signed",
+  "start": 611.24,
+  "end": 611.54
+ },
+ {
+  "word": "statement,",
+  "start": 611.54,
+  "end": 612.12
+ },
+ {
+  "word": "denying",
+  "start": 612.68,
+  "end": 612.82
+ },
+ {
+  "word": "any",
+  "start": 612.82,
+  "end": 613.22
+ },
+ {
+  "word": "involvement",
+  "start": 613.22,
+  "end": 613.8
+ },
+ {
+  "word": "in",
+  "start": 613.8,
+  "end": 614.22
+ },
+ {
+  "word": "illegal",
+  "start": 614.22,
+  "end": 614.56
+ },
+ {
+  "word": "activity.",
+  "start": 614.56,
+  "end": 615.22
+ },
+ {
+  "word": "Then",
+  "start": 615.62,
+  "end": 615.88
+ },
+ {
+  "word": "July",
+  "start": 615.88,
+  "end": 616.32
+ },
+ {
+  "word": "2015,",
+  "start": 616.32,
+  "end": 617.18
+ },
+ {
+  "word": "a",
+  "start": 617.82,
+  "end": 617.9
+ },
+ {
+  "word": "group",
+  "start": 617.9,
+  "end": 618.1
+ },
+ {
+  "word": "calling",
+  "start": 618.1,
+  "end": 618.48
+ },
+ {
+  "word": "itself",
+  "start": 618.48,
+  "end": 618.9
+ },
+ {
+  "word": "3",
+  "start": 618.9,
+  "end": 619.54
+ },
+ {
+  "word": ",301",
+  "start": 619.54,
+  "end": 620.74
+ },
+ {
+  "word": "hacked",
+  "start": 621.24,
+  "end": 621.66
+ },
+ {
+  "word": "into",
+  "start": 621.66,
+  "end": 621.98
+ },
+ {
+  "word": "Planned",
+  "start": 621.98,
+  "end": 622.38
+ },
+ {
+  "word": "Parenthood's",
+  "start": 622.38,
+  "end": 623.14
+ },
+ {
+  "word": "database.",
+  "start": 623.14,
+  "end": 623.54
+ },
+ {
+  "word": "Same",
+  "start": 624.08,
+  "end": 624.36
+ },
+ {
+  "word": "number,",
+  "start": 624.36,
+  "end": 624.82
+ },
+ {
+  "word": "same",
+  "start": 625.28,
+  "end": 625.4
+ },
+ {
+  "word": "name",
+  "start": 625.4,
+  "end": 625.78
+ },
+ {
+  "word": "near",
+  "start": 625.78,
+  "end": 626.0
+ },
+ {
+  "word": "enough.",
+  "start": 626.0,
+  "end": 626.34
+ },
+ {
+  "word": "For",
+  "start": 626.86,
+  "end": 626.92
+ },
+ {
+  "word": "a",
+  "start": 626.92,
+  "end": 627.1
+ },
+ {
+  "word": "moment,",
+  "start": 627.1,
+  "end": 627.36
+ },
+ {
+  "word": "the",
+  "start": 627.52,
+  "end": 627.62
+ },
+ {
+  "word": "two",
+  "start": 627.62,
+  "end": 627.84
+ },
+ {
+  "word": "looked",
+  "start": 627.84,
+  "end": 628.04
+ },
+ {
+  "word": "like",
+  "start": 628.04,
+  "end": 628.28
+ },
+ {
+  "word": "one.",
+  "start": 628.28,
+  "end": 628.58
+ },
+ {
+  "word": "But",
+  "start": 629.64,
+  "end": 629.76
+ },
+ {
+  "word": "Cicada",
+  "start": 629.76,
+  "end": 630.28
+ },
+ {
+  "word": "issued",
+  "start": 630.28,
+  "end": 630.9
+ },
+ {
+  "word": "another",
+  "start": 630.9,
+  "end": 631.28
+ },
+ {
+  "word": "signed",
+  "start": 631.28,
+  "end": 631.68
+ },
+ {
+  "word": "statement.",
+  "start": 631.68,
+  "end": 632.22
+ },
+ {
+  "word": "They",
+  "start": 632.74,
+  "end": 632.74
+ },
+ {
+  "word": "were",
+  "start": 632.74,
+  "end": 632.88
+ },
+ {
+  "word": "not",
+  "start": 632.88,
+  "end": 633.14
+ },
+ {
+  "word": "associated",
+  "start": 633.14,
+  "end": 633.82
+ },
+ {
+  "word": "with",
+  "start": 633.82,
+  "end": 634.1
+ },
+ {
+  "word": "this",
+  "start": 634.1,
+  "end": 634.32
+ },
+ {
+  "word": "group",
+  "start": 634.32,
+  "end": 634.56
+ },
+ {
+  "word": "in",
+  "start": 634.56,
+  "end": 634.82
+ },
+ {
+  "word": "any",
+  "start": 634.82,
+  "end": 635.12
+ },
+ {
+  "word": "way.",
+  "start": 635.12,
+  "end": 635.5
+ },
+ {
+  "word": "And",
+  "start": 635.9,
+  "end": 636.02
+ },
+ {
+  "word": "they",
+  "start": 636.02,
+  "end": 636.14
+ },
+ {
+  "word": "did",
+  "start": 636.14,
+  "end": 636.28
+ },
+ {
+  "word": "not",
+  "start": 636.28,
+  "end": 636.58
+ },
+ {
+  "word": "condone",
+  "start": 636.58,
+  "end": 637.04
+ },
+ {
+  "word": "their",
+  "start": 637.04,
+  "end": 637.28
+ },
+ {
+  "word": "use",
+  "start": 637.28,
+  "end": 637.54
+ },
+ {
+  "word": "of",
+  "start": 637.54,
+  "end": 637.68
+ },
+ {
+  "word": "our",
+  "start": 637.68,
+  "end": 637.84
+ },
+ {
+  "word": "name,",
+  "start": 637.84,
+  "end": 638.12
+ },
+ {
+  "word": "number,",
+  "start": 638.82,
+  "end": 638.82
+ },
+ {
+  "word": "or",
+  "start": 639.08,
+  "end": 639.3
+ },
+ {
+  "word": "symbolism.",
+  "start": 639.3,
+  "end": 639.78
+ },
+ {
+  "word": "Later,",
+  "start": 640.48,
+  "end": 640.66
+ },
+ {
+  "word": "the",
+  "start": 640.9,
+  "end": 640.98
+ },
+ {
+  "word": "hacker",
+  "start": 640.98,
+  "end": 641.2
+ },
+ {
+  "word": "group",
+  "start": 641.2,
+  "end": 641.5
+ },
+ {
+  "word": "confirmed",
+  "start": 641.5,
+  "end": 641.96
+ },
+ {
+  "word": "it.",
+  "start": 641.96,
+  "end": 642.24
+ },
+ {
+  "word": "There",
+  "start": 642.46,
+  "end": 642.54
+ },
+ {
+  "word": "was",
+  "start": 642.54,
+  "end": 642.66
+ },
+ {
+  "word": "no",
+  "start": 642.66,
+  "end": 642.92
+ },
+ {
+  "word": "connection.",
+  "start": 642.92,
+  "end": 643.3
+ },
+ {
+  "word": "Notice",
+  "start": 644.0,
+  "end": 644.2
+ },
+ {
+  "word": "what",
+  "start": 644.2,
+  "end": 644.5
+ },
+ {
+  "word": "happened",
+  "start": 644.5,
+  "end": 644.82
+ },
+ {
+  "word": "there.",
+  "start": 644.82,
+  "end": 645.18
+ },
+ {
+  "word": "The",
+  "start": 645.54,
+  "end": 645.7
+ },
+ {
+  "word": "real",
+  "start": 645.7,
+  "end": 645.98
+ },
+ {
+  "word": "Cicada",
+  "start": 645.98,
+  "end": 646.66
+ },
+ {
+  "word": "could",
+  "start": 646.66,
+  "end": 647.0
+ },
+ {
+  "word": "be",
+  "start": 647.0,
+  "end": 647.12
+ },
+ {
+  "word": "told",
+  "start": 647.12,
+  "end": 647.32
+ },
+ {
+  "word": "from",
+  "start": 647.32,
+  "end": 647.54
+ },
+ {
+  "word": "the",
+  "start": 647.54,
+  "end": 647.72
+ },
+ {
+  "word": "fake",
+  "start": 647.72,
+  "end": 648.04
+ },
+ {
+  "word": "by",
+  "start": 648.04,
+  "end": 648.62
+ },
+ {
+  "word": "the",
+  "start": 648.62,
+  "end": 648.78
+ },
+ {
+  "word": "signature.",
+  "start": 648.78,
+  "end": 649.2
+ },
+ {
+  "word": "Then",
+  "start": 650.22,
+  "end": 650.52
+ },
+ {
+  "word": "it",
+  "start": 650.52,
+  "end": 650.64
+ },
+ {
+  "word": "went",
+  "start": 650.64,
+  "end": 650.8
+ },
+ {
+  "word": "quiet.",
+  "start": 650.8,
+  "end": 651.2
+ },
+ {
+  "word": "A",
+  "start": 651.48,
+  "end": 651.8
+ },
+ {
+  "word": "new",
+  "start": 651.8,
+  "end": 652.02
+ },
+ {
+  "word": "clue",
+  "start": 652.02,
+  "end": 652.34
+ },
+ {
+  "word": "appeared",
+  "start": 652.34,
+  "end": 652.76
+ },
+ {
+  "word": "on",
+  "start": 652.76,
+  "end": 653.02
+ },
+ {
+  "word": "Twitter",
+  "start": 653.02,
+  "end": 653.3
+ },
+ {
+  "word": "on",
+  "start": 653.3,
+  "end": 653.6
+ },
+ {
+  "word": "January",
+  "start": 653.6,
+  "end": 654.0
+ },
+ {
+  "word": "5,",
+  "start": 654.0,
+  "end": 654.52
+ },
+ {
+  "word": "2016.",
+  "start": 655.04,
+  "end": 655.9
+ },
+ {
+  "word": "One",
+  "start": 656.62,
+  "end": 656.76
+ },
+ {
+  "word": "day",
+  "start": 656.76,
+  "end": 656.98
+ },
+ {
+  "word": "after",
+  "start": 656.98,
+  "end": 657.28
+ },
+ {
+  "word": "the",
+  "start": 657.28,
+  "end": 657.46
+ },
+ {
+  "word": "date,",
+  "start": 657.46,
+  "end": 657.78
+ },
+ {
+  "word": "everyone",
+  "start": 658.18,
+  "end": 658.46
+ },
+ {
+  "word": "had",
+  "start": 658.46,
+  "end": 658.72
+ },
+ {
+  "word": "learned",
+  "start": 658.72,
+  "end": 658.96
+ },
+ {
+  "word": "to",
+  "start": 658.96,
+  "end": 659.2
+ },
+ {
+  "word": "expect.",
+  "start": 659.2,
+  "end": 659.64
+ },
+ {
+  "word": "And",
+  "start": 660.14,
+  "end": 660.28
+ },
+ {
+  "word": "then",
+  "start": 660.28,
+  "end": 660.48
+ },
+ {
+  "word": "in",
+  "start": 660.48,
+  "end": 660.66
+ },
+ {
+  "word": "April",
+  "start": 660.66,
+  "end": 660.98
+ },
+ {
+  "word": "2017,",
+  "start": 660.98,
+  "end": 662.02
+ },
+ {
+  "word": "the",
+  "start": 662.68,
+  "end": 662.84
+ },
+ {
+  "word": "last",
+  "start": 662.84,
+  "end": 663.16
+ },
+ {
+  "word": "verified",
+  "start": 663.16,
+  "end": 663.88
+ },
+ {
+  "word": "signed",
+  "start": 663.88,
+  "end": 664.36
+ },
+ {
+  "word": "message.",
+  "start": 664.36,
+  "end": 664.94
+ },
+ {
+  "word": "It",
+  "start": 666.02,
+  "end": 666.22
+ },
+ {
+  "word": "denied",
+  "start": 666.22,
+  "end": 666.56
+ },
+ {
+  "word": "the",
+  "start": 666.56,
+  "end": 666.74
+ },
+ {
+  "word": "validity",
+  "start": 666.74,
+  "end": 667.1
+ },
+ {
+  "word": "of",
+  "start": 667.1,
+  "end": 667.4
+ },
+ {
+  "word": "any",
+  "start": 667.4,
+  "end": 667.6
+ },
+ {
+  "word": "unsigned",
+  "start": 667.6,
+  "end": 668.28
+ },
+ {
+  "word": "puzzle.",
+  "start": 668.28,
+  "end": 668.84
+ },
+ {
+  "word": "Read",
+  "start": 669.36,
+  "end": 669.5
+ },
+ {
+  "word": "that",
+  "start": 669.5,
+  "end": 669.74
+ },
+ {
+  "word": "again.",
+  "start": 669.74,
+  "end": 670.08
+ },
+ {
+  "word": "It",
+  "start": 670.58,
+  "end": 670.66
+ },
+ {
+  "word": "means",
+  "start": 670.66,
+  "end": 670.96
+ },
+ {
+  "word": "that",
+  "start": 670.96,
+  "end": 671.26
+ },
+ {
+  "word": "anything",
+  "start": 671.26,
+  "end": 671.6
+ },
+ {
+  "word": "posted",
+  "start": 671.6,
+  "end": 672.14
+ },
+ {
+  "word": "after,",
+  "start": 672.14,
+  "end": 672.6
+ },
+ {
+  "word": "anything",
+  "start": 673.18,
+  "end": 673.56
+ },
+ {
+  "word": "claiming",
+  "start": 673.56,
+  "end": 673.94
+ },
+ {
+  "word": "to",
+  "start": 673.94,
+  "end": 674.18
+ },
+ {
+  "word": "be",
+  "start": 674.18,
+  "end": 674.34
+ },
+ {
+  "word": "a",
+  "start": 674.34,
+  "end": 674.48
+ },
+ {
+  "word": "new",
+  "start": 674.48,
+  "end": 674.66
+ },
+ {
+  "word": "round",
+  "start": 674.66,
+  "end": 675.06
+ },
+ {
+  "word": "without",
+  "start": 675.06,
+  "end": 675.44
+ },
+ {
+  "word": "that",
+  "start": 675.44,
+  "end": 675.72
+ },
+ {
+  "word": "key",
+  "start": 675.72,
+  "end": 676.04
+ },
+ {
+  "word": "is",
+  "start": 676.04,
+  "end": 676.54
+ },
+ {
+  "word": "not",
+  "start": 676.54,
+  "end": 676.8
+ },
+ {
+  "word": "them.",
+  "start": 676.8,
+  "end": 677.14
+ },
+ {
+  "word": "And",
+  "start": 677.48,
+  "end": 677.68
+ },
+ {
+  "word": "no",
+  "start": 677.68,
+  "end": 677.88
+ },
+ {
+  "word": "verified",
+  "start": 677.88,
+  "end": 678.44
+ },
+ {
+  "word": "signed",
+  "start": 678.44,
+  "end": 678.9
+ },
+ {
+  "word": "puzzle",
+  "start": 678.9,
+  "end": 679.24
+ },
+ {
+  "word": "has",
+  "start": 679.24,
+  "end": 679.46
+ },
+ {
+  "word": "appeared",
+  "start": 679.46,
+  "end": 679.78
+ },
+ {
+  "word": "since.",
+  "start": 679.78,
+  "end": 680.12
+ },
+ {
+  "word": "Those",
+  "start": 680.74,
+  "end": 681.32
+ },
+ {
+  "word": "are",
+  "start": 681.32,
+  "end": 681.54
+ },
+ {
+  "word": "the",
+  "start": 681.54,
+  "end": 681.68
+ },
+ {
+  "word": "facts.",
+  "start": 681.68,
+  "end": 682.04
+ },
+ {
+  "word": "Now,",
+  "start": 682.68,
+  "end": 682.74
+ },
+ {
+  "word": "what",
+  "start": 683.02,
+  "end": 683.08
+ },
+ {
+  "word": "is",
+  "start": 683.08,
+  "end": 683.22
+ },
+ {
+  "word": "the",
+  "start": 683.22,
+  "end": 683.4
+ },
+ {
+  "word": "best",
+  "start": 683.4,
+  "end": 683.62
+ },
+ {
+  "word": "explanation?",
+  "start": 683.62,
+  "end": 684.18
+ },
+ {
+  "word": "Honestly,",
+  "start": 685.4,
+  "end": 685.4
+ },
+ {
+  "word": "the",
+  "start": 686.08,
+  "end": 686.14
+ },
+ {
+  "word": "evidence",
+  "start": 686.14,
+  "end": 686.54
+ },
+ {
+  "word": "supports",
+  "start": 686.54,
+  "end": 687.06
+ },
+ {
+  "word": "a",
+  "start": 687.06,
+  "end": 687.32
+ },
+ {
+  "word": "narrow",
+  "start": 687.32,
+  "end": 687.6
+ },
+ {
+  "word": "conclusion.",
+  "start": 687.6,
+  "end": 688.22
+ },
+ {
+  "word": "Somebody",
+  "start": 688.9,
+  "end": 689.16
+ },
+ {
+  "word": "built",
+  "start": 689.16,
+  "end": 689.54
+ },
+ {
+  "word": "a",
+  "start": 689.54,
+  "end": 689.78
+ },
+ {
+  "word": "recruitment",
+  "start": 689.78,
+  "end": 690.14
+ },
+ {
+  "word": "filter.",
+  "start": 690.14,
+  "end": 690.62
+ },
+ {
+  "word": "It",
+  "start": 691.08,
+  "end": 691.16
+ },
+ {
+  "word": "was",
+  "start": 691.16,
+  "end": 691.24
+ },
+ {
+  "word": "hard",
+  "start": 691.24,
+  "end": 691.48
+ },
+ {
+  "word": "enough",
+  "start": 691.48,
+  "end": 691.7
+ },
+ {
+  "word": "to",
+  "start": 691.7,
+  "end": 691.88
+ },
+ {
+  "word": "need",
+  "start": 691.88,
+  "end": 692.12
+ },
+ {
+  "word": "serious",
+  "start": 692.12,
+  "end": 692.62
+ },
+ {
+  "word": "skill,",
+  "start": 692.62,
+  "end": 693.08
+ },
+ {
+  "word": "encryptography,",
+  "start": 693.76,
+  "end": 694.34
+ },
+ {
+  "word": "and",
+  "start": 694.56,
+  "end": 694.62
+ },
+ {
+  "word": "security.",
+  "start": 694.62,
+  "end": 695.1
+ },
+ {
+  "word": "It",
+  "start": 695.66,
+  "end": 695.76
+ },
+ {
+  "word": "asked",
+  "start": 695.76,
+  "end": 696.04
+ },
+ {
+  "word": "about",
+  "start": 696.04,
+  "end": 696.36
+ },
+ {
+  "word": "privacy,",
+  "start": 696.36,
+  "end": 696.94
+ },
+ {
+  "word": "freedom",
+  "start": 697.5,
+  "end": 697.66
+ },
+ {
+  "word": "of",
+  "start": 697.66,
+  "end": 697.84
+ },
+ {
+  "word": "information,",
+  "start": 697.84,
+  "end": 698.34
+ },
+ {
+  "word": "and",
+  "start": 698.58,
+  "end": 698.74
+ },
+ {
+  "word": "censorship.",
+  "start": 698.74,
+  "end": 699.18
+ },
+ {
+  "word": "It",
+  "start": 699.66,
+  "end": 699.8
+ },
+ {
+  "word": "then",
+  "start": 699.8,
+  "end": 700.02
+ },
+ {
+  "word": "put",
+  "start": 700.02,
+  "end": 700.22
+ },
+ {
+  "word": "winners",
+  "start": 700.22,
+  "end": 700.56
+ },
+ {
+  "word": "to",
+  "start": 700.56,
+  "end": 700.8
+ },
+ {
+  "word": "work",
+  "start": 700.8,
+  "end": 701.0
+ },
+ {
+  "word": "on",
+  "start": 701.0,
+  "end": 701.2
+ },
+ {
+  "word": "projects",
+  "start": 701.2,
+  "end": 701.76
+ },
+ {
+  "word": "meant",
+  "start": 701.76,
+  "end": 702.1
+ },
+ {
+  "word": "to",
+  "start": 702.1,
+  "end": 702.28
+ },
+ {
+  "word": "further",
+  "start": 702.28,
+  "end": 702.64
+ },
+ {
+  "word": "those",
+  "start": 702.64,
+  "end": 702.94
+ },
+ {
+  "word": "ideals.",
+  "start": 702.94,
+  "end": 703.46
+ },
+ {
+  "word": "That",
+  "start": 703.96,
+  "end": 704.18
+ },
+ {
+  "word": "is",
+  "start": 704.18,
+  "end": 704.34
+ },
+ {
+  "word": "consistent",
+  "start": 704.34,
+  "end": 704.84
+ },
+ {
+  "word": "with",
+  "start": 704.84,
+  "end": 705.36
+ },
+ {
+  "word": "a",
+  "start": 705.36,
+  "end": 705.5
+ },
+ {
+  "word": "group",
+  "start": 705.5,
+  "end": 705.72
+ },
+ {
+  "word": "that",
+  "start": 705.72,
+  "end": 706.04
+ },
+ {
+  "word": "cared",
+  "start": 706.04,
+  "end": 706.32
+ },
+ {
+  "word": "about",
+  "start": 706.32,
+  "end": 706.62
+ },
+ {
+  "word": "privacy.",
+  "start": 706.62,
+  "end": 707.22
+ },
+ {
+  "word": "But",
+  "start": 708.06,
+  "end": 708.48
+ },
+ {
+  "word": "it",
+  "start": 708.48,
+  "end": 708.6
+ },
+ {
+  "word": "is",
+  "start": 708.6,
+  "end": 708.74
+ },
+ {
+  "word": "also",
+  "start": 708.74,
+  "end": 709.14
+ },
+ {
+  "word": "consistent",
+  "start": 709.14,
+  "end": 709.68
+ },
+ {
+  "word": "with",
+  "start": 709.68,
+  "end": 710.08
+ },
+ {
+  "word": "almost",
+  "start": 710.08,
+  "end": 710.46
+ },
+ {
+  "word": "everything",
+  "start": 710.46,
+  "end": 711.04
+ },
+ {
+  "word": "else.",
+  "start": 711.04,
+  "end": 711.42
+ },
+ {
+  "word": "An",
+  "start": 711.94,
+  "end": 712.02
+ },
+ {
+  "word": "agency",
+  "start": 712.02,
+  "end": 712.46
+ },
+ {
+  "word": "could",
+  "start": 712.46,
+  "end": 712.78
+ },
+ {
+  "word": "build",
+  "start": 712.78,
+  "end": 713.08
+ },
+ {
+  "word": "that.",
+  "start": 713.08,
+  "end": 713.44
+ },
+ {
+  "word": "A",
+  "start": 713.78,
+  "end": 713.9
+ },
+ {
+  "word": "society",
+  "start": 713.9,
+  "end": 714.32
+ },
+ {
+  "word": "could.",
+  "start": 714.32,
+  "end": 714.74
+ },
+ {
+  "word": "A",
+  "start": 715.18,
+  "end": 715.3
+ },
+ {
+  "word": "group",
+  "start": 715.3,
+  "end": 715.5
+ },
+ {
+  "word": "of",
+  "start": 715.5,
+  "end": 715.66
+ },
+ {
+  "word": "enthusiasts",
+  "start": 715.66,
+  "end": 716.26
+ },
+ {
+  "word": "could.",
+  "start": 716.26,
+  "end": 716.74
+ },
+ {
+  "word": "There",
+  "start": 717.18,
+  "end": 717.32
+ },
+ {
+  "word": "is",
+  "start": 717.32,
+  "end": 717.46
+ },
+ {
+  "word": "no",
+  "start": 717.46,
+  "end": 717.7
+ },
+ {
+  "word": "confirmed",
+  "start": 717.7,
+  "end": 718.14
+ },
+ {
+  "word": "answer.",
+  "start": 718.14,
+  "end": 718.66
+ },
+ {
+  "word": "And",
+  "start": 719.12,
+  "end": 719.26
+ },
+ {
+  "word": "the",
+  "start": 719.26,
+  "end": 719.34
+ },
+ {
+  "word": "weak",
+  "start": 719.34,
+  "end": 719.54
+ },
+ {
+  "word": "points",
+  "start": 719.54,
+  "end": 719.84
+ },
+ {
+  "word": "are",
+  "start": 719.84,
+  "end": 720.12
+ },
+ {
+  "word": "real.",
+  "start": 720.12,
+  "end": 720.5
+ },
+ {
+  "word": "The",
+  "start": 720.92,
+  "end": 721.02
+ },
+ {
+  "word": "agency",
+  "start": 721.02,
+  "end": 721.5
+ },
+ {
+  "word": "theory",
+  "start": 721.5,
+  "end": 722.02
+ },
+ {
+  "word": "has",
+  "start": 722.02,
+  "end": 722.6
+ },
+ {
+  "word": "no",
+  "start": 722.6,
+  "end": 722.86
+ },
+ {
+  "word": "confirmation",
+  "start": 722.86,
+  "end": 723.44
+ },
+ {
+  "word": "from",
+  "start": 723.44,
+  "end": 723.9
+ },
+ {
+  "word": "any",
+  "start": 723.9,
+  "end": 724.14
+ },
+ {
+  "word": "agency.",
+  "start": 724.14,
+  "end": 724.64
+ },
+ {
+  "word": "The",
+  "start": 725.06,
+  "end": 725.26
+ },
+ {
+  "word": "mercenary",
+  "start": 725.26,
+  "end": 725.64
+ },
+ {
+  "word": "theory",
+  "start": 725.64,
+  "end": 726.22
+ },
+ {
+  "word": "has",
+  "start": 726.22,
+  "end": 726.7
+ },
+ {
+  "word": "no",
+  "start": 726.7,
+  "end": 726.98
+ },
+ {
+  "word": "known",
+  "start": 726.98,
+  "end": 727.24
+ },
+ {
+  "word": "payout.",
+  "start": 727.24,
+  "end": 727.6
+ },
+ {
+  "word": "The",
+  "start": 728.08,
+  "end": 728.24
+ },
+ {
+  "word": "game",
+  "start": 728.24,
+  "end": 728.48
+ },
+ {
+  "word": "theory",
+  "start": 728.48,
+  "end": 728.88
+ },
+ {
+  "word": "has",
+  "start": 728.88,
+  "end": 729.24
+ },
+ {
+  "word": "no",
+  "start": 729.24,
+  "end": 729.5
+ },
+ {
+  "word": "known",
+  "start": 729.5,
+  "end": 729.78
+ },
+ {
+  "word": "seller.",
+  "start": 729.78,
+  "end": 730.12
+ },
+ {
+  "word": "The",
+  "start": 730.54,
+  "end": 730.68
+ },
+ {
+  "word": "society",
+  "start": 730.68,
+  "end": 731.14
+ },
+ {
+  "word": "theory",
+  "start": 731.14,
+  "end": 731.68
+ },
+ {
+  "word": "has",
+  "start": 731.68,
+  "end": 732.22
+ },
+ {
+  "word": "no",
+  "start": 732.22,
+  "end": 732.5
+ },
+ {
+  "word": "known",
+  "start": 732.5,
+  "end": 732.78
+ },
+ {
+  "word": "members",
+  "start": 732.78,
+  "end": 733.14
+ },
+ {
+  "word": "willing",
+  "start": 733.14,
+  "end": 733.42
+ },
+ {
+  "word": "to",
+  "start": 733.42,
+  "end": 733.72
+ },
+ {
+  "word": "say",
+  "start": 733.72,
+  "end": 733.94
+ },
+ {
+  "word": "so",
+  "start": 733.94,
+  "end": 734.2
+ },
+ {
+  "word": "on",
+  "start": 734.2,
+  "end": 734.4
+ },
+ {
+  "word": "the",
+  "start": 734.4,
+  "end": 734.52
+ },
+ {
+  "word": "record.",
+  "start": 734.52,
+  "end": 734.84
+ },
+ {
+  "word": "Every",
+  "start": 735.82,
+  "end": 736.22
+ },
+ {
+  "word": "theory",
+  "start": 736.22,
+  "end": 736.64
+ },
+ {
+  "word": "is",
+  "start": 736.64,
+  "end": 736.94
+ },
+ {
+  "word": "missing",
+  "start": 736.94,
+  "end": 737.2
+ },
+ {
+  "word": "the",
+  "start": 737.2,
+  "end": 737.44
+ },
+ {
+  "word": "same",
+  "start": 737.44,
+  "end": 737.68
+ },
+ {
+  "word": "piece.",
+  "start": 737.68,
+  "end": 738.18
+ },
+ {
+  "word": "Prove.",
+  "start": 738.78,
+  "end": 739.02
+ },
+ {
+  "word": "And",
+  "start": 740.08,
+  "end": 740.16
+ },
+ {
+  "word": "the",
+  "start": 740.16,
+  "end": 740.28
+ },
+ {
+  "word": "legacy",
+  "start": 740.28,
+  "end": 740.54
+ },
+ {
+  "word": "is",
+  "start": 740.54,
+  "end": 740.86
+ },
+ {
+  "word": "strange.",
+  "start": 740.86,
+  "end": 741.26
+ },
+ {
+  "word": "In",
+  "start": 741.88,
+  "end": 741.96
+ },
+ {
+  "word": "2014,",
+  "start": 741.96,
+  "end": 742.92
+ },
+ {
+  "word": "the",
+  "start": 743.82,
+  "end": 743.82
+ },
+ {
+  "word": "United",
+  "start": 743.82,
+  "end": 744.12
+ },
+ {
+  "word": "States",
+  "start": 744.12,
+  "end": 744.6
+ },
+ {
+  "word": "Navy",
+  "start": 744.6,
+  "end": 744.96
+ },
+ {
+  "word": "released",
+  "start": 744.96,
+  "end": 745.52
+ },
+ {
+  "word": "a",
+  "start": 745.52,
+  "end": 745.8
+ },
+ {
+  "word": "cryptographic",
+  "start": 745.8,
+  "end": 746.3
+ },
+ {
+  "word": "challenge",
+  "start": 746.3,
+  "end": 746.96
+ },
+ {
+  "word": "based",
+  "start": 746.96,
+  "end": 747.34
+ },
+ {
+  "word": "on",
+  "start": 747.34,
+  "end": 747.6
+ },
+ {
+  "word": "these",
+  "start": 747.6,
+  "end": 747.84
+ },
+ {
+  "word": "recruitment",
+  "start": 747.84,
+  "end": 748.28
+ },
+ {
+  "word": "puzzles.",
+  "start": 748.28,
+  "end": 748.72
+ },
+ {
+  "word": "It",
+  "start": 749.26,
+  "end": 749.36
+ },
+ {
+  "word": "was",
+  "start": 749.36,
+  "end": 749.52
+ },
+ {
+  "word": "called",
+  "start": 749.52,
+  "end": 749.88
+ },
+ {
+  "word": "Project",
+  "start": 749.88,
+  "end": 750.44
+ },
+ {
+  "word": "Archituthes.",
+  "start": 750.44,
+  "end": 751.26
+ },
+ {
+  "word": "In",
+  "start": 751.78,
+  "end": 751.9
+ },
+ {
+  "word": "2015,",
+  "start": 751.9,
+  "end": 752.76
+ },
+ {
+  "word": "a",
+  "start": 753.48,
+  "end": 753.58
+ },
+ {
+  "word": "person",
+  "start": 753.58,
+  "end": 753.88
+ },
+ {
+  "word": "of",
+  "start": 753.88,
+  "end": 754.04
+ },
+ {
+  "word": "interest",
+  "start": 754.04,
+  "end": 754.4
+ },
+ {
+  "word": "episode",
+  "start": 754.4,
+  "end": 754.92
+ },
+ {
+  "word": "called",
+  "start": 754.92,
+  "end": 755.38
+ },
+ {
+  "word": "Nautilus",
+  "start": 755.38,
+  "end": 756.24
+ },
+ {
+  "word": "featured",
+  "start": 756.24,
+  "end": 756.96
+ },
+ {
+  "word": "a",
+  "start": 756.96,
+  "end": 757.3
+ },
+ {
+  "word": "large",
+  "start": 757.3,
+  "end": 757.7
+ },
+ {
+  "word": "worldwide",
+  "start": 757.7,
+  "end": 758.3
+ },
+ {
+  "word": "game",
+  "start": 758.3,
+  "end": 758.78
+ },
+ {
+  "word": "of",
+  "start": 758.78,
+  "end": 759.0
+ },
+ {
+  "word": "cryptographic",
+  "start": 759.0,
+  "end": 759.5
+ },
+ {
+  "word": "puzzles.",
+  "start": 759.5,
+  "end": 760.18
+ },
+ {
+  "word": "A",
+  "start": 760.58,
+  "end": 760.72
+ },
+ {
+  "word": "Nautilus",
+  "start": 760.72,
+  "end": 761.1
+ },
+ {
+  "word": "shell",
+  "start": 761.1,
+  "end": 761.46
+ },
+ {
+  "word": "instead",
+  "start": 761.46,
+  "end": 761.96
+ },
+ {
+  "word": "of",
+  "start": 761.96,
+  "end": 762.12
+ },
+ {
+  "word": "a",
+  "start": 762.12,
+  "end": 762.28
+ },
+ {
+  "word": "cicada.",
+  "start": 762.28,
+  "end": 762.74
+ },
+ {
+  "word": "The",
+  "start": 762.74,
+  "end": 763.22
+ },
+ {
+  "word": "creator",
+  "start": 763.22,
+  "end": 763.54
+ },
+ {
+  "word": "said",
+  "start": 763.54,
+  "end": 763.9
+ },
+ {
+  "word": "on",
+  "start": 763.9,
+  "end": 764.08
+ },
+ {
+  "word": "record",
+  "start": 764.08,
+  "end": 764.4
+ },
+ {
+  "word": "that",
+  "start": 764.4,
+  "end": 764.72
+ },
+ {
+  "word": "cicada",
+  "start": 764.72,
+  "end": 765.4
+ },
+ {
+  "word": "3",
+  "start": 765.4,
+  "end": 765.88
+ },
+ {
+  "word": ",301",
+  "start": 765.88,
+  "end": 767.04
+ },
+ {
+  "word": "was",
+  "start": 767.52,
+  "end": 767.9
+ },
+ {
+  "word": "the",
+  "start": 767.9,
+  "end": 768.08
+ },
+ {
+  "word": "inspiration.",
+  "start": 768.08,
+  "end": 768.6
+ },
+ {
+  "word": "He",
+  "start": 769.18,
+  "end": 769.28
+ },
+ {
+  "word": "called",
+  "start": 769.28,
+  "end": 769.54
+ },
+ {
+  "word": "it,",
+  "start": 769.54,
+  "end": 769.8
+ },
+ {
+  "word": "quote,",
+  "start": 769.98,
+  "end": 769.98
+ },
+ {
+  "word": "a",
+  "start": 770.46,
+  "end": 770.58
+ },
+ {
+  "word": "very",
+  "start": 770.58,
+  "end": 770.86
+ },
+ {
+  "word": "interesting",
+  "start": 770.86,
+  "end": 771.4
+ },
+ {
+  "word": "concept",
+  "start": 771.4,
+  "end": 771.9
+ },
+ {
+  "word": "out",
+  "start": 771.9,
+  "end": 772.18
+ },
+ {
+  "word": "there.",
+  "start": 772.18,
+  "end": 772.56
+ },
+ {
+  "word": "And",
+  "start": 772.98,
+  "end": 773.02
+ },
+ {
+  "word": "in",
+  "start": 773.02,
+  "end": 773.14
+ },
+ {
+  "word": "2021",
+  "start": 773.14,
+  "end": 774.16
+ },
+ {
+  "word": "came",
+  "start": 774.16,
+  "end": 774.6
+ },
+ {
+  "word": "a",
+  "start": 774.6,
+  "end": 774.76
+ },
+ {
+  "word": "comedy",
+  "start": 774.76,
+  "end": 775.16
+ },
+ {
+  "word": "thriller,",
+  "start": 775.16,
+  "end": 775.64
+ },
+ {
+  "word": "Dark",
+  "start": 776.02,
+  "end": 776.18
+ },
+ {
+  "word": "Web.",
+  "start": 776.18,
+  "end": 776.54
+ },
+ {
+  "word": "Cicada",
+  "start": 777.4,
+  "end": 777.82
+ },
+ {
+  "word": "3",
+  "start": 777.82,
+  "end": 778.22
+ },
+ {
+  "word": ",301,",
+  "start": 778.22,
+  "end": 779.38
+ },
+ {
+  "word": "directed",
+  "start": 780.02,
+  "end": 780.44
+ },
+ {
+  "word": "by",
+  "start": 780.44,
+  "end": 780.8
+ },
+ {
+  "word": "Alan",
+  "start": 780.8,
+  "end": 781.18
+ },
+ {
+  "word": "Richardson.",
+  "start": 781.18,
+  "end": 781.54
+ },
+ {
+  "word": "The",
+  "start": 782.06,
+  "end": 782.18
+ },
+ {
+  "word": "Washington",
+  "start": 782.18,
+  "end": 782.6
+ },
+ {
+  "word": "Post",
+  "start": 782.6,
+  "end": 783.08
+ },
+ {
+  "word": "once",
+  "start": 783.08,
+  "end": 783.52
+ },
+ {
+  "word": "listed",
+  "start": 783.52,
+  "end": 783.9
+ },
+ {
+  "word": "it",
+  "start": 783.9,
+  "end": 784.06
+ },
+ {
+  "word": "among",
+  "start": 784.06,
+  "end": 784.26
+ },
+ {
+  "word": "the",
+  "start": 784.26,
+  "end": 784.44
+ },
+ {
+  "word": "top",
+  "start": 784.44,
+  "end": 784.64
+ },
+ {
+  "word": "five",
+  "start": 784.64,
+  "end": 785.08
+ },
+ {
+  "word": "eeriest",
+  "start": 785.08,
+  "end": 785.74
+ },
+ {
+  "word": "unsolved",
+  "start": 785.74,
+  "end": 786.4
+ },
+ {
+  "word": "mysteries",
+  "start": 786.4,
+  "end": 787.0
+ },
+ {
+  "word": "of",
+  "start": 787.0,
+  "end": 787.28
+ },
+ {
+  "word": "the",
+  "start": 787.28,
+  "end": 787.42
+ },
+ {
+  "word": "internet.",
+  "start": 787.42,
+  "end": 787.78
+ },
+ {
+  "word": "Another",
+  "start": 788.18,
+  "end": 788.46
+ },
+ {
+  "word": "description",
+  "start": 788.46,
+  "end": 788.9
+ },
+ {
+  "word": "called",
+  "start": 788.9,
+  "end": 789.38
+ },
+ {
+  "word": "it",
+  "start": 789.38,
+  "end": 789.56
+ },
+ {
+  "word": "the",
+  "start": 789.56,
+  "end": 789.66
+ },
+ {
+  "word": "most",
+  "start": 789.66,
+  "end": 789.88
+ },
+ {
+  "word": "elaborate",
+  "start": 789.88,
+  "end": 790.68
+ },
+ {
+  "word": "and",
+  "start": 790.68,
+  "end": 790.92
+ },
+ {
+  "word": "mysterious",
+  "start": 790.92,
+  "end": 791.38
+ },
+ {
+  "word": "puzzle",
+  "start": 791.38,
+  "end": 791.94
+ },
+ {
+  "word": "of",
+  "start": 791.94,
+  "end": 792.42
+ },
+ {
+  "word": "the",
+  "start": 792.42,
+  "end": 792.56
+ },
+ {
+  "word": "internet",
+  "start": 792.56,
+  "end": 792.9
+ },
+ {
+  "word": "age.",
+  "start": 792.9,
+  "end": 793.48
+ },
+ {
+  "word": "Yet",
+  "start": 793.88,
+  "end": 793.96
+ },
+ {
+  "word": "at",
+  "start": 793.96,
+  "end": 794.06
+ },
+ {
+  "word": "the",
+  "start": 794.06,
+  "end": 794.2
+ },
+ {
+  "word": "center,",
+  "start": 794.2,
+  "end": 794.52
+ },
+ {
+  "word": "there",
+  "start": 794.76,
+  "end": 794.92
+ },
+ {
+  "word": "is",
+  "start": 794.92,
+  "end": 795.04
+ },
+ {
+  "word": "a",
+  "start": 795.04,
+  "end": 795.2
+ },
+ {
+  "word": "plastic",
+  "start": 795.2,
+  "end": 795.62
+ },
+ {
+  "word": "duck,",
+  "start": 795.62,
+  "end": 795.98
+ },
+ {
+  "word": "a",
+  "start": 796.36,
+  "end": 796.58
+ },
+ {
+  "word": "Roman",
+  "start": 796.58,
+  "end": 796.86
+ },
+ {
+  "word": "emperor,",
+  "start": 796.86,
+  "end": 797.32
+ },
+ {
+  "word": "and",
+  "start": 797.8,
+  "end": 798.02
+ },
+ {
+  "word": "a",
+  "start": 798.02,
+  "end": 798.18
+ },
+ {
+  "word": "number,",
+  "start": 798.18,
+  "end": 798.5
+ },
+ {
+  "word": "a",
+  "start": 799.56,
+  "end": 799.78
+ },
+ {
+  "word": "prime",
+  "start": 799.78,
+  "end": 800.12
+ },
+ {
+  "word": "number,",
+  "start": 800.12,
+  "end": 800.56
+ },
+ {
+  "word": "3",
+  "start": 801.04,
+  "end": 801.3
+ },
+ {
+  "word": ",301.",
+  "start": 801.3,
+  "end": 802.28
+ },
+ {
+  "word": "Think",
+  "start": 803.7,
+  "end": 803.94
+ },
+ {
+  "word": "about",
+  "start": 803.94,
+  "end": 804.16
+ },
+ {
+  "word": "the",
+  "start": 804.16,
+  "end": 804.36
+ },
+ {
+  "word": "first",
+  "start": 804.36,
+  "end": 804.58
+ },
+ {
+  "word": "night,",
+  "start": 804.58,
+  "end": 804.94
+ },
+ {
+  "word": "a",
+  "start": 805.36,
+  "end": 805.46
+ },
+ {
+  "word": "few",
+  "start": 805.46,
+  "end": 805.72
+ },
+ {
+  "word": "dozen",
+  "start": 805.72,
+  "end": 806.12
+ },
+ {
+  "word": "strangers",
+  "start": 806.12,
+  "end": 806.74
+ },
+ {
+  "word": "in",
+  "start": 806.74,
+  "end": 807.42
+ },
+ {
+  "word": "a",
+  "start": 807.42,
+  "end": 807.52
+ },
+ {
+  "word": "place",
+  "start": 807.52,
+  "end": 807.76
+ },
+ {
+  "word": "built",
+  "start": 807.76,
+  "end": 808.04
+ },
+ {
+  "word": "to",
+  "start": 808.04,
+  "end": 808.24
+ },
+ {
+  "word": "forget",
+  "start": 808.24,
+  "end": 808.56
+ },
+ {
+  "word": "everything,",
+  "start": 808.56,
+  "end": 809.16
+ },
+ {
+  "word": "remembering",
+  "start": 809.66,
+  "end": 810.0
+ },
+ {
+  "word": "one",
+  "start": 810.0,
+  "end": 810.36
+ },
+ {
+  "word": "thing",
+  "start": 810.36,
+  "end": 810.64
+ },
+ {
+  "word": "together.",
+  "start": 810.64,
+  "end": 811.02
+ },
+ {
+  "word": "And",
+  "start": 811.54,
+  "end": 811.68
+ },
+ {
+  "word": "one",
+  "start": 811.68,
+  "end": 811.82
+ },
+ {
+  "word": "of",
+  "start": 811.82,
+  "end": 811.94
+ },
+ {
+  "word": "them",
+  "start": 811.94,
+  "end": 812.06
+ },
+ {
+  "word": "said,",
+  "start": 812.06,
+  "end": 812.38
+ },
+ {
+  "word": "it's",
+  "start": 812.64,
+  "end": 812.92
+ },
+ {
+  "word": "a",
+  "start": 812.92,
+  "end": 813.04
+ },
+ {
+  "word": "phone",
+  "start": 813.04,
+  "end": 813.32
+ },
+ {
+  "word": "number.",
+  "start": 813.32,
+  "end": 813.72
+ },
+ {
+  "word": "And",
+  "start": 814.08,
+  "end": 814.32
+ },
+ {
+  "word": "nobody",
+  "start": 814.32,
+  "end": 814.72
+ },
+ {
+  "word": "believed",
+  "start": 814.72,
+  "end": 815.24
+ },
+ {
+  "word": "them.",
+  "start": 815.24,
+  "end": 815.6
+ },
+ {
+  "word": "They",
+  "start": 815.92,
+  "end": 816.1
+ },
+ {
+  "word": "were",
+  "start": 816.1,
+  "end": 816.26
+ },
+ {
+  "word": "right.",
+  "start": 816.26,
+  "end": 816.58
+ },
+ {
+  "word": "If",
+  "start": 817.39,
+  "end": 817.66
+ },
+ {
+  "word": "this",
+  "start": 817.66,
+  "end": 817.88
+ },
+ {
+  "word": "kind",
+  "start": 817.88,
+  "end": 818.08
+ },
+ {
+  "word": "of",
+  "start": 818.08,
+  "end": 818.18
+ },
+ {
+  "word": "story",
+  "start": 818.18,
+  "end": 818.52
+ },
+ {
+  "word": "keeps",
+  "start": 818.52,
+  "end": 818.84
+ },
+ {
+  "word": "you",
+  "start": 818.84,
+  "end": 819.02
+ },
+ {
+  "word": "up",
+  "start": 819.02,
+  "end": 819.12
+ },
+ {
+  "word": "at",
+  "start": 819.12,
+  "end": 819.26
+ },
+ {
+  "word": "night,",
+  "start": 819.26,
+  "end": 819.56
+ },
+ {
+  "word": "subscribe.",
+  "start": 819.82,
+  "end": 820.24
+ },
+ {
+  "word": "There",
+  "start": 820.9,
+  "end": 820.96
+ },
+ {
+  "word": "are",
+  "start": 820.96,
+  "end": 821.08
+ },
+ {
+  "word": "more",
+  "start": 821.08,
+  "end": 821.26
+ },
+ {
+  "word": "tabs",
+  "start": 821.26,
+  "end": 821.6
+ },
+ {
+  "word": "to",
+  "start": 821.6,
+  "end": 821.88
+ },
+ {
+  "word": "open.",
+  "start": 821.88,
+  "end": 822.22
+ }
+]
