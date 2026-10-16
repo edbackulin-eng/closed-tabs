@@ -25,10 +25,17 @@ CUT_MIN, CUT_MAX = 3.0, 5.0
 BLOCK_MIN, BLOCK_MAX = 20.0, 40.0
 FAMILIES = ("photo", "screen", "data")
 TYPES = {
-    "photo": ("flux", "annotate"),
+    "photo": ("flux", "annotate", "stock"),
     "screen": ("browser", "chat", "notification", "cursor"),
-    "data": ("quote", "counter", "timeline", "censor"),
+    "data": ("quote", "counter", "timeline", "censor", "map"),
 }
+# At most this share of all shots may be a generated monitor or screen glow. The
+# first hook was mostly empty monitors; the rest of the picture is real footage,
+# story objects and places, and drawn data.
+MONITOR_SHARE_MAX = 0.20
+SCREEN_WORDS = re.compile(
+    r"\b(screen|screens|monitor|monitors|display|computer|computers|laptop|laptops|"
+    r"crt|tv|television|phone|smartphone)\b", re.I)
 TRANSITIONS = ("vhs", "rgb", "fade")
 PLAN_BATCH = 25
 
@@ -37,12 +44,18 @@ internet mystery. You are given beats: a few seconds of narration each, and the 
 TYPE already chosen for that beat. Fill in that type's fields. Return JSON only.
 
 RULES FOR GENERATED STILLS (any "prompt" field)
-- Describe a photograph in one sentence: a place, an object, light. Moody, at night,
-  lit by a screen or a lamp.
+- Describe a photograph in one sentence: a physical object or a place FROM THIS
+  STORY, in a colourful lit night (neon teal and magenta, amber street light).
+  Think of what the narration is about: old books, papers taped to a telephone
+  pole, a folded map, a sealed letter, a lamp post on a wet street, a library at
+  night, a payphone, a stack of floppy disks. Vary the angle: close-up, overhead,
+  low angle, wide establishing shot.
+- Do NOT default to a computer monitor or a laptop. Screens may appear in at most
+  one prompt in five.
+- Paper is fine - books, letters, maps, posters - but any writing on it must be
+  tiny, faded or out of focus. No calendars, newspapers, headlines, street signs,
+  labels, or screens showing content. Screens are only glow.
 - No real logos, no real websites or apps, no brand names, no readable text.
-- Never ask for an object that carries writing: no calendars, newspapers, clippings,
-  notes, letters, posters, signs, maps, books, documents, labels, or screens showing
-  content. Screens are only glow. Writing is drawn separately by code.
 - No identifiable people. At most one person, seen from behind or in silhouette,
   never looking at the camera. No children.
 - Nothing violent, no blood, no weapons.
@@ -55,6 +68,8 @@ RULES FOR DRAWN SCREENS AND DATA
   under 30 words, at most 3 chat messages of under 12 words each.
 
 TYPES AND FIELDS
+  stock:        {"prompt": "..."}    (a fallback still in case no real footage is found)
+  map:          {}                   (drawn by code from the places the narration names)
   flux:         {"prompt": "..."}
   annotate:     {"prompt": "...", "circle": [x, y, r]}    (x, y, r between 0 and 1)
   browser:      {"address": "...", "heading": "...", "body": "..."}
@@ -135,6 +150,17 @@ def _whole_sentences(text):
     return out
 
 
+def notification_line(text, most=16):
+    """The one whole sentence a notification shows, or None.
+
+    The first hook's notification read "and the website was removed. Just" - the
+    end of one sentence and the start of the next, because a beat is cut where a
+    word gap falls. A card now shows only a sentence that starts and ends inside
+    the beat, the longest one that still fits."""
+    sents = [x for x in _whole_sentences(text) if 3 <= len(x.split()) <= most]
+    return max(sents, key=lambda x: len(x.split())) if sents else None
+
+
 def _redactable(sentence):
     """Words worth a censor bar: names and numbers, never the first word."""
     words = sentence.split()
@@ -151,6 +177,14 @@ def _default(t, text, i, still=None):
     """
     still = still or SAFE_STILLS[i % len(SAFE_STILLS)]
     words = text.split()
+    if t == "stock":
+        return {"type": t, "prompt": still}
+    if t == "map":
+        from pipeline import geo
+        places = geo.places_in(text)
+        if places:
+            return {"type": t, "places": [list(x) for x in places]}
+        return _default("quote", text, i, still)
     if t == "flux":
         return {"type": t, "prompt": still}
     if t == "annotate":
@@ -165,7 +199,10 @@ def _default(t, text, i, still=None):
             msgs.append(["user", " ".join(words[half:][:12])])
         return {"type": t, "header": "Thread", "messages": msgs}
     if t == "notification":
-        return {"type": t, "prompt": still, "app": "Inbox", "text": " ".join(words[:12]) or "New message"}
+        line = notification_line(text)
+        if line:
+            return {"type": t, "prompt": still, "app": "Inbox", "text": line}
+        return {"type": "flux", "prompt": still}
     if t == "cursor":
         return {"type": t, "prompt": still}
     if t in ("quote", "censor"):
@@ -240,7 +277,7 @@ def _why_invalid(b, family):
     need = {"flux": ["prompt"], "annotate": ["prompt", "circle"], "browser": ["address", "heading", "body"],
             "chat": ["messages"], "notification": ["prompt", "app", "text"], "cursor": ["prompt"],
             "counter": ["label", "end"], "timeline": ["events"], "censor": ["lines", "redact"],
-            "quote": ["text"]}[t]
+            "quote": ["text"], "stock": ["prompt"], "map": ["places"]}[t]
     missing = [k for k in need if k not in b or b[k] in ("", [], None)]
     return f"{t} missing {missing}" if missing else None
 
@@ -280,7 +317,7 @@ def _valid(b, family):
     need = {"flux": ["prompt"], "annotate": ["prompt", "circle"], "browser": ["address", "heading", "body"],
             "chat": ["messages"], "notification": ["prompt", "app", "text"], "cursor": ["prompt"],
             "counter": ["label", "end"], "timeline": ["events"], "censor": ["lines", "redact"],
-            "quote": ["text"]}[t]
+            "quote": ["text"], "stock": ["prompt"], "map": ["places"]}[t]
     if any(k not in b or b[k] in ("", [], None) for k in need):
         return False
     if t == "counter":
@@ -296,47 +333,45 @@ def _valid(b, family):
 # frame afterwards, and the planner kept reaching for them (a torn calendar page
 # with a date, newspaper clippings, a pinned map).
 _TEXT_OBJECTS = re.compile(
-    r"\b(calendar|newspaper|clipping|headline|post-?it|sticky note|note ?pad|notes?|letter|"
-    r"envelope|sign|signs|signage|poster|billboard|label|map|maps|book cover|magazine|"
-    r"document|page|pages|printout|receipt|ticket|license plate|keyboard keys|"
+    r"\b(calendar|newspaper|clipping|headline|post-?it|sticky note|note ?pad|"
+    r"sign|signs|signage|billboard|label|book cover|magazine|"
+    r"printout|receipt|ticket|license plate|keyboard keys|"
     r"screen showing|on the screen|on a screen|website|web page|logo|brand|"
     r"displaying|showing|notice|thread|post|posts|message|messages|notification|"
     r"text|words|writing|caption|subtitle|interface|keypad|dial pad|"
     r"forum|homepage|home page|browser|cursor|app|icon|icons)\b", re.I)
 
+# Substitutes when a prompt cannot be used. Mostly places and objects, lit
+# colourfully at night; a few screens, no more than the share the edit allows.
 SAFE_STILLS = [
-    "an empty desk at night lit by one old CRT monitor, dust in the air",
-    "a dark bedroom, the glow of a laptop on a closed curtain",
-    "a tangle of network cables in a dim server cupboard, blinking indicator lights",
-    "an empty office corridor at night, one ceiling light flickering",
-    "rain on a window at night, the blurred lights of a city beyond",
-    "an old rotary telephone on a wooden table in a dark room, lamp light",
-    "a shortwave radio on a shelf, its dial glowing amber in the dark",
-    "a hand resting on a computer mouse beside a glowing monitor, seen from behind",
-    "a payphone on an empty street corner at night under a sodium streetlight",
-    "a row of server racks receding into darkness, small green lights",
-    "a cold mug of coffee beside a keyboard in a dark room, screen glow on the wall",
-    "a dusty attic with a single bare bulb and cardboard boxes in shadow",
-    "a city skyline at night seen from a high window, one apartment light on",
-    "an old television set glowing in an empty living room",
-    "a long empty hallway with fluorescent tubes, one of them out",
-    "a desk lamp pooling warm light on a dark wooden desk, nothing else on it",
-    "a satellite dish on a rooftop at night against a deep blue sky",
-    "a rain-soaked parking lot at night, one car under a flickering light",
-    "a tall radio antenna mast at dusk with red warning lights",
-    "a dark stairwell lit by a single green exit glow",
-    "headphones resting on a desk beside a glowing monitor in a dark room",
-    "a window at 3 a.m., blinds half closed, the street lamp outside",
-    "an empty swivel chair in front of a glowing monitor, seen from behind",
-    "a pile of old computer hard drives under a lamp in a dark workshop",
-    "a basement with exposed pipes and a single glowing computer in the corner",
-    "fog over an empty road at night, distant headlights",
-    "a laptop closed on a bed, a faint light leaking from its edge",
-    "a wall of old CRT monitors, all glowing blank blue in a dark room",
-    "a quiet suburban street at night, one window lit upstairs",
-    "a tangle of old cables and a modem with blinking lights on a carpet",
-    "a hand holding a phone face down on a table, the edge glowing",
-    "an empty internet cafe at night, rows of dark monitors, one still on",
+    "rain running down a window at night, blurred teal and magenta city lights beyond",
+    "a stack of old leather-bound books on a wooden table under a warm desk lamp, close-up",
+    "a wooden telephone pole on a wet street at night, layers of torn paper flyers on it, neon reflections",
+    "a folded paper map on a table lit by amber lamp light, overhead view, details out of focus",
+    "a sealed envelope with a wax seal on a dark wooden desk, magenta neon light from a window",
+    "an empty library aisle at night, tall shelves of books, warm lamps and teal shadows",
+    "a payphone on an empty street corner at night under an amber streetlight, wet asphalt",
+    "a city street at night seen from a rooftop, neon signs glowing teal and magenta, low angle",
+    "a lamp post in fog at night, amber light, a bicycle leaning against it",
+    "a stack of floppy disks and cassette tapes on a shelf, lit by a teal neon tube",
+    "an old rotary telephone on a side table, warm lamp light, a magenta glow on the wall",
+    "a shortwave radio on a shelf, its dial glowing amber, a teal window behind",
+    "a satellite dish on a rooftop at night against a deep violet sky",
+    "a tall radio mast at dusk with red warning lights over a city glow",
+    "a dark stairwell lit by a green exit light and a magenta neon reflection",
+    "a quiet suburban street at night, one window lit upstairs, wet road reflecting light",
+    "a rain-soaked parking lot at night, puddles reflecting neon signs",
+    "an old typewriter on a desk under a lamp, close-up of its keys catching amber light",
+    "a cork board with pinned photographs and string, blurred and out of focus, lamp light",
+    "a vintage key on an open old book, shallow depth of field, warm light",
+    "fog over an empty road at night, distant headlights and a teal sky",
+    "a subway platform at night, empty, teal and magenta lights reflecting on tiles",
+    "an attic with a single bare bulb, cardboard boxes and old papers in warm light",
+    "a hand holding a magnifying glass over an old photograph, out of focus, lamp light",
+    "a chess board mid-game on a cafe table at night, neon light through the window",
+    "a row of server racks with blue and green indicator lights, wide shot",
+    "an empty internet cafe at night, chairs and desks, neon sign light from the street",
+    "a dark desk with one glowing CRT monitor, teal light across the wall",
 ]
 
 REPAIR_SYSTEM = """You rewrite image prompts for a photo generator that cannot draw text.
@@ -348,18 +383,27 @@ sentence each. Return JSON only: {"prompts": [{"i": <index>, "prompt": "..."}]}"
 
 
 def assign_types(beats):
-    """Rotate the types inside each family so no shot repeats the one before it."""
+    """Rotate the types inside each family so no shot repeats the one before it.
+
+    Photo beats alternate real footage and generated stills, with an annotated
+    still now and then. A beat that names two or more places becomes a map."""
+    from pipeline import geo
     turn = {f: 0 for f in FAMILIES}
     prev = None
     for b in beats:
-        options = list(TYPES[b["family"]])
+        if len(geo.places_in(b["text"])) >= 2:
+            b["family"], b["type"], prev = "data", "map", "map"
+            continue
+        options = [t for t in TYPES[b["family"]] if t != "map"]
         if b["family"] == "data":
             if not re.search(r"\d", b["text"]):
                 options = [t for t in options if t != "counter"]
-            if len(re.findall(r"(?:19|20)\d\d", b["text"])) < 2:
+            if len(re.findall(r"(?:19|20)\d\d", b["text"])) < 2:
                 options = [t for t in options if t != "timeline"]
         if b["family"] == "photo":
-            options = ["flux", "flux", "annotate"]      # mostly moving stills
+            options = ["stock", "flux", "stock", "annotate", "flux"]
+        if b["family"] == "screen":
+            options = ["browser", "chat", "notification"]    # cursor shots were empty monitors
         k = turn[b["family"]]
         t = options[k % len(options)]
         if t == prev and len(set(options)) > 1:
@@ -368,6 +412,27 @@ def assign_types(beats):
         turn[b["family"]] = k + 1
         b["type"], prev = t, t
     return beats
+
+
+def is_monitor(shot):
+    """A generated still of a screen: what the edit keeps under MONITOR_SHARE_MAX."""
+    return shot["type"] in ("flux", "annotate", "notification", "cursor") and \
+        bool(SCREEN_WORDS.search(shot.get("prompt") or ""))
+
+
+def cap_monitors(shots, pool):
+    """Swap monitor prompts for places and objects until at most
+    MONITOR_SHARE_MAX of the shots are screens. Returns how many were swapped."""
+    limit = int(MONITOR_SHARE_MAX * len(shots))
+    mons = [s for s in shots if is_monitor(s)]
+    swapped = 0
+    # keep the ones spread furthest apart; replace every other one first
+    for s in mons[1::2] + mons[0::2]:
+        if sum(is_monitor(x) for x in shots) <= limit:
+            break
+        s["prompt"] = pool()
+        swapped += 1
+    return swapped
 
 
 def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
@@ -413,11 +478,14 @@ def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
     spare = list(SAFE_STILLS)
     used_at = {}
 
-    def next_safe(i):
-        if spare:
-            p = spare.pop(0)
+    def next_safe(i, screens=True):
+        cands = [q for q in spare if screens or not SCREEN_WORDS.search(q)]
+        if cands:
+            p = cands[0]
+            spare.remove(p)
         else:
-            p = min(SAFE_STILLS, key=lambda q: used_at.get(q, -999))
+            pool = [q for q in SAFE_STILLS if screens or not SCREEN_WORDS.search(q)]
+            p = min(pool, key=lambda q: used_at.get(q, -999))
         used_at[p] = i
         return p
     for b in beats:
@@ -428,13 +496,24 @@ def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
                      _TEXT_OBJECTS.search(got["prompt"]).group(0))
             got["prompt"] = next_safe(b["i"])
             refused += 1
+        if got.get("type") == "map":
+            from pipeline import geo
+            got["places"] = [list(x) for x in geo.places_in(b["text"])]
+        if got.get("type") == "notification" and got.get("text") is not None:
+            # whole sentences only, from what is being said
+            line = notification_line(b["text"])
+            if line:
+                got["text"] = line
+            else:
+                got = {"type": "flux", "prompt": got.get("prompt") or next_safe(b["i"], False)}
         if got.get("type") == "chat":
             # Nobody real speaks in these threads: handles are always faceless.
             got["messages"] = [["anon" if k % 2 == 0 else "user", m[1]]
                                for k, m in enumerate(got.get("messages") or [])][:3]
-        if not _valid(got, b["family"]):
+        fam = "photo" if got["type"] == "flux" and b["family"] == "screen" else b["family"]
+        if not _valid(got, fam):
             log.info("beat %d: %s; default used", b["i"], _why_invalid(got, b["family"]))
-            got = _default(b["type"], b["text"], b["i"], next_safe(b["i"]))
+            got = _default(b["type"], b["text"], b["i"], next_safe(b["i"], False))
             used_defaults += 1
         elif not _facts_hold(got, b["text"]):
             log.info("beat %d: %s shows a number the narration does not say; default used",
@@ -444,9 +523,12 @@ def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
         got.update({"start": b["start"], "end": b["end"], "family": b["family"],
                     "narration": b["text"]})
         shots.append(got)
+    swapped = cap_monitors(shots, lambda: next_safe(-1, screens=False))
     for k, s in enumerate(shots):
         s["transition"] = TRANSITIONS[k % 3] if k else None
         s["move"] = k
+    share = sum(is_monitor(s) for s in shots) / max(1, len(shots))
+    log.info("monitor shots: %.0f%% (%d swapped for places and objects)", share * 100, swapped)
     log.info("%d shots, %d defaults, %d prompts refused for lettering; families: %s",
              len(shots), used_defaults, refused, " ".join(s["family"][0] for s in shots))
     return {"shots": shots, "accents": accents(lines, words)}

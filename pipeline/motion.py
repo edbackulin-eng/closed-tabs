@@ -30,7 +30,8 @@ MOVES = [(True, 0.0, 0.0), (False, -0.6, 0.0), (True, 0.6, -0.3),
 
 def prepare(src, dest):
     """Fill 16:9 at the working size. Returns the path of the prepared still."""
-    im = Image.open(src).convert("RGB")
+    from pipeline import grade
+    im = grade.grade(Image.open(src).convert("RGB"))
     scale = max(WORK_W / im.width, WORK_H / im.height)
     im = im.resize((round(im.width * scale), round(im.height * scale)), Image.LANCZOS)
     x, y = (im.width - WORK_W) // 2, (im.height - WORK_H) // 2
@@ -61,6 +62,39 @@ def kenburns(still, out_path, duration, index=0):
          "-framerate", str(FPS), "-t", f"{duration:.3f}", "-i", str(still),
          "-vf", _filter(duration, move), "-c:v", "libx264", "-preset", "veryfast",
          "-crf", "18", "-r", str(FPS), str(out_path)], check=True)
+    return out_path
+
+
+def stock_clip(src, out_path, duration, src_duration, seed=0):
+    """A stretch of stock footage, filled to 1920x1080, graded to the channel's
+    exposure and cut to exact length. A clip shorter than the shot is slowed (to
+    half speed at most) and only then looped."""
+    import math
+    import random
+    from pipeline import grade
+    rng = random.Random(seed)
+    src_duration = src_duration or duration
+    speed = 1.0 if src_duration >= duration + 0.3 else max(0.5, (src_duration - 0.2) / duration)
+    need = duration * speed
+    start = rng.uniform(0.1 * src_duration, max(0.1 * src_duration, src_duration - need - 0.1)) \
+        if src_duration > need + 0.5 else 0.0
+    # exposure: one frame from the middle, lifted toward the channel's target
+    probe = Path(out_path).with_suffix(".probe.jpg")
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss",
+                    f"{start + need / 2:.2f}", "-i", str(src), "-frames:v", "1", str(probe)],
+                   check=False)
+    gamma = 1.0
+    if probe.exists():
+        m = max(4.0, grade.mean_luma(Image.open(probe))) / 255
+        gamma = min(1.8, max(1.0, math.log(m) / math.log(grade.TARGET_MEAN / 255)))
+    vf = (f"setpts=PTS/{speed:.4f},scale={OUT_W}:{OUT_H}:force_original_aspect_ratio=increase,"
+          f"crop={OUT_W}:{OUT_H},fps={FPS},eq=gamma={gamma:.3f}:saturation=1.15:contrast=1.04,"
+          f"format=yuv420p")
+    loop = ["-stream_loop", "-1"] if src_duration * (1 / speed) < duration + 0.1 else []
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", *loop,
+                    "-ss", f"{start:.3f}", "-i", str(src), "-an", "-vf", vf, "-t", f"{duration:.3f}",
+                    "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-r", str(FPS),
+                    str(out_path)], check=True)
     return out_path
 
 

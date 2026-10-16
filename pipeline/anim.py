@@ -3,10 +3,10 @@
 Every visible word in these shots is drawn here, with the font fitted to its box,
 so nothing is ever a generated smear of fake letters. Each function writes a
 1920x1080, 30 fps clip and returns the moments that should carry a sound
-(key, click, pop, tick, whoosh), which the sound stage turns into effects.
+(key, click, blip, tick, thump), which the sound stage turns into effects.
 
-The look is the channel's 2 a.m. room: near-black, one cold screen colour, a warm
-accent for the thing that matters. No real logos, no real site chrome.
+The look is the channel's lit night: deep blue-violet, teal and magenta light,
+a warm amber accent for the thing that matters. No real logos, no real site chrome.
 """
 import math
 import subprocess
@@ -18,14 +18,16 @@ from PIL import Image, ImageDraw
 from core import fonts
 
 W, H, FPS = 1920, 1080, 30
-BG = (8, 10, 14)
-PANEL = (18, 22, 30)
-PANEL_HI = (28, 34, 46)
+# Lit night, not black: a deep blue-violet room with teal and magenta light in it.
+BG = (24, 28, 46)
+PANEL = (34, 40, 60)
+PANEL_HI = (50, 58, 84)
 TEXT = (214, 224, 232)
 DIM = (120, 132, 146)
 SCREEN = (90, 220, 200)          # the cold screen colour
 RED = (232, 44, 52)
 WARM = (255, 196, 92)
+MAGENTA = (236, 72, 160)
 
 
 # --- plumbing --------------------------------------------------------------
@@ -71,14 +73,23 @@ _BACKDROPS = {}
 
 
 def backdrop(glow=SCREEN):
-    """A dark room with a faint glow behind the panel. Cached per colour."""
+    """A lit night room behind the panel: deep blue-violet, a teal pool of light on
+    the left, a magenta one on the right, the panel's own glow in the middle.
+    Cached per colour."""
     if glow not in _BACKDROPS:
         y, x = np.ogrid[:H, :W]
         d = np.sqrt(((x - W / 2) / (W / 2)) ** 2 + ((y - H / 2) / (H / 2)) ** 2)
-        vig = np.clip(1.0 - 0.55 * d ** 2, 0.35, 1.0)[..., None]
+        vig = np.clip(1.0 - 0.30 * d ** 2, 0.62, 1.0)[..., None]
         base = np.zeros((H, W, 3), np.float32) + np.array(BG, np.float32)
-        g = np.exp(-(((x - W / 2) / 700) ** 2 + ((y - H / 2) / 420) ** 2))[..., None]
-        base += g * np.array(glow, np.float32) * 0.10
+        teal = np.exp(-(((x - W * 0.12) / 620) ** 2 + ((y - H * 0.85) / 520) ** 2))[..., None]
+        mag = np.exp(-(((x - W * 0.90) / 600) ** 2 + ((y - H * 0.15) / 480) ** 2))[..., None]
+        g = np.exp(-(((x - W / 2) / 760) ** 2 + ((y - H / 2) / 460) ** 2))[..., None]
+        base += teal * np.array(SCREEN, np.float32) * 0.42
+        base += mag * np.array(MAGENTA, np.float32) * 0.36
+        base += g * np.array(glow, np.float32) * 0.22
+        # a faint grain so the backdrop is a room, not a flat fill
+        rng = np.random.default_rng(len(_BACKDROPS))
+        base += rng.normal(0, 2.2, (H, W, 1)).astype(np.float32)
         _BACKDROPS[glow] = Image.fromarray(np.clip(base * vig, 0, 255).astype(np.uint8))
     return _BACKDROPS[glow].copy()
 
@@ -95,8 +106,9 @@ def text_box(draw, xy, box, text, kind="sans", max_size=46, fill=TEXT, spacing=1
 
 
 def _cover(path_or_img):
+    from pipeline import grade
     im = path_or_img if isinstance(path_or_img, Image.Image) else Image.open(path_or_img)
-    im = im.convert("RGB")
+    im = grade.grade(im.convert("RGB"))
     s = max(W / im.width, H / im.height)
     im = im.resize((math.ceil(im.width * s), math.ceil(im.height * s)), Image.LANCZOS)
     x, y = (im.width - W) // 2, (im.height - H) // 2
@@ -231,15 +243,18 @@ def chat(out_path, duration, messages, header="Thread"):
             y += bh + 26
         clip.frame(im)
     for k in range(len(messages)):
-        clip.cue(k * step, "pop")
+        clip.cue(k * step, "blip")
     return clip.close()
 
 
 def notification(out_path, duration, background, app, text):
-    """A notification card slides in over a still."""
+    """A notification card slides in over a still. The card grows to hold the whole
+    sentence: nothing is ever cut to fit."""
     clip = Clip(out_path, duration)
     base = _cover(background)
     t0 = duration * 0.2
+    size, lines = fonts.fit(text, "sans", 900, 220, 50, min_size=30)
+    card_h = int(130 + len(lines) * size * 1.25 + 30)
     for i in range(clip.n):
         t = i / FPS
         im = base.copy()
@@ -249,18 +264,17 @@ def notification(out_path, duration, background, app, text):
             d = ImageDraw.Draw(ov)
             x1 = W - 70
             x0 = x1 - 1080
-            y0 = int(-300 + (70 + 300) * p)
-            d.rounded_rectangle((x0, y0, x1, y0 + 270), 30, fill=(24, 28, 38, 240),
+            y0 = int(-card_h - 30 + (70 + card_h + 30) * p)
+            d.rounded_rectangle((x0, y0, x1, y0 + card_h), 30, fill=(24, 28, 44, 240),
                                 outline=(*PANEL_HI, 255), width=2)
             d.ellipse((x0 + 36, y0 + 38, x0 + 108, y0 + 110), fill=(*SCREEN, 255))
             d.text((x0 + 136, y0 + 36), app, font=fonts.font("sans_bold", 44), fill=TEXT)
-            size, lines = fonts.fit(text, "sans", 900, 130, 50)
             for j, line in enumerate(lines):
                 d.text((x0 + 136, y0 + 104 + j * size * 1.25), line,
-                       font=fonts.font("sans", size), fill=(200, 210, 218))
+                       font=fonts.font("sans", size), fill=(214, 222, 230))
             im = Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB")
         clip.frame(im)
-    clip.cue(t0, "pop")
+    clip.cue(t0, "blip")
     return clip.close()
 
 
@@ -317,7 +331,7 @@ def timeline(out_path, duration, events):
             text_box(d, (xs[k] - 210, box_y + 90), (420, 150), what, "sans", 44, TEXT)
         clip.frame(im)
     for k in range(n):
-        clip.cue(duration * 0.8 * (xs[k] - 220) / (W - 440), "pop")
+        clip.cue(duration * 0.8 * (xs[k] - 220) / (W - 440), "blip")
     return clip.close()
 
 
@@ -351,7 +365,7 @@ def annotate(out_path, duration, background, circle=(0.5, 0.5, 0.18), underline=
             x0, x1, y = underline[0] * W, underline[1] * W, underline[2] * H
             d.line((x0, y, x0 + (x1 - x0) * q, y + 4), fill=RED, width=9)
         clip.frame(im)
-    clip.cue(t0, "whoosh")
+    clip.cue(t0, "thump")
     return clip.close()
 
 
@@ -389,7 +403,7 @@ def censor(out_path, duration, heading, lines, redact):
             y += len(wrapped) * size * 1.3 + 24
         clip.frame(im)
     for m in range(len(redact)):
-        clip.cue(bar_t0 + 0.25 * m, "whoosh")
+        clip.cue(bar_t0 + 0.25 * m, "thump")
     return clip.close()
 
 
@@ -426,4 +440,90 @@ def quote(out_path, duration, text, accent=None):
         clip.frame(im)
     for k in range(len(words)):
         clip.cue(reveal * k / max(1, len(words)), "tick")
+    return clip.close()
+
+
+# --- a world map with the places the narration names -------------------------
+
+_MAP = {}
+
+
+def _map_base():
+    """The land in equirectangular projection, lit teal on the night backdrop."""
+    if "base" not in _MAP:
+        from pipeline import geo
+        im = backdrop(SCREEN).convert("RGBA")
+        land = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        d = ImageDraw.Draw(land)
+        x0, y0, mw, mh = 120, 150, W - 240, (W - 240) / 2      # 2:1 world
+        for ring in geo.land():
+            pts = [(x0 + (lon + 180) / 360 * mw, y0 + (90 - lat) / 180 * mh) for lon, lat in ring]
+            if len(pts) > 2:
+                d.polygon(pts, fill=(44, 92, 104, 255), outline=(110, 210, 200, 255))
+        # a faint graticule every 30 degrees
+        for lon in range(-180, 181, 30):
+            x = x0 + (lon + 180) / 360 * mw
+            d.line((x, y0, x, y0 + mh), fill=(120, 140, 180, 40), width=1)
+        for lat in range(-60, 91, 30):
+            y = y0 + (90 - lat) / 180 * mh
+            d.line((x0, y, x0 + mw, y), fill=(120, 140, 180, 40), width=1)
+        _MAP["base"] = Image.alpha_composite(im, land).convert("RGB")
+        _MAP["frame"] = (x0, y0, mw, mh)
+    return _MAP["base"].copy(), _MAP["frame"]
+
+
+def worldmap(out_path, duration, places, title=""):
+    """Dots appear one by one on the places named, each with a pulse and a label.
+    places: [(name, lat, lon)]."""
+    clip = Clip(out_path, duration)
+    base, (x0, y0, mw, mh) = _map_base()
+    n = max(1, len(places))
+    step = duration * 0.7 / n
+    pos = [(x0 + (lon + 180) / 360 * mw, y0 + (90 - lat) / 180 * mh) for _, lat, lon in places]
+    # Each label takes the first of four corners around its dot that covers no
+    # other dot and no label already placed.
+    f = fonts.font("sans_bold", 40)
+    boxes = []
+    for (name, _, _), (px, py) in zip(places, pos):
+        lw = f.getlength(name)
+        choice = None
+        for dx, dy in ((24, -66), (24, 20), (-lw - 48, -66), (-lw - 48, 20), (24, -120), (24, 74)):
+            lx = min(W - 60 - lw, max(60, px + dx))
+            b = (lx - 12, py + dy - 6, lx + lw + 12, py + dy + 50)
+            hits_dot = any(b[0] - 16 < qx < b[2] + 16 and b[1] - 16 < qy < b[3] + 16 for qx, qy in pos)
+            hits_box = any(not (b[2] < c[0] or b[0] > c[2] or b[3] < c[1] or b[1] > c[3]) for c in boxes)
+            if not hits_dot and not hits_box:
+                choice = b
+                break
+        boxes.append(choice or (min(W - 60 - lw, px + 24) - 12, py - 72, min(W - 60 - lw, px + 24) + lw + 12, py - 16))
+    for i in range(clip.n):
+        t = i / FPS
+        z = 1.0 + 0.03 * ease(t / duration)
+        im = base.resize((int(W * z), int(H * z)), Image.BILINEAR)
+        ox, oy = (im.width - W) // 2, (im.height - H) // 2
+        im = im.crop((ox, oy, ox + W, oy + H))
+        d = ImageDraw.Draw(im)
+        if title:
+            text_box(d, (120, 50), (W - 240, 80), title.upper(), "label", 72, WARM)
+
+        def zx(x, y):
+            return (x - W / 2) * z + W / 2, (y - H / 2) * z + H / 2
+        for k, ((name, _, _), (px, py), b) in enumerate(zip(places, pos, boxes)):
+            t0 = 0.3 + k * step
+            if t < t0:
+                continue
+            px, py = zx(px, py)
+            p = ease_out((t - t0) / 0.3)
+            pulse = ((t - t0) % 1.4) / 1.4
+            rr = 14 + 46 * pulse
+            d.ellipse((px - rr, py - rr, px + rr, py + rr), outline=MAGENTA, width=max(1, int(4 * (1 - pulse))))
+            r = 13 * p
+            d.ellipse((px - r, py - r, px + r, py + r), fill=RED, outline=(255, 255, 255), width=3)
+            bx0, by0 = zx(b[0], b[1])
+            bx1, by1 = zx(b[2], b[3])
+            d.rounded_rectangle((bx0, by0, bx1, by1), 10, fill=(20, 22, 36))
+            d.text((bx0 + 12, by0 + 6), name, font=f, fill=TEXT)
+        clip.frame(im)
+    for k in range(len(places)):
+        clip.cue(0.3 + k * step, "blip")
     return clip.close()

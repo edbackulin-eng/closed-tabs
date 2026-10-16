@@ -130,6 +130,7 @@ Digital images with hidden information.
 A telephone message.
 Websites.
 < And paper signs, with QR codes on them.
+They were found on streets in Paris, in Warsaw, in Miami, and in a suburb of Sydney.
 Physical things. Out in the world.
 Solvers met cryptography. Steganography.
 References to literature, poetry, art and music.

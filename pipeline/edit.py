@@ -15,7 +15,7 @@ from pipeline import assemble, motion, music, sound
 log = get_logger("edit")
 
 NEEDS_STILL = {"flux", "annotate", "notification", "cursor"}
-TRANSITION_SFX = {"vhs": "glitch", "rgb": "glitch", "fade": "whoosh"}
+TRANSITION_SFX = {"vhs": "glitch", "rgb": "glitch", "fade": "thump"}
 
 
 def render(plan, stills_dir, narration_wav, out_path, work, script_text=""):
@@ -37,6 +37,9 @@ def render(plan, stills_dir, narration_wav, out_path, work, script_text=""):
 
     paths, cues, cache = [], [], {}
     for s in shots:
+        if s["type"] == "stock" and not (s.get("asset") and Path(s["asset"]["path"]).exists()):
+            s["type"] = "flux"                    # no footage after all: its fallback still
+            report["problems"].append(f"shot {s['move']}: stock asset missing, still used")
         if s["type"] in NEEDS_STILL and s["move"] not in frames:
             # A missing still is a gap, not a reason to lose the video: the shot
             # borrows the nearest still that does exist.
@@ -66,8 +69,36 @@ def render(plan, stills_dir, narration_wav, out_path, work, script_text=""):
     report["music"] = music.attribution(bed_plan)
     report["checks"]["audio"] = sound.mix(narration_wav, bed, cues, seconds,
                                           work / "mix.wav", work)
+    if bed:
+        try:
+            report["checks"]["music_levels"] = sound.measure_duck(narration_wav, bed, work)
+        except Exception as e:                       # a measurement never costs the video
+            report["problems"].append(f"music level measurement failed: {e}")
 
     assemble.finish(picture, work / "mix.wav", acc, out_path, work)
+    # Defects in the picture are repaired, not reported and shipped, and never a
+    # reason to lose the video: black stretches are covered, a dark film lifted.
+    from pipeline import autofix
+    fixed = work / "fixed.mp4"
+    try:
+        rep = autofix.repair(out_path, fixed, work / "autofix")
+        report["checks"]["black_repair"] = rep
+        if rep.get("covered") and fixed.exists():
+            fixed.replace(out_path)
+        if rep.get("left"):
+            report["problems"].append(f"black stretches left after repair: {rep['left']}")
+        lit = autofix.lift(out_path, fixed, work)
+        report["checks"]["brightness"] = lit.get("after", lit["before"])
+        report["checks"]["brightness_before_lift"] = lit["before"] if "after" in lit else None
+        if "after" in lit and fixed.exists():
+            fixed.replace(out_path)
+        if not report["checks"]["brightness"]["ok"]:
+            report["problems"].append(f"picture still darker than the floor: {report['checks']['brightness']}")
+    except Exception as e:                                       # noqa: BLE001
+        report["problems"].append(f"autofix failed: {e}")
+    from pipeline import editplan
+    report["checks"]["monitor_share"] = round(
+        sum(1 for s in shots if editplan.is_monitor(s)) / max(1, len(shots)), 3)
     from pipeline import qc
     meta = qc.probe(out_path)
     v = next(s for s in meta["streams"] if s["codec_type"] == "video")

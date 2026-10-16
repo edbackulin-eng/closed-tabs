@@ -6,8 +6,8 @@
 2. If fewer than BUFFER, take the next queued topic: write its script if it has
    none, build the episode, upload it private on the nearest free slot.
 3. Record it in state/episodes.json at once.
-4. Exit non-zero if, after all that, fewer than MIN_READY videos are scheduled -
-   the run says so loudly rather than leaving a hole to be found on the channel.
+4. Exit non-zero if this run added nothing while fewer than MIN_READY videos are
+   scheduled - the run says so loudly rather than leaving a hole on the channel.
 """
 import argparse
 import json
@@ -59,11 +59,14 @@ def run(cmd):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-upload", action="store_true")
+    ap.add_argument("--force-window", action="store_true",
+                    help="by hand only: allow Kaggle outside the GPU window")
     args = ap.parse_args()
     rows = _state()
     have = ahead(rows)
     log.info("%d video(s) scheduled ahead, buffer %d", len(have), BUFFER)
 
+    produced = False
     if len(have) < BUFFER:
         topic = next_topic(rows)
         if topic is None:
@@ -73,7 +76,8 @@ def main():
             q = ROOT / "queue" / slug
             if not (q / "script.txt").exists():
                 run([sys.executable, str(ROOT / "automation" / "write_script.py"), slug])
-            run([sys.executable, str(ROOT / "automation" / "build_episode.py"), slug])
+            run([sys.executable, str(ROOT / "automation" / "build_episode.py"), slug,
+                 *(["--force-window"] if args.force_window else [])])
             if not args.no_upload:
                 from pipeline import youtube
                 out = q / "out"
@@ -84,14 +88,28 @@ def main():
                 rows.append({"slug": slug, "youtube_id": vid,
                              "publish_at": slot.strftime("%Y-%m-%dT%H:%M:%SZ"),
                              "title": meta["title"]})
+                # the topic is done: the next run takes the next one
+                queue = json.loads(QUEUE.read_text(encoding="utf-8"))
+                for t in queue["topics"]:
+                    if t["slug"] == slug:
+                        t["status"] = "published"
+                QUEUE.write_text(json.dumps(queue, indent=1, ensure_ascii=False), encoding="utf-8")
                 _save_state(rows)
+                produced = True
                 log.info("%s scheduled for %s as %s", slug, rows[-1]["publish_at"], vid)
 
     have = ahead(_state())
     print(f"scheduled ahead: {len(have)}")
+    gh_out = __import__("os").environ.get("GITHUB_OUTPUT")
+    if gh_out:
+        with open(gh_out, "a", encoding="utf-8") as f:
+            f.write(f"ahead={len(have)}\nbuffer={BUFFER}\n")
     for r in sorted(have, key=lambda r: r["publish_at"]):
         print(f"  {r['publish_at']}  {r['youtube_id']}  {r['title']}")
-    if len(have) < MIN_READY:
+    # A run that added a video did its job even if the buffer is still filling;
+    # the workflow starts the next build. A run that added nothing while the
+    # buffer is short is a failure, and says so (retry, then an email).
+    if len(have) < MIN_READY and not produced and not args.no_upload:
         log.error("only %d video(s) scheduled ahead; at least %d are needed", len(have), MIN_READY)
         return 1
     return 0

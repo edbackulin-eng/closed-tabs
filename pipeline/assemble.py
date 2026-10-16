@@ -59,6 +59,18 @@ def render_shot(shot, frames, work, still_cache):
     if t == "flux":
         motion.kenburns(prepared(), out, d, index=i)
         return out, []
+    if t == "stock":
+        a = shot["asset"]
+        if a["kind"] == "image":
+            if i not in still_cache:
+                still_cache[i] = motion.prepare(a["path"], work / f"still_{i:03d}.jpg")
+            motion.kenburns(still_cache[i], out, d, index=i)
+        else:
+            motion.stock_clip(a["path"], out, d, a.get("duration", 0), seed=i)
+        return out, []
+    if t == "map":
+        r = anim.worldmap(out, d, [tuple(x) for x in shot["places"]])
+        return out, [{"t": round(shot["start"] + c["t"], 3), "kind": c["kind"]} for c in r["cues"]]
     if t == "annotate":
         r = anim.annotate(out, d, bg, circle=tuple(shot["circle"]))
     elif t == "browser":
@@ -180,8 +192,10 @@ def finish(video, audio, accents, out, work, vhs=True):
     chain = [f"scale=w='trunc({W}*{z}/2)*2':h='trunc({H}*{z}/2)*2':eval=frame:flags=bicubic",
              f"crop={W}:{H}:x='(iw-{W})/2+9*({shake})*sin(t*71)':y='(ih-{H})/2+6*({shake})*cos(t*83)'"]
     if vhs:
-        chain += ["noise=alls=7:allf=t", "eq=saturation=0.92:contrast=1.04",
-                  "vignette=angle=PI/5"]
+        # Saturation is kept, not pulled down, and the vignette is light: the grade
+        # (pipeline/grade.py) made the frames colourful and this pass must not undo it.
+        chain += ["noise=alls=6:allf=t", "eq=saturation=1.05:contrast=1.05:brightness=0.015",
+                  "vignette=angle=PI/8"]
     inputs = ["-i", str(video), "-i", str(audio)]
     graph = f"[0:v]{','.join(chain)}[base]"
     last = "base"

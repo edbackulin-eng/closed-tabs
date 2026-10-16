@@ -20,10 +20,10 @@ def main(slug, build="build"):
         raise SystemExit("no thumbnail bases in build/thumb_bases")
     verdicts = visualqc.judge_thumbnails(bases)
     script = (q / "script.txt").read_text(encoding="utf-8")
-    quote = next((l.lstrip("<> ").strip() for l in script.splitlines()
-                  if l.strip() and not l.startswith("[")), meta["name"])
+    # a whole sentence or nothing: "A phone numb" was a line cut at 70 characters
+    line = thumbnail.screen_line(script)
     words = meta.get("thumbnail_words") or meta["name"]
-    final, report = thumbnail.choose(bases, verdicts, words, meta["name"], quote[:70],
+    final, report = thumbnail.choose(bases, verdicts, words, meta["name"], line,
                                      b / "thumbs", sum(map(ord, slug)))
     out = {"winner": final.name, "candidates": report,
            "verdicts": {Path(k).name: v for k, v in verdicts.items()}}

@@ -1,7 +1,7 @@
 name: daily-retry
 
-# One more attempt an hour after a failed scheduled daily run. Switched off with
-# the schedule: it only reacts to scheduled runs, and there are none yet.
+# One more attempt an hour after a failed scheduled daily run. A run that fails
+# again sends the failure email from daily.yml's last step.
 on:
   workflow_run:
     workflows: ["daily"]

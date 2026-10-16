@@ -1,22 +1,27 @@
 name: daily
 
-# One episode a run while fewer than three are scheduled ahead. Runs at 20:00 UTC,
-# inside the Closed Tabs Kaggle window (What If's build is long finished by then).
-#
-# The schedule stays switched off until the first full video is approved; until
-# then this runs by hand only.
+# One episode a run while fewer than three are scheduled ahead; publication slots
+# are Mon/Tue/Thu/Fri/Sat 17:00 UTC (pipeline/youtube.py). Runs at 20:05 UTC,
+# inside the Closed Tabs Kaggle window: What If does not start after 18:00 UTC and
+# its build is long finished, and push.py waits for any kernel still running.
+# While fewer than three are scheduled, a successful run starts the next one, so
+# the buffer refills overnight instead of one video a day.
 on:
-  # schedule:
-  #   - cron: "0 20 * * *"
+  schedule:
+    - cron: "5 20 * * *"
   workflow_dispatch:
     inputs:
       upload:
         description: upload to YouTube
         default: "true"
+      force_window:
+        description: by hand only - allow Kaggle outside the 20:00-04:00 UTC window
+        default: "false"
 
 permissions:
   contents: write
   issues: write
+  actions: write
 
 concurrency:
   group: daily
@@ -33,6 +38,7 @@ jobs:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
       PYTHONUTF8: 1
     steps:
@@ -55,6 +61,7 @@ jobs:
         run: |
           flag=""
           [ "${{ inputs.upload }}" = "false" ] && flag="--no-upload"
+          [ "${{ inputs.force_window }}" = "true" ] && flag="$flag --force-window"
           python automation/daily.py $flag
       - uses: actions/upload-artifact@v5
         if: always()
@@ -69,7 +76,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/ queue/*/script.txt queue/*/meta.json queue/*/out/uploaded.json 2>/dev/null || true
+          git add state/ topics/queue.json queue/*/script.txt queue/*/meta.json queue/*/out/uploaded.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
           cp state/episodes.json "$RUNNER_TEMP/episodes.json"
           git commit -m "State after daily ${{ github.run_id }} (${{ steps.run.outcome }})"
@@ -85,6 +92,23 @@ jobs:
           done
           echo "::error::the episode state could not be saved; the next run could upload again"
           exit 1
+      - name: Keep the buffer filling
+        if: success() && inputs.upload != 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AHEAD: ${{ steps.run.outputs.ahead }}
+          BUFFER: ${{ steps.run.outputs.buffer }}
+        run: |
+          [ -n "$AHEAD" ] && [ "$AHEAD" -lt "$BUFFER" ] || { echo "buffer full ($AHEAD of $BUFFER)"; exit 0; }
+          # Inside the GPU window the next build starts now; outside it push.py would
+          # refuse the kernel, so the 20:05 run picks it up instead.
+          h=$(date -u +%H)
+          if [ "$h" -ge 20 ] || [ "$h" -lt 2 ]; then
+            gh workflow run daily.yml --repo ${{ github.repository }} -f upload=true
+            echo "next build dispatched ($AHEAD of $BUFFER scheduled)"
+          else
+            echo "outside the GPU window; the 20:05 run continues ($AHEAD of $BUFFER scheduled)"
+          fi
       - name: Email on failure
         if: failure()
         env:

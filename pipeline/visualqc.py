@@ -42,9 +42,11 @@ PHOTO_SYSTEM = """You inspect generated photographic frames for a documentary ch
 internet mysteries. Many frames are dark rooms lit by screens; darkness is the look.
 
 Report a defect ONLY when you can clearly see one of these:
-- text: ANY lettering, words, numbers, captions, signage, user interface, or a screen
-  displaying characters - including text that is blurry, garbled or nonsensical.
-  Garbled lettering is the most important defect to catch.
+- text: lettering you can READ or that is crisp enough to look like real words:
+  captions, signage, user interface, a screen displaying characters, garbled fake
+  words in focus. Garbled crisp lettering is the most important defect to catch.
+  NOT a defect: old books, letters, maps and papers whose writing is tiny, out of
+  focus or worn to an unreadable texture - that is asked for.
 - watermark: a watermark, logo, brand mark, signature, or a recognisable real website,
   app or product.
 - face: a person facing the camera with their features LIT AND VISIBLE - you can make
@@ -83,6 +85,20 @@ Report a defect ONLY when you see:
 Everything else about an archive photograph is acceptable.
 Reply with valid JSON only."""
 
+STOCK_SYSTEM = """You inspect frames from licensed stock footage and archive photographs
+used in a documentary about internet mysteries.
+
+Report a defect ONLY when you clearly see:
+- watermark: a stock watermark, a broadcaster bug, a channel logo or a caption.
+- logo: a recognisable real brand, company logo or product name readable in frame
+  (a shop sign in the far distance that cannot be read is FINE).
+- face: a person looking into the lens, or a face lit and large enough to identify.
+  People seen from behind, in profile at a distance, blurred or small are FINE.
+- graphic: blood, injury, weapons, police scenes, a child as the subject.
+- text: large readable on-screen text or a screen showing readable content.
+Everything else is acceptable.
+Reply with valid JSON only."""
+
 CARD_SYSTEM = """You inspect drawn infographic cards from a science documentary.
 
 These cards are SUPPOSED to contain large text and numbers. Do not report that
@@ -98,12 +114,14 @@ Reply with valid JSON only."""
 
 PROMPT = """For each image, in order, return:
 {"results":[{"i":<index>,"ok":true|false,
-"defect":"text|watermark|face|anatomy|graphic|border|card|none",
+"defect":"text|watermark|face|anatomy|graphic|border|card|logo|none",
 "note":"<a few words, only when ok is false>",
-"focus":[x, y, r]}]}
-"focus" is the single most striking object or detail in the frame - the thing a red
-circle should go around - as its centre x, y and radius r, each between 0 and 1 of the
-image size. Always give it, even when ok is true."""
+"detail":{"name":"<the object>","box":[x0, y0, x1, y1]} or null}]}
+"detail" is ONE small, concrete, clearly visible physical object in the frame that a
+red circle could be drawn around - a phone, a lamp, a door, a cable, a book, a sign
+post. "box" is its tight bounding box as fractions 0-1 of the image (x0,y0 top-left,
+x1,y1 bottom-right). If there is no single distinct object - an empty wall, sky,
+fog, a featureless area - return null. Never box an empty area."""
 
 
 def _encode(path, max_side=MAX_SIDE):
@@ -142,7 +160,7 @@ def _inspect_batch(paths, model=VISION_MODEL, kind="photo"):
     payload = {
         "contents": [{"role": "user", "parts": parts}],
         "systemInstruction": {"parts": [
-            {"text": {"card": CARD_SYSTEM,
+            {"text": {"card": CARD_SYSTEM, "stock": STOCK_SYSTEM,
                       "archive": ARCHIVE_SYSTEM}.get(kind, PHOTO_SYSTEM)}]},
         "generationConfig": {"maxOutputTokens": 2048, "temperature": 0.0,
                              "responseMimeType": "application/json"},
@@ -196,7 +214,7 @@ def inspect(paths, model=VISION_MODEL, kinds=None):
     paths = [Path(p) for p in paths]
     kinds = {Path(k): v for k, v in (kinds or {}).items()}
     verdicts = {}
-    groups = {"photo": [], "card": [], "archive": []}
+    groups = {"photo": [], "card": [], "archive": [], "stock": []}
     for p in paths:
         groups.setdefault(kinds.get(p, "photo"), []).append(p)
 
@@ -227,21 +245,63 @@ def inspect(paths, model=VISION_MODEL, kinds=None):
                     # The model skipped this image. Defaulting to ok here would be
                     # the same fail-open the 503 path was fixed for.
                     verdicts[p] = {"ok": False, "defect": "unchecked",
-                                   "note": "no verdict returned for this image", "focus": None}
+                                   "note": "no verdict returned for this image", "detail": None}
                     continue
-                focus = r.get("focus")
-                if not (isinstance(focus, list) and len(focus) == 3
-                        and all(isinstance(v, (int, float)) and 0 <= v <= 1 for v in focus)):
-                    focus = None
                 verdicts[p] = {"ok": bool(r.get("ok", False)),
                                "defect": (r.get("defect") or "none").lower(),
-                               "note": r.get("note", "") or "", "focus": focus}
+                               "note": r.get("note", "") or "",
+                               "detail": real_detail(p, r.get("detail"))}
             done += len(batch)
             log.info("inspected %d/%d frames", done, len(paths))
 
     failed = [p for p, v in verdicts.items() if not v["ok"]]
     log.info("visual QC: %d frames, %d flagged", len(verdicts), len(failed))
     return verdicts
+
+
+def real_detail(path, detail):
+    """The detail Gemini boxed, if the pixels agree that something is there.
+
+    The first hook drew red circles around empty patches: the model was asked for
+    the most striking point and always answered with one. Now it names an object
+    and boxes it, and the box is checked here: a sensible size, and texture or
+    contrast inside it that stands out from the picture around it. A box on a
+    flat wall or a patch of fog fails, and the shot gets no circle.
+    Returns {"name", "box", "circle": [cx, cy, r]} or None.
+    """
+    import numpy as np
+    from PIL import Image
+    if not isinstance(detail, dict):
+        return None
+    box = detail.get("box")
+    if not (isinstance(box, list) and len(box) == 4
+            and all(isinstance(v, (int, float)) and 0 <= v <= 1 for v in box)):
+        return None
+    x0, y0, x1, y1 = box
+    if x1 - x0 < 0.03 or y1 - y0 < 0.03:
+        return None
+    if (x1 - x0) * (y1 - y0) > 0.20:           # a fifth of the frame is not "a detail"
+        return None
+    with Image.open(path) as im:
+        a = np.asarray(im.convert("L").resize((480, 270)), np.float32)
+    h, w = a.shape
+    X0, Y0 = int(x0 * w), int(y0 * h)
+    X1, Y1 = max(int(x1 * w), X0 + 2), max(int(y1 * h), Y0 + 2)
+    inner = a[Y0:Y1, X0:X1]
+    pad = max(6, int(0.5 * max(X1 - X0, Y1 - Y0)))
+    ring = a[max(0, Y0 - pad):min(h, Y1 + pad), max(0, X0 - pad):min(w, X1 + pad)]
+    gy, gx = np.gradient(a)
+    edges = np.hypot(gx, gy)
+    e_in = float(edges[Y0:Y1, X0:X1].mean())
+    e_all = float(edges.mean()) + 1e-3
+    contrast = abs(float(inner.mean()) - float(ring.mean()))
+    if inner.std() < 10 or (e_in < 1.15 * e_all and contrast < 12):
+        return None
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    # radius in frame heights; the circle is drawn 1.25x wider than tall
+    r = max((x1 - x0) * 16 / 9 / 2 / 1.25, (y1 - y0) / 2) * 1.25
+    return {"name": str(detail.get("name", ""))[:40], "box": [round(v, 3) for v in box],
+            "circle": [round(cx, 3), round(cy, 3), round(min(0.30, max(0.06, r)), 3)]}
 
 
 def write_report(verdicts, path):

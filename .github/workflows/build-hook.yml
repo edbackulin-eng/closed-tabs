@@ -26,6 +26,7 @@ jobs:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       PYTHONUTF8: 1
     steps:
       - uses: actions/checkout@v5
@@ -48,6 +49,8 @@ jobs:
         run: python automation/narrate_hook.py "${{ inputs.slug }}" 60
       - name: Plan the edit
         run: python automation/plan_hook.py "${{ inputs.slug }}"
+      - name: Stock footage and photographs (Pixabay, Commons, NASA)
+        run: python automation/stock_assets.py "queue/${{ inputs.slug }}/build/hook_plan.json"
       - name: Stills (Kaggle FLUX, Gemini check)
         run: |
           extra=""
@@ -76,6 +79,7 @@ jobs:
             queue/${{ inputs.slug }}/build/stills/*.png
             queue/${{ inputs.slug }}/build/thumbs/*.jpg
             queue/${{ inputs.slug }}/build/thumb_bases/*.png
+            queue/${{ inputs.slug }}/build/credits.json
       - name: Keep the GPU ledger
         if: always()
         run: |

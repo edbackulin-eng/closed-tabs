@@ -2,11 +2,16 @@
 
 The recipe, every episode:
   - FLUX draws a shocked person, 20-35, in half profile on the left, pointing at
-    an old monitor and looking at it - never at the camera. The person changes every
-    time (seeded from the episode). The monitor is generated blank.
-  - Gemini finds the four corners of that blank screen, and code paints the
-    episode's screen into it in perspective, with a red circle on the detail
-    that should not be there.
+    a monitor on the right that faces the camera squarely - a flat, frontal
+    screen, so what is painted into it sits in it exactly. The person changes
+    every time (seeded from the episode). The monitor is generated blank.
+  - Gemini gives the rough corners of that blank screen; code then finds the lit
+    blank panel itself in the pixels (refine_quad) and paints the episode's
+    screen into exactly that shape. A candidate whose screen cannot be found is
+    ranked below every one whose screen was.
+  - On the screen: the heading and one whole short sentence, never a cut-off
+    one, and beneath them an image tile with a single glowing detail. The red
+    circle goes around that detail, inside the tile, so it never covers words.
   - Two or three words in Anton, white with one word red, heavy black outline -
     words that add to the title rather than repeat it.
   - A light VHS layer, a REC dot and a 03:14 AM stamp.
@@ -50,11 +55,13 @@ def base_prompts(seed, n=CANDIDATES):
     rng = random.Random(seed)
     who = rng.sample(PEOPLE, n)
     return [
-        f"{p}, shocked, eyes wide and mouth open, seen in three-quarter profile on the left "
-        f"third of the frame, pointing a finger at an old computer monitor on the right, "
-        f"looking at the monitor and not at the camera, the monitor screen is blank, evenly "
-        f"lit pale grey, completely empty, a dark bedroom at 3 a.m. lit only by the monitor, "
-        f"cinematic, photorealistic, 35mm film still, shallow depth of field, "
+        f"{p}, shocked, eyes wide and mouth open, seen in profile on the left third of the "
+        f"frame, pointing a finger at a large flat computer monitor on the right half of the "
+        f"frame, the monitor faces the camera squarely, shot straight on, its screen a flat "
+        f"rectangle parallel to the image, the screen is blank, evenly lit pale grey-white, "
+        f"completely empty, the person looks at the monitor and not at the camera, a bedroom "
+        f"at night lit by teal and magenta neon light and the glow of the screen, well "
+        f"exposed, colourful, cinematic, photorealistic, 35mm film still, "
         f"no text, no letters, no logos, five fingers on each hand"
         for p in who]
 
@@ -62,29 +69,112 @@ def base_prompts(seed, n=CANDIDATES):
 # --- the screen content ----------------------------------------------------------
 
 def screen_content(heading, line, size=(1200, 900)):
-    """What is on the monitor: a dark page with the impossible detail circled."""
+    """What is on the monitor: a page with a heading, one whole sentence, and an
+    image tile whose single glowing detail is circled. Text and circle never meet:
+    the circle lives inside the tile, below every word."""
     w, h = size
-    im = Image.new("RGB", size, (14, 17, 24))
+    im = Image.new("RGB", size, (20, 24, 38))
     d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, w, 70), fill=(28, 34, 46))
+    d.rectangle((0, 0, w, int(h * 0.08)), fill=(36, 42, 62))
+    bar = int(h * 0.08)
     for i, c in enumerate(((235, 90, 80), (240, 190, 70), (90, 200, 110))):
-        d.ellipse((24 + i * 34, 24, 46 + i * 34, 46), fill=c)
-    hs, hl = fonts.fit(heading, "sans_bold", w - 120, 170, 110)
-    for k, t in enumerate(hl):
-        d.text((60, 120 + k * hs * 1.15), t, font=fonts.font("sans_bold", hs), fill=(225, 232, 238))
-    y = 120 + len(hl) * hs * 1.15 + 40
-    # the "image" the post carries: a near-black tile with the glowing detail
-    tile = (60, int(y), w - 60, h - 60)
-    d.rectangle(tile, fill=(5, 6, 8), outline=(40, 46, 58), width=3)
-    cx, cy = (tile[0] + tile[2]) / 2, (tile[1] + tile[3]) / 2
-    ls, ll = fonts.fit(line, "mono", tile[2] - tile[0] - 80, (tile[3] - tile[1]) * 0.5, 72)
-    for k, t in enumerate(ll):
-        tw = fonts.font("mono", ls).getlength(t)
-        d.text((cx - tw / 2, cy - len(ll) * ls * 0.6 + k * ls * 1.2), t,
-               font=fonts.font("mono", ls), fill=(120, 240, 210))
-    r = max(tile[3] - tile[1], 200) * 0.42
-    d.ellipse((cx - r * 1.3, cy - r, cx + r * 1.3, cy + r), outline=(232, 44, 52), width=16)
+        r = bar * 0.16
+        cx0 = bar * 0.5 + i * bar * 0.45
+        d.ellipse((cx0 - r, bar / 2 - r, cx0 + r, bar / 2 + r), fill=c)
+    pad = int(w * 0.06)
+    y = bar + int(h * 0.05)
+    hs, hl = fonts.fit(heading, "sans_bold", w - 2 * pad, h * 0.20, int(h * 0.13))
+    for t in hl:
+        d.text((pad, y), t, font=fonts.font("sans_bold", hs), fill=(232, 238, 244))
+        y += hs * 1.15
+    y += h * 0.02
+    ls, ll = fonts.fit(line, "sans", w - 2 * pad, h * 0.19, int(h * 0.08))
+    for t in ll:
+        d.text((pad, y), t, font=fonts.font("sans", ls), fill=(150, 220, 210))
+        y += ls * 1.2
+    y += h * 0.04
+    tile = (pad, int(y), w - pad, h - pad)
+    d.rectangle(tile, fill=(10, 12, 22), outline=(60, 70, 100), width=3)
+    # the detail: a small glowing figure off-centre in the tile, as if hidden in it
+    tw, th = tile[2] - tile[0], tile[3] - tile[1]
+    cx, cy = tile[0] + tw * 0.66, tile[1] + th * 0.55
+    rr = min(tw, th) * 0.22
+    glow = Image.new("RGB", size, (0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    gd.ellipse((cx - rr * 0.5, cy - rr * 0.5, cx + rr * 0.5, cy + rr * 0.5), fill=(120, 255, 220))
+    glow = glow.filter(ImageFilter.GaussianBlur(rr * 0.35))
+    im = Image.fromarray(np.clip(np.asarray(im, np.int16) + np.asarray(glow, np.int16), 0, 255).astype(np.uint8))
+    d = ImageDraw.Draw(im)
+    d.ellipse((cx - rr * 0.16, cy - rr * 0.16, cx + rr * 0.16, cy + rr * 0.16), fill=(230, 255, 248))
+    # the circle stays inside the tile
+    R_ = min(rr * 1.25, (tile[3] - cy) - 10, (cy - tile[1]) - 10)
+    d.ellipse((cx - R_ * 1.25, cy - R_, cx + R_ * 1.25, cy + R_), outline=(232, 44, 52),
+              width=max(8, int(h * 0.016)))
     return im
+
+
+def screen_line(script, most_chars=60):
+    """One whole short sentence from the script for the screen: never a cut-off one."""
+    import re as _re
+    text = " ".join(l.lstrip("<> ").strip() for l in script.splitlines()
+                    if l.strip() and not l.strip().startswith("["))
+    sents = [x.strip() for x in _re.split(r"(?<=[.!?])\s+", text)]
+    good = [x for x in sents if 18 <= len(x) <= most_chars and x[:1].isupper() and x[-1] in ".!?"]
+    return good[0] if good else ""
+
+
+def refine_quad(base, quad):
+    """The blank lit panel itself, found in the pixels near Gemini's rough corners.
+
+    The screen was generated as an evenly lit pale panel: bright, nearly grey and
+    smooth. The largest such region overlapping the rough quad is the screen; its
+    four extreme points are the corners. Returns a quad in 0-1 or None."""
+    from scipy import ndimage
+    a = np.asarray(base.convert("RGB"), np.float32)
+    v = a.max(axis=2)
+    sat = (v - a.min(axis=2)) / (v + 1e-3)
+    grey = a.mean(axis=2)
+    smooth = ndimage.uniform_filter((grey - ndimage.uniform_filter(grey, 9)) ** 2, 9) ** 0.5
+    mask = (v > np.percentile(v, 80)) & (v > 120) & (sat < 0.35) & (smooth < 6)
+    mask = ndimage.binary_opening(mask, iterations=2)
+    mask = ndimage.binary_closing(mask, iterations=3)
+    lab, n = ndimage.label(mask)
+    if not n:
+        return None
+    h, w = mask.shape
+    if quad and valid_quad(quad):
+        q = np.array(quad, float) * [w, h]
+        x0, y0 = q.min(axis=0)
+        x1, y1 = q.max(axis=0)
+        rough_area = (x1 - x0) * (y1 - y0)
+    else:
+        x0, y0, x1, y1 = w * 0.45, 0, w, h * 0.9          # the right half, where it is asked for
+        rough_area = None
+    best, best_n = None, 0
+    for k in range(1, n + 1):
+        ys, xs = np.nonzero(lab[int(y0):int(y1) + 1, int(x0):int(x1) + 1] == k)
+        if len(xs) > best_n:
+            best, best_n = k, len(xs)
+    if not best:
+        return None
+    ys, xs = np.nonzero(lab == best)
+    area = len(xs)
+    if area < 0.04 * w * h:
+        return None
+    if rough_area and not 0.45 * rough_area <= area <= 1.6 * rough_area:
+        return None
+    # A screen is a convex quadrilateral that its pixels nearly fill.
+    tl = (xs + ys).argmin(); br = (xs + ys).argmax()
+    tr = (xs - ys).argmax(); bl = (xs - ys).argmin()
+    pts = np.array([[xs[tl], ys[tl]], [xs[tr], ys[tr]], [xs[br], ys[br]], [xs[bl], ys[bl]]], float)
+    quad_area = 0.5 * abs(np.dot(pts[:, 0], np.roll(pts[:, 1], 1)) - np.dot(pts[:, 1], np.roll(pts[:, 0], 1)))
+    if quad_area <= 0 or area / quad_area < 0.85:
+        return None
+    # pull in by 1% toward the centre so the paint stays inside the bezel
+    c = pts.mean(axis=0)
+    pts = c + (pts - c) * 0.995
+    out = [[round(float(x / w), 4), round(float(y / h), 4)] for x, y in pts]
+    return out if valid_quad(out) else None
 
 
 def _perspective_coeffs(src, dst):
@@ -200,19 +290,32 @@ def readable_small(im, text_size):
 
 
 def compose(base_path, quad, words, heading, line, seed, face=None):
+    """Returns (image, text size, whether the screen was found in the pixels)."""
+    from pipeline import grade
     base = Image.open(base_path).convert("RGB")
-    s = max(W / base.width, H / base.height)
-    base = base.resize((round(base.width * s), round(base.height * s)), Image.LANCZOS)
+    s_ = max(W / base.width, H / base.height)
+    base = base.resize((round(base.width * s_), round(base.height * s_)), Image.LANCZOS)
     x, y = (base.width - W) // 2, (base.height - H) // 2
     base = base.crop((x, y, x + W, y + H))
+    # The rough quad from Gemini is in the original frame; the crop above is a
+    # centred fill, so map it before refining.
     if quad and valid_quad(quad):
-        base = paste_screen(base, quad, screen_content(heading, line))
+        bw, bh = base.width + 2 * x, base.height + 2 * y
+        quad = [[(qx * bw - x) / W, (qy * bh - y) / H] for qx, qy in quad]
+    exact = refine_quad(base, quad)
+    base = grade.grade(base)
+    if exact:
+        q = np.array(exact) * [W, H]
+        qw = np.linalg.norm(q[1] - q[0])
+        qh = np.linalg.norm(q[3] - q[0])
+        cw = 1200
+        content = screen_content(heading, line, (cw, max(400, int(cw * qh / max(qw, 1)))))
+        base = paste_screen(base, exact, content)
     else:
-        # no usable screen found: a flat inset on the right rather than nothing
         panel = screen_content(heading, line, (720, 540)).resize((560, 420), Image.LANCZOS)
         base.paste(panel, (W - 600, 220))
     _, size = draw_words(base, words, face)
-    return vhs(base, seed), size
+    return vhs(base, seed), size, bool(exact)
 
 
 def choose(bases, verdicts, words, heading, line, out_dir, seed):
@@ -225,19 +328,19 @@ def choose(bases, verdicts, words, heading, line, out_dir, seed):
     report, ranked = [], []
     for k, b in enumerate(bases):
         v = verdicts.get(Path(b), {})
-        im, size = compose(b, v.get("screen"), words, heading, line, seed + k, v.get("face"))
+        im, size, exact = compose(b, v.get("screen"), words, heading, line, seed + k, v.get("face"))
         path = out_dir / f"thumb_{k}.jpg"
         im.save(path, quality=92)
         readable, m = readable_small(im, size)
         row = {"file": path.name, "ok": v.get("ok", False), "defect": v.get("defect"),
-               "readable": readable, **m, "score": v.get("score", 0)}
+               "readable": readable, "screen_found": exact, **m, "score": v.get("score", 0)}
         report.append(row)
         if row["ok"] and readable:
-            ranked.append((row["score"], path))
+            ranked.append((exact, row["score"], path))
     if ranked:
         best = max(ranked)[1]
     else:
-        best = out_dir / max(report, key=lambda r: (r["readable"], r["score"]))["file"]
+        best = out_dir / max(report, key=lambda r: (r["screen_found"], r["readable"], r["score"]))["file"]
         log.warning("no candidate passed every check; using %s", best.name)
     final = out_dir / "thumbnail.jpg"
     Image.open(best).save(final, quality=92, optimize=True)

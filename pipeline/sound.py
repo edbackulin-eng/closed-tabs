@@ -1,13 +1,13 @@
 """Sound: effects synthesised in code, and the final mix with its checks.
 
-Effects are generated, not downloaded, so there is nothing to license: key and
-mouse clicks, a whoosh, a digital glitch, a riser into each reveal and a low
-impact on it.
+Effects are generated, not downloaded, so there is nothing to license: keys and
+clicks, a sub-bass thump, an analog glitch, a dark riser into each reveal, a deep
+impact on it, and a low lamp hum under everything.
 
 The mix, in this order:
   1. the voice alone, two-pass loudnorm;
-  2. the music bed set 19 LU under the voice (inside the 18-20 asked for) and
-     ducked by about 6 dB while the voice speaks, so it is still heard in pauses;
+  2. the music bed set 13 LU under the voice and ducked by 4-6 dB while the voice
+     speaks, so it is present under speech and clearly heard in pauses;
   3. the effects bus;
   4. the sum, two-pass loudnorm to -14 LUFS with a -1 dBTP ceiling;
   5. a measurement. Anything outside the limits is corrected and measured again,
@@ -29,11 +29,12 @@ TARGET_LUFS = -14.0
 TRUE_PEAK = -1.0
 LUFS_TOL = 0.5
 VOICE_LUFS = -16.0
-MUSIC_UNDER_VOICE_LU = 19.0
-# sidechaincompress settings that measured about 6 dB of gain reduction on
-# speech in What If's tests (threshold 0.05, ratio 3 gave 6.7-7.8 dB there);
-# ratio 2.5 sits a little lower, inside the 6-8 dB ceiling.
-DUCK = "threshold=0.05:ratio=2.5:level_sc=2:attack=20:release=420"
+# 13 LU under the voice, inside the 12-14 asked for after the first hook: at 19 the
+# music could not be heard at all.
+MUSIC_UNDER_VOICE_LU = 13.0
+# A gentle duck, 4-6 dB, so the music stays present under speech and is clearly
+# there in every pause. Measured by measure_duck() below.
+DUCK = "threshold=0.06:ratio=1.8:level_sc=1:attack=30:release=500"
 
 _rng = np.random.default_rng(7)
 
@@ -66,59 +67,84 @@ def click():
     return 0.7 * a + 0.5 * b
 
 
-def pop():
-    n = int(SR * 0.12)
+# Everything below is meant to sound like a film, not a cartoon: nothing bright,
+# nothing that sweeps up in pitch. The first set had a filtered-noise whoosh and a
+# pitched "pop" that both read as cartoon effects; they are gone. What replaces
+# them lives below 2 kHz and is felt as much as heard.
+
+def _lowpass(x, cutoff):
+    spec = np.fft.rfft(x)
+    f = np.fft.rfftfreq(len(x), 1 / SR)
+    spec *= 1 / (1 + (f / cutoff) ** 4)
+    return np.fft.irfft(spec, len(x))
+
+
+def blip():
+    """A warm analog blip for a message arriving: a short low tone, no chirp."""
+    n = int(SR * 0.16)
     t = np.arange(n) / SR
-    f = 600 + 900 * np.exp(-t / 0.02)
-    return 0.45 * np.sin(2 * np.pi * np.cumsum(f) / SR) * _env(n, 0.002, 0.04)
+    tone = np.sin(2 * np.pi * 220 * t) + 0.35 * np.sin(2 * np.pi * 440 * t)
+    return 0.30 * _lowpass(tone * _env(n, 0.004, 0.05), 1200)
 
 
 def tick():
     n = int(SR * 0.025)
-    return 0.3 * _bandnoise(n, 3000, 9000) * _env(n, 0.0003, 0.004)
+    return 0.22 * _lowpass(_bandnoise(n, 600, 4000) * _env(n, 0.0003, 0.004), 3000)
 
 
-def whoosh(seconds=0.55):
-    n = int(SR * seconds)
-    t = np.linspace(0, 1, n)
-    x = _bandnoise(n, 300, 7000)
-    # a sweep: lowpass-like shaping by mixing a smoothed copy, swelling and falling
-    smooth = np.convolve(x, np.ones(40) / 40, mode="same")
-    mix = smooth * (1 - t) + x * t
-    return 0.55 * mix * np.sin(np.pi * t) ** 1.5
-
-
-def glitch(seconds=0.22):
-    n = int(SR * seconds)
-    x = _rng.standard_normal(n)
-    hold = 60
-    x = np.repeat(x[::hold], hold)[:n]             # sample-and-hold: digital crunch
-    x = np.round(x * 3) / 3                         # bit-crush
-    gate = (np.arange(n) // int(SR * 0.018)) % 2    # stutter
-    return 0.35 * x * gate * _env(n, 0.001, seconds * 0.6)
-
-
-def riser(seconds=1.8):
-    n = int(SR * seconds)
-    t = np.linspace(0, 1, n)
-    f = 180 * (8 ** t)
-    tone = np.sin(2 * np.pi * np.cumsum(f) / SR)
-    noise = _bandnoise(n, 800, 9000)
-    return 0.32 * (0.6 * tone + 0.5 * noise * t) * t ** 2
-
-
-def impact(seconds=1.6):
+def thump(seconds=0.9):
+    """A soft sub-bass hit: what a cut or an annotation lands on instead of a whoosh."""
     n = int(SR * seconds)
     t = np.arange(n) / SR
-    f = 52 + 70 * np.exp(-t / 0.08)
-    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.55)
-    hit = _bandnoise(n, 60, 2500) * np.exp(-t / 0.05)
-    return 0.9 * body + 0.35 * hit
+    f = 46 + 30 * np.exp(-t / 0.05)
+    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.28)
+    air = _lowpass(_bandnoise(n, 40, 900), 500) * np.exp(-t / 0.09)
+    return 0.6 * body + 0.18 * air
 
 
-MAKERS = {"key": (key, 0.30), "click": (click, 0.55), "pop": (pop, 0.45),
-          "tick": (tick, 0.35), "whoosh": (whoosh, 0.40), "glitch": (glitch, 0.45),
-          "riser": (riser, 0.50), "impact": (impact, 0.85)}
+def glitch(seconds=0.24):
+    """An analog fault rather than a digital crunch: a tape wow with crackle."""
+    n = int(SR * seconds)
+    t = np.arange(n) / SR
+    wow = np.sin(2 * np.pi * (90 + 40 * np.sin(2 * np.pi * 9 * t)) * t)
+    crackle = (_rng.random(n) > 0.995) * _rng.standard_normal(n) * 2.0
+    hiss = _lowpass(_bandnoise(n, 200, 6000), 2500) * 0.4
+    return 0.85 * _lowpass(wow * 0.5 + crackle + hiss, 2200) * _env(n, 0.004, seconds * 0.5)
+
+
+def riser(seconds=2.2):
+    """A dark riser: low noise and a sub tone swelling, the pitch barely moving."""
+    n = int(SR * seconds)
+    t = np.linspace(0, 1, n)
+    sub = np.sin(2 * np.pi * np.cumsum(38 + 22 * t) / SR)
+    noise = _lowpass(_bandnoise(n, 60, 3000), 700) * (0.4 + 0.6 * t)
+    return 0.34 * (0.7 * sub + 0.45 * noise) * t ** 2.2
+
+
+def impact(seconds=2.4):
+    """The reveal: a deep sub boom with a long tail."""
+    n = int(SR * seconds)
+    t = np.arange(n) / SR
+    f = 34 + 50 * np.exp(-t / 0.07)
+    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.9)
+    hit = _lowpass(_bandnoise(n, 30, 1500), 700) * np.exp(-t / 0.06)
+    return 0.95 * body + 0.30 * hit
+
+
+def hum(seconds):
+    """Lamp and mains hum under the whole film, very low: the room at 3 a.m."""
+    n = int(SR * seconds)
+    t = np.arange(n) / SR
+    tone = (np.sin(2 * np.pi * 100 * t) + 0.5 * np.sin(2 * np.pi * 200 * t)
+            + 0.25 * np.sin(2 * np.pi * 300 * t))
+    flutter = 1 + 0.08 * np.sin(2 * np.pi * 0.13 * t)
+    room = _lowpass(_rng.standard_normal(n), 400) * 0.6
+    return 0.035 * (tone * flutter + room)
+
+
+MAKERS = {"key": (key, 0.30), "click": (click, 0.50), "blip": (blip, 0.55),
+          "tick": (tick, 0.35), "thump": (thump, 0.55), "glitch": (glitch, 0.45),
+          "riser": (riser, 0.55), "impact": (impact, 0.85)}
 
 
 def effects_track(cues, seconds):
@@ -137,7 +163,9 @@ def effects_track(cues, seconds):
         j = min(len(out), i + len(s))
         if 0 <= i < len(out):
             out[i:j] += s[: j - i]
-    return out[: int(SR * seconds)]
+    out = out[: int(SR * seconds)]
+    out += hum(seconds)[: len(out)].astype(np.float32)
+    return out
 
 
 # --- loudness --------------------------------------------------------------------
@@ -227,3 +255,48 @@ def verify(path, work):
                            f"{peak2:.1f} dBTP; not uploading")
     Path(fixed).replace(path)
     return {"lufs": lufs2, "true_peak": peak2, "corrected": True}
+
+
+def measure_duck(voice_wav, music_path, work, gain_db=None):
+    """How far the bed sits under the voice, and how much the duck takes off it.
+
+    The ducked bed is rendered on its own and its level compared between spoken
+    and silent stretches, using the voice's own silence map.
+    """
+    import re
+    work = Path(work)
+    gain = gain_db if gain_db is not None else (VOICE_LUFS - MUSIC_UNDER_VOICE_LU) - _lufs(music_path)
+    voice = loudnorm2(voice_wav, work / "dv.wav", VOICE_LUFS, -1.5)
+    dur = sf.info(str(voice)).duration
+    _run(["-y", "-i", str(voice), "-stream_loop", "-1", "-i", str(music_path), "-filter_complex",
+          f"[1:a]aresample={SR},aformat=channel_layouts=stereo,volume={gain:.2f}dB,atrim=0:{dur:.3f}[b];"
+          f"[b][0:a]sidechaincompress={DUCK}[d]", "-map", "[d]", "-t", f"{dur:.3f}", str(work / "bed_ducked.wav")])
+    _run(["-y", "-stream_loop", "-1", "-i", str(music_path), "-af",
+          f"aresample={SR},aformat=channel_layouts=stereo,volume={gain:.2f}dB", "-t", f"{dur:.3f}",
+          str(work / "bed_plain.wav")])
+    err = _run(["-i", str(voice), "-af", "silencedetect=n=-40dB:d=0.35", "-f", "null", "-"])
+    starts = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", err)]
+    ends = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", err)]
+    quiet = list(zip(starts, ends))
+
+    def rms_db(path, mask_quiet):
+        x, sr = sf.read(str(path))
+        x = x.mean(axis=1) if x.ndim > 1 else x
+        t = np.arange(len(x)) / sr
+        inq = np.zeros(len(x), bool)
+        for a, b in quiet:
+            inq |= (t >= a + 0.15) & (t <= b - 0.05)
+        sel = x[inq] if mask_quiet else x[~inq]
+        return 20 * np.log10(np.sqrt(np.mean(sel ** 2)) + 1e-12)
+
+    def lufs_of(path):
+        return float(_measure(path, VOICE_LUFS, -1.5)["input_i"])
+
+    v = lufs_of(voice)
+    bed = lufs_of(work / "bed_plain.wav")
+    # the duck is what the compressor takes off the same music while the voice speaks
+    duck = rms_db(work / "bed_plain.wav", False) - rms_db(work / "bed_ducked.wav", False)
+    in_pause = rms_db(work / "bed_ducked.wav", True) - rms_db(work / "bed_ducked.wav", False)
+    return {"voice_lufs": round(v, 1), "bed_lufs": round(bed, 1),
+            "bed_under_voice_lu": round(v - bed, 1), "duck_db": round(duck, 1),
+            "bed_louder_in_pauses_db": round(in_pause, 1), "pauses_measured": len(quiet)}

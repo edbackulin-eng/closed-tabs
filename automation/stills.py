@@ -10,8 +10,9 @@
 3. A failed still is generated once more with a new seed. If it fails again its
    prompt is swapped for a safe one and generated a last time; if even that fails,
    another approved still that is not used within ten shots takes its place.
-4. Each annotate shot gets its red circle on the detail Gemini picked as the most
-   striking in that still.
+4. Each annotate shot gets its red circle around a real object: Gemini names and
+   boxes one, the pixels inside the box are checked for an actual object
+   (visualqc.real_detail), and a shot with no verified detail loses its circle.
 
 Stills land in <build>/stills/NNN.png, numbered by shot.
 """
@@ -118,11 +119,11 @@ def main():
                                             for k, v in bad.items()}})
         log.info("round %d: %d of %d stills failed", round_no, len(bad), len(paths))
         for k, v in verdicts.items():
-            focus = v.get("focus")
             s = shots.get(int(Path(k).stem))
-            if s and s["type"] == "annotate" and focus:
-                s["circle"] = [round(focus[0], 3), round(focus[1], 3),
-                               round(min(0.28, max(0.08, focus[2])), 3)]
+            if s and s["type"] == "annotate" and "detail" in v:
+                s["detail"] = v["detail"]
+                if v["detail"]:
+                    s["circle"] = v["detail"]["circle"]
         if not bad:
             break
         retry = {}
@@ -153,6 +154,13 @@ def main():
                 report.setdefault("borrowed", {})[f"{k:03d}"] = f"{donor:03d}"
                 log.warning("still %03d failed three times; using %03d", k, donor)
 
+    # A circle goes only around a detail that was found and checked. An annotate
+    # shot whose still has none becomes a plain moving still: no circle on air.
+    for s in shots.values():
+        if s["type"] == "annotate" and not s.get("detail"):
+            s["type"] = "flux"
+            s.pop("circle", None)
+            report.setdefault("circle_dropped", []).append(s["move"])
     plan["prompts"] = {str(k): v for k, v in prompts.items()}
     plan_path.write_text(json.dumps(plan, indent=1, ensure_ascii=False), encoding="utf-8")
     (plan_path.parent / "stills_report.json").write_text(json.dumps(report, indent=1),

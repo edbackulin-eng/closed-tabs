@@ -16,13 +16,14 @@ is visible in that shot.
 """
 import re
 
-# What every generated frame gets.
+# What every generated frame gets. Lit night, not a black frame: the first hook
+# measured a mean brightness of 16 out of 255 and read as a dark rectangle.
 BASE = (
-    "photorealistic cinematic film still, shot on 35mm, low-key lighting, "
-    "a single practical light source such as a monitor glow or a desk lamp, "
-    "deep blacks with retained shadow detail, muted colour, cold cyan-green "
-    "screen light against warm tungsten, slight haze, fine film grain, "
-    "static composition, deep focus, high detail"
+    "photorealistic cinematic film still, shot on 35mm, well exposed night scene, "
+    "colourful neon night palette, teal and magenta neon accents, warm amber street "
+    "light, coloured light from monitors, shop windows and street lamps spilling "
+    "across the scene, lifted shadows with full detail, no crushed blacks, rich colour, "
+    "gentle haze, fine film grain, deep focus, high detail"
 )
 
 # What it must never contain.
@@ -30,8 +31,8 @@ NEGATIVE = (
     "no text, no letters, no numbers, no readable screen content, no user interface, "
     "no captions, no watermark, no logo, no signature, no borders, no collage, "
     "no split screen, no cartoon, no anime, no illustration, no painting, "
-    "no 3d render look, no gore, no blood, no weapons, no corpses, "
-    "no oversaturated colour, no lens flare, no fisheye, no tilted horizon, "
+    "no 3d render look, no pitch black frame, no gore, no blood, no weapons, no corpses, "
+    "no lens flare, no fisheye, no tilted horizon, "
     "no extra limbs, no deformed faces, "
     "no letterbox, no black bars, no cinematic bars, image fills the whole frame"
 )
@@ -49,6 +50,14 @@ SCREEN = "the screen shows only soft featureless light, nothing legible"
 _SCREEN_WORDS = re.compile(
     r"\b(screen|monitor|display|computer|laptop|phone|crt|tv|television)s?\b", re.I)
 
+# Paper is allowed - old books, letters, maps, flyers on a pole - but whatever is
+# written on it must not be readable, because FLUX writes nonsense.
+PAPER = ("any writing on the paper is tiny, faded and out of focus, impossible to read, "
+         "shallow depth of field")
+_PAPER_WORDS = re.compile(
+    r"\b(book|books|letter|letters|envelope|map|maps|paper|papers|page|pages|poster|posters|"
+    r"flyer|flyers|notes?|document|documents|photograph|photographs|typewriter)\b", re.I)
+
 ASPECT = {"width": 1344, "height": 768}      # 16:9-ish and a multiple of 64; filled to 1920x1080 by a slight crop
 STEPS = 4                                     # schnell is distilled to 4 steps
 GUIDANCE = 0.0                                # and ignores CFG entirely
@@ -61,6 +70,8 @@ def scene_prompt(description, with_people=False):
         parts.append(PEOPLE)
     if _SCREEN_WORDS.search(description):
         parts.append(SCREEN)
+    if _PAPER_WORDS.search(description):
+        parts.append(PAPER)
     parts.append(BASE)
     parts.append(NEGATIVE)
     return ", ".join(parts)

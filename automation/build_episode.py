@@ -8,6 +8,8 @@ Stages, each skipped when its output already exists (so a failed run resumes):
             script gets one round of lengthening from the same sources; after that
             the video goes ahead whatever the length, with the miss recorded.
   plan      the edit (pipeline/editplan.py)
+  stock     real footage and photographs for the stock shots, checked and credited
+            (automation/stock_assets.py)
   stills    FLUX on Kaggle plus thumbnail bases, all checked (automation/stills.py)
   render    picture, transitions, sound, accents (pipeline/edit.py)
   package   subtitles from the script's own words, chapters, description with
@@ -83,6 +85,13 @@ def stage_plan(b, slug):
     plan["prompts"] = {s["move"]: style.scene_prompt(s["prompt"], "person" in s["prompt"])
                        for s in plan["shots"] if s["type"] in NEEDS_STILL}
     (b / "plan.json").write_text(json.dumps(plan, indent=1, ensure_ascii=False), encoding="utf-8")
+
+
+def stage_stock(b):
+    if (b / "credits.json").exists():
+        return
+    subprocess.run([sys.executable, str(ROOT / "automation" / "stock_assets.py"),
+                    str(b / "plan.json")], check=True)
 
 
 def stage_stills(b, force_window):
@@ -165,17 +174,25 @@ def chapters_and_tags(lines, title):
     return out, tags
 
 
-def description(meta, chapters, music_lines, hook_line):
+def description(meta, chapters, music_lines, hook_line, footage=()):
     src = "\n".join(f"- {s['title']}: {s['url']}" for s in meta["sources"])
     chs = "\n".join(f"{_ts(t, srt=False)} {name}" for t, name in chapters)
     music = "\n".join(music_lines)
+    foot = ""
+    if footage:
+        from pipeline import stock
+        foot = ("FOOTAGE AND PHOTOGRAPHS\n" + "\n".join(f"- {stock.credit(a)}" for a in footage)
+                + "\nWorld map outline: Natural Earth (public domain).\n\n")
     return (f"{hook_line}\n\n"
             f"CHAPTERS\n{chs}\n\n"
             f"SOURCES\nThis episode is written only from these open sources:\n{src}\n\n"
+            f"{foot}"
             f"MUSIC\n{music}\nLicensed under Creative Commons: By Attribution 4.0\n"
             f"https://creativecommons.org/licenses/by/4.0/\n\n"
-            f"HOW THIS IS MADE\nNarration is a synthetic voice. Imagery is generated or "
-            f"drawn in code and is illustrative, not archival. No real people are depicted.\n\n"
+            f"HOW THIS IS MADE\nNarration is a synthetic voice. Some imagery is generated or "
+            f"drawn in code and is illustrative, not archival; real footage and photographs are "
+            f"licensed stock and archive material, credited above, and show no one from the "
+            f"story. No real people from the story are depicted.\n\n"
             f"#internetmysteries #unsolved #closedtabs")
 
 
@@ -185,7 +202,12 @@ def stage_package(q, b, out, report):
     report["subtitle_cues"] = subtitles(lines, out / "subs.srt")
     chapters, tags = chapters_and_tags(lines, meta["title"])
     hook_line = next((l["text"] for l in lines), meta["name"])
-    desc = description(meta, chapters, report.get("music", []), hook_line)
+    credits = json.loads((b / "credits.json").read_text(encoding="utf-8")) \
+        if (b / "credits.json").exists() else []
+    desc = description(meta, chapters, report.get("music", []), hook_line, credits)
+    import shutil
+    if (b / "credits.json").exists():
+        shutil.copy(b / "credits.json", out / "credits.json")
     (out / "metadata.json").write_text(json.dumps({
         "title": meta["title"], "description": desc, "tags": tags,
         "chapters": [[round(t, 1), n] for t, n in chapters],
@@ -209,6 +231,7 @@ def main():
     report = {}
     stage_narrate(q, b, report)
     stage_plan(b, args.slug)
+    stage_stock(b)
     # the stills stage reads build/ next to its plan, so it gets this folder
     stage_stills(b, args.force_window)
     script_text = (q / "script.txt").read_text(encoding="utf-8")
