@@ -338,7 +338,7 @@ def choose(bases, verdicts, words, heading, line, out_dir, seed):
         if row["ok"] and readable:
             ranked.append((exact, row["score"], path))
     if ranked:
-        best = max(ranked)[1]
+        best = max(ranked, key=lambda r: (r[0], r[1]))[2]
     else:
         best = out_dir / max(report, key=lambda r: (r["screen_found"], r["readable"], r["score"]))["file"]
         log.warning("no candidate passed every check; using %s", best.name)

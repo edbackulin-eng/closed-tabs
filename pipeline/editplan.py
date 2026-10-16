@@ -142,7 +142,10 @@ def _whole_sentences(text):
         p = p.strip()
         if not p:
             continue
-        starts = p[:1].isupper() or p[:1].isdigit()
+        first = p.split()[0]
+        # "4chan." opens with a digit but is the tail of a sentence; a real start is
+        # a capital or a number standing alone ("3301 was the signature.")
+        starts = p[:1].isupper() or first.strip(".,").isdigit()
         ends = p[-1:] in ".!?"
         if (k == 0 and not starts) or (k == len(parts) - 1 and not ends):
             continue
@@ -189,15 +192,16 @@ def _default(t, text, i, still=None):
         return {"type": t, "prompt": still}
     if t == "annotate":
         return {"type": t, "prompt": still, "circle": [0.5, 0.48, 0.2]}
-    if t == "browser":
-        return {"type": t, "address": "archive / thread", "heading": " ".join(words[:5]) or "Thread",
-                "body": " ".join(words[5:30]) or " ".join(words)}
-    if t == "chat":
-        half = max(1, len(words) // 2)
-        msgs = [["anon", " ".join(words[:half][:12])]]
-        if words[half:]:
-            msgs.append(["user", " ".join(words[half:][:12])])
-        return {"type": t, "header": "Thread", "messages": msgs}
+    if t in ("browser", "chat"):
+        sents = [x for x in _whole_sentences(text) if 3 <= len(x.split()) <= 16]
+        if not sents:
+            return {"type": "flux", "prompt": still}
+        if t == "browser":
+            head = min(sents, key=lambda x: len(x.split()))
+            rest = " ".join(x for x in sents if x != head)
+            return {"type": t, "address": "archive / thread", "heading": head, "body": rest[:220] or " "}
+        return {"type": t, "header": "Thread",
+                "messages": [["anon" if k % 2 == 0 else "user", x] for k, x in enumerate(sents[:3])]}
     if t == "notification":
         line = notification_line(text)
         if line:
@@ -318,6 +322,8 @@ def _valid(b, family):
             "chat": ["messages"], "notification": ["prompt", "app", "text"], "cursor": ["prompt"],
             "counter": ["label", "end"], "timeline": ["events"], "censor": ["lines", "redact"],
             "quote": ["text"], "stock": ["prompt"], "map": ["places"]}[t]
+    if t == "browser" and "body" in b and b["body"] in ("", " "):
+        need = [k for k in need if k != "body"]
     if any(k not in b or b[k] in ("", [], None) for k in need):
         return False
     if t == "counter":
@@ -506,6 +512,20 @@ def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
                 got["text"] = line
             else:
                 got = {"type": "flux", "prompt": got.get("prompt") or next_safe(b["i"], False)}
+        if got.get("type") in ("browser", "chat"):
+            # Words in a window are whole sentences from what is being said, like
+            # the notification: the second hook showed "appears on 4chan. If you".
+            sents = [x for x in _whole_sentences(b["text"]) if 3 <= len(x.split()) <= 16]
+            if not sents:
+                got = {"type": "flux", "prompt": next_safe(b["i"], False)}
+            elif got["type"] == "browser":
+                head = min(sents, key=lambda x: len(x.split()))
+                rest = [x for x in sents if x != head]
+                got["heading"] = head
+                got["body"] = " ".join(rest)[:220] if rest else ""
+                got.setdefault("address", "archive / thread")
+            else:
+                got["messages"] = [["", x] for x in sents[:3]]
         if got.get("type") == "chat":
             # Nobody real speaks in these threads: handles are always faceless.
             got["messages"] = [["anon" if k % 2 == 0 else "user", m[1]]

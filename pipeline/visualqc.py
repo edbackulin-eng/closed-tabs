@@ -45,6 +45,9 @@ Report a defect ONLY when you can clearly see one of these:
 - text: lettering you can READ or that is crisp enough to look like real words:
   captions, signage, user interface, a screen displaying characters, garbled fake
   words in focus. Garbled crisp lettering is the most important defect to catch.
+  Neon signs and shop signs with letter shapes count, even in the background,
+  unless they are blurred into shapeless bokeh ("PITINE PANS" on a sign is a defect).
+  So do dashboard or device displays showing numbers.
   NOT a defect: old books, letters, maps and papers whose writing is tiny, out of
   focus or worn to an unreadable texture - that is asked for.
 - watermark: a watermark, logo, brand mark, signature, or a recognisable real website,

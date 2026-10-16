@@ -20,9 +20,10 @@ import re
 # measured a mean brightness of 16 out of 255 and read as a dark rectangle.
 BASE = (
     "photorealistic cinematic film still, shot on 35mm, well exposed night scene, "
-    "colourful neon night palette, teal and magenta neon accents, warm amber street "
-    "light, coloured light from monitors, shop windows and street lamps spilling "
-    "across the scene, lifted shadows with full detail, no crushed blacks, rich colour, "
+    "colourful neon night palette, teal and magenta light from plain neon tubes and "
+    "out-of-focus bokeh, warm amber street light, coloured light from windows and street "
+    "lamps spilling across the scene, lifted shadows with full detail, no crushed blacks, "
+    "rich colour, "
     "gentle haze, fine film grain, deep focus, high detail"
 )
 
@@ -30,6 +31,7 @@ BASE = (
 NEGATIVE = (
     "no text, no letters, no numbers, no readable screen content, no user interface, "
     "no captions, no watermark, no logo, no signature, no borders, no collage, "
+    "no neon signs with letters, no shop signs, no storefront lettering, no dashboard displays, "
     "no split screen, no cartoon, no anime, no illustration, no painting, "
     "no 3d render look, no pitch black frame, no gore, no blood, no weapons, no corpses, "
     "no lens flare, no fisheye, no tilted horizon, "

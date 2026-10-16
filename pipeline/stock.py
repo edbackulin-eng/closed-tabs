@@ -23,6 +23,7 @@ import random
 import re
 import subprocess
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -58,6 +59,14 @@ def _get(url, timeout=60):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.read()
+        except urllib.error.HTTPError as e:
+            if 400 <= e.code < 500 and e.code != 429:
+                body = e.read()[:160].decode("utf-8", "replace")
+                raise RuntimeError(f"HTTP {e.code}: {body}") from None
+            if attempt == 2:
+                raise
+            log.info("fetch failed (%s), retrying", e)
+            time.sleep(3 * (attempt + 1))
         except Exception as e:                                   # noqa: BLE001
             if attempt == 2:
                 raise
@@ -174,7 +183,8 @@ def collect(n_video, n_image, dest, seed=0, min_seconds=5.0):
     dest = Path(dest)
     dest.mkdir(parents=True, exist_ok=True)
     rng = random.Random(seed)
-    key = os.environ.get("PIXABAY_API_KEY", "")
+    # stripped: the stored secret carried leading whitespace and Pixabay answered 400
+    key = os.environ.get("PIXABAY_API_KEY", "").strip()
 
     videos, images = [], []
     if key and n_video:
