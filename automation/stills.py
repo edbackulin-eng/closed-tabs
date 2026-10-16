@@ -34,7 +34,7 @@ NEEDS = {"flux", "annotate", "notification", "cursor"}
 REPEAT_WINDOW = 10
 
 
-def _generate(prompts, seed, dest, label, force_window):
+def _generate(prompts, seed, dest, label, force_window, tag=""):
     """prompts: {shot: full prompt}. Writes dest/NNN.png for each shot."""
     import push
     order = sorted(prompts)
@@ -42,7 +42,9 @@ def _generate(prompts, seed, dest, label, force_window):
            "steps": style.STEPS, "width": style.ASPECT["width"],
            "height": style.ASPECT["height"], "seed": seed}
     hours = 0.25 + 0.012 * len(order)          # load + ~40 s a still, generous
-    slug = f"closedtabs-stills-{label}"
+    # One kernel name per build, so a hook and a full episode built the same
+    # evening never overwrite each other's kernel between push and fetch.
+    slug = f"closedtabs-stills-{tag}-{label}" if tag else f"closedtabs-stills-{label}"
     ref = push.push(job, slug, slug, job_hours=hours, force_window=force_window)
     if not push.wait(ref, poll_s=30, timeout_s=3 * 3600):
         raise RuntimeError(f"Kaggle kernel {ref} did not complete")
@@ -88,6 +90,8 @@ def main():
     # Thumbnail bases ride in the same kernel as the stills: one model load, not
     # two. They are numbered from 900 so they never collide with a shot.
     slug = plan_path.parent.parent.name
+    import zlib
+    tag = ("h" if plan_path.parent.name == "build" else "f") + f"{zlib.crc32(slug.encode()) % 10000:04d}"
     if args.thumbs:
         from pipeline import thumbnail
         seed = sum(map(ord, slug))
@@ -95,7 +99,7 @@ def main():
             prompts.setdefault(900 + n, p)
     todo = {k: v for k, v in prompts.items() if not (dest / f"{k:03d}.png").exists()}
     if todo:
-        _generate(todo, 3301, dest, "a", args.force_window)
+        _generate(todo, 3301, dest, "a", args.force_window, tag)
     thumbs = {k: prompts.pop(k) for k in [k for k in prompts if k >= 900]}
     if thumbs:
         tdir = plan_path.parent / "thumb_bases"
@@ -136,7 +140,7 @@ def main():
                 retry[k] = prompts[k]
             (dest / f"{k:03d}.png").unlink(missing_ok=True)
         prompts.update(retry)
-        _generate(retry, seed, dest, label, args.force_window)
+        _generate(retry, seed, dest, label, args.force_window, tag)
     else:
         # Still failing after the safe prompt: borrow an approved still that is not
         # on screen within REPEAT_WINDOW shots of this one.
