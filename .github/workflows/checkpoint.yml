@@ -4,7 +4,7 @@ name: checkpoint
 # from GitHub rather than from a PC that may be asleep. Remove after use.
 on:
   schedule:
-    - cron: "5 20 15 10 *"
+    - cron: "5 20 16 10 *"
   workflow_dispatch:
 
 permissions:
