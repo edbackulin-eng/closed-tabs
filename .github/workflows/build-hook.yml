@@ -18,7 +18,7 @@ permissions:
 jobs:
   hook:
     runs-on: ubuntu-24.04
-    timeout-minutes: 120
+    timeout-minutes: 300          # includes waiting for the shared GPU
     env:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
