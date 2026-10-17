@@ -108,7 +108,8 @@ def text_box(draw, xy, box, text, kind="sans", max_size=46, fill=TEXT, spacing=1
 def _cover(path_or_img):
     from pipeline import grade
     im = path_or_img if isinstance(path_or_img, Image.Image) else Image.open(path_or_img)
-    im = grade.grade(im.convert("RGB"))
+    from pipeline import motion
+    im = grade.grade(motion.trim_bands(im.convert("RGB")))
     s = max(W / im.width, H / im.height)
     im = im.resize((math.ceil(im.width * s), math.ceil(im.height * s)), Image.LANCZOS)
     x, y = (im.width - W) // 2, (im.height - H) // 2

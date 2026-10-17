@@ -26,7 +26,9 @@ log = get_logger("youtube")
 ROOT = Path(__file__).resolve().parent.parent
 TOKEN_FILE = ROOT / "youtube_token.json"
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
-          "https://www.googleapis.com/auth/youtube"]
+          "https://www.googleapis.com/auth/youtube",
+          # captions.insert needs this one; tokens made before 17.10 lack it
+          "https://www.googleapis.com/auth/youtube.force-ssl"]
 
 CATEGORY_ENTERTAINMENT = "24"
 SLOT_WEEKDAYS = (0, 1, 3, 4, 5)        # Mon, Tue, Thu, Fri, Sat
@@ -169,6 +171,32 @@ def status_of(video_id, yt=None):
     yt = yt or service()
     items = yt.videos().list(part="status", id=video_id).execute().get("items", [])
     return items[0]["status"] if items else None
+
+
+def add_captions(video_id, srt, yt=None):
+    """Attach English subtitles to an uploaded video. Raises without the scope."""
+    from googleapiclient.http import MediaFileUpload
+    yt = yt or service()
+    yt.captions().insert(part="snippet",
+                         body={"snippet": {"videoId": video_id, "language": "en",
+                                           "name": "English", "isDraft": False}},
+                         media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream"),
+                         ).execute()
+
+
+def unschedule(video_id, yt=None):
+    """Take a scheduled video off the schedule: it stays private, never goes public.
+    Nothing is deleted - the owner can remove it in Studio."""
+    yt = yt or service()
+    st = status_of(video_id, yt)
+    if st is None:
+        return
+    keep = {k: v for k, v in st.items()
+            if k in ("embeddable", "license", "publicStatsViewable",
+                     "selfDeclaredMadeForKids", "containsSyntheticMedia")}
+    keep["privacyStatus"] = "private"
+    yt.videos().update(part="status", body={"id": video_id, "status": keep}).execute()
+    log.info("%s taken off the schedule (private)", video_id)
 
 
 def reschedule(video_id, publish_at, yt=None):

@@ -28,10 +28,46 @@ MOVES = [(True, 0.0, 0.0), (False, -0.6, 0.0), (True, 0.6, -0.3),
          (False, 0.0, 0.4), (True, -0.5, 0.3), (False, 0.5, -0.2)]
 
 
+def trim_bands(im):
+    """Cut flat dark bars (letterboxing) off every edge of a still.
+
+    The first full episode showed 29 stills with black bars top and bottom,
+    drawn by FLUX itself. A bar is a run of edge rows (or columns) that are
+    near-black and nearly uniform; they are cropped, and the fill to 16:9 that
+    follows takes the rest."""
+    a = np.asarray(im.convert("L"), np.float32)
+    h, w = a.shape
+
+    def run(lines):
+        n = 0
+        for line in lines:
+            if line.mean() < 14 and line.std() < 4:
+                n += 1
+            else:
+                break
+        # a bar ends in a hard edge; a dark scene fades - that is not a bar
+        if n < 4 or n >= len(lines) - 4:
+            return 0
+        band = float(lines[:n].mean())
+        after = float(lines[n:n + 3].mean())
+        edge = float(lines[n:n + 2].mean()) - float(lines[n - 2:n].mean())
+        return n if edge > 5 and after - band > 5 else 0
+    top = run(a)
+    bottom = run(a[::-1])
+    left = run(a.T)
+    right = run(a.T[::-1])
+    # at most a quarter off any side, and only when it is a real bar
+    cut = [min(v, int(0.25 * (h if k < 2 else w))) if v >= 4 else 0
+           for k, v in enumerate((top, bottom, left, right))]
+    if not any(cut):
+        return im
+    return im.crop((cut[2], cut[0], w - cut[3], h - cut[1]))
+
+
 def prepare(src, dest):
     """Fill 16:9 at the working size. Returns the path of the prepared still."""
     from pipeline import grade
-    im = grade.grade(Image.open(src).convert("RGB"))
+    im = grade.grade(trim_bands(Image.open(src).convert("RGB")))
     scale = max(WORK_W / im.width, WORK_H / im.height)
     im = im.resize((round(im.width * scale), round(im.height * scale)), Image.LANCZOS)
     x, y = (im.width - WORK_W) // 2, (im.height - WORK_H) // 2

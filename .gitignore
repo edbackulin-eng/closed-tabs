@@ -59,3 +59,5 @@ checkpoint/
 queue/*/build_full/
 queue/*/out/*
 !queue/*/out/uploaded.json
+# subtitles are text from the script; kept so pending captions can be sent later
+!queue/*/out/subs.srt

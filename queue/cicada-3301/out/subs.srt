@@ -1,0 +1,1202 @@
+1
+00:00:00,000 --> 00:00:04,948
+A hidden message in an image. A cipher
+from ancient Rome. A phone number that played
+
+2
+00:00:04,948 --> 00:00:05,655
+a recording.
+
+3
+00:00:06,555 --> 00:00:11,230
+And behind all of it, an anonymous group
+that wanted to hire the smartest
+
+4
+00:00:11,230 --> 00:00:12,639
+codebreakers on Earth.
+
+5
+00:00:13,239 --> 00:00:15,382
+Nobody has ever proved who they were.
+
+6
+00:00:16,282 --> 00:00:23,132
+The last message they signed arrived in
+April 2017. After that, nothing verified.
+
+7
+00:00:23,252 --> 00:00:27,403
+So who built this? What did they want? And
+why did they stop?
+
+8
+00:00:27,523 --> 00:00:32,579
+The best explanation is coming. But first,
+you have to climb the ladder the way the
+
+9
+00:00:32,579 --> 00:00:33,676
+first solvers did.
+
+10
+00:00:33,796 --> 00:00:35,184
+One rung at a time.
+
+11
+00:00:35,684 --> 00:00:38,877
+Rung one. January 4, 2012.
+
+12
+00:00:38,997 --> 00:00:40,921
+A post appears on 4chan.
+
+13
+00:00:41,041 --> 00:00:46,481
+If you have never seen 4chan, here is what
+matters. It is an anonymous image board.
+
+14
+00:00:46,601 --> 00:00:49,041
+No registration. No names.
+
+15
+00:00:49,161 --> 00:00:54,546
+There is no formal archive. Most posts
+expire, or get deleted, within hours.
+
+16
+00:00:55,356 --> 00:00:57,523
+It is a place where things vanish.
+
+17
+00:00:57,643 --> 00:01:00,117
+So a puzzle posted there should have
+vanished too.
+
+18
+00:01:00,237 --> 00:01:01,240
+It did not.
+
+19
+00:01:01,360 --> 00:01:05,160
+The message was an image. Nothing special
+about how it looked.
+
+20
+00:01:05,280 --> 00:01:09,323
+But one commenter suggested opening it in
+a plain text editor.
+
+21
+00:01:09,443 --> 00:01:14,874
+One early solver, scrolling that board
+late on a Friday night in January, tried it.
+
+22
+00:01:14,994 --> 00:01:17,409
+At the bottom of the file, there was text.
+
+23
+00:01:18,309 --> 00:01:22,986
+TIBERIVS CLAVDIVS CAESAR says, and then a
+string of nonsense characters.
+
+24
+00:01:23,586 --> 00:01:25,793
+Nonsense, if you do not know Rome.
+
+25
+00:01:25,913 --> 00:01:29,067
+Tiberius Claudius was the fourth Roman
+emperor.
+
+26
+00:01:29,187 --> 00:01:29,970
+Four.
+
+27
+00:01:30,090 --> 00:01:35,133
+And a Caesar cipher swaps each letter for
+another a fixed number of places along the
+
+28
+00:01:35,133 --> 00:01:35,673
+alphabet.
+
+29
+00:01:35,793 --> 00:01:38,205
+So shift the letters back four places.
+
+30
+00:01:38,955 --> 00:01:39,971
+It worked.
+
+31
+00:01:40,091 --> 00:01:42,424
+The nonsense turned into a web address.
+
+32
+00:01:42,544 --> 00:01:44,204
+Rung one, cleared in minutes.
+
+33
+00:01:44,704 --> 00:01:46,438
+Rung two. The duck.
+
+34
+00:01:46,558 --> 00:01:49,549
+The address led to a picture of a plastic
+duck.
+
+35
+00:01:49,669 --> 00:01:52,886
+Under it, the words: "WOOPS just decoys
+this way."
+
+36
+00:01:53,006 --> 00:01:56,187
+And then: "Looks like you can't guess how
+to get the message out."
+
+37
+00:01:56,307 --> 00:01:57,420
+Odd phrasing.
+
+38
+00:01:57,540 --> 00:01:59,018
+Guess. Out.
+
+39
+00:01:59,138 --> 00:02:03,247
+Somebody in the thread noticed that those
+two words might be a hint.
+
+40
+00:02:03,367 --> 00:02:08,557
+There is a piece of software called
+OutGuess. It extracts data hidden inside images.
+
+41
+00:02:08,677 --> 00:02:13,598
+That is steganography. Hiding a message
+inside something that looks harmless.
+
+42
+00:02:13,718 --> 00:02:15,249
+They ran the duck through it.
+
+43
+00:02:16,089 --> 00:02:18,042
+It gave up a link to a subreddit.
+
+44
+00:02:18,162 --> 00:02:19,632
+And on that page?
+
+45
+00:02:19,752 --> 00:02:21,508
+A row of Mayan numerals.
+
+46
+00:02:21,628 --> 00:02:23,896
+Several lines of garbled letters.
+
+47
+00:02:24,016 --> 00:02:27,007
+Two images, labeled "welcome" and
+"problems?"
+
+48
+00:02:27,507 --> 00:02:30,810
+That is the point where the game stops
+looking like a prank.
+
+49
+00:02:30,930 --> 00:02:32,769
+Because pranksters are lazy.
+
+50
+00:02:32,889 --> 00:02:34,099
+This was layered.
+
+51
+00:02:34,219 --> 00:02:39,106
+Each step needed a different kind of
+thinking. Ancient ciphers. Modern software.
+
+52
+00:02:39,106 --> 00:02:41,428
+Number systems from another continent.
+
+53
+00:02:41,548 --> 00:02:43,770
+And the solvers were not alone anymore.
+
+54
+00:02:43,890 --> 00:02:46,834
+Someone posted a link to an anonymous chat
+room.
+
+55
+00:02:46,954 --> 00:02:49,966
+Dozens of strangers. Screen names only.
+
+56
+00:02:50,086 --> 00:02:55,105
+Everyone chasing the same thread, in a
+place where the original posts were already
+
+57
+00:02:55,105 --> 00:02:55,901
+disappearing.
+
+58
+00:02:56,021 --> 00:03:00,764
+The solver we have been following later
+said this was the moment it started to feel
+
+59
+00:03:00,764 --> 00:03:01,507
+a bit creepy.
+
+60
+00:03:01,627 --> 00:03:06,564
+Because most trolls, they pointed out, do
+not put this much energy into a joke.
+
+61
+00:03:07,464 --> 00:03:10,604
+Here is the first thing you should know
+about the theories.
+
+62
+00:03:10,724 --> 00:03:14,355
+Some of the commenters that night
+suspected something specific.
+
+63
+00:03:14,475 --> 00:03:17,094
+They thought this was a recruiting
+exercise.
+
+64
+00:03:17,214 --> 00:03:19,809
+And they thought the recruiter might be
+the NSA.
+
+65
+00:03:19,929 --> 00:03:22,658
+That idea would follow this puzzle for
+years.
+
+66
+00:03:22,778 --> 00:03:24,409
+It would never be proved.
+
+67
+00:03:24,529 --> 00:03:25,732
+Hold onto it.
+
+68
+00:03:26,232 --> 00:03:28,353
+Rung three. The Holy Grail.
+
+69
+00:03:28,473 --> 00:03:31,630
+Back at home, that same solver kept going
+alone.
+
+70
+00:03:31,750 --> 00:03:33,594
+Scribbling on index cards.
+
+71
+00:03:33,714 --> 00:03:38,762
+The next layers involved book codes. King
+Arthur. The quest for the Holy Grail.
+
+72
+00:03:38,882 --> 00:03:43,061
+A book code, by the way, is a cipher that
+points into a specific text.
+
+73
+00:03:43,181 --> 00:03:44,645
+No book, no answer.
+
+74
+00:03:44,765 --> 00:03:46,692
+So you have to work out which book.
+
+75
+00:03:46,812 --> 00:03:48,039
+Hours went by.
+
+76
+00:03:48,159 --> 00:03:51,150
+Then a message began to emerge from the
+cards.
+
+77
+00:03:51,960 --> 00:03:54,181
+"Call us on us tele phone number..."
+
+78
+00:03:54,301 --> 00:03:55,552
+And then digits.
+
+79
+00:03:56,152 --> 00:03:58,464
+The solver blurted it into the chat room.
+
+80
+00:03:58,584 --> 00:04:00,211
+"I'm getting a phone number."
+
+81
+00:04:00,331 --> 00:04:02,346
+And the room did not believe them.
+
+82
+00:04:02,466 --> 00:04:04,595
+The more advanced commenters doubted it.
+
+83
+00:04:04,715 --> 00:04:06,777
+The less advanced insulted them.
+
+84
+00:04:06,897 --> 00:04:08,619
+That is the internet for you.
+
+85
+00:04:08,739 --> 00:04:10,562
+But a private message arrived.
+
+86
+00:04:10,682 --> 00:04:12,324
+"You're way ahead of the others."
+
+87
+00:04:12,444 --> 00:04:14,930
+An invitation to a smaller, private chat.
+
+88
+00:04:15,050 --> 00:04:17,111
+So, with that, the solver dialed.
+
+89
+00:04:17,861 --> 00:04:19,316
+A recording answered.
+
+90
+00:04:19,436 --> 00:04:22,120
+Here is what it said, close to word for
+word.
+
+91
+00:04:22,240 --> 00:04:24,474
+"Very good. You have done well."
+
+92
+00:04:24,594 --> 00:04:29,410
+"There are three prime numbers associated
+with the original final image."
+
+93
+00:04:29,530 --> 00:04:34,351
+"3301 is one of them. You will have to
+find the other two."
+
+94
+00:04:34,471 --> 00:04:39,693
+"Multiply all three of these numbers
+together and add a dot com on the end to find
+
+95
+00:04:39,693 --> 00:04:40,648
+the next step."
+
+96
+00:04:40,768 --> 00:04:42,662
+"Good luck. Good-bye."
+
+97
+00:04:43,262 --> 00:04:45,207
+And that is where the number comes from.
+
+98
+00:04:45,327 --> 00:04:47,282
+3301.
+
+99
+00:04:47,402 --> 00:04:48,398
+A prime.
+
+100
+00:04:48,518 --> 00:04:50,467
+The solver checked the first image.
+
+101
+00:04:50,587 --> 00:04:54,777
+The pixel dimensions were 509 by 503.
+
+102
+00:04:55,527 --> 00:04:56,732
+Both prime.
+
+103
+00:04:56,852 --> 00:05:01,191
+Two primes, hidden in plain sight, in the
+shape of the picture itself.
+
+104
+00:05:01,311 --> 00:05:07,162
+Multiply them with 3301, add dot com, and
+you get an address.
+
+105
+00:05:07,282 --> 00:05:09,271
+An image of a cicada appeared.
+
+106
+00:05:09,391 --> 00:05:11,953
+Above it, a countdown. Three days.
+
+107
+00:05:12,073 --> 00:05:17,017
+And hidden inside the cicada, run through
+OutGuess once more, another message.
+
+108
+00:05:17,137 --> 00:05:19,251
+"You have done well to come this far."
+
+109
+00:05:19,371 --> 00:05:20,942
+"Patience is a virtue."
+
+110
+00:05:21,062 --> 00:05:27,623
+"Check back at 17:00 on Monday, 9 January
+2012, UTC."
+
+111
+00:05:28,323 --> 00:05:30,098
+It was around two in the morning.
+
+112
+00:05:30,218 --> 00:05:32,329
+The solver had reached the next level.
+
+113
+00:05:32,449 --> 00:05:37,737
+And what had begun as an online lark was
+about to leave the screen and enter the
+
+114
+00:05:37,737 --> 00:05:38,464
+real world.
+
+115
+00:05:39,264 --> 00:05:42,635
+That is where one magazine's account of
+the story breaks off.
+
+116
+00:05:42,755 --> 00:05:45,224
+So let me tell you what else is on record.
+
+117
+00:05:45,344 --> 00:05:47,743
+Because the puzzle did not stay online.
+
+118
+00:05:47,863 --> 00:05:50,596
+The clues ran across several kinds of
+medium.
+
+119
+00:05:50,716 --> 00:05:53,499
+Digital images with hidden information.
+
+120
+00:05:53,619 --> 00:05:55,103
+A telephone message.
+
+121
+00:05:55,223 --> 00:05:56,216
+Websites.
+
+122
+00:05:57,056 --> 00:06:00,048
+And paper signs, with QR codes on them.
+
+123
+00:06:00,168 --> 00:06:05,569
+They were found on streets in Paris, in
+Warsaw, in Miami, and in a suburb of Sydney.
+
+124
+00:06:05,689 --> 00:06:08,196
+Physical things. Out in the world.
+
+125
+00:06:08,316 --> 00:06:11,510
+Solvers met cryptography. Steganography.
+
+126
+00:06:11,630 --> 00:06:15,031
+References to literature, poetry, art and
+music.
+
+127
+00:06:15,151 --> 00:06:19,664
+Among the works the puzzle used were a
+poem called Agrippa, a poem from the
+
+128
+00:06:19,664 --> 00:06:22,673
+Mabinogion, and a book called The Book of
+the Law.
+
+129
+00:06:22,793 --> 00:06:25,159
+And every clue carried the same signature.
+
+130
+00:06:25,279 --> 00:06:27,837
+The same OpenPGP private key.
+
+131
+00:06:27,957 --> 00:06:32,459
+That is a cryptographic way of proving a
+message came from the same author.
+
+132
+00:06:32,579 --> 00:06:34,395
+Anyone can copy a logo.
+
+133
+00:06:35,145 --> 00:06:37,007
+Nobody can fake that key.
+
+134
+00:06:37,127 --> 00:06:41,449
+It is the one thing that let solvers tell
+the real thing from imitations.
+
+135
+00:06:41,569 --> 00:06:43,899
+Remember that. It matters later.
+
+136
+00:06:44,499 --> 00:06:46,995
+The first puzzle ran for nearly a month.
+
+137
+00:06:47,115 --> 00:06:48,258
+Then it ended.
+
+138
+00:06:48,378 --> 00:06:53,878
+And one year later, on January 4, 2013, a
+second round began.
+
+139
+00:06:53,998 --> 00:06:57,262
+Same day. Same date. Like clockwork.
+
+140
+00:06:57,382 --> 00:07:03,117
+And on January 4, 2014, a third round
+appeared. This time on Twitter.
+
+141
+00:07:03,867 --> 00:07:06,198
+The third puzzle remains unsolved.
+
+142
+00:07:06,318 --> 00:07:09,193
+Not "unsolved for a while." Unsolved.
+
+143
+00:07:09,693 --> 00:07:11,694
+But was the second round solved?
+
+144
+00:07:11,814 --> 00:07:12,578
+Yes.
+
+145
+00:07:12,698 --> 00:07:18,750
+One of the people who solved the first
+puzzle of 2013 later described what came
+
+146
+00:07:18,750 --> 00:07:19,133
+next.
+
+147
+00:07:19,253 --> 00:07:21,556
+Those who solved it were asked questions.
+
+148
+00:07:21,676 --> 00:07:24,249
+About their support for information
+freedom.
+
+149
+00:07:24,369 --> 00:07:26,094
+About online privacy.
+
+150
+00:07:26,214 --> 00:07:28,880
+About freedom, and rejecting censorship.
+
+151
+00:07:29,000 --> 00:07:31,329
+Answer well, and you got an invitation.
+
+152
+00:07:31,449 --> 00:07:32,903
+To a private forum.
+
+153
+00:07:33,023 --> 00:07:35,437
+And once in, you were given an assignment.
+
+154
+00:07:35,557 --> 00:07:41,200
+Devise a project. Finish it. A project
+meant to further the ideals of the group.
+
+155
+00:07:41,950 --> 00:07:43,819
+That solver did not finish.
+
+156
+00:07:43,939 --> 00:07:47,121
+They had been working on a method of
+general decryption.
+
+157
+00:07:47,241 --> 00:07:48,983
+And the website was removed.
+
+158
+00:07:49,103 --> 00:07:50,247
+Just like that.
+
+159
+00:07:50,367 --> 00:07:54,151
+A second winner documented the experience
+in a video series.
+
+160
+00:07:54,271 --> 00:07:59,570
+The description calls it a "more
+realistic, fact based view of the organization."
+
+161
+00:07:59,690 --> 00:08:01,866
+Realistic. Fact based.
+
+162
+00:08:01,986 --> 00:08:06,016
+That tells you something about what the
+rest of the internet was saying.
+
+163
+00:08:06,136 --> 00:08:13,024
+Today that winner helps run community
+efforts around Cicada 3301 on a Discord
+
+164
+00:08:13,024 --> 00:08:13,650
+server.
+
+165
+00:08:13,770 --> 00:08:18,249
+Other communities of solvers still gather
+on message boards and forums.
+
+166
+00:08:18,369 --> 00:08:19,427
+Still looking.
+
+167
+00:08:20,127 --> 00:08:21,403
+So who were they?
+
+168
+00:08:21,523 --> 00:08:23,201
+Let's go through the theories.
+
+169
+00:08:23,321 --> 00:08:25,732
+Theory one. A spy agency.
+
+170
+00:08:26,512 --> 00:08:30,976
+The NSA. The CIA. MI6. Mossad.
+
+171
+00:08:31,096 --> 00:08:34,186
+Every one of these has been floated as a
+recruiter.
+
+172
+00:08:34,306 --> 00:08:36,349
+The logic is easy to follow.
+
+173
+00:08:36,469 --> 00:08:42,273
+Cryptography, security, anonymity. Exactly
+the skills an intelligence agency wants.
+
+174
+00:08:42,393 --> 00:08:45,148
+And remember those commenters on that
+first night.
+
+175
+00:08:45,268 --> 00:08:48,007
+Theory two. A cyber mercenary group.
+
+176
+00:08:48,127 --> 00:08:50,296
+A private outfit hiring hackers.
+
+177
+00:08:50,416 --> 00:08:53,162
+Theory three. A "Masonic conspiracy."
+
+178
+00:08:53,282 --> 00:08:56,408
+That one is in the record, though I would
+not bet on it.
+
+179
+00:08:56,528 --> 00:08:59,026
+Theory four. A secret society.
+
+180
+00:08:59,146 --> 00:09:03,583
+One with a goal of improving cryptography,
+privacy and anonymity.
+
+181
+00:09:03,703 --> 00:09:06,751
+Theory five. A cult. Or a religion.
+
+182
+00:09:06,871 --> 00:09:08,929
+And theory six. A game.
+
+183
+00:09:09,049 --> 00:09:10,822
+An alternate reality game.
+
+184
+00:09:10,942 --> 00:09:13,467
+Except that there is a problem with that
+one.
+
+185
+00:09:14,337 --> 00:09:18,250
+No company or individual has tried to
+monetize it.
+
+186
+00:09:18,370 --> 00:09:21,749
+No product. No sponsor. No reveal.
+
+187
+00:09:21,869 --> 00:09:24,801
+A game with no seller is an odd kind of
+game.
+
+188
+00:09:25,401 --> 00:09:28,763
+Now, what do the people who actually
+solved the puzzle say?
+
+189
+00:09:28,883 --> 00:09:34,910
+According to several who solved the 2012
+round, the group normally recruits by other
+
+190
+00:09:34,910 --> 00:09:36,417
+means. Not by puzzle.
+
+191
+00:09:36,537 --> 00:09:40,923
+But they wanted people with cryptography
+and computer security skills.
+
+192
+00:09:41,043 --> 00:09:43,168
+So they built a puzzle to find them.
+
+193
+00:09:43,288 --> 00:09:44,943
+Which is a clue in itself.
+
+194
+00:09:45,063 --> 00:09:46,503
+A puzzle is a filter.
+
+195
+00:09:46,623 --> 00:09:49,239
+Anyone who gets through it has proved
+something.
+
+196
+00:09:49,359 --> 00:09:53,419
+Whoever built it wanted to test the very
+skills the puzzle demanded.
+
+197
+00:09:54,319 --> 00:09:57,677
+But that tells us what they wanted. Not
+who they were.
+
+198
+00:09:58,377 --> 00:09:59,889
+There is one more twist.
+
+199
+00:10:00,009 --> 00:10:01,357
+The accusations.
+
+200
+00:10:01,477 --> 00:10:08,808
+In 2012, police in a province of Chile,
+the Investigative Police, claimed that
+
+201
+00:10:08,808 --> 00:10:11,721
+Cicada 3301 was a hacker group.
+
+202
+00:10:11,841 --> 00:10:14,713
+They said it engaged in illegal
+activities.
+
+203
+00:10:14,833 --> 00:10:16,349
+And Cicada answered.
+
+204
+00:10:16,469 --> 00:10:17,916
+With a signed statement.
+
+205
+00:10:18,036 --> 00:10:21,015
+Denying any involvement in illegal
+activity.
+
+206
+00:10:21,135 --> 00:10:23,184
+Then, July 2015.
+
+207
+00:10:23,304 --> 00:10:29,494
+A group calling itself "3301" hacked into
+Planned Parenthood's database.
+
+208
+00:10:29,614 --> 00:10:32,164
+Same number. Same name, near enough.
+
+209
+00:10:32,284 --> 00:10:34,359
+For a moment, the two looked like one.
+
+210
+00:10:35,139 --> 00:10:38,044
+But Cicada issued another signed
+statement.
+
+211
+00:10:38,164 --> 00:10:41,250
+They were "not associated with this group
+in any way."
+
+212
+00:10:41,370 --> 00:10:45,783
+And they did not "condone their use of our
+name, number, or symbolism."
+
+213
+00:10:45,903 --> 00:10:49,297
+Later, the hacker group confirmed it.
+There was no connection.
+
+214
+00:10:49,417 --> 00:10:50,959
+Notice what happened there.
+
+215
+00:10:51,079 --> 00:10:53,870
+The real Cicada could be told from the
+fake.
+
+216
+00:10:53,990 --> 00:10:55,176
+By the signature.
+
+217
+00:10:55,876 --> 00:10:57,124
+Then it went quiet.
+
+218
+00:10:57,244 --> 00:11:01,951
+A new clue appeared on Twitter on January
+5, 2016.
+
+219
+00:11:02,071 --> 00:11:05,549
+One day after the date everyone had
+learned to expect.
+
+220
+00:11:05,669 --> 00:11:10,783
+And then, in April 2017, the last
+verified, signed message.
+
+221
+00:11:11,623 --> 00:11:14,656
+It denied the validity of any unsigned
+puzzle.
+
+222
+00:11:14,776 --> 00:11:15,951
+Read that again.
+
+223
+00:11:16,071 --> 00:11:21,477
+It means that anything posted after,
+anything claiming to be a new round, without
+
+224
+00:11:21,477 --> 00:11:22,945
+that key, is not them.
+
+225
+00:11:23,065 --> 00:11:26,034
+And no verified signed puzzle has appeared
+since.
+
+226
+00:11:26,634 --> 00:11:30,348
+Those are the facts. Now, what is the best
+explanation?
+
+227
+00:11:30,468 --> 00:11:31,437
+Honestly?
+
+228
+00:11:31,557 --> 00:11:34,121
+The evidence supports a narrow conclusion.
+
+229
+00:11:34,241 --> 00:11:36,478
+Somebody built a recruitment filter.
+
+230
+00:11:36,598 --> 00:11:41,057
+It was hard enough to need serious skill
+in cryptography and security.
+
+231
+00:11:41,177 --> 00:11:45,096
+It asked about privacy, freedom of
+information, and censorship.
+
+232
+00:11:45,216 --> 00:11:49,447
+It then put winners to work on projects
+meant to further those ideals.
+
+233
+00:11:49,567 --> 00:11:53,052
+That is consistent with a group that cared
+about privacy.
+
+234
+00:11:53,922 --> 00:11:57,276
+But it is also consistent with almost
+everything else.
+
+235
+00:11:57,396 --> 00:11:59,193
+An agency could build that.
+
+236
+00:11:59,313 --> 00:12:00,602
+A society could.
+
+237
+00:12:00,722 --> 00:12:02,603
+A group of enthusiasts could.
+
+238
+00:12:02,723 --> 00:12:04,492
+There is no confirmed answer.
+
+239
+00:12:04,612 --> 00:12:06,318
+And the weak points are real.
+
+240
+00:12:06,438 --> 00:12:10,537
+The agency theory has no confirmation from
+any agency.
+
+241
+00:12:10,657 --> 00:12:13,528
+The mercenary theory has no known payout.
+
+242
+00:12:13,648 --> 00:12:15,981
+The game theory has no known seller.
+
+243
+00:12:16,101 --> 00:12:20,697
+The society theory has no known members
+willing to say so on the record.
+
+244
+00:12:21,507 --> 00:12:23,966
+Every theory is missing the same piece.
+
+245
+00:12:24,086 --> 00:12:24,887
+Proof.
+
+246
+00:12:25,587 --> 00:12:27,239
+And the legacy is strange.
+
+247
+00:12:27,359 --> 00:12:33,221
+In 2014, the United States Navy released a
+cryptographic challenge based on these
+
+248
+00:12:33,221 --> 00:12:34,669
+recruitment puzzles.
+
+249
+00:12:34,789 --> 00:12:37,176
+It was called Project Architeuthis.
+
+250
+00:12:37,296 --> 00:12:43,670
+In 2015, a Person of Interest episode
+called "Nautilus" featured a large worldwide
+
+251
+00:12:43,670 --> 00:12:46,002
+game of cryptographic puzzles.
+
+252
+00:12:46,122 --> 00:12:48,529
+A nautilus shell instead of a cicada.
+
+253
+00:12:48,649 --> 00:12:54,561
+The creator said on record that Cicada
+3301 was the inspiration.
+
+254
+00:12:54,681 --> 00:12:58,306
+He called it, quote, "a very interesting
+concept out there."
+
+255
+00:12:58,426 --> 00:13:06,499
+And in 2021 came a comedy thriller, Dark
+Web: Cicada 3301, directed by Alan
+
+256
+00:13:06,499 --> 00:13:07,468
+Ritchson.
+
+257
+00:13:07,588 --> 00:13:12,763
+The Washington Post once listed it among
+the top five eeriest unsolved mysteries of
+
+258
+00:13:12,763 --> 00:13:13,573
+the internet.
+
+259
+00:13:13,693 --> 00:13:18,431
+Another description called it the most
+elaborate and mysterious puzzle of the
+
+260
+00:13:18,431 --> 00:13:19,231
+internet age.
+
+261
+00:13:19,351 --> 00:13:21,777
+Yet at the center there is a plastic duck.
+
+262
+00:13:21,897 --> 00:13:23,219
+A Roman emperor.
+
+263
+00:13:23,339 --> 00:13:24,372
+And a number.
+
+264
+00:13:25,122 --> 00:13:26,380
+A prime number.
+
+265
+00:13:26,500 --> 00:13:28,455
+3301.
+
+266
+00:13:29,255 --> 00:13:30,759
+Think about the first night.
+
+267
+00:13:30,879 --> 00:13:36,296
+A few dozen strangers, in a place built to
+forget everything, remembering one thing
+
+268
+00:13:36,296 --> 00:13:36,883
+together.
+
+269
+00:13:37,003 --> 00:13:39,530
+And one of them said: it's a phone number.
+
+270
+00:13:39,650 --> 00:13:41,371
+And nobody believed them.
+
+271
+00:13:41,491 --> 00:13:42,484
+They were right.
+
+272
+00:13:43,084 --> 00:13:46,238
+If this kind of story keeps you up at
+night, subscribe.
+
+273
+00:13:46,358 --> 00:13:48,077
+There are more tabs to open.
+

@@ -512,6 +512,23 @@ def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
                 got["text"] = line
             else:
                 got = {"type": "flux", "prompt": got.get("prompt") or next_safe(b["i"], False)}
+        if got.get("type") in ("quote", "censor"):
+            # The first full episode showed "THEN, JULY 2015," and "Call us on a"
+            # as cards: model answers cut mid-sentence. Cards now carry only
+            # whole sentences of the beat, through the same default the planner
+            # falls back to; with none to show, the shot is a still.
+            whole = _whole_sentences(b["text"])
+            ok = False
+            if got["type"] == "quote":
+                q = str(got.get("text", "")).strip()
+                ok = any(q.strip(' "') == x.strip(' "') for x in whole)
+            else:
+                lines = [str(x).strip() for x in got.get("lines", [])]
+                ok = bool(lines) and all(any(l == x for x in whole) for l in lines)
+            if not ok:
+                got = _default(got["type"], b["text"], b["i"], next_safe(b["i"], False))
+                if got["type"] == "quote" and got["text"].endswith("..."):
+                    got = {"type": "flux", "prompt": next_safe(b["i"], False)}
         if got.get("type") in ("browser", "chat"):
             # Words in a window are whole sentences from what is being said, like
             # the notification: the second hook showed "appears on 4chan. If you".
