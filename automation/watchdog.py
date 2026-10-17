@@ -162,6 +162,11 @@ def check_buffer(busy, actions):
     if len(have) >= MIN_AHEAD or busy:
         return have
     h = now().hour
+    if 3 <= h < 15:
+        # What If builds in the morning; a forced Closed Tabs kernel then would
+        # starve it. The buffer waits for 15:00 (or the 20:05 run).
+        actions.append(f"only {len(have)} scheduled ahead; waiting for 15:00 UTC to build")
+        return have
     force = "false" if (h >= 20 or h < 2) else "true"
     gh("workflow", "run", BUILD, "-R", REPO, "-f", "upload=true", "-f", f"force_window={force}",
        parse=False)

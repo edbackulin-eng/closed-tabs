@@ -116,6 +116,7 @@ jobs:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      GH_TOKEN: ${{ github.token }}       # to see whether What If is building
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6

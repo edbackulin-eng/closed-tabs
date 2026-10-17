@@ -129,6 +129,28 @@ BUSY_WORDS = ("running", "queued", "pending")
 GPU_WAIT_TIMEOUT_S = 4 * 3600
 
 
+WHATIF_RUNS = ("https://api.github.com/repos/edbackulin-eng/whatif-channel/actions/"
+               "workflows/build-video.yml/runs?per_page=5")
+
+
+def whatif_building():
+    """Is a What If build running or queued? Its build needs the GPU for hours,
+    and a Closed Tabs kernel started first would make it wait until it times out
+    (17.10: the Saturday What If build was cut off that way)."""
+    import urllib.request
+    headers = {"User-Agent": "closed-tabs", "Accept": "application/vnd.github+json"}
+    if os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN"):
+        headers["Authorization"] = f"Bearer {os.environ.get('GH_TOKEN') or os.environ.get('GITHUB_TOKEN')}"
+    try:
+        req = urllib.request.Request(WHATIF_RUNS, headers=headers)
+        with urllib.request.urlopen(req, timeout=30) as r:
+            runs = json.loads(r.read().decode())["workflow_runs"]
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  could not see What If's builds ({e}); going by the kernels alone", flush=True)
+        return False
+    return any(r["status"] in ("in_progress", "queued", "waiting") for r in runs)
+
+
 def busy_kernels():
     """Refs of this account's kernels from either channel that are not finished."""
     listing = _run([sys.executable, "-m", "kaggle", "kernels", "list", "--mine",
@@ -149,6 +171,8 @@ def wait_for_free_gpu(poll_s=60, timeout_s=GPU_WAIT_TIMEOUT_S):
     started = time.time()
     while True:
         busy = busy_kernels()
+        if not busy and whatif_building():
+            busy = ["What If build running (GitHub Actions)"]
         if not busy:
             return
         if time.time() - started > timeout_s:
