@@ -1,0 +1,324 @@
+> On one Sunday night in 1987, a masked figure took over two Chicago television stations.
+> Two hours apart.
+> In front of thousands of homes.
+< And more than three decades later, nobody knows who it was.
+[pause 0.7]
+> Not who wore the mask. Not who built the machine. Not why.
+> There is a best explanation for how it was done. I'll give you that.
+> But the question of who? That one is still open.
+[pause 0.5]
+> Let's start with the first interruption.
+
+It is Sunday, November 22nd, 1987.
+A little after nine in the evening.
+WGN-TV is running its nightly newscast.
+The sports anchor is walking viewers through the day's Chicago Bears game.
+> Highlights on screen. Everything normal.
+< Then the picture goes black.
+
+At 9:14 p.m., home screens go dark.
+By one account, for about fifteen seconds.
+Then something appears.
+
+A figure in a Max Headroom mask and sunglasses.
+He sways. He rocks. He jerks from side to side.
+Behind him is a panel of corrugated metal, turning slowly.
+It looks like the geometric backdrop from the Max Headroom show.
+And there is a sound.
+Not a voice. Not a message.
+< Just a loud, garbled buzz.
+
+> Remember who Max Headroom was.
+Most Chicago viewers did.
+A stuttering, computer-styled television character.
+He had his own show, which had recently been canceled.
+And he had been in advertisements for a soft drink.
+> So the face was familiar.
+< But somebody was wearing it, on live television, and nobody at the station had put it there.
+
+Inside the WGN studio, the monitors begin to jitter.
+The anchor is mid-report.
+The pictures he is narrating are simply gone.
+[pause 0.5]
+
+How long did it last?
+Here's the first thing you should know about this story.
+The accounts do not agree.
+One says the interruption ran nearly seventeen seconds.
+Another says the whole thing lasted about thirty.
+A third says half a minute.
+> Same event. Different stopwatches.
+They all agree on this much: it was short.
+
+It ended because WGN's engineers fought back.
+One account says they changed the frequency of the signal linking the studio to the station's transmitter.
+That transmitter sat atop the John Hancock Center.
+Another account says they switched to an alternate transmitter.
+Either way, the pirate was cut off.
+
+And then the anchor comes back on screen.
+He looks flustered.
+< He says, "Well, if you're wondering what's happened, so am I."
+He jokes that the computer running the news had "taken off and gone wild."
+Then he goes back to the Bears game.
+[pause 0.7]
+
+> That should have been the end of it.
+> A strange thirty seconds. A story for the next morning.
+< It was not the end.
+
+About two hours later, the same night, another station.
+WTTW. Chicago's PBS station.
+The time is somewhere around eleven.
+One account puts it at 11:15, another at about 11:20.
+Viewers are watching Doctor Who.
+A serial called Horror of Fang Rock.
+Part one.
+And the picture starts to dance.
+
+> Same mask. Same metal backdrop.
+< But this time, the figure could talk.
+
+The voice is badly distorted.
+It comes with moans, with laughter, with excited noises.
+And this time the broadcast does not end after half a minute.
+It runs for about ninety seconds.
+Ninety seconds is a very long time to lose control of your own station.
+
+[pause 0.4]
+What does Max say?
+> A rapid string of fragments. Almost none of them connect.
+
+He mentions "nerds."
+He calls a WGN sportscaster, by name, a "frickin' liberal."
+Another account has him saying he thinks he's better than that man.
+He holds up a can of Pepsi.
+He says, "Catch the wave."
+That was a slogan from advertising for a rival soft drink. The real Max Headroom had been in those ads.
+So the joke is a scrambled brand mix-up.
+Maybe on purpose. Maybe not.
+
+He hums a cartoon theme.
+It is from a 1959 animated series called Clutch Cargo.
+And he says, "I still see the X."
+That is a line from the last episode of that cartoon.
+It is sometimes misheard as "I stole CBS."
+> Think about that.
+< A line that sounds like a confession, and may be a cartoon quote.
+
+He pretends to relieve himself.
+He claims to have made a "giant masterpiece" for the "Greatest World Newspaper nerds."
+[pause 0.5]
+> Now notice that phrase.
+WGN's call letters stand for "World's Greatest Newspaper."
+< Greatest. World. Newspaper.
+
+So the mask may have been pointed at WGN all along.
+That's one reading.
+Keep it in mind.
+
+He pulls a glove onto one hand.
+He says it's dirty.
+He says his brother has the other one.
+Then the video cuts abruptly.
+Now the man is mostly off the left side of the frame, with his bare backside visible.
+On the right edge stands a second figure.
+A woman, by the look of it.
+Dressed as a French maid.
+Apparently wearing a mask too.
+Max's mask is now being held up, no longer on his face.
+And he cries out, "Oh no, they're coming to get me! Make it stop!"
+< And the woman starts hitting him with a flyswatter.
+
+The picture fades into static.
+And just like that, viewers are back in Doctor Who.
+As if nothing had happened.
+
+[pause 0.7]
+The next day, WTTW got a lot of calls.
+Some people wanted to know what they had just watched.
+Some complained about the nudity.
+One flustered Doctor Who fan said on television that he got so upset he wanted to bust the TV set.
+> Understandable.
+> You're watching a British sci-fi serial and suddenly this.
+
+But here's what haunts the people who worked there.
+< They watched it happen, and they couldn't stop it.
+
+At WTTW, the transmitter was atop the Sears Tower.
+At that hour, no engineers were on duty up there.
+A station spokesman said the technicians monitoring from headquarters "attempted to take corrective measures, but couldn't."
+An air director remembered that as the content got weirder, they got "increasingly stressed out" about their inability to do anything.
+> And how did it end?
+< Not because anyone stopped it.
+The hijackers stopped it themselves.
+The spokesman put it plainly: by the time his people began looking into what was going on, it was over.
+
+[pause 0.8]
+> So that's what happened.
+> Now the three questions. How? Who? Why?
+> Start with how.
+
+The explanation experts gave is surprisingly simple in principle.
+The stations send their signal to their broadcast towers by microwave.
+The pirate aimed a stronger microwave signal at the same towers.
+Stronger beats weaker.
+The tower picks up the louder one and broadcasts that instead.
+It's called a capture effect.
+> No cables cut. No building entered.
+< Just a louder signal, aimed at the right place.
+
+But "simple in principle" is not the same as easy.
+Experts said it took serious technical skill.
+And a lot of transmitting power.
+And the pirate likely sat somewhere with line of sight to both towers.
+Both towers topped tall buildings in downtown Chicago.
+> One on the Hancock Center. One on the Sears Tower.
+So the signal came from somewhere that could see both.
+
+One account says investigators believed the person either broadcast from the rooftop of a nearby building or had access to a powerful ground-based transmitter.
+And the equipment?
+According to some broadcasting experts, a rig powerful enough could be bought for about twenty-five thousand dollars.
+Or rented for a few thousand.
+They said it could be moved in a few large suitcases.
+[pause 0.5]
+> Think about what that means.
+< The weapon could have fit in a taxi.
+
+Now, the two-hour gap.
+Why two hours between attacks?
+Nobody knows.
+But look at the sequence.
+WGN's engineers switched their link. Their first attempt was blocked.
+Then the pirate went to a second station, one with nobody on duty at the tower.
+Is that coincidence?
+Or a plan?
+I can't tell you. The accounts don't say.
+> It's a gap in the record, and I won't fill it with a guess.
+
+[pause 0.7]
+Who went looking for the pirate?
+The Federal Communications Commission.
+One account says the FBI, too.
+They launched their own inquiries.
+Soon after the intrusion, an FCC official was quoted in the news as saying the perpetrators faced a fine of up to a hundred thousand dollars and up to a year in prison.
+> Though another account puts the maximum fine at ten thousand.
+> Again, the numbers don't agree.
+
+And the investigators found nothing.
+< Nothing they could use.
+
+The FCC could not find the people responsible.
+Over time, according to one account, the manhunts were simply abandoned.
+No insight into who he was, how he did it, or why.
+
+And then the clock ran out.
+There was a five-year statute of limitations.
+In 1992, it expired.
+< Which means that even if someone confessed today, they could no longer be punished.
+
+[pause 0.8]
+> Was this the first time something like this had happened?
+No.
+Not quite.
+A year earlier, someone calling himself Captain Midnight had briefly replaced HBO's signal with a complaint about the channel's prices.
+And earlier in 1987, someone had hijacked the Playboy Channel's signal.
+> In both cases, the motive was clear.
+> In both cases, the authorities found the person and prosecuted.
+< Chicago was different.
+
+Because there, nobody had a clear complaint.
+Nobody got caught.
+And nobody has ever claimed it.
+Not then. Not since.
+
+So who was Max?
+There are two main theories.
+> Theory one: an inside job.
+A disgruntled employee, or a former employee, of WGN.
+The evidence for it? That "Greatest World Newspaper" line.
+And a jab at one of the station's own sportscasters.
+The first hijacking hit WGN's own sports segment.
+> That's a lot of WGN for a random prank.
+But a theory is not proof.
+And one thing cuts against it.
+< WTTW is a different station, with nothing to do with WGN.
+
+Why hit it at all?
+If the grudge was against WGN, why take over a PBS station?
+One reader's comment online guessed that the second attack was an opportunity once the first plan fell through.
+That's just speculation. Treat it that way.
+
+> Theory two: the underground.
+Members of Chicago's hacker community.
+People with the electronics knowledge to pull off a microwave takeover.
+It fits the skill. It fits the secrecy.
+It fits a stunt done, perhaps, simply because it could be done.
+But it comes with the same weakness.
+< Nobody has ever stepped forward with proof.
+
+And then there's the question that bothers me most.
+Why Max Headroom?
+
+The show was set in a future where powerful television corporations controlled the world.
+And in that world, freedom fighters spread their messages by sneaking pirate signals into live broadcasts.
+> Read that again.
+One account says investigators themselves noticed the social commentary.
+So maybe the costume was the message.
+A pirate dressed as a pirate from a story about pirates.
+
+Or maybe it was just a funny mask.
+The message itself was a mess of jokes, brand names, cartoon lines and crude gags.
+One writer asked whether the stunt might have been a proof of concept, a test run for something bigger.
+Another wondered if there was meaning in it beyond what's obvious.
+> That is the problem.
+< Everything in it could be meaning. Or nothing.
+
+[pause 0.8]
+There's one more twist, and it's about what happened afterward.
+Another Chicago station, WMAQ, had fun with it.
+Their sports anchor ran clips of the hijacking during his own highlights.
+And he said later, "A lot of people thought it was real."
+> They got all kinds of calls.
+< The joke about the hijacking was mistaken for another hijacking.
+
+Over the decades, the story has become a kind of legend.
+A technology publication called it an influential "cyberpunk hacking trope."
+It has been referenced in other shows, including an episode of a cartoon where a broadcast intruder keeps interrupting the host.
+
+But the real thing has an odd afterlife too.
+One account notes it was the last of its kind.
+No other complete hijacking of a commercial broadcast in the US has been recorded since.
+And since 2009, when American stations switched from analog to digital signals, doing it again has become almost impossible.
+< The method died with the technology.
+
+So here is what we know.
+> A person in a mask.
+> A louder microwave signal.
+> Two stations, two hours apart.
+> A buzz, then ninety seconds of nonsense, then silence.
+Investigators had the signal's reach, the towers, and the timing.
+< What they never had was a name.
+
+And here's what we don't.
+We don't know the exact length of the first interruption.
+We don't know the exact time of the second.
+We don't know where the signal came from.
+We don't know if the target was WGN, or television itself, or nothing.
+We don't know who wore the mask.
+We don't know who held the flyswatter.
+[pause 0.8]
+< And every year, the chance of finding out gets smaller.
+
+> The legal trail went cold in 1992.
+> The technology is gone.
+> The only evidence left is a few minutes of grainy video, and a question.
+
+Whoever Max was, he knew exactly how to take over a city's television.
+He chose to spend it on a pepsi can, a cartoon theme, and a flyswatter.
+< Genius, or a joke that got out of hand? You decide.
+
+[pause 0.7]
+If you want more stories from the strange corners of the internet and its older cousins, subscribe to Closed Tabs.
+Just once. Then I'll let you go.
+> And tell me in the comments: inside job, or hacker prank?
