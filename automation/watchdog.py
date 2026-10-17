@@ -133,8 +133,16 @@ def check_runs(mem, actions):
     rid, attempt = latest["id"], latest.get("run_attempt", 1)
     # a run whose pick found nothing to build is not a failure worth chasing
     if attempt < MAX_ATTEMPTS:
-        gh("run", "rerun", str(rid), "-R", REPO, "--failed", parse=False)
-        actions.append(f"reran the failed jobs of {rid} (attempt {attempt + 1})")
+        try:
+            gh("run", "rerun", str(rid), "-R", REPO, "--failed", parse=False)
+            actions.append(f"reran the failed jobs of {rid} (attempt {attempt + 1})")
+        except RuntimeError as e:
+            # GitHub can refuse a failed-jobs rerun (nothing it counts as failed);
+            # the whole run then goes again - the stills job reads the kernels
+            # it already ran instead of drawing them twice
+            log.warning("failed-jobs rerun refused (%s); rerunning the whole run", e)
+            gh("run", "rerun", str(rid), "-R", REPO, parse=False)
+            actions.append(f"reran all of {rid} (attempt {attempt + 1})")
         return True
     mine = [x for x in resumes if f"resume {rid}" in (x.get("display_title") or "")]
     if not mine:
