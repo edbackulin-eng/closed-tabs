@@ -6,8 +6,9 @@ name: daily
 # and push.py waits for any kernel still running.
 #
 # The build is split into jobs so none can run into GitHub's six-hour limit, and
-# a failure costs only the job that failed (daily-retry.yml reruns failed jobs;
-# artifacts of the jobs that passed are kept):
+# a failure costs only the job that failed (watchdog.yml reruns the failed jobs
+# within the hour, keeping the artifacts of the jobs that passed, and emails the
+# owner after the third failed attempt):
 #   pick     which topic, if the buffer needs one
 #   voice    script if missing, narration, word timings, edit plan, stock footage
 #   stills   FLUX on Kaggle and the vision check - the long, GPU-bound part
@@ -287,20 +288,3 @@ jobs:
           else
             echo "outside the GPU window; the 20:05 run builds $next"
           fi
-
-  notify:
-    needs: [pick, voice, stills, render, merge, upload]
-    if: failure()
-    runs-on: ubuntu-24.04
-    env:
-      GH_TOKEN: ${{ github.token }}
-    steps:
-      - name: Email on failure
-        run: |
-          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
-          if [ -z "$n" ]; then
-            gh label create run-log -R ${{ github.repository }} --color b60205 --description "daily run failures" 2>/dev/null || true
-            n=$(gh issue create -R ${{ github.repository }} --title "Daily run failures" --label run-log \
-                --body "A comment here mentioning the owner arrives as an email." | grep -o '[0-9]*$')
-          fi
-          gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} daily run failed (attempt ${{ github.run_attempt }}; failed jobs are retried automatically): ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

@@ -164,6 +164,23 @@ def status_of(video_id, yt=None):
     return items[0]["status"] if items else None
 
 
+def reschedule(video_id, publish_at, yt=None):
+    """Move a scheduled (private) video to another publishAt."""
+    yt = yt or service()
+    st = status_of(video_id, yt)
+    if st is None:
+        raise RuntimeError(f"video {video_id} not found")
+    if st.get("privacyStatus") != "private":
+        raise RuntimeError(f"video {video_id} is already {st.get('privacyStatus')}")
+    keep = {k: v for k, v in st.items()
+            if k in ("privacyStatus", "embeddable", "license", "publicStatsViewable",
+                     "selfDeclaredMadeForKids", "containsSyntheticMedia")}
+    keep["publishAt"] = publish_at.strftime("%Y-%m-%dT%H:%M:%SZ")
+    yt.videos().update(part="status", body={"id": video_id, "status": keep}).execute()
+    log.info("%s moved to %s", video_id, keep["publishAt"])
+    return keep["publishAt"]
+
+
 # --- the channel ---------------------------------------------------------------------
 
 def all_uploads(yt=None):

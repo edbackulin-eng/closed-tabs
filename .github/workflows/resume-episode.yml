@@ -1,4 +1,5 @@
 name: resume-episode
+run-name: resume ${{ inputs.run_id }}
 
 # Finish a full build that ran out of job time after its stills were drawn:
 # stills from the Kaggle kernels' outputs, plan and timings from the run's
