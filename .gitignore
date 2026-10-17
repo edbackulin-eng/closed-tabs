@@ -56,3 +56,6 @@ youtube_token.json
 client_secret*.json
 
 checkpoint/
+queue/*/build_full/
+queue/*/out/*
+!queue/*/out/uploaded.json
