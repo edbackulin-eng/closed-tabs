@@ -150,12 +150,19 @@ def attach(video_id, episode_dir, yt=None):
         log.info("thumbnail set")
     srt = episode_dir / "subs.srt"
     if srt.exists():
-        yt.captions().insert(part="snippet",
-                             body={"snippet": {"videoId": video_id, "language": "en",
-                                               "name": "English", "isDraft": False}},
-                             media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream"),
-                             ).execute()
-        log.info("subtitles attached")
+        # Captions need the youtube.force-ssl scope. Without it the upload still
+        # stands; the caller records the subtitles as pending.
+        try:
+            yt.captions().insert(part="snippet",
+                                 body={"snippet": {"videoId": video_id, "language": "en",
+                                                   "name": "English", "isDraft": False}},
+                                 media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream"),
+                                 ).execute()
+            log.info("subtitles attached")
+        except Exception as e:                                   # noqa: BLE001
+            log.error("subtitles NOT attached: %s", str(e)[:200])
+            return {"captions": f"pending: {str(e)[:120]}"}
+    return {}
 
 
 def status_of(video_id, yt=None):

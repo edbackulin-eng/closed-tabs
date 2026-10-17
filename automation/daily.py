@@ -64,16 +64,24 @@ def schedule(slug, rows):
     meta = json.loads((out / "metadata.json").read_text(encoding="utf-8"))
     slot = youtube.next_slot([r["publish_at"] for r in rows])
     vid = youtube.upload(out, meta["title"], meta["description"], meta["tags"], slot)
-    youtube.attach(vid, out)
+    # recorded the moment YouTube has it: nothing after this may lose the row
     rows.append({"slug": slug, "youtube_id": vid,
                  "publish_at": slot.strftime("%Y-%m-%dT%H:%M:%SZ"), "title": meta["title"]})
     _save_state(rows)
+    try:
+        extra = youtube.attach(vid, out) or {}
+    except Exception as e:                                       # noqa: BLE001
+        log.error("thumbnail/subtitles failed: %s", e)
+        extra = {"attach": f"failed: {str(e)[:120]}"}
+    if extra:
+        rows[-1].update(extra)
+        _save_state(rows)
     # the topic is done: the next run takes the next one
     queue = json.loads(QUEUE.read_text(encoding="utf-8"))
     for t in queue["topics"]:
         if t["slug"] == slug:
             t["status"] = "published"
-    QUEUE.write_text(json.dumps(queue, indent=1, ensure_ascii=False), encoding="utf-8")
+    QUEUE.write_text(json.dumps(queue, indent=2, ensure_ascii=False) + chr(10), encoding="utf-8")
     log.info("%s scheduled for %s as %s", slug, rows[-1]["publish_at"], vid)
     return rows[-1]
 
