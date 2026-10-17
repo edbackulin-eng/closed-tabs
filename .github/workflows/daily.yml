@@ -2,10 +2,19 @@ name: daily
 
 # One episode a run while fewer than three are scheduled ahead; publication slots
 # are Mon/Tue/Thu/Fri/Sat 17:00 UTC (pipeline/youtube.py). Runs at 20:05 UTC,
-# inside the Closed Tabs Kaggle window: What If does not start after 18:00 UTC and
-# its build is long finished, and push.py waits for any kernel still running.
-# While fewer than three are scheduled, a successful run starts the next one, so
-# the buffer refills overnight instead of one video a day.
+# inside the Closed Tabs Kaggle window: What If does not start after 18:00 UTC,
+# and push.py waits for any kernel still running.
+#
+# The build is split into jobs so none can run into GitHub's six-hour limit, and
+# a failure costs only the job that failed (daily-retry.yml reruns failed jobs;
+# artifacts of the jobs that passed are kept):
+#   pick     which topic, if the buffer needs one
+#   voice    script if missing, narration, word timings, edit plan, stock footage
+#   stills   FLUX on Kaggle and the vision check - the long, GPU-bound part
+#   render   the picture in PARTS pieces side by side (pipeline/parts.py)
+#   merge    join without re-encoding, the sound mix, subtitles, thumbnail
+#   upload   private on the nearest free slot, recorded in state/episodes.json
+# Each job passes its result on as an artifact (a plain tar of build_full/).
 on:
   schedule:
     - cron: "5 20 * * *"
@@ -17,6 +26,9 @@ on:
       force_window:
         description: by hand only - allow Kaggle outside the 20:00-04:00 UTC window
         default: "false"
+      slug:
+        description: build this topic instead of the next one (optional)
+        default: ""
 
 permissions:
   contents: write
@@ -27,20 +39,37 @@ concurrency:
   group: daily
   cancel-in-progress: false
 
+env:
+  PYTHONUTF8: 1
+
 jobs:
-  produce:
+  pick:
     runs-on: ubuntu-24.04
-    timeout-minutes: 355          # GitHub stops a job at 360
+    timeout-minutes: 10
+    outputs:
+      slug: ${{ steps.pick.outputs.slug }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - id: pick
+        run: |
+          if [ -n "${{ inputs.slug }}" ]; then echo "slug=${{ inputs.slug }}" >> "$GITHUB_OUTPUT"; exit 0; fi
+          python automation/daily.py --pick
+
+  voice:
+    needs: pick
+    if: needs.pick.outputs.slug != ''
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
     env:
+      SLUG: ${{ needs.pick.outputs.slug }}
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
-      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-      HF_TOKEN: ${{ secrets.HF_TOKEN }}
       PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-      YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
-      PYTHONUTF8: 1
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -52,31 +81,184 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
       - run: pip install -q -r requirements.txt
       - run: npm install -g @anthropic-ai/claude-code
-      - name: Models and music
+      - run: python automation/fetch_models.py
+      - name: Script (only if the topic has none) - kept in the repository
         run: |
-          python automation/fetch_models.py
-          python automation/fetch_music.py
-      - name: Produce and schedule
-        id: run
-        run: |
-          flag=""
-          [ "${{ inputs.upload }}" = "false" ] && flag="--no-upload"
-          [ "${{ inputs.force_window }}" = "true" ] && flag="$flag --force-window"
-          python automation/daily.py $flag
+          [ -f "queue/$SLUG/script.txt" ] && exit 0
+          python automation/write_script.py "$SLUG"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "queue/$SLUG/script.txt" "queue/$SLUG/meta.json"
+          git commit -m "Script for $SLUG"
+          for i in 1 2 3 4 5; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 10)); done
+          exit 1
+      - name: Narration, timings, plan, stock
+        run: python automation/build_episode.py "$SLUG" --stage voice
+      - name: Pack
+        run: tar cf "$RUNNER_TEMP/voice.tar" "queue/$SLUG/script.txt" "queue/$SLUG/meta.json" "queue/$SLUG/build_full"
       - uses: actions/upload-artifact@v5
-        if: always()
         with:
-          name: episode-${{ github.run_id }}
+          name: voice
           retention-days: 3
-          path: |
-            queue/*/out/*
-            queue/*/build_full/*.json
+          path: ${{ runner.temp }}/voice.tar
+
+  stills:
+    needs: [pick, voice]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355                # mostly waiting for the shared GPU
+    env:
+      SLUG: ${{ needs.pick.outputs.slug }}
+      GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v5
+        with:
+          name: voice
+          path: ${{ runner.temp }}
+      - run: tar xf "$RUNNER_TEMP/voice.tar"
+      - name: Stills (Kaggle FLUX, vision check)
+        run: |
+          extra=""
+          [ "${{ inputs.force_window }}" = "true" ] && extra="--force-window"
+          python automation/build_episode.py "$SLUG" --stage stills $extra
+      - name: Pack
+        run: |
+          b="queue/$SLUG/build_full"
+          tar cf "$RUNNER_TEMP/stills.tar" "$b/stills" "$b/thumb_bases" "$b/plan.json" "$b/stills_report.json"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: stills
+          retention-days: 3
+          path: ${{ runner.temp }}/stills.tar
+      - name: Keep the GPU ledger
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/gpu_ledger.json
+          git diff --cached --quiet && exit 0
+          git commit -m "GPU ledger after daily ${{ github.run_id }}"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 10; done
+
+  render:
+    needs: [pick, stills]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4]           # pipeline/parts.py PARTS
+    env:
+      SLUG: ${{ needs.pick.outputs.slug }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v5
+        with:
+          name: voice
+          path: ${{ runner.temp }}
+      - uses: actions/download-artifact@v5
+        with:
+          name: stills
+          path: ${{ runner.temp }}
+      - run: tar xf "$RUNNER_TEMP/voice.tar" && tar xf "$RUNNER_TEMP/stills.tar"
+      - name: Render part ${{ matrix.part }}
+        run: python automation/build_episode.py "$SLUG" --stage part --part ${{ matrix.part }}
+      - name: Pack
+        run: |
+          mkdir -p "queue/$SLUG/build_full/parts"
+          tar cf "$RUNNER_TEMP/part.tar" -C "queue/$SLUG/build_full" parts
+      - uses: actions/upload-artifact@v5
+        with:
+          name: part-${{ matrix.part }}
+          retention-days: 3
+          path: ${{ runner.temp }}/part.tar
+
+  merge:
+    needs: [pick, render]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      SLUG: ${{ needs.pick.outputs.slug }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: pip install -q -r requirements.txt
+      - run: npm install -g @anthropic-ai/claude-code
+      - run: python automation/fetch_music.py
+      - uses: actions/download-artifact@v5
+        with:
+          path: ${{ runner.temp }}/a
+      - name: Unpack
+        run: |
+          tar xf "$RUNNER_TEMP/a/voice/voice.tar"
+          tar xf "$RUNNER_TEMP/a/stills/stills.tar"
+          for t in "$RUNNER_TEMP"/a/part-*/part.tar; do tar xf "$t" -C "queue/$SLUG/build_full"; done
+          ls "queue/$SLUG/build_full/parts"
+      - name: Join, sound, package
+        run: python automation/build_episode.py "$SLUG" --stage merge
+      - name: Contact sheet
+        run: |
+          o="queue/$SLUG/out"
+          ffmpeg -hide_banner -loglevel error -y -i "$o/video.mp4" \
+            -vf "fps=1/15,scale=384:-1,tile=6x9" -frames:v 1 "$o/contact_sheet.jpg"
+      - name: Pack
+        run: tar cf "$RUNNER_TEMP/out.tar" "queue/$SLUG/out"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: out
+          retention-days: 3
+          path: ${{ runner.temp }}/out.tar
+
+  upload:
+    needs: [pick, merge]
+    if: inputs.upload != 'false'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      SLUG: ${{ needs.pick.outputs.slug }}
+      YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v5
+        with:
+          name: out
+          path: ${{ runner.temp }}
+      - run: tar xf "$RUNNER_TEMP/out.tar"
+      - name: Schedule
+        id: run
+        run: python automation/daily.py --upload-only "$SLUG"
       - name: Save the state
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/ topics/queue.json queue/*/script.txt queue/*/meta.json queue/*/out/uploaded.json 2>/dev/null || true
+          git add state/ topics/queue.json queue/*/out/uploaded.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
           cp state/episodes.json "$RUNNER_TEMP/episodes.json"
           git commit -m "State after daily ${{ github.run_id }} (${{ steps.run.outcome }})"
@@ -93,31 +275,32 @@ jobs:
           echo "::error::the episode state could not be saved; the next run could upload again"
           exit 1
       - name: Keep the buffer filling
-        if: success() && inputs.upload != 'false'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          AHEAD: ${{ steps.run.outputs.ahead }}
-          BUFFER: ${{ steps.run.outputs.buffer }}
         run: |
-          [ -n "$AHEAD" ] && [ "$AHEAD" -lt "$BUFFER" ] || { echo "buffer full ($AHEAD of $BUFFER)"; exit 0; }
-          # Inside the GPU window the next build starts now; outside it push.py would
-          # refuse the kernel, so the 20:05 run picks it up instead.
-          h=$(date -u +%H)
+          next=$(python automation/daily.py --pick | tail -1)
+          [ -n "$next" ] || { echo "buffer full"; exit 0; }
+          # Inside the GPU window the next build starts now; outside it push.py
+          # would refuse the kernel, so the 20:05 run picks it up instead.
+          h=$((10#$(date -u +%H)))
           if [ "$h" -ge 20 ] || [ "$h" -lt 2 ]; then
             gh workflow run daily.yml --repo ${{ github.repository }} -f upload=true
-            echo "next build dispatched ($AHEAD of $BUFFER scheduled)"
+            echo "next build dispatched: $next"
           else
-            echo "outside the GPU window; the 20:05 run continues ($AHEAD of $BUFFER scheduled)"
+            echo "outside the GPU window; the 20:05 run builds $next"
           fi
+
+  notify:
+    needs: [pick, voice, stills, render, merge, upload]
+    if: failure()
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
       - name: Email on failure
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
-          n=$(gh issue list --label run-log --state open --json number --jq '.[0].number // empty')
+          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
           if [ -z "$n" ]; then
-            gh label create run-log --color b60205 --description "daily run failures" 2>/dev/null || true
-            n=$(gh issue create --title "Daily run failures" --label run-log \
+            gh label create run-log -R ${{ github.repository }} --color b60205 --description "daily run failures" 2>/dev/null || true
+            n=$(gh issue create -R ${{ github.repository }} --title "Daily run failures" --label run-log \
                 --body "A comment here mentioning the owner arrives as an email." | grep -o '[0-9]*$')
           fi
-          gh issue comment "$n" --body "@${{ github.repository_owner }} daily run failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} daily run failed (attempt ${{ github.run_attempt }}; failed jobs are retried automatically): ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

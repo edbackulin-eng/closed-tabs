@@ -88,7 +88,8 @@ def main():
     b = q / "build_full"
     b.mkdir(parents=True, exist_ok=True)
     for f in Path(args.jsons).glob("*.json"):
-        shutil.copy(f, b / f.name)
+        if f.resolve() != (b / f.name).resolve():
+            shutil.copy(f, b / f.name)
     plan = json.loads((b / "plan.json").read_text(encoding="utf-8"))
     # The stills report is written when stills.py finishes. A run cut off during
     # its last inspection has none; the rounds are then read from the kernels.
@@ -96,10 +97,14 @@ def main():
     report = json.loads(rp.read_text(encoding="utf-8")) if rp.exists() else None
     lines = json.loads((b / "lines.json").read_text(encoding="utf-8"))
 
-    # 1. the narration: same script, same voice, same audio
-    audio, _ = narrate.synthesize(narrate.load_kokoro(), (q / "script.txt").read_text(encoding="utf-8"))
-    sf.write(b / "narration.wav", audio, SAMPLE_RATE)
-    seconds = len(audio) / SAMPLE_RATE
+    # 1. the narration: kept by the split build; otherwise the same script and
+    #    voice give the same audio
+    if (b / "narration.wav").exists():
+        seconds = sf.info(str(b / "narration.wav")).duration
+    else:
+        audio, _ = narrate.synthesize(narrate.load_kokoro(), (q / "script.txt").read_text(encoding="utf-8"))
+        sf.write(b / "narration.wav", audio, SAMPLE_RATE)
+        seconds = len(audio) / SAMPLE_RATE
     drift = abs(seconds - lines[-1]["end"])
     log.info("narration %.2f s, the plan was cut for %.2f s", seconds, lines[-1]["end"])
     if drift > 1.0:

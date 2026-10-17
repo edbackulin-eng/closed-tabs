@@ -34,6 +34,31 @@ NEEDS = {"flux", "annotate", "notification", "cursor"}
 REPEAT_WINDOW = 10
 
 
+def _same_job(slug, job):
+    """The ref of an existing kernel `slug` whose source carries this very job."""
+    import subprocess
+    import tempfile
+    ref = f"metberi/{slug}"
+    with tempfile.TemporaryDirectory() as d:
+        r = subprocess.run([sys.executable, "-m", "kaggle", "kernels", "pull", ref, "-p", d],
+                           capture_output=True, text=True)
+        nbs = list(Path(d).glob("*.ipynb"))
+        if r.returncode != 0 or not nbs:
+            return None
+        try:
+            src = "".join(json.loads(nbs[0].read_text(encoding="utf-8"))["cells"][0]["source"])
+            old, _ = json.JSONDecoder().raw_decode(src[src.index("{"):])
+        except (ValueError, KeyError, IndexError):
+            return None
+    keys = ("image_prompts", "seed", "steps", "width", "height")
+    if all(old.get(k) == job.get(k) for k in keys):
+        status = subprocess.run([sys.executable, "-m", "kaggle", "kernels", "status", ref],
+                                capture_output=True, text=True).stdout.lower()
+        if "error" not in status and "cancel" not in status:
+            return ref
+    return None
+
+
 def _generate(prompts, seed, dest, label, force_window, tag=""):
     """prompts: {shot: full prompt}. Writes dest/NNN.png for each shot."""
     import push
@@ -45,7 +70,13 @@ def _generate(prompts, seed, dest, label, force_window, tag=""):
     # One kernel name per build, so a hook and a full episode built the same
     # evening never overwrite each other's kernel between push and fetch.
     slug = f"closedtabs-stills-{tag}-{label}" if tag else f"closedtabs-stills-{label}"
-    ref = push.push(job, slug, slug, job_hours=hours, force_window=force_window)
+    # A job cut off while its kernel ran is repeated by a rerun: the kernel that
+    # already holds exactly this job is waited for or read, not pushed again.
+    ref = _same_job(slug, job)
+    if ref:
+        print(f"{ref} already holds this job; using it")
+    else:
+        ref = push.push(job, slug, slug, job_hours=hours, force_window=force_window)
     if not push.wait(ref, poll_s=30, timeout_s=3 * 3600):
         raise RuntimeError(f"Kaggle kernel {ref} did not complete")
     got = push.fetch(ref, dest / f"_{label}")

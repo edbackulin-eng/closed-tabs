@@ -1,7 +1,9 @@
 name: daily-retry
 
-# One more attempt an hour after a failed scheduled daily run. A run that fails
-# again sends the failure email from daily.yml's last step.
+# A failed or cut-off daily run is repeated job by job: only the jobs that
+# failed run again, on the artifacts the others left. Two such reruns, ten
+# minutes apart; if the third attempt fails too, resume-episode takes over -
+# it rebuilds what it can from Kaggle and the artifacts and renders in one job.
 on:
   workflow_run:
     workflows: ["daily"]
@@ -13,13 +15,28 @@ permissions:
 jobs:
   retry:
     if: >
-      github.event.workflow_run.conclusion == 'failure' &&
-      github.event.workflow_run.event == 'schedule' &&
-      github.event.workflow_run.run_attempt == 1
+      (github.event.workflow_run.conclusion == 'failure' ||
+       github.event.workflow_run.conclusion == 'cancelled')
     runs-on: ubuntu-24.04
-    timeout-minutes: 75
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RUN: ${{ github.event.workflow_run.id }}
+      ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+      REPO: ${{ github.repository }}
     steps:
-      - run: sleep 3600
-      - env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh run rerun ${{ github.event.workflow_run.id }} --repo ${{ github.repository }}
+      - run: |
+          if [ "$ATTEMPT" -lt 3 ]; then
+            sleep 600
+            gh run rerun "$RUN" --failed --repo "$REPO"
+            echo "rerunning the failed jobs of $RUN (attempt $((ATTEMPT + 1)))"
+            exit 0
+          fi
+          # third failure: the fallback path, if the run got far enough to have a plan
+          names=$(gh api "repos/$REPO/actions/runs/$RUN/artifacts" --jq '[.artifacts[].name]|join(",")')
+          case ",$names," in
+            *,voice,*)
+              gh workflow run resume-episode.yml --repo "$REPO" -f run_id="$RUN" -f upload=true
+              echo "resume-episode started for $RUN";;
+            *) echo "nothing to resume from in $RUN";;
+          esac

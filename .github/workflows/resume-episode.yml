@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
     inputs:
       slug:
-        description: topic slug
-        required: true
+        description: topic slug (read from the run's artifacts when empty)
+        default: ""
       run_id:
         description: the cut-off build run (its artifact holds build_full/*.json)
         required: true
@@ -40,7 +40,6 @@ jobs:
       PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
       GH_TOKEN: ${{ github.token }}
-      SLUG: ${{ inputs.slug }}
       PYTHONUTF8: 1
     steps:
       - uses: actions/checkout@v5
@@ -57,13 +56,35 @@ jobs:
         run: |
           python automation/fetch_models.py
           python automation/fetch_music.py
-      - name: The build's JSON
+      - name: What the cut-off run left
         run: |
-          gh run download "${{ inputs.run_id }}" -R "${{ github.repository }}" \
-            -n "episode-${{ inputs.run_id }}" -D "$RUNNER_TEMP/ep"
-          ls "$RUNNER_TEMP/ep/$SLUG/build_full"
+          names=$(gh api "repos/${{ github.repository }}/actions/runs/${{ inputs.run_id }}/artifacts" --jq '[.artifacts[].name]|join(",")')
+          echo "artifacts: $names"
+          mkdir -p "$RUNNER_TEMP/ep"
+          case ",$names," in
+            *,voice,*)
+              # the split build: voice (and perhaps stills) as tars
+              gh run download "${{ inputs.run_id }}" -R "${{ github.repository }}" -n voice -D "$RUNNER_TEMP/ep"
+              slug=$(tar tf "$RUNNER_TEMP/ep/voice.tar" | head -1 | cut -d/ -f2)
+              tar xf "$RUNNER_TEMP/ep/voice.tar"
+              if echo ",$names," | grep -q ",stills,"; then
+                gh run download "${{ inputs.run_id }}" -R "${{ github.repository }}" -n stills -D "$RUNNER_TEMP/ep"
+                tar xf "$RUNNER_TEMP/ep/stills.tar"
+                echo "HAVE_STILLS=1" >> "$GITHUB_ENV"
+              fi
+              cp -r "queue/$slug/build_full" "$RUNNER_TEMP/jsons";;
+            *)
+              slug="${{ inputs.slug }}"
+              gh run download "${{ inputs.run_id }}" -R "${{ github.repository }}"                 -n "episode-${{ inputs.run_id }}" -D "$RUNNER_TEMP/ep"
+              cp -r "$RUNNER_TEMP/ep/$slug/build_full" "$RUNNER_TEMP/jsons";;
+          esac
+          [ -n "${{ inputs.slug }}" ] && slug="${{ inputs.slug }}"
+          echo "SLUG=$slug" >> "$GITHUB_ENV"
+          echo "resuming $slug"
       - name: Stills, narration and stock back in place
-        run: python automation/resume_build.py "$SLUG" --jsons "$RUNNER_TEMP/ep/$SLUG/build_full"
+        run: |
+          [ "$HAVE_STILLS" = "1" ] && { echo "stills came with the run"; exit 0; }
+          python automation/resume_build.py "$SLUG" --jsons "$RUNNER_TEMP/jsons"
       - name: Render and package
         run: python automation/build_episode.py "$SLUG" --skip-stills
       - name: Contact sheet and hook
@@ -83,16 +104,16 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: always()
         with:
-          name: resumed-${{ inputs.slug }}
+          name: resumed-${{ env.SLUG }}
           retention-days: 3
           path: |
             ${{ runner.temp }}/hook_v2.mp4
-            queue/${{ inputs.slug }}/out/thumbnail.jpg
-            queue/${{ inputs.slug }}/out/contact_sheet.jpg
-            queue/${{ inputs.slug }}/out/report.json
-            queue/${{ inputs.slug }}/out/metadata.json
-            queue/${{ inputs.slug }}/out/credits.json
-            queue/${{ inputs.slug }}/out/subs.srt
+            queue/${{ env.SLUG }}/out/thumbnail.jpg
+            queue/${{ env.SLUG }}/out/contact_sheet.jpg
+            queue/${{ env.SLUG }}/out/report.json
+            queue/${{ env.SLUG }}/out/metadata.json
+            queue/${{ env.SLUG }}/out/credits.json
+            queue/${{ env.SLUG }}/out/subs.srt
       - name: Save the state
         if: always() && steps.run.outcome != 'skipped'
         run: |

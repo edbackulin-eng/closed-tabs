@@ -224,12 +224,17 @@ def main():
     ap.add_argument("--force-window", action="store_true")
     ap.add_argument("--skip-stills", action="store_true",
                     help="the stills are already in place (automation/resume_build.py)")
+    ap.add_argument("--stage", choices=("voice", "stills", "part", "merge"),
+                    help="run one stage of the split build (daily.yml) instead of all")
+    ap.add_argument("--part", type=int, default=0)
     args = ap.parse_args()
     q = ROOT / "queue" / args.slug
     b = q / "build_full"
     out = q / "out"
     b.mkdir(parents=True, exist_ok=True)
     out.mkdir(exist_ok=True)
+    if args.stage:
+        return run_stage(args, q, b, out)
     report = {}
     stage_narrate(q, b, report)
     stage_plan(b, args.slug)
@@ -242,6 +247,36 @@ def main():
     r = edit.render(plan, b / "stills", b / "narration.wav", out / "video.mp4", b / "work",
                     script_text=script_text)
     report.update(r)
+    stage_package(q, b, out, report)
+    edit.write(report, out / "report.json")
+    print(json.dumps({k: report[k] for k in ("checks", "problems") if k in report}, indent=1))
+    return 0
+
+
+def run_stage(args, q, b, out):
+    """One job of the split build. Each stage reads what the stage before left in
+    build_full/ (restored from that job's artifact) and leaves its own result."""
+    from pipeline import parts
+    if args.stage == "voice":
+        report = {}
+        stage_narrate(q, b, report)
+        stage_plan(b, args.slug)
+        stage_stock(b)
+        (b / "voice_report.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
+        return 0
+    if args.stage == "stills":
+        stage_stills(b, args.force_window)
+        return 0
+    plan = json.loads((b / "plan.json").read_text(encoding="utf-8"))
+    if args.stage == "part":
+        parts.render_part(plan, b / "stills", args.part, b / f"work_part{args.part}", b / "parts")
+        return 0
+    # merge: join, sound, package
+    report = json.loads((b / "voice_report.json").read_text(encoding="utf-8")) \
+        if (b / "voice_report.json").exists() else {}
+    script_text = (q / "script.txt").read_text(encoding="utf-8")
+    report.update(parts.merge(plan, b / "parts", b / "narration.wav", out / "video.mp4",
+                              b / "work_merge", script_text=script_text))
     stage_package(q, b, out, report)
     edit.write(report, out / "report.json")
     print(json.dumps({k: report[k] for k in ("checks", "problems") if k in report}, indent=1))

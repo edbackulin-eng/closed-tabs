@@ -83,10 +83,23 @@ def main():
     ap.add_argument("--no-upload", action="store_true")
     ap.add_argument("--force-window", action="store_true",
                     help="by hand only: allow Kaggle outside the GPU window")
+    ap.add_argument("--pick", action="store_true",
+                    help="print the next topic to build, or nothing when the buffer is full")
     ap.add_argument("--upload-only", metavar="SLUG",
                     help="schedule an episode that is already built in queue/SLUG/out")
     args = ap.parse_args()
     rows = _state()
+    if args.pick:
+        have = ahead(rows)
+        topic = next_topic(rows) if len(have) < BUFFER else None
+        slug = topic["slug"] if topic else ""
+        log.info("%d scheduled ahead of %d; next: %s", len(have), BUFFER, slug or "nothing")
+        gh_out = __import__("os").environ.get("GITHUB_OUTPUT")
+        if gh_out:
+            with open(gh_out, "a", encoding="utf-8") as f:
+                f.write(f"slug={slug}\nahead={len(have)}\nbuffer={BUFFER}\n")
+        print(slug)
+        return 0
     if args.upload_only:
         if any(r["slug"] == args.upload_only for r in rows):
             log.info("%s is already scheduled; nothing to do", args.upload_only)
