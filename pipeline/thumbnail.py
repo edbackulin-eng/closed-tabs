@@ -286,7 +286,7 @@ def readable_small(im, text_size):
     small = im.resize(SMALL, Image.LANCZOS).convert("L")
     region = np.asarray(small)[:int(SMALL[1] * 0.45), :int(SMALL[0] * 0.58)].astype(float)
     spread = np.percentile(region, 95) - np.percentile(region, 5)
-    return cap_px >= 16 and spread >= 120, {"cap_px": round(cap_px, 1), "spread": round(float(spread), 1)}
+    return bool(cap_px >= 16 and spread >= 120), {"cap_px": round(float(cap_px), 1), "spread": round(float(spread), 1)}
 
 
 def compose(base_path, quad, words, heading, line, seed, face=None):

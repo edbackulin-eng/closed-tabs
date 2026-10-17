@@ -27,9 +27,12 @@ def main(slug, build="build"):
                                      b / "thumbs", sum(map(ord, slug)))
     out = {"winner": final.name, "candidates": report,
            "verdicts": {Path(k).name: v for k, v in verdicts.items()}}
-    (b / "thumbnail_report.json").write_text(json.dumps(out, indent=1, ensure_ascii=False),
+    # numpy scalars (a numpy bool from the readability test) are not JSON: the
+    # first full episode failed here, after its thumbnail had been made
+    plain = lambda o: o.item() if hasattr(o, "item") else str(o)  # noqa: E731
+    (b / "thumbnail_report.json").write_text(json.dumps(out, indent=1, ensure_ascii=False, default=plain),
                                              encoding="utf-8")
-    print(json.dumps(report, indent=1))
+    print(json.dumps(report, indent=1, default=plain))
     return 0
 
 

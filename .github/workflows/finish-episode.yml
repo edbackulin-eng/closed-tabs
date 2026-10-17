@@ -1,0 +1,138 @@
+name: finish-episode
+
+# Finish an episode that was built but not scheduled: take the finished video
+# from a build run's artifact (no second render, no GPU), make its thumbnail,
+# cut the hook for review, upload it private on the nearest free slot and record
+# it. By hand, for a run that failed after the render.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: topic slug
+        required: true
+      video_run:
+        description: run id whose artifact holds queue/<slug>/out
+        required: true
+      bases_run:
+        description: run id whose hook artifact holds thumb_bases (optional)
+        default: ""
+      upload:
+        description: upload to YouTube
+        default: "true"
+
+permissions:
+  contents: write
+  actions: read
+  issues: write
+
+jobs:
+  finish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+      GH_TOKEN: ${{ github.token }}
+      SLUG: ${{ inputs.slug }}
+      PYTHONUTF8: 1
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: pip install -q -r requirements.txt
+      - name: Fetch the built episode
+        run: |
+          gh run download "${{ inputs.video_run }}" -R "${{ github.repository }}" \
+            -n "episode-${{ inputs.video_run }}" -D "$RUNNER_TEMP/ep"
+          mkdir -p "queue/$SLUG/out" "queue/$SLUG/build_full"
+          cp -r "$RUNNER_TEMP/ep/$SLUG/out/." "queue/$SLUG/out/"
+          cp "$RUNNER_TEMP/ep/$SLUG/build_full/"*.json "queue/$SLUG/build_full/"
+          if [ -n "${{ inputs.bases_run }}" ]; then
+            gh run download "${{ inputs.bases_run }}" -R "${{ github.repository }}" \
+              -n "hook-$SLUG" -D "$RUNNER_TEMP/hk"
+            cp -r "$RUNNER_TEMP/hk/thumb_bases" "queue/$SLUG/build_full/"
+          fi
+          ls -la "queue/$SLUG/out"
+      - name: Thumbnail
+        run: |
+          if [ ! -f "queue/$SLUG/out/thumbnail.jpg" ]; then
+            python automation/make_thumbnail.py "$SLUG" build_full
+            cp "queue/$SLUG/build_full/thumbs/thumbnail.jpg" "queue/$SLUG/out/thumbnail.jpg"
+          fi
+      - name: Checks
+        run: |
+          python - <<'PY'
+          import json, os, sys
+          sys.path.insert(0, ".")
+          from pipeline import grade, qc
+          o = f"queue/{os.environ['SLUG']}/out"
+          r = json.load(open(f"{o}/report.json", encoding="utf-8"))
+          print(json.dumps(r.get("checks", {}), indent=1)[:4000])
+          print("problems:", r.get("problems"))
+          m = qc.probe(f"{o}/video.mp4")
+          v = next(s for s in m["streams"] if s["codec_type"] == "video")
+          print("video:", v["width"], "x", v["height"], round(int(m["format"]["bit_rate"]) / 1e6, 2), "Mbit/s",
+                round(float(m["format"]["duration"]) / 60, 2), "min")
+          meta = json.load(open(f"{o}/metadata.json", encoding="utf-8"))
+          print(meta["title"]); print(meta["description"][:3000])
+          PY
+      - name: Hook and contact sheets
+        run: |
+          o="queue/$SLUG/out"
+          end=$(python -c "import json;l=json.load(open('queue/$SLUG/build_full/lines.json'));print(next((x['end'] for x in l if x['end']>=60),65)+0.6)")
+          ffmpeg -hide_banner -loglevel error -y -i "$o/video.mp4" -t "$end" -c:v libx264 -preset fast \
+            -b:v 12M -maxrate 16M -bufsize 24M -c:a aac -b:a 192k -movflags +faststart "$RUNNER_TEMP/hook_v2.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "$RUNNER_TEMP/hook_v2.mp4" \
+            -vf "fps=1/4,scale=480:-1,tile=4x4" -frames:v 1 "$RUNNER_TEMP/hook_sheet.jpg"
+          ffmpeg -hide_banner -loglevel error -y -i "$o/video.mp4" \
+            -vf "fps=1/15,scale=384:-1,tile=6x9" -frames:v 1 "$RUNNER_TEMP/contact_sheet.jpg"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: finished-${{ inputs.slug }}
+          retention-days: 3
+          path: |
+            ${{ runner.temp }}/hook_v2.mp4
+            ${{ runner.temp }}/hook_sheet.jpg
+            ${{ runner.temp }}/contact_sheet.jpg
+            queue/${{ inputs.slug }}/out/thumbnail.jpg
+            queue/${{ inputs.slug }}/out/report.json
+            queue/${{ inputs.slug }}/out/metadata.json
+            queue/${{ inputs.slug }}/out/credits.json
+            queue/${{ inputs.slug }}/out/subs.srt
+            queue/${{ inputs.slug }}/build_full/thumbnail_report.json
+            queue/${{ inputs.slug }}/build_full/thumbs/*.jpg
+      - name: Schedule
+        id: run
+        if: inputs.upload == 'true'
+        run: python automation/daily.py --upload-only "$SLUG"
+      - name: Save the state
+        if: always() && steps.run.outcome != 'skipped'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/ topics/queue.json queue/*/out/uploaded.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          cp state/episodes.json "$RUNNER_TEMP/episodes.json"
+          git commit -m "State after finish-episode ${{ github.run_id }} (${{ steps.run.outcome }})"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main || { git rebase --abort; git reset --hard origin/main; cp "$RUNNER_TEMP/episodes.json" state/episodes.json; git add state/; git commit -m "State after finish-episode ${{ github.run_id }}"; }
+            if git push origin HEAD:main; then
+              git fetch origin main
+              if git show origin/main:state/episodes.json | cmp -s - "$RUNNER_TEMP/episodes.json"; then
+                echo "state pushed and verified"; exit 0
+              fi
+            fi
+            sleep $((i * 10))
+          done
+          echo "::error::the episode state could not be saved"
+          exit 1
+      - name: Email on failure
+        if: failure()
+        run: |
+          n=$(gh issue list --label run-log --state open --json number --jq '.[0].number // empty')
+          [ -z "$n" ] && n=$(gh issue create --title "Daily run failures" --label run-log \
+              --body "A comment here mentioning the owner arrives as an email." | grep -o '[0-9]*$')
+          gh issue comment "$n" --body "@${{ github.repository_owner }} finish-episode failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

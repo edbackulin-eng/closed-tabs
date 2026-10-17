@@ -56,13 +56,45 @@ def run(cmd):
     subprocess.run(cmd, check=True)
 
 
+def schedule(slug, rows):
+    """Upload a built episode (queue/<slug>/out/) private on the nearest free slot,
+    record it in the state and mark the topic done. Returns the new row."""
+    from pipeline import youtube
+    out = ROOT / "queue" / slug / "out"
+    meta = json.loads((out / "metadata.json").read_text(encoding="utf-8"))
+    slot = youtube.next_slot([r["publish_at"] for r in rows])
+    vid = youtube.upload(out, meta["title"], meta["description"], meta["tags"], slot)
+    youtube.attach(vid, out)
+    rows.append({"slug": slug, "youtube_id": vid,
+                 "publish_at": slot.strftime("%Y-%m-%dT%H:%M:%SZ"), "title": meta["title"]})
+    _save_state(rows)
+    # the topic is done: the next run takes the next one
+    queue = json.loads(QUEUE.read_text(encoding="utf-8"))
+    for t in queue["topics"]:
+        if t["slug"] == slug:
+            t["status"] = "published"
+    QUEUE.write_text(json.dumps(queue, indent=1, ensure_ascii=False), encoding="utf-8")
+    log.info("%s scheduled for %s as %s", slug, rows[-1]["publish_at"], vid)
+    return rows[-1]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-upload", action="store_true")
     ap.add_argument("--force-window", action="store_true",
                     help="by hand only: allow Kaggle outside the GPU window")
+    ap.add_argument("--upload-only", metavar="SLUG",
+                    help="schedule an episode that is already built in queue/SLUG/out")
     args = ap.parse_args()
     rows = _state()
+    if args.upload_only:
+        if any(r["slug"] == args.upload_only for r in rows):
+            log.info("%s is already scheduled; nothing to do", args.upload_only)
+        else:
+            schedule(args.upload_only, rows)
+        for r in sorted(ahead(_state()), key=lambda r: r["publish_at"]):
+            print(f"  {r['publish_at']}  {r['youtube_id']}  {r['title']}")
+        return 0
     have = ahead(rows)
     log.info("%d video(s) scheduled ahead, buffer %d", len(have), BUFFER)
 
@@ -79,24 +111,8 @@ def main():
             run([sys.executable, str(ROOT / "automation" / "build_episode.py"), slug,
                  *(["--force-window"] if args.force_window else [])])
             if not args.no_upload:
-                from pipeline import youtube
-                out = q / "out"
-                meta = json.loads((out / "metadata.json").read_text(encoding="utf-8"))
-                slot = youtube.next_slot([r["publish_at"] for r in rows])
-                vid = youtube.upload(out, meta["title"], meta["description"], meta["tags"], slot)
-                youtube.attach(vid, out)
-                rows.append({"slug": slug, "youtube_id": vid,
-                             "publish_at": slot.strftime("%Y-%m-%dT%H:%M:%SZ"),
-                             "title": meta["title"]})
-                # the topic is done: the next run takes the next one
-                queue = json.loads(QUEUE.read_text(encoding="utf-8"))
-                for t in queue["topics"]:
-                    if t["slug"] == slug:
-                        t["status"] = "published"
-                QUEUE.write_text(json.dumps(queue, indent=1, ensure_ascii=False), encoding="utf-8")
-                _save_state(rows)
+                schedule(slug, rows)
                 produced = True
-                log.info("%s scheduled for %s as %s", slug, rows[-1]["publish_at"], vid)
 
     have = ahead(_state())
     print(f"scheduled ahead: {len(have)}")
