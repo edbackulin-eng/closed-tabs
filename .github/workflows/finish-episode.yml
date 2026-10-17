@@ -67,11 +67,16 @@ jobs:
           python - <<'PY'
           import json, os, sys
           sys.path.insert(0, ".")
-          from pipeline import grade, qc
+          from pipeline import autofix, grade, qc, sound
           o = f"queue/{os.environ['SLUG']}/out"
-          r = json.load(open(f"{o}/report.json", encoding="utf-8"))
-          print(json.dumps(r.get("checks", {}), indent=1)[:4000])
-          print("problems:", r.get("problems"))
+          if os.path.exists(f"{o}/report.json"):
+              r = json.load(open(f"{o}/report.json", encoding="utf-8"))
+              print(json.dumps(r.get("checks", {}), indent=1)[:4000])
+              print("problems:", r.get("problems"))
+          # measured here as well: a build that failed late left no report
+          print("brightness:", grade.brightness(f"{o}/video.mp4"))
+          print("black stretches:", autofix.black_segments(f"{o}/video.mp4"))
+          print("loudness (LUFS, dBTP):", sound.measure(f"{o}/video.mp4"))
           m = qc.probe(f"{o}/video.mp4")
           v = next(s for s in m["streams"] if s["codec_type"] == "video")
           print("video:", v["width"], "x", v["height"], round(int(m["format"]["bit_rate"]) / 1e6, 2), "Mbit/s",
