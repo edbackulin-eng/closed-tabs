@@ -36,7 +36,8 @@ PIX_TH = 0.10            # blackdetect pixel threshold, the same one QC uses
 MIN_S = 0.5              # the shortest stretch QC reports
 LEAD_S = 0.6             # how far outside the stretch the cover still is taken
 FADE_S = 0.25
-FINAL_VIDEO_ARGS = ["-b:v", "12M", "-maxrate", "16M", "-bufsize", "24M"]
+FINAL_VIDEO_ARGS = ["-b:v", "12M", "-maxrate", "16M", "-bufsize", "24M",
+                    "-profile:v", "high", "-level:v", "4.1", "-g", "60"]
 
 
 def _run(args):
@@ -124,7 +125,7 @@ def repair(video, out_path, work):
         report["left"] = report["found"]
         return report
     _run(["-loglevel", "error", "-y", *inputs, "-filter_complex", ";".join(chains),
-          "-map", f"[{last}]", "-map", "0:a", "-c:v", "libx264", "-preset", "veryfast",
+          "-map", f"[{last}]", "-map", "0:a?", "-c:v", "libx264", "-preset", "veryfast",
           *FINAL_VIDEO_ARGS, "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "copy",
           "-movflags", "+faststart", str(out_path)])
     report["left"] = [{"start": a, "end": b} for a, b in black_segments(out_path)]
@@ -147,7 +148,7 @@ def lift(video, out_path, work):
     m = max(4.0, before["mean"]) / 255
     gamma = min(1.7, max(1.05, math.log(m) / math.log((grade.TARGET_MEAN - 5) / 255)))
     _run(["-loglevel", "error", "-y", "-i", str(video), "-vf",
-          f"eq=gamma={gamma:.3f}:saturation=1.08,format=yuv420p", "-map", "0:v", "-map", "0:a",
+          f"eq=gamma={gamma:.3f}:saturation=1.08,format=yuv420p", "-map", "0:v", "-map", "0:a?",
           "-c:v", "libx264", "-preset", "veryfast", *FINAL_VIDEO_ARGS, "-r", str(FPS),
           "-c:a", "copy", "-movflags", "+faststart", str(out_path)])
     report["gamma"] = round(gamma, 3)

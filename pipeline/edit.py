@@ -18,6 +18,21 @@ NEEDS_STILL = {"flux", "annotate", "notification", "cursor"}
 TRANSITION_SFX = {"vhs": "glitch", "rgb": "glitch", "fade": "thump"}
 
 
+def prepare_shot(s, frames, report):
+    """Make a shot renderable whatever is missing: stock without its file falls
+    back to its still, and a missing still borrows the nearest one."""
+    if s["type"] == "stock" and not (s.get("asset") and Path(s["asset"]["path"]).exists()):
+        s["type"] = "flux"                    # no footage after all: its fallback still
+        report["problems"].append(f"shot {s['move']}: stock asset missing, still used")
+    if s["type"] in NEEDS_STILL and s["move"] not in frames:
+        # A missing still is a gap, not a reason to lose the video.
+        if not frames:
+            raise RuntimeError("no stills at all; nothing to put on screen")
+        near = min(frames, key=lambda k: abs(k - s["move"]))
+        frames[s["move"]] = frames[near]
+        report["problems"].append(f"shot {s['move']} had no still; borrowed {near:03d}")
+
+
 def render(plan, stills_dir, narration_wav, out_path, work, script_text=""):
     """Returns a report dict; raises only when the video physically cannot be built."""
     work = Path(work)
@@ -37,17 +52,7 @@ def render(plan, stills_dir, narration_wav, out_path, work, script_text=""):
 
     paths, cues, cache = [], [], {}
     for s in shots:
-        if s["type"] == "stock" and not (s.get("asset") and Path(s["asset"]["path"]).exists()):
-            s["type"] = "flux"                    # no footage after all: its fallback still
-            report["problems"].append(f"shot {s['move']}: stock asset missing, still used")
-        if s["type"] in NEEDS_STILL and s["move"] not in frames:
-            # A missing still is a gap, not a reason to lose the video: the shot
-            # borrows the nearest still that does exist.
-            if not frames:
-                raise RuntimeError("no stills at all; nothing to put on screen")
-            near = min(frames, key=lambda k: abs(k - s["move"]))
-            frames[s["move"]] = frames[near]
-            report["problems"].append(f"shot {s['move']} had no still; borrowed {near:03d}")
+        prepare_shot(s, frames, report)
         p, c = assemble.render_shot(s, frames, work, cache)
         paths.append(p)
         cues += c

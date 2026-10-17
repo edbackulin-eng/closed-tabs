@@ -182,7 +182,12 @@ def _window_sum(windows, rise=0.25):
     return "+".join(terms) if terms else "0"
 
 
-def finish(video, audio, accents, out, work, vhs=True):
+# One profile and level for every encode of a final picture: parts rendered on
+# different machines are joined with -c copy, which needs identical streams.
+H264 = ["-profile:v", "high", "-level:v", "4.1", "-g", "60"]
+
+
+def finish(video, audio, accents, out, work, vhs=True, duration=None):
     """Punch-in, shake, kinetic words, VHS layer, and the mixed sound."""
     punch = _window_sum(accents.get("punch", []))
     shake = _window_sum(accents.get("shake", []), rise=0.05)
@@ -196,13 +201,14 @@ def finish(video, audio, accents, out, work, vhs=True):
         # (pipeline/grade.py) made the frames colourful and this pass must not undo it.
         chain += ["noise=alls=6:allf=t", "eq=saturation=1.05:contrast=1.05:brightness=0.015",
                   "vignette=angle=PI/8"]
-    inputs = ["-i", str(video), "-i", str(audio)]
+    inputs = ["-i", str(video)] + (["-i", str(audio)] if audio else [])
+    first = len(inputs) // 2                   # index of the first overlay input
     graph = f"[0:v]{','.join(chain)}[base]"
     last = "base"
     for n, k in enumerate(accents.get("kinetic", [])):
         png = kinetic_png(k["words"], work / f"kinetic_{n:02d}.png")
         inputs += ["-loop", "1", "-t", f"{k['end'] - k['start'] + 0.4:.3f}", "-i", str(png)]
-        idx = 2 + n
+        idx = first + n
         dur = k["end"] - k["start"]
         graph += (f";[{idx}:v]format=rgba,fade=t=in:st=0:d=0.12:alpha=1,"
                   f"fade=t=out:st={max(0.1, dur - 0.2):.3f}:d=0.2:alpha=1,"
@@ -213,16 +219,18 @@ def finish(video, audio, accents, out, work, vhs=True):
         lines = work / "scanlines.png"
         _scanlines(lines)
         inputs += ["-loop", "1", "-i", str(lines)]
-        graph += f";[{last}][{2 + len(accents.get('kinetic', []))}:v]overlay=0:0:shortest=1[v]"
+        graph += f";[{last}][{first + len(accents.get('kinetic', []))}:v]overlay=0:0:shortest=1[v]"
         last = "v"
     # Capped: the film-grain noise of the VHS layer is incompressible, and left to
     # crf alone the hook came out at 42 Mbit/s (329 MB a minute). 12 Mbit/s is
     # above YouTube's own 1080p30 recommendation and keeps a 13-minute video
     # around 1.2 GB.
-    _ff(*inputs, "-filter_complex", graph, "-map", f"[{last}]", "-map", "1:a",
+    sound_args = (["-map", "1:a", "-c:a", "aac", "-b:a", "192k", "-shortest"] if audio
+                  else ["-an", "-t", f"{duration:.3f}"] if duration else ["-an"])
+    _ff(*inputs, "-filter_complex", graph, "-map", f"[{last}]",
         "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-maxrate", "12M",
-        "-bufsize", "24M", "-pix_fmt", "yuv420p", "-r", str(FPS),
-        "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(out))
+        "-bufsize", "24M", *H264, "-pix_fmt", "yuv420p", "-r", str(FPS),
+        *sound_args, "-movflags", "+faststart", str(out))
     return out
 
 

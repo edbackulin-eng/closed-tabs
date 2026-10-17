@@ -31,7 +31,7 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
 CATEGORY_ENTERTAINMENT = "24"
 SLOT_WEEKDAYS = (0, 1, 3, 4, 5)        # Mon, Tue, Thu, Fri, Sat
 SLOT_HOUR_UTC = 17
-MIN_LEAD = timedelta(hours=2)
+MIN_LEAD = timedelta(minutes=30)       # YouTube needs only a future time; What If uses 30 min too
 CHUNK_MB = 8
 
 
@@ -74,7 +74,7 @@ def channel(yt=None):
 # --- the schedule ----------------------------------------------------------------
 
 def next_slot(taken=(), now=None):
-    """The nearest free publishing slot at least two hours from now.
+    """The nearest free publishing slot at least MIN_LEAD from now.
 
     `taken` is every publishAt already handed to YouTube. A slot is free when no
     video of ours already holds that day.
