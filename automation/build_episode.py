@@ -222,6 +222,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("slug")
     ap.add_argument("--force-window", action="store_true")
+    ap.add_argument("--skip-stills", action="store_true",
+                    help="the stills are already in place (automation/resume_build.py)")
     args = ap.parse_args()
     q = ROOT / "queue" / args.slug
     b = q / "build_full"
@@ -233,7 +235,8 @@ def main():
     stage_plan(b, args.slug)
     stage_stock(b)
     # the stills stage reads build/ next to its plan, so it gets this folder
-    stage_stills(b, args.force_window)
+    if not args.skip_stills:
+        stage_stills(b, args.force_window)
     script_text = (q / "script.txt").read_text(encoding="utf-8")
     plan = json.loads((b / "plan.json").read_text(encoding="utf-8"))
     r = edit.render(plan, b / "stills", b / "narration.wav", out / "video.mp4", b / "work",
