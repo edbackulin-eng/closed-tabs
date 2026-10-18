@@ -1,0 +1,33 @@
+{
+ "open": [],
+ "last": {
+  "at": "2026-10-18T07:45:39Z",
+  "results": {
+   "YouTube": {
+    "ok": true,
+    "note": "channel TheClosedTabs"
+   },
+   "Claude": {
+    "ok": true,
+    "note": "answers",
+    "expires": "2027-10-14"
+   },
+   "Kaggle": {
+    "ok": true,
+    "note": "kernels listed"
+   },
+   "Gemini": {
+    "ok": true,
+    "note": "models listed"
+   },
+   "Groq": {
+    "ok": true,
+    "note": "models listed"
+   },
+   "Pixabay": {
+    "ok": true,
+    "note": "search works"
+   }
+  }
+ }
+}
