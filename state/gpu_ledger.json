@@ -52,5 +52,12 @@
   "start": "2026-10-18T09:44:46.071305+00:00",
   "end": "2026-10-18T11:33:36.114233+00:00",
   "hours": 1.814
+ },
+ {
+  "ref": "metberi/closedtabs-stills-f1643-c",
+  "start": "2026-10-18T13:00:00+00:00",
+  "end": "2026-10-18T13:19:40+00:00",
+  "hours": 0.328,
+  "note": "recorded from the kernel log; the job's own ledger commit hit a conflict"
  }
 ]

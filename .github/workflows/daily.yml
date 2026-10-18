@@ -153,10 +153,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/gpu_ledger.json
-          git diff --cached --quiet && exit 0
-          git commit -m "GPU ledger after daily ${{ github.run_id }}"
-          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 10; done
+          git diff --quiet state/gpu_ledger.json && exit 0
+          cp state/gpu_ledger.json "$RUNNER_TEMP/ledger.json"
+          for i in 1 2 3 4 5; do
+            # a union with whatever main has now: two jobs recording kernels
+            # used to conflict here and lose the hours
+            git fetch -q origin main && git reset -q --hard origin/main
+            python scripts/merge_ledger.py "$RUNNER_TEMP/ledger.json"
+            git add state/gpu_ledger.json
+            git diff --cached --quiet && exit 0
+            git commit -q -m "GPU ledger after daily ${{ github.run_id }}"
+            git push -q origin HEAD:main && exit 0
+            sleep $((i * 8))
+          done
+          exit 1
 
   render:
     needs: [pick, stills]
