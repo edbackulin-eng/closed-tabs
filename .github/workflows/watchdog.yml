@@ -1,6 +1,6 @@
 name: watchdog
 
-# Every hour, on an odd minute (GitHub runs schedules late, and on the hour is
+# Every half hour (GitHub skipped most hourly runs on 17-18.10), on odd minutes (GitHub runs schedules late, and on the hour is
 # its busiest moment). Recovers failed or hung builds, keeps two videos
 # scheduled ahead, fills a slot about to go empty, emails the owner when
 # something cannot be recovered, and commits the state once a day so the
@@ -8,7 +8,7 @@ name: watchdog
 # See automation/watchdog.py.
 on:
   schedule:
-    - cron: "37 * * * *"
+    - cron: "7,37 * * * *"        # twice an hour: GitHub drops many scheduled runs
   workflow_dispatch:
 
 permissions:
