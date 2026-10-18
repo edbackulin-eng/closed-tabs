@@ -523,8 +523,8 @@ def plan(lines, words, total, seed=0, providers=llm.PROVIDERS):
                 q = str(got.get("text", "")).strip()
                 ok = any(q.strip(' "') == x.strip(' "') for x in whole)
             else:
-                lines = [str(x).strip() for x in got.get("lines", [])]
-                ok = bool(lines) and all(any(l == x for x in whole) for l in lines)
+                card = [str(x).strip() for x in got.get("lines", [])]
+                ok = bool(card) and all(any(c == x for x in whole) for c in card)
             if not ok:
                 got = _default(got["type"], b["text"], b["i"], next_safe(b["i"], False))
                 if got["type"] == "quote" and got["text"].endswith("..."):
