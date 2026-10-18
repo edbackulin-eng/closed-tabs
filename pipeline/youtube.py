@@ -1,8 +1,8 @@
-"""YouTube for Closed Tabs: upload, schedule, captions, thumbnail, branding.
+"""YouTube for Closed Tabs: upload, schedule, thumbnail, branding.
 
 Every upload goes up private with a publishAt, on the nearest free slot of the
-channel's week (Mon, Tue, Thu, Fri, Sat at 17:00 UTC) that is at least two
-hours away. Every video declares containsSyntheticMedia=true and madeForKids=false
+channel's week (Mon, Tue, Thu, Fri, Sat at 17:00 UTC) that is at least
+MIN_LEAD away. Every video declares containsSyntheticMedia=true and madeForKids=false
 and sits in Entertainment.
 
 A video is never uploaded twice. The moment YouTube returns an id it is written
@@ -10,8 +10,10 @@ to uploaded.json beside the episode, and the upload stage refuses to run for any
 episode that already has one, whatever the episode database says - the stoicism
 channel uploaded the same video twice when its database push was lost.
 
-Scopes: youtube.upload to upload, youtube (full) to set captions, change privacy
-and edit branding.
+No subtitles are uploaded: the channel relies on YouTube's automatic captions.
+
+Scopes: youtube.upload to upload, youtube (full) to set the thumbnail, change
+privacy and schedule, and edit branding.
 """
 import json
 import os
@@ -26,9 +28,7 @@ log = get_logger("youtube")
 ROOT = Path(__file__).resolve().parent.parent
 TOKEN_FILE = ROOT / "youtube_token.json"
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
-          "https://www.googleapis.com/auth/youtube",
-          # captions.insert needs this one; tokens made before 17.10 lack it
-          "https://www.googleapis.com/auth/youtube.force-ssl"]
+          "https://www.googleapis.com/auth/youtube"]
 
 CATEGORY_ENTERTAINMENT = "24"
 SLOT_WEEKDAYS = (0, 1, 3, 4, 5)        # Mon, Tue, Thu, Fri, Sat
@@ -142,7 +142,7 @@ def upload(episode_dir, title, description, tags, publish_at, yt=None):
 
 
 def attach(video_id, episode_dir, yt=None):
-    """Thumbnail and English subtitles."""
+    """The thumbnail. (Subtitles are left to YouTube's automatic captions.)"""
     from googleapiclient.http import MediaFileUpload
     yt = yt or service()
     episode_dir = Path(episode_dir)
@@ -150,20 +150,6 @@ def attach(video_id, episode_dir, yt=None):
     if thumb.exists():
         yt.thumbnails().set(videoId=video_id, media_body=MediaFileUpload(str(thumb))).execute()
         log.info("thumbnail set")
-    srt = episode_dir / "subs.srt"
-    if srt.exists():
-        # Captions need the youtube.force-ssl scope. Without it the upload still
-        # stands; the caller records the subtitles as pending.
-        try:
-            yt.captions().insert(part="snippet",
-                                 body={"snippet": {"videoId": video_id, "language": "en",
-                                                   "name": "English", "isDraft": False}},
-                                 media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream"),
-                                 ).execute()
-            log.info("subtitles attached")
-        except Exception as e:                                   # noqa: BLE001
-            log.error("subtitles NOT attached: %s", str(e)[:200])
-            return {"captions": f"pending: {str(e)[:120]}"}
     return {}
 
 
@@ -171,17 +157,6 @@ def status_of(video_id, yt=None):
     yt = yt or service()
     items = yt.videos().list(part="status", id=video_id).execute().get("items", [])
     return items[0]["status"] if items else None
-
-
-def add_captions(video_id, srt, yt=None):
-    """Attach English subtitles to an uploaded video. Raises without the scope."""
-    from googleapiclient.http import MediaFileUpload
-    yt = yt or service()
-    yt.captions().insert(part="snippet",
-                         body={"snippet": {"videoId": video_id, "language": "en",
-                                           "name": "English", "isDraft": False}},
-                         media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream"),
-                         ).execute()
 
 
 def unschedule(video_id, yt=None):

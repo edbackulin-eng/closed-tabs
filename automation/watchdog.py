@@ -208,30 +208,6 @@ def check_slot(have, mem, actions):
     actions.append(f"{pick['youtube_id']} moved from {pick['publish_at']} to the empty slot {slot:%Y-%m-%d %H:%M}")
 
 
-def check_captions(actions):
-    """Subtitles that could not be attached at upload time are sent again."""
-    from pipeline import youtube
-    from automation.daily import _state, _save_state
-    rows = _state()
-    changed = False
-    for r in rows:
-        if not str(r.get("captions", "")).startswith("pending"):
-            continue
-        srt = ROOT / "queue" / r["slug"] / "out" / "subs.srt"
-        if not srt.exists():
-            continue
-        try:
-            youtube.add_captions(r["youtube_id"], srt)
-        except Exception as e:                                   # noqa: BLE001
-            log.info("captions for %s still pending: %s", r["youtube_id"], str(e)[:120])
-            continue
-        r["captions"] = "attached"
-        changed = True
-        actions.append(f"subtitles attached to {r['youtube_id']}")
-    if changed:
-        _save_state(rows)
-
-
 def main():
     mem = memory()
     actions = []
@@ -247,10 +223,6 @@ def main():
         log.error("slot check failed: %s", e)
         email(f"slotcheck-{now():%Y%m%d}", "Closed Tabs: the watchdog could not check the next slot",
               str(e)[:500], mem)
-    try:
-        check_captions(actions)
-    except Exception as e:                                       # noqa: BLE001
-        log.error("captions check failed: %s", e)
     have = scheduled()
     mem["emailed"] = mem["emailed"][-200:]
     STATE.parent.mkdir(exist_ok=True)
