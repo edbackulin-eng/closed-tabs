@@ -88,6 +88,41 @@ def _generate(prompts, seed, dest, label, force_window, tag=""):
     return got
 
 
+def _fit_budget(todo, shots, plan, note):
+    """Fewer stills instead of no build when the week's GPU hours run short.
+
+    The week is shared with What If (25 h, kaggle/gpu_budget.py). If this job
+    would not fit, generated stills are dropped - plain moving stills first,
+    spread evenly, never the annotated or notification ones - until it does,
+    keeping a quarter of the hours for the redraw rounds. A dropped shot shows
+    the nearest still that was drawn (edit.prepare_shot)."""
+    import gpu_budget
+    try:
+        left = gpu_budget.remaining_h()
+    except Exception as e:                                       # noqa: BLE001
+        log.warning("GPU budget unknown (%s); drawing every still", e)
+        return todo
+    afford = int(max(0.0, left * 0.75 - 0.25) / 0.012)
+    if len(todo) <= afford:
+        return todo
+    thumbs = [k for k in todo if k >= 900][:4]
+    keep_types = {"annotate", "notification"}
+    must = [k for k in todo if k < 900 and shots.get(k, {}).get("type") in keep_types]
+    rest = [k for k in sorted(todo) if k < 900 and k not in must]
+    room = max(0, afford - len(thumbs) - len(must))
+    step = len(rest) / room if room else None
+    kept_rest = [rest[int(i * step)] for i in range(room)] if room else []
+    keep = set(thumbs) | set(must[:max(0, afford - len(thumbs))]) | set(kept_rest)
+    dropped = sorted(k for k in todo if k not in keep)
+    for k in dropped:
+        plan["prompts"].pop(str(k), None)
+    note["budget"] = {"hours_left": round(left, 2), "stills_planned": len(todo),
+                      "stills_drawn": len(keep), "dropped": dropped}
+    log.warning("GPU week nearly spent (%.1f h left): drawing %d of %d stills",
+                left, len(keep), len(todo))
+    return {k: todo[k] for k in keep}
+
+
 def _inspect(paths):
     """{path: verdict}, with the code-side checks folded in."""
     verdicts = visualqc.inspect(paths)
@@ -129,6 +164,10 @@ def main():
         for n, p in enumerate(thumbnail.base_prompts(seed, args.thumbs)):
             prompts.setdefault(900 + n, p)
     todo = {k: v for k, v in prompts.items() if not (dest / f"{k:03d}.png").exists()}
+    report_note = {}
+    todo = _fit_budget(todo, shots, plan, report_note)
+    for k in report_note.get("budget", {}).get("dropped", []):
+        prompts.pop(k, None)
     if todo:
         _generate(todo, 3301, dest, "a", args.force_window, tag)
     thumbs = {k: prompts.pop(k) for k in [k for k in prompts if k >= 900]}
@@ -139,7 +178,7 @@ def main():
             if (dest / f"{k:03d}.png").exists():
                 shutil.move(str(dest / f"{k:03d}.png"), tdir / f"{k:03d}.png")
 
-    report = {"rounds": []}
+    report = {"rounds": [], **report_note}
     for round_no, (seed, label) in enumerate(((4401, "b"), (5501, "c")), 1):
         paths = [dest / f"{k:03d}.png" for k in sorted(prompts)]
         verdicts = _inspect(paths)
@@ -180,6 +219,11 @@ def main():
         good = [int(p.stem) for p, v in verdicts.items() if v["ok"]]
         for p, v in verdicts.items():
             if v["ok"]:
+                continue
+            if v.get("defect") == "unchecked":
+                # Gemini could not look (quota, outage): the still stays, the check
+                # is recorded as deferred and the owner is told - it never blocks
+                report.setdefault("qc_deferred", []).append(p.name)
                 continue
             k = int(p.stem)
             far = [g for g in good if abs(g - k) > REPEAT_WINDOW] or good

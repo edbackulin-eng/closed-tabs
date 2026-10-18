@@ -133,6 +133,12 @@ jobs:
           extra=""
           [ "${{ inputs.force_window }}" = "true" ] && extra="--force-window"
           python automation/build_episode.py "$SLUG" --stage stills $extra
+      - name: Tell the owner if the vision check was deferred
+        run: |
+          n=$(python -c "import json;r=json.load(open('queue/$SLUG/build_full/stills_report.json'));print(len(r.get('qc_deferred',[])))")
+          [ "$n" -gt 0 ] || exit 0
+          i=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
+          [ -n "$i" ] && gh issue comment "$i" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **Gemini could not check $n still(s) of $SLUG** (quota or outage). The build went on with them unchecked: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
       - name: Pack
         run: |
           b="queue/$SLUG/build_full"

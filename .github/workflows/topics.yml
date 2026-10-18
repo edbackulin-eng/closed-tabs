@@ -1,0 +1,45 @@
+name: topics
+
+# Every day: at least ten topics queued (backup list first, then new ones that
+# pass the filters and have two sources) and at least three scripts written
+# ahead of the builds. See automation/topics.py.
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: topics
+  cancel-in-progress: false
+
+jobs:
+  topics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      PYTHONUTF8: 1
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - run: pip install -q -r requirements.txt && npm install -g @anthropic-ai/claude-code
+      - run: python automation/topics.py
+      - name: Keep the queue and the scripts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add topics/queue.json queue/*/script.txt queue/*/meta.json
+          git diff --cached --quiet && exit 0
+          git commit -m "topics: queue and scripts $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 10)); done
+          exit 1

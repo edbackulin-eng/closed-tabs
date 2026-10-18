@@ -172,6 +172,15 @@ def check(job_hours=DEFAULT_JOB_H, now=None):
     return True, f"GPU week so far: Closed Tabs {ct:.1f} h, What If ~{wi:.1f} h"
 
 
+# Kept back for What If's next build, so Closed Tabs never spends the hours it needs.
+WHATIF_RESERVE_H = WHATIF_HOURS_PER_RUN
+
+
+def remaining_h(now=None):
+    """GPU hours Closed Tabs may still spend this week."""
+    return WEEKLY_LIMIT_H - closed_tabs_hours(now) - whatif_hours(now) - WHATIF_RESERVE_H
+
+
 if __name__ == "__main__":
     ok, why = check()
     print(("OK   " if ok else "NO   ") + why)
