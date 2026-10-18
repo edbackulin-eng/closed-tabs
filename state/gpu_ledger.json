@@ -59,5 +59,23 @@
   "end": "2026-10-18T13:19:40+00:00",
   "hours": 0.328,
   "note": "recorded from the kernel log; the job's own ledger commit hit a conflict"
+ },
+ {
+  "ref": "metberi/closedtabs-stills-f1419-a",
+  "start": "2026-10-18T17:59:43.546753+00:00",
+  "end": "2026-10-18T20:59:08.219625+00:00",
+  "hours": 2.99
+ },
+ {
+  "ref": "metberi/closedtabs-stills-f1419-b",
+  "start": "2026-10-18T20:59:59.002722+00:00",
+  "end": "2026-10-18T21:16:45.594608+00:00",
+  "hours": 0.28
+ },
+ {
+  "ref": "metberi/closedtabs-stills-f1419-c",
+  "start": "2026-10-18T21:17:28.546406+00:00",
+  "end": "2026-10-18T21:32:43.849874+00:00",
+  "hours": 0.254
  }
 ]
