@@ -10,6 +10,10 @@ on:
   schedule:
     - cron: "7,37 * * * *"        # twice an hour: GitHub drops many scheduled runs
   workflow_dispatch:
+    inputs:
+      test_email:
+        description: only send a test email through the failure-notice path
+        default: "false"
 
 permissions:
   contents: write
@@ -36,7 +40,9 @@ jobs:
       - run: pip install -q google-api-python-client google-auth
       - name: Watch
         id: watch
-        run: python automation/watchdog.py
+        run: |
+          if [ "${{ inputs.test_email }}" = "true" ]; then python automation/watchdog.py --test-email; exit 0; fi
+          python automation/watchdog.py
       - name: Commit the state
         if: always()
         run: |

@@ -211,6 +211,11 @@ def check_slot(have, mem, actions):
 def main():
     mem = memory()
     actions = []
+    if "--test-email" in sys.argv:
+        email(f"test-{now():%Y%m%d%H%M}", "Closed Tabs: test email from the watchdog",
+              "If this arrived by email, the failure notices will arrive too.", mem)
+        STATE.write_text(json.dumps(mem, indent=1), encoding="utf-8")
+        return 0
     try:
         busy = check_runs(mem, actions)
     except Exception as e:                                       # noqa: BLE001
