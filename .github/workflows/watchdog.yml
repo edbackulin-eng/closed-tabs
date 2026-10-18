@@ -22,12 +22,12 @@ permissions:
 
 concurrency:
   group: watchdog
-  cancel-in-progress: false
+  cancel-in-progress: false      # one watchdog at a time; a scheduled start waits its turn
 
 jobs:
   watch:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 355
     env:
       GH_TOKEN: ${{ github.token }}
       YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
@@ -38,22 +38,34 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -q google-api-python-client google-auth
-      - name: Watch
-        id: watch
+      - name: Watch, every 15 minutes, then hand over to the next run
+        if: inputs.test_email != 'true'
         run: |
-          if [ "${{ inputs.test_email }}" = "true" ]; then python automation/watchdog.py --test-email; exit 0; fi
-          python automation/watchdog.py
-      - name: Commit the state
-        if: always()
-        run: |
+          # GitHub ran the half-hourly schedule only twice in nine hours on
+          # 18.10, so the watchdog does not wait for it: one run checks every
+          # 15 minutes for almost six hours and then starts its successor.
+          # The schedule above only restarts the chain if it ever breaks.
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/watchdog.json state/episodes.json
-          [ "${{ steps.watch.outputs.commit }}" = "true" ] && git add state/heartbeat.json
-          git diff --cached --quiet && exit 0
-          git commit -m "watchdog: state $(date -u +%Y-%m-%dT%H:%MZ)"
-          for i in 1 2 3 4 5; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 8)); done
-          exit 1
+          end=$(( $(date +%s) + 5*3600 + 40*60 ))
+          while [ "$(date +%s)" -lt "$end" ]; do
+            git pull -q --rebase origin main || { git rebase --abort 2>/dev/null; git reset -q --hard origin/main; }
+            python automation/watchdog.py > "$RUNNER_TEMP/out.txt" 2>&1 || true
+            tail -40 "$RUNNER_TEMP/out.txt"
+            commit=$(grep -o "^commit=.*" "$GITHUB_OUTPUT" 2>/dev/null | tail -1 | cut -d= -f2)
+            git add state/watchdog.json state/episodes.json
+            [ "$commit" = "true" ] && git add state/heartbeat.json
+            if ! git diff --cached --quiet; then
+              git commit -q -m "watchdog: state $(date -u +%Y-%m-%dT%H:%MZ)"
+              for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep $((i * 8)); done
+            fi
+            : > "$GITHUB_OUTPUT"
+            sleep 900
+          done
+          gh workflow run watchdog.yml --repo ${{ github.repository }}
+      - name: Test email
+        if: inputs.test_email == 'true'
+        run: python automation/watchdog.py --test-email
       - name: Email if the watchdog itself fails
         if: failure()
         run: |
