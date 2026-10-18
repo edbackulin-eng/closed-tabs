@@ -1,0 +1,217 @@
+> A satellite sat roughly twenty-two thousand miles up, and two people fought over it with raw power.
+
+Wait. I should stick to what I can support. Let me restart that line.
+
+> On one night in 1986, two operators fought over a television satellite with nothing but raw power.
+< One was a technician at HBO. The other was a lone engineer on an overnight shift, and he would not back down.
+< They pushed the power from 125 watts to 2,000. And the technician was the one who gave up.
+[pause 0.7]
+> Why? Because one more push, and the satellite itself could have been damaged.
+Who was the other operator? Why did he do it? And how did investigators find one person among thousands of transmitters?
+That answer is coming. But first, you need to understand the anger behind it.
+
+[pause 0.5]
+> Start with a hobby.
+In the 1970s, a small community of enthusiasts, mostly engineers, worked out how to build their own satellite dishes. Big ones. Backyard ones.
+And with those dishes, they could pull premium television straight out of the sky.
+< Free.
+It was not illegal at the time. One account says the dish owners swapped tips the way CB radio hobbyists once did, patching their systems together and trading advice.
+Restaurants and hotel chains used the same trick. They grabbed programming from the sky and showed it to guests, without paying for it.
+Imagine that. A master key to television.
+[pause 0.5]
+> But the companies that owned those channels were not happy.
+In the mid-1980s they began to scramble their signals.
+HBO was the one that mattered here.
+The date is where the accounts disagree. One says HBO began scrambling around the clock on January 15, 1986. Another puts the move a year earlier, after a petition to Congress in 1984, and says HBO was the first pay-TV service to require a descrambler box.
+Either way, the result was the same.
+< If you owned a dish, you now had to pay.
+> You needed a descrambler. One account says it cost 395 dollars. Another says closer to 500.
+And then a monthly fee. HBO offered dish owners a subscription at 12 dollars and 95 cents a month.
+That was either the same as cable customers paid, or slightly more. One account says it was about four dollars more.
+And here is the part that stung.
+< Dish owners were buying and maintaining their own equipment. Yet they often paid more than the cable customers who had none of that burden.
+[pause 0.6]
+> Dealers felt it first.
+Dish sales fell. Several satellite dish dealers across the country closed their stores.
+Owners protested. In March 1986, members of an industry association went to Washington, D.C., to urge Congress to protect access to satellite signals.
+It did not work. Not in time.
+
+[pause 0.5]
+> Now meet the man who would become Captain Midnight.
+We will not use his name. The story is not about who he was. It is about what he did.
+He sold and installed satellite dishes. When the scrambling started, his customers vanished.
+< The business did not slow down. It dried up.
+> He cut costs wherever he could. He pulled his advertising. He even switched off the air conditioning to save money.
+To pay his bills, he took a second job. An overnight shift as an operations engineer at an uplink station in Florida. A place that sends programming up to satellites.
+One account says he wrote protest letters to legislators and spent a lot of money trying to raise awareness.
+< Nobody listened.
+So he thought of another way to be heard.
+[pause 0.7]
+But he did not do it all at once. And this next detail is the one I find most chilling.
+
+> One week before the main event, he ran a test.
+At 12:49 in the morning on April 20, he transmitted a color bar test pattern. It appeared over HBO's signal for a short time.
+Did HBO react?
+< No.
+> It was the overnight hours. Very few people were watching. HBO did not investigate.
+He had just learned something important.
+< He could do it, and nobody had stopped him.
+[pause 0.7]
+
+Here is the setup for the night itself.
+> It is April 26, 1986.
+He works at his shop until four in the afternoon. He has dinner. Then he reports to the uplink station.
+Another engineer is on duty. At six, that engineer leaves.
+< Now he is alone in the building.
+> His job that evening is to send the movie Pee-wee's Big Adventure up to a satellite, for a pay-per-view network that rents the station's facilities.
+The film ends. He runs his usual routine.
+And then he does something that is not routine.
+[pause 0.6]
+> He sets up color bars. And he opens a character generator, a machine that puts letters on a television screen.
+It takes him a couple of minutes to write his message.
+He starts it with a polite greeting. He did not want to be insulting.
+And he needs a name.
+He picks Captain Midnight, from a film he had recently seen.
+< It was not the old radio hero. Different story entirely.
+> Next, the dish.
+The transmission dish at the station is thirty feet across. He swings it back toward a satellite called Galaxy 1.
+That satellite carries HBO.
+Was it hard to find? No.
+< The frequencies were widely published, in manuals and enthusiast magazines.
+> Anyone with the right equipment and the right know-how could have found them.
+But few had the equipment. This was.
+[pause 0.7]
+It is 12:32 in the morning, Eastern time.
+Across the eastern half of the United States, people are watching The Falcon and the Snowman. It began about two minutes earlier.
+< And then the movie vanishes.
+> In its place: five lines of white capital letters on the screen.
+Protest text. Aimed at HBO's prices for dish owners.
+More than half of HBO's 14.6 million subscribers were in that eastern half of the country.
+< That is how big the audience was.
+And the message stayed up for four and a half minutes.
+[pause 0.8]
+
+> But what was happening behind the scenes was much stranger.
+The owner of Galaxy 1, Hughes Communications, noticed immediately.
+Executives there reportedly believed the culprit might be a domestic terrorist. They threatened to shut down HBO's signal, or even alter the satellite's course.
+At HBO's communications center on Long Island, a technician stared at the monitors.
+He called Hughes.
+< And Hughes had no explanation.
+> One account says each side told the other they had no idea what was going on.
+So the technician did the obvious thing.
+He tried to override the intruder.
+He raised the uplink power. From 125 watts, steadily upward, toward 2,000.
+Meanwhile, at the other end?
+< Captain Midnight matched him.
+> A battle of pure power. It lasted about 90 seconds.
+The HBO side feared that going higher would hurt the satellite itself.
+So they stopped.
+[pause 0.7]
+And the engineer?
+< He got scared.
+> He abandoned the uplink and went home.
+The next day, he felt guilty. And he hoped nobody outside HBO would notice.
+< But they did. He saw his own stunt reported on network television.
+> So when he returned to work that night, he played dumb. He asked questions about what had happened.
+He told only close friends.
+And, by his own account, he imagined federal agents showing up at his door.
+[pause 0.8]
+
+But that was not the strangest part.
+> The strangest part is what people feared next.
+The day after, the Federal Communications Commission held an emergency meeting. Its chief gathered staff eight hours after the intrusion.
+On April 28, HBO's chairman wrote to the commission. He said HBO had received calls threatening to move Galaxy 1 into a different orbit.
+< But HBO could not tell if those threats were real.
+> He asked the FCC to use all its resources.
+Then came the confessions.
+< More than 200 people called the FBI, claiming to be Captain Midnight.
+> All of them lying.
+One executive called the whole thing "video terrorism."
+And a magazine, Mother Jones, went further.
+[pause 0.6]
+> It worked out what else a hobbyist might have hijacked.
+It said the same engineer could potentially have taken over three other satellites.
+One carried the CBS network feed.
+One carried a foreign language feed for Voice of America.
+< And one was a United States Navy satellite.
+The magazine even suggested that an amateur could hijack satellites that alert military forces to Soviet actions.
+Confusion for world leaders. The risk of nuclear destruction.
+Was that real? Or was it alarmism?
+One later account calls it "a little, or a lot" of fear-mongering.
+< But neither the FCC nor HBO was willing to treat it as a prank.
+At that time, one account says, the FCC had no safeguards to stop dish owners from interfering with delicate transmissions.
+[pause 0.8]
+
+> So how do you find one person?
+The FBI joined. The Department of Justice signaled it wanted in.
+A hundred FCC field offices and monitoring stations took part. At least six FCC employees worked the case directly.
+And their first lead?
+It was wrong.
+An anonymous tip pointed investigators toward the Dallas-Fort Worth area, at a radio hobbyist.
+That went nowhere.
+Meanwhile, the investigators were working a different angle.
+< A funnel.
+[pause 0.5]
+> Step one. Who could even do this?
+The FCC counted about 2,000 licensed transmitters in the country.
+Step two. Which of those had antennas big enough?
+< Only 580.
+Step three. The text itself.
+No tape machines were running during the jamming. So investigators gathered copies from an FCC engineer and from HBO viewers.
+They studied the letters on the screen.
+They found the exact kind of character generator that drew that typeface.
+One account says fewer than a hundred sites used that typeface. Then even fewer had the particular equipment.
+Another account says they crossed off stations that were inactive that night, or were sending other material.
+That left twelve.
+< Then three prime suspects.
+> And one of those three was the uplink station where it all happened.
+[pause 0.8]
+There was also a second thread.
+Investigators later learned that a traveler had overheard the engineer bragging about the jamming. At a payphone, at a rest area off a highway in Florida.
+The traveler wrote down a license plate number.
+< A boast on a payphone. A scribbled number. And the net closed.
+
+> In July, investigators spoke with him.
+He had by then lost the job, because the pay-per-view network had closed.
+Their questions made him think they already knew.
+Two weeks later, FCC agents and a federal prosecutor came to his home with a subpoena.
+He claimed he had committed no crime.
+But he began to suspect the case against him was thin.
+< And the prosecutor offered a deal.
+There are small differences in how the accounts describe the end. One says he surrendered after media and industry pressure. Another says he confessed and pleaded guilty.
+But the deal is the same.
+> A 5,000 dollar fine.
+One year of probation.
+And a one-year suspension of his amateur radio license.
+The alternative?
+One account says fighting the charge could have meant up to 100,000 dollars in fines.
+And that account suggests the FCC cared less about punishing him than about learning how he had done it.
+[pause 0.8]
+
+So what changed?
+> Plenty.
+Congress passed a law in 1986 that made satellite hijacking a felony.
+The industry also developed a new system to identify transmitters, so that signals could be traced.
+< Next time, they would know who was talking.
+And HBO?
+One account says it was never targeted again.
+World War Three, as that same account puts it, never broke out because of interrupted signals.
+And the satellite business?
+That account says he survived the giant-dish downturn, found his footing when mini-dishes arrived, and that his business is still running.
+[pause 0.7]
+
+> But this was not quite the end of hijacked broadcasts.
+In November 1987, a Chicago station's local news was interrupted by a man in a Max Headroom mask, dancing in front of the camera.
+Later that night, the same person took over a second station and mooned the audience.
+< He was never found.
+[pause 0.7]
+
+So here is the best explanation of Captain Midnight.
+It was not a spy. It was not a terrorist.
+By the accounts we have, it was a frustrated businessman with a powerful dish, a published list of frequencies, and a night alone.
+There are weak points. We do not know every detail of what he was thinking. Much comes from his own recollection afterward.
+And some figures differ from account to account.
+< But the shape is clear.
+> A protest. A power battle with HBO. And a tiny mistake, a boast on a payphone, that gave him away.
+[pause 0.7]
+If you enjoyed this one, subscribe to Closed Tabs. There is another strange story waiting.

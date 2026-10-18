@@ -1,0 +1,335 @@
+> One YouTube channel posted a new video about every two minutes.
+> Not for a day. For the better part of a year.
+< And nobody has ever proven who was behind it, or why.
+[pause 0.7]
+> Blurry images. A single dot on a brown screen. A muffled voice reading out numbers.
+> Tens of thousands of videos, according to one report.
+< Then, a few hours after a major news outlet wrote about it, the whole channel disappeared.
+> So what was it?
+> A secret code? A game? A glitch? Art?
+< The best explanation is strange in a different way than you'd expect. And we'll get there.
+[pause 0.8]
+
+> Let's start with what we actually know.
+In March 2015, someone created a YouTube account.
+It was called Unfavorable Semicircle.
+Nothing happened for a few weeks.
+> Then, on April 5th, the uploading began.
+And it did not slow down.
+[pause 0.5]
+
+> Every video had a title.
+> And the titles followed a pattern.
+Either a random six-digit number.
+Or a small symbol. The astrological sign for Sagittarius. The archer.
+Or both together.
+< Almost none of them had a description.
+No explanation. No context. Nothing to click on.
+[pause 0.6]
+
+> So what was inside them?
+Mostly, abstract images.
+Pixelated. Blurry. Dark.
+Some showed what viewers called constellations. Scatterings of dots in seemingly random arrangements.
+< Some showed just one dot, floating in a field of solid brown.
+That's it. One dot. Brown.
+[pause 0.5]
+
+> And the sound?
+That depended on the video.
+Some had no sound at all.
+Some had distorted, warped audio.
+And in some, a man's voice.
+< Heavily muffled. Reciting letters. Or numbers.
+Most clips were short. Four or five seconds.
+> But a few were not short at all.
+[pause 0.7]
+
+< One of them was completely silent.
+< And it ran for eleven hours.
+[pause 0.6]
+
+Think about that.
+Someone made an eleven-hour video of nothing.
+And uploaded it among thousands of others.
+> Was that a mistake? A joke? A test?
+> Hold that thought.
+[pause 0.5]
+
+> Because the rate of uploading is the part that should bother you most.
+One report put it at about two new videos every minute.
+> Do the maths.
+Two a minute is a hundred and twenty an hour.
+That works out to nearly three thousand a day.
+A person sitting at a keyboard doesn't do that.
+< Something was doing it for them.
+Or someone had built a machine to.
+[pause 0.7]
+
+> But that was not the strangest part.
+> The strangest part came when people began to notice.
+
+At first, almost nobody did.
+Thousands of videos, each with a handful of views.
+But the sheer volume of it was impossible to ignore for long.
+Eventually, a small community formed on Reddit.
+They had one goal.
+< Figure out what this channel was.
+[pause 0.6]
+
+> And they went at it seriously.
+One user compiled a database of the videos.
+Because searching them through YouTube itself was close to useless.
+A handful of others offered to transcribe whatever spoken content they could pick out.
+The hope was that if you gathered enough data, a pattern would appear.
+Some tried analysing the dot constellations.
+Others picked apart that Sagittarius symbol.
+< One user told a reporter he'd barely done anything else for days.
+[pause 0.6]
+
+> Now, two videos rose above all the rest.
+The community came to see them as possible keys.
+Because of their names. And because of how they felt.
+> They were called Lock.
+> And Delock.
+[pause 0.5]
+
+Lock is long.
+More than twenty-seven minutes.
+Flashing colours. Intense. Relentless.
+And a warped, unnerving audio track that just keeps going.
+> One viewer said strange noises are one of his biggest fears.
+< And that these videos creep him out.
+He said that after watching so many, he'd started to feel desensitised.
+> But Lock and Delock?
+< Those two, he said, were the main reason he stayed involved at all.
+[pause 0.7]
+
+> Delock has a moment.
+One minute and twenty-six seconds in.
+< The viewer says it sounds like a man whispering.
+Then he stops himself.
+He says he can't tell if that's what he's actually hearing.
+Or just his imagination.
+[pause 0.5]
+And after that?
+< The sound of children singing.
+[pause 0.8]
+
+Another user took the audio apart.
+He slowed it down.
+He sped it up.
+He was looking for something hidden underneath.
+< And he didn't find much.
+> Which is the whole problem, isn't it?
+Whenever you search for a message in noise, you risk finding one that isn't there.
+Was that whisper real?
+Nobody could prove it.
+[pause 0.8]
+
+> So the investigators did what investigators do.
+They made a list of suspects.
+> Theory number one.
+> A numbers station.
+[pause 0.4]
+
+If you haven't heard of these, here's the idea.
+Numbers stations are radio broadcasts that sound like nonsense.
+A voice reading out strings of numbers or letters.
+But they are said to be coded messages.
+And they've been used since the First World War.
+> Now look at the videos again.
+A muffled voice. Letters. Numbers.
+It fits. Sort of.
+[pause 0.5]
+< But a computer security specialist who looked at the case said it was probably, quote, "too complex."
+That was his verdict on the numbers station idea.
+Too complex.
+[pause 0.7]
+
+> Theory number two.
+> A puzzle.
+An elaborate one.
+One of the Redditors thought so.
+He said the whole thing could be an intricate game, built for people to solve.
+And someone even floated a more specific version of that.
+That it might be a recruitment tool for Google.
+[pause 0.5]
+> But the same specialist had a problem with that, too.
+< When puzzles appear on the web, he pointed out, they're normally announced in some way.
+Even if only subtly.
+This had no announcement.
+No signal. No invitation.
+Just the videos.
+[pause 0.7]
+
+> Theory number three.
+> A bot.
+One of the investigators leaned this way.
+The idea was that the videos were the output of an automated program.
+Maybe running some strange kind of test.
+That would explain the speed.
+And the sameness of the titles.
+But it wouldn't explain why anyone would build it.
+[pause 0.6]
+
+> And that brings us to the test theory.
+Which has a famous precedent.
+[pause 0.5]
+
+Years earlier, another YouTube mystery gripped the internet.
+It was called Webdriver Torso.
+Videos of random coloured shapes.
+High-pitched tones.
+> People went wild.
+Were they secret messages for spies?
+Abstract architectural plans?
+< The answer, in the end, was simple.
+It was Google's own way of testing content delivery on YouTube.
+The videos were never meant for us.
+They were a test. And we were looking over its shoulder.
+[pause 0.7]
+
+> So maybe this was the same.
+A test channel.
+Something poking at the system. Looking for exploits.
+That's the explanation the security specialist suspected himself.
+But notice what he also said.
+< He admitted it was not clear what was going on.
+And he made a second point.
+Someone, he said, had clearly put a lot of effort into making these videos.
+[pause 0.7]
+
+> That's the thing with the test theory.
+Webdriver Torso was explained by Google.
+Here, when the BBC asked Google for comment, the company was not able to provide one.
+< There was no explanation. Only silence.
+[pause 0.8]
+
+> There was one more suggestion.
+And it's a dark one.
+The same specialist offered it almost as an afterthought.
+He said it's not unknown for government agencies to plant complete red herrings.
+Material with no meaning at all.
+Designed to soak up enormous amounts of the opposition's time.
+And when that's done on the internet, he said, the curious can become unintended victims.
+< They're the ones who waste their time.
+[pause 0.6]
+> Was that what was happening to the Redditors?
+He didn't say it was.
+He was only describing what's possible.
+But think about it.
+Sleepless nights. Spreadsheets. Slowed-down audio.
+All over a dot on a brown screen.
+[pause 0.8]
+
+> Still, not everyone saw something sinister.
+One of the people following the story told the reporter he didn't think anything bad was going on.
+He just wanted to know.
+> "Everyone likes a good mystery."
+That's how another put it.
+And the reporter closed on an optimistic note.
+That with a bit of luck, someone might crack it.
+[pause 0.7]
+
+> That article was published on the 25th of February, 2016.
+< And then, a few hours later...
+[pause 0.8]
+< YouTube suspended the channel.
+No explanation was given.
+> Just like that.
+Tens of thousands of videos.
+Gone from public view.
+[pause 0.7]
+
+> Why?
+We don't know.
+Was it the attention?
+Was it a coincidence?
+The reporting says the channel was suspended without explanation.
+And that's all it says.
+< So nobody can honestly tell you the cause.
+[pause 0.8]
+
+> But the story didn't end there.
+Because later, someone spoke up.
+[pause 0.5]
+
+In a Twitter post, a user claimed to be the creator of Unfavorable Semicircle.
+And they gave a reason.
+The goal, they said, was to upload the most number of YouTube videos ever.
+< And secondarily, to see if people would watch something "truly and unknowable."
+[pause 0.6]
+> And then one more line.
+Their hope, they said, was to fill some of the "Internet Mystery" space left behind by Webdriver Torso.
+[pause 0.8]
+
+> Read that again.
+This was the same mystery the Redditors had been reaching for.
+The one that turned out to be a Google test.
+< And this person says they wanted to build another one.
+Not to hide a message.
+But to create the feeling of one.
+[pause 0.7]
+
+> Now, a caution.
+That claim is just a post from a user who says they're the creator.
+< There is no confirmation.
+And years later, in June 2022, an anonymous user on X said something related.
+That the channel was an outsider art project.
+> Again, anonymous.
+Again, unconfirmed.
+So if you ask whether we know who did it, the honest answer is no.
+[pause 0.8]
+
+> So where does that leave us?
+Let's weigh it.
+A numbers station?
+A security specialist called that too complex.
+A recruitment puzzle?
+No announcement, which is not how those usually work.
+A test channel?
+Possible. But no company ever said so.
+A bot?
+That might explain how. It doesn't explain why.
+< And the one explanation that comes from someone claiming to be the creator?
+It's the strangest of all.
+< The point was the mystery itself.
+[pause 0.7]
+
+> Here's why that fits.
+Look at what the channel actually produced.
+No clear message.
+No ending.
+Videos with titles that meant nothing.
+A silent video that lasted eleven hours.
+Two long videos that people could not stop poking at.
+> Everything was built to be examined.
+And nothing was built to be answered.
+[pause 0.7]
+
+< But here is the weak point.
+If that is true, it means the Reddit investigators were chasing a mystery that was designed to have no solution.
+And that is a hard thing to prove.
+Because a puzzle with no answer and a puzzle whose answer was never found look exactly the same.
+[pause 0.8]
+
+> One more thing.
+Today, the Sagittarius videos are mostly a footnote.
+The BBC called it "YouTube's strangest mystery."
+Other lists have put it among the top ten weirdest YouTube channels.
+For years, some people kept treating Lock and Delock as the keys.
+< But nobody has ever shown they unlock anything.
+[pause 0.8]
+
+> So what did people actually find?
+Not a code.
+Not a conspiracy.
+< Maybe just a very large number of videos, and a lot of people willing to stay up late to look at them.
+And maybe that's the answer, or the best one we have.
+That sometimes a mystery needs no secret.
+It only needs us to look.
+[pause 0.8]
+
+> If you like stories where the answer is almost as strange as the question, subscribe to Closed Tabs.
+> There's another one waiting.
