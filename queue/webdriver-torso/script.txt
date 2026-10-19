@@ -1,0 +1,214 @@
+> Eleven seconds long. Red and blue rectangles. A few beeps.
+< Now imagine more than eighty thousand of those, from one account, and nobody able to say who made them.
+[pause 0.7]
+> By the middle of 2014, the BBC and The Guardian were both writing about it.
+> Was it a spy transmission? Was it contact from another world?
+< The real answer is stranger than either, because it was hiding in plain sight the whole time.
+> And one of the clues is a video of the Eiffel Tower that has no business being there.
+[pause 0.5]
+> Let's open the case.
+
+Clue one. The account.
+
+It was called Webdriver Torso.
+The name means nothing. It sounds like a malfunction.
+< The channel began uploading in September 2013.
+Plain, simple slides, with beeps. Nothing else.
+> Then it kept going.
+A technology magazine later described the pace as staggering. At its peak, a new video appeared as often as every two minutes.
+[pause 0.4]
+Every single one was eleven seconds long.
+Almost all of them looked the same.
+> Blue and red rectangles, moving around the screen in seemingly random directions.
+The soundtrack was a series of sine wave tones. Rising, falling, no tune.
+Their titles looked like computer garbage too. Names like tmpAZWIOG. tmpXsjor2. tmpvRXNJM.
+< One writer called that last one sublime. They were being sarcastic. Probably.
+> Now, why would anyone care?
+Because the internet can't leave a mystery alone.
+Even a bad mystery.
+Especially a bad one.
+
+Clue two. The theories.
+
+When people found the channel, the guesses came fast.
+> Maybe it was a numbers station.
+Those are the strange radio broadcasts of voices reading out digits, and the idea was that this was one for the video age.
+> Maybe it was a coded message, passed in plain sight.
+Maybe it was contact from extraterrestrial life.
+And some viewers wondered if it was a recruitment test for Cicada 3301, another famous online puzzle.
+Think about that for a second.
+< Thousands of identical clips. Of course people saw patterns. That's what we do.
+A lot of internet man-hours, as one account put it, went into the question. The Daily Dot covered it. So did the BBC. So did The Guardian.
+[pause 0.6]
+> But the first real lead came from a forum thread.
+
+A user on BoingBoing said they had seen very similar images before.
+Not online. In person.
+On a set-top box, at a Google conference about automation.
+That suggested something dull and sensible. The clips might be made by software, to test the quality of uploaded video.
+> Case closed? Not quite.
+The same user then tracked down the slides from that conference.
+And according to The Guardian, the test videos shown there were slightly different.
+< So the best lead fell apart.
+And the sleuths were back at square one.
+[pause 0.7]
+> Square one. For about a minute.
+
+Clue three. The odd ones out.
+
+Here's what made the whole thing so maddening.
+Not every video was rectangles.
+There were a few that didn't fit.
+> Three, by one count.
+And they didn't look like tests. They looked like jokes.
+
+The first has a name that's a clue in itself.
+tmpRkRL85.
+It starts like any other. Red and blue shapes, same beeps.
+Then, in the second half, the red rectangle turns into something else.
+< A silhouette. Dancing.
+It's Rick Astley.
+[pause 0.5]
+> Somebody, somewhere, had Rickrolled the entire internet.
+Some read the title as "Temporary Rick Roll 1985". Others, "Template Rickroll 1985". Nobody could say for sure.
+But look at what it means.
+< Whoever made this knew people would be watching closely. Closely enough to catch it.
+
+The second odd video is called 00014.
+It is real footage, filmed in Paris.
+The Eiffel Tower, lit up at night.
+No rectangles. No beeps.
+> Then, at the very end, something happens.
+The camera is put down.
+And for a few frames, a Facebook page is visible. The Webdriver Torso Facebook page.
+< Hold on to that. It matters in a minute.
+
+The third is the strangest.
+It has a title that looks like a random number. 0.455442373793.
+It could only be watched in France.
+It cost 1.99 euros.
+And you could only pay with a French credit card.
+> And what did you get for your money?
+An episode of the American adult cartoon Aqua Teen Hunger Force, dubbed.
+[pause 0.5]
+Dubbed into which language, though?
+That depends on who you ask.
+One account says Spanish. Another says French.
+< The sources disagree. And the film itself sits behind a paywall most of us can't cross.
+> So we'll leave that one open.
+
+That wasn't the only loose end.
+At one point, the channel left a comment.
+< "Matei is highly intelligent."
+[pause 0.6]
+No explanation. No context.
+Who was Matei?
+People suggested several names. A number of different people were suspected.
+And none of it was ever settled.
+Later, the comment was removed.
+> But that name was about to matter again.
+
+Clue four. The blogger.
+
+While everyone else argued about aliens, one blogger was doing something much more boring.
+> They were following the paper trail.
+They approached The Daily Dot with their findings, and credit for solving this goes to them more than to anyone else.
+They discovered that Webdriver Torso was not alone.
+It belonged to a network of accounts.
+The network had a name.
+< ytuploadtestpartner_torso.
+Pull that thread, and a handful of other accounts appeared.
+Other accounts, with similar videos.
+> And then, something happened.
+Many of those accounts were pulled, or made private, once the investigation was published.
+A Google+ page connected to the network also linked to a Facebook page and a Twitter account.
+Both were taken down.
+< Too late.
+The blogger had already seen what was on them.
+The Facebook page mentioned a Google employee.
+That employee had a friend, another Google employee, based in Zurich.
+That friend shared a first name with someone.
+> Matei.
+The same name from the Eiffel Tower video.
+So now the Paris footage, the Facebook page, and the odd comment were all pointing in one direction.
+[pause 0.6]
+But the blogger wasn't finished.
+They took scenes from the pulled videos and compared them to photos of the Google office in Zurich.
+> Matching lamps.
+Matching desk phones.
+Among other things.
+< The videos, it seemed, had been filmed inside Google.
+And the whole network, every one of those accounts, appeared to be run from Zurich.
+
+Clue five. Google winks back.
+
+Then the company started to play along.
+> Search "Webdriver Torso" on Google, and the Google logo turns into one of the videos.
+Red and blue rectangles, right there on the results page.
+If a Google Doodle was running, it sometimes wouldn't appear.
+And on YouTube, the same search brought up its own Easter egg.
+The developer builds of Android L carried one too. In those, the Android version Easter egg is a reference to Webdriver Torso videos.
+< You don't put a joke in your operating system for something you're hoping nobody notices.
+Google was in on it.
+> So an engineering magazine asked the obvious question.
+They went to YouTube and asked directly.
+[pause 0.7]
+And YouTube answered.
+I'll read it exactly as they wrote it.
+< "We're never gonna give you uploading that's slow or loses video quality, and we're never gonna let you down by playing YouTube in poor video quality. That's why we're always running tests like Webdriver Torso."
+[pause 0.6]
+> Never gonna give you...
+They Rickrolled the press release.
+The official answer to one of the internet's biggest mysteries was a Rick Astley lyric.
+
+The answer.
+
+So what was it?
+It was a test.
+Here's how it worked.
+> You make a video.
+You upload it to YouTube.
+Then you compare what came out with what went in.
+< How much quality was lost on the way?
+That's the whole thing.
+Clips go to YouTube's servers. They're checked against the original file. If the quality changed, something is broken.
+Simple shapes and plain tones make that kind of comparison easy, which is presumably why the clips looked the way they did.
+The other vanished accounts, the ones that went private?
+They were Google test accounts too.
+Google wouldn't say what they were testing.
+One of them, reportedly, was called Timmy Tester.
+[pause 0.6]
+> Not aliens.
+Not a post-Cold-War spy system.
+< A machine, uploading test files, again and again.
+And as one writer put it, it got totally out of hand.
+Nobody planned the mystery. It was an accident.
+The account just went viral.
+And once it did, Google was more than happy to play along.
+
+What's still unexplained.
+
+> But that isn't quite the end.
+Because the explanation covers the rectangles.
+It doesn't cover the jokes.
+Why was there a dancing Rick Astley in a quality test?
+Why film the Eiffel Tower?
+Why a paid cartoon, locked to French credit cards?
+< Even after Google explained the channel, those references stayed unexplained.
+And who was Matei?
+The name was removed. No one has said.
+Maybe the answer is as ordinary as everything else. Engineers in an office, with a sense of humour, and a camera.
+The lamps and the desk phones did point to an office.
+> But I'd be lying if I said it was proven.
+[pause 0.7]
+
+So, what do we take from this?
+That an eleven-second clip can launch a thousand theories.
+That a test can be mistaken for a message.
+And that the most carefully hidden secret on the internet can turn out to be quality control.
+< The truth was boring.
+And the people who found it were the ones willing to be bored.
+[pause 0.5]
+> If you like mysteries that turn out to have an answer, and then a second mystery behind it, there are more on this channel.
+If you want them, subscribe.
+We'll see you with the next one.
