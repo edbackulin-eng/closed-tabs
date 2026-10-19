@@ -1,5 +1,9 @@
 """When Closed Tabs may use the Kaggle GPU, and how much of the week is left.
 
+Since 19.10 the week counts three channels: the prehistoric channel's hours
+come from its published ledger (gpu_shared.LEDGERS), and every channel sees
+every other's kernels before it submits (kaggle/gpu_shared.py).
+
 Window. What If builds at 06:00 UTC on Mon, Tue, Thu, Fri and Sat, its job runs
 up to 330 minutes, and GitHub has started scheduled runs of these repositories
 up to 5 h 44 min late. The worst case therefore ends around 17:15 UTC. Closed
@@ -159,6 +163,17 @@ def whatif_hours(now=None):
     return total * MARGIN
 
 
+PREHISTORIC_UNKNOWN_H = 1.0          # assumed when its ledger cannot be read
+
+
+def prehistoric_hours(now=None):
+    """The prehistoric channel's GPU hours this week, from its published ledger."""
+    import gpu_shared
+    since = (now or datetime.now(timezone.utc)) - timedelta(days=7)
+    h = gpu_shared._ledger_hours(gpu_shared.LEDGERS["prehistoric"], since)
+    return PREHISTORIC_UNKNOWN_H if h is None else h
+
+
 def check(job_hours=DEFAULT_JOB_H, now=None):
     """(ok, reason). Not ok when outside the window or the week would go over."""
     if not in_window(now):
@@ -166,10 +181,12 @@ def check(job_hours=DEFAULT_JOB_H, now=None):
                        f"{WINDOW_UTC[0]:02d}:00-{WINDOW_UTC[1]:02d}:00 UTC")
     ct = closed_tabs_hours(now)
     wi = whatif_hours(now)
-    if ct + wi + job_hours > WEEKLY_LIMIT_H:
+    ph = prehistoric_hours(now)
+    if ct + wi + ph + job_hours > WEEKLY_LIMIT_H:
         return False, (f"weekly GPU budget: Closed Tabs {ct:.1f} h + What If ~{wi:.1f} h "
-                       f"+ this job {job_hours:.1f} h would pass {WEEKLY_LIMIT_H:.0f} h")
-    return True, f"GPU week so far: Closed Tabs {ct:.1f} h, What If ~{wi:.1f} h"
+                       f"+ prehistoric {ph:.1f} h + this job {job_hours:.1f} h would pass "
+                       f"{WEEKLY_LIMIT_H:.0f} h")
+    return True, f"GPU week so far: Closed Tabs {ct:.1f} h, What If ~{wi:.1f} h, prehistoric {ph:.1f} h"
 
 
 # Kept back for What If's next build, so Closed Tabs never spends the hours it needs.
@@ -178,7 +195,8 @@ WHATIF_RESERVE_H = WHATIF_HOURS_PER_RUN
 
 def remaining_h(now=None):
     """GPU hours Closed Tabs may still spend this week."""
-    return WEEKLY_LIMIT_H - closed_tabs_hours(now) - whatif_hours(now) - WHATIF_RESERVE_H
+    return (WEEKLY_LIMIT_H - closed_tabs_hours(now) - whatif_hours(now) - prehistoric_hours(now)
+            - WHATIF_RESERVE_H)
 
 
 if __name__ == "__main__":

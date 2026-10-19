@@ -44,6 +44,17 @@ def check(name, ok, detail=""):
         failures.append(f"{name}: {detail}")
 
 
+def shared_gpu():
+    """The shared GPU lock reads every channel's kernels the same way."""
+    import gpu_shared
+    ok = (gpu_shared.channel_of("u/whatif-main") == "whatif"
+          and gpu_shared.channel_of("u/closedtabs-stills-a") == "closedtabs"
+          and gpu_shared.channel_of("u/prehistoric-recon") == "prehistoric"
+          and gpu_shared.channel_of("u/other") is None
+          and gpu_shared.CHANNELS["whatif"] < gpu_shared.CHANNELS["closedtabs"] < gpu_shared.CHANNELS["prehistoric"])
+    check("shared GPU lock", ok)
+
+
 def imports():
     for pkg in ("core", "pipeline", "automation"):
         for m in pkgutil.iter_modules([str(ROOT / pkg)]):
@@ -181,6 +192,7 @@ def main():
         shutil.rmtree(W)
     W.mkdir(parents=True)
     imports()
+    shared_gpu()
     if failures:
         return 1
     wav, lines, words, text = narration()

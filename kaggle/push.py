@@ -152,18 +152,11 @@ def whatif_building():
 
 
 def busy_kernels():
-    """Refs of this account's kernels from either channel that are not finished."""
-    listing = _run([sys.executable, "-m", "kaggle", "kernels", "list", "--mine",
-                    "--page-size", "40", "--csv"], check=False).stdout
-    refs = [line.split(",")[0] for line in listing.splitlines()[1:] if line.strip()]
-    refs = [r for r in refs if r.split("/")[-1].startswith(SHARED_PREFIXES)]
-    busy = []
-    for ref in refs:
-        res = _run([sys.executable, "-m", "kaggle", "kernels", "status", ref], check=False)
-        status = (res.stdout + res.stderr).lower()
-        if any(w in status for w in BUSY_WORDS):
-            busy.append(ref)
-    return busy
+    """Refs of kernels of ANY channel (What If, Closed Tabs, prehistoric) that
+    are queued, running, or whose status could not be read. Shared with the
+    other channels through kaggle/gpu_shared.py."""
+    import gpu_shared
+    return [r for r, _, _ in gpu_shared.busy_kernels()]
 
 
 def wait_for_free_gpu(poll_s=60, timeout_s=GPU_WAIT_TIMEOUT_S):
@@ -200,9 +193,16 @@ def push(job, slug, title, job_hours=None, force_window=False):
         json.dumps(_notebook(job), indent=1), encoding="utf-8")
     (BUILD / "kernel-metadata.json").write_text(
         json.dumps(_metadata(user, slug, title), indent=2), encoding="utf-8")
-    out = _run([sys.executable, "-m", "kaggle", "kernels", "push", "-p", str(BUILD)])
-    print(out.stdout.strip())
-    return f"{user}/{slug}"
+    import gpu_shared
+    ref = f"{user}/{slug}"
+    for attempt in range(4):
+        out = _run([sys.executable, "-m", "kaggle", "kernels", "push", "-p", str(BUILD)])
+        print(out.stdout.strip())
+        # two channels can still push in the same minute; What If goes first
+        if gpu_shared.after_push(ref, log=lambda m: print(m, flush=True)):
+            return ref
+        wait_for_free_gpu()
+    raise RuntimeError("lost the GPU to a higher-priority channel four times running")
 
 
 def wait(ref, poll_s=30, timeout_s=3 * 3600):
