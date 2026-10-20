@@ -1,16 +1,17 @@
 {
- "open": [],
+ "open": [
+  "Claude-dead"
+ ],
  "last": {
-  "at": "2026-10-19T13:35:36Z",
+  "at": "2026-10-20T11:49:54Z",
   "results": {
    "YouTube": {
     "ok": true,
     "note": "channel TheClosedTabs"
    },
    "Claude": {
-    "ok": true,
-    "note": "answers",
-    "expires": "2027-10-14"
+    "ok": false,
+    "note": "You've hit your weekly limit \u00b7 resets Oct 22, 5am (UTC)\n"
    },
    "Kaggle": {
     "ok": true,
