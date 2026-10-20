@@ -1,0 +1,90 @@
+TITLE: The Internet's Oldest Gibberish Mystery
+THUMBNAIL: 1996 Usenet Archive
+===SCRIPTS===
+> Hundreds of messages flooded Usenet in August 1996,
+> carrying strings of nonsensical words that read like terrible slam poetry,
+< and nearly thirty years later, nobody knows what they meant.
+
+> [pause 0.7]
+> Welcome to Closed Tabs.
+
+> Before the modern web existed,
+> before social media algorithms,
+> back when the internet ran on bulletin boards called Usenet.
+> Users communicated through chronologically ordered discussions.
+> And just like modern forums, Usenet had a spam problem.
+> The first major spam incident happened in 1994,
+> when a pair of lawyers blasted thousands of users with ads for immigration services.
+
+> But on August 5th, 1996, something entirely different appeared.
+> Hundreds of odd messages slid into discussions across Usenet newsgroups,
+> including alt.religion.christian.boston-church.
+> Atlas Obscura reported that all the posts shared a single subject line:
+> "Markovian parallax denigrate."
+> Ciphermysteries.com stated instead that those three words simply appeared more frequently than other words in the message bodies.
+
+> What did they look like?
+> Let's read a surviving example from Google's archives:
+
+> jitterbugging McKinley Abe break Newtonian inferring caw update Cohen air collaborate rue sportswriting rococo invocate tousle shadflower Debby Stirling pathogenesis escritoire adventitious novo ITT most chairperson Dwight Hertzog different pinpoint dunk McKinley pendant firelight Uranus episodic medicine ditty craggy flogging variac brotherhood Webb impromptu file countenance inheritance cohesion refrigerate morphine napkin inland Janeiro nameable yearbook hark
+
+> [pause 0.7]
+> Nonsense?
+> Or a message waiting to be unlocked?
+
+> Because the messages looked like pure gibberish,
+> most of the original posts were lost over time.
+> But they left an enduring mark.
+> Publications like Popmech.ru called it "one of the first great mysteries of the Internet."
+> In 2012, Kevin Morris of The Daily Dot referred to the messages as "the Internet's oldest and weirdest mystery."
+> They are frequently mentioned alongside other bizarre puzzles like Sad Satan, Cicada 3301, and the Publius Enigma.
+
+> But how did a batch of weird text turn into an enduring internet legend?
+> An article published by The A.V. Club in 2020 proposed a surprising twist:
+> the event only became a mystery because of later media coverage.
+> Prior to the 2012 Daily Dot article, the messages were not widely reported at all.
+
+> Yet once people started looking, the theories multiplied.
+> Let's look at the four main explanations investigators and internet denizens proposed.
+
+> Theory number one: The Secret Code.
+> Early on, some Usenet denizens hypothesized that the words formed a secret code.
+> People likened the indecipherable blocks of text to the mysterious broadcasts of Cold War numbers stations.
+> Was it espionage?
+> A dead drop translated into text?
+> Despite multiple attempts to crack or find a cipher, no one has ever detected any hidden meaning in the messages.
+
+> But that was not the strangest part of the investigation.
+> Because the "From" line of the archived message contained a specific name.
+
+> Enter theory number two: The Spoofed Spy.
+> Early on, a person named Susan Lindauer was mistakenly identified as a possible source.
+> When Kevin Morris investigated for The Daily Dot in 2012, he contacted Lindauer directly.
+> She denied being the author or having any connection to the messages whatsoever.
+> Further digging revealed the truth behind that specific clue:
+> an email account belonging to a University of Wisconsin at Stevens Point student coincidentally named Susan Lindauer had been spoofed to cover the actual poster's identity.
+
+> So if it wasn't a spy, was it technology?
+
+> Theory number three: The Early Chatbot.
+> The word "Markovian" in the subject line caught the attention of tech-minded sleuths.
+> It refers to a calculating process called a "Markov chain,"
+> which has historically been used in programming chatbots and text generators.
+> Under this theory, the messages were the product of an early programmer tinkering with an emergent conversation tool or text generator.
+> But if that's true, the original programmer has never been identified.
+
+> Which leaves theory number four: The Simple Spam or Troll.
+> A YouTuber named Barely Sociable opined in a contemporary video that the messages were most likely simple spam with no hidden meaning.
+> Just as Usenet evolved into our modern web,
+> sending a bunch of random words to strangers could simply be an early version of forum spam or online trolling.
+> Yet, unlike ordinary spam, no one has ever stepped up to claim responsibility.
+
+> Over two decades later, the mystery remains entirely unsolved.
+> Is it an algorithmic glitch, an early bot experiment, or just ancient internet noise?
+> As Atlas Obscura pointed out, the enduring mystery is probably more intriguing than any concrete answer ever could be.
+
+> [pause 0.7]
+> What do you think was hiding behind those three words?
+> Let us know in the comments below.
+> If you enjoy exploring the internet's oldest unsolved puzzles with us, hit that subscribe button.
+> We'll see you in the next closed tab.
