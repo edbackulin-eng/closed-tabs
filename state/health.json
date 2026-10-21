@@ -3,7 +3,7 @@
   "Claude-dead"
  ],
  "last": {
-  "at": "2026-10-20T11:49:54Z",
+  "at": "2026-10-21T12:01:37Z",
   "results": {
    "YouTube": {
     "ok": true,
@@ -11,7 +11,7 @@
    },
    "Claude": {
     "ok": false,
-    "note": "You've hit your weekly limit \u00b7 resets Oct 22, 5am (UTC)\n"
+    "note": "You've hit your weekly limit \u00b7 resets 5am (UTC)\n"
    },
    "Kaggle": {
     "ok": true,
