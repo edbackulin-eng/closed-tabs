@@ -25,9 +25,12 @@ sys.path.insert(0, str(ROOT / "kaggle"))
 from core import narrate  # noqa: E402
 from core.logger import get_logger  # noqa: E402
 from core.voice import SAMPLE_RATE  # noqa: E402
+from pipeline import thumbnail  # noqa: E402
 
 log = get_logger("resume")
-THUMBS = 8
+# One source of truth for how many thumbnail bases a build drew, so a resume
+# looks for exactly the numbers the kernel was asked for.
+THUMBS = thumbnail.CANDIDATES
 
 
 def _job_prompts(ref, dest):

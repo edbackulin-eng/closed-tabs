@@ -1,6 +1,15 @@
 """Judge the thumbnail bases, compose every candidate, keep the best.
 
     python automation/make_thumbnail.py cicada-3301
+    python automation/make_thumbnail.py cicada-3301 build_full
+    python automation/make_thumbnail.py --collage week-42
+
+The round-up form reads queue/<slug>/roundup.json:
+
+    {"words": "5 MOST DISTURBING",
+     "items": [{"frame": "build/stills/004.png", "caption": "Cicada 3301"}, ...]}
+
+with four to six items; each frame is a path inside the episode directory.
 """
 import json
 import sys
@@ -19,12 +28,8 @@ def main(slug, build="build"):
     if not bases:
         raise SystemExit("no thumbnail bases in build/thumb_bases")
     verdicts = visualqc.judge_thumbnails(bases)
-    script = (q / "script.txt").read_text(encoding="utf-8")
-    # a whole sentence or nothing: "A phone numb" was a line cut at 70 characters
-    line = thumbnail.screen_line(script)
     words = meta.get("thumbnail_words") or meta["name"]
-    final, report = thumbnail.choose(bases, verdicts, words, meta["name"], line,
-                                     b / "thumbs", sum(map(ord, slug)))
+    final, report = thumbnail.choose(bases, verdicts, words, b / "thumbs", sum(map(ord, slug)))
     out = {"winner": final.name, "candidates": report,
            "verdicts": {Path(k).name: v for k, v in verdicts.items()}}
     # numpy scalars (a numpy bool from the readability test) are not JSON: the
@@ -36,5 +41,23 @@ def main(slug, build="build"):
     return 0
 
 
+def roundup(slug, build="build"):
+    """The weekly collage cover. No FLUX and no vision call: the frames are stills
+    that were already inspected when their own episodes were built."""
+    q = ROOT / "queue" / slug
+    spec = json.loads((q / "roundup.json").read_text(encoding="utf-8"))
+    items = spec["items"]
+    missing = [i["frame"] for i in items if not (q / i["frame"]).exists()]
+    if missing:
+        raise SystemExit(f"round-up frames not found: {missing}")
+    out = thumbnail.collage([q / i["frame"] for i in items],
+                            [i.get("caption", "") for i in items],
+                            spec.get("words", ""), q / build / "thumbs" / "thumbnail.jpg",
+                            sum(map(ord, slug)))
+    print(out)
+    return 0
+
+
 if __name__ == "__main__":
-    sys.exit(main(*sys.argv[1:3]))
+    args = [a for a in sys.argv[1:] if a != "--collage"]
+    sys.exit((roundup if "--collage" in sys.argv else main)(*args[:2]))

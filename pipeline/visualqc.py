@@ -320,33 +320,40 @@ def write_report(verdicts, path):
     return payload
 
 
-THUMB_SYSTEM = """You judge candidate YouTube thumbnail photographs. Each shows a person
-pointing at a computer monitor in a dark room. Be strict: a bad hand or a stare into
-the lens costs clicks and trust.
+THUMB_SYSTEM = """You judge candidate YouTube thumbnail photographs. Each shows a
+frightened person close in on the left of a dark room, staring at a blank lit opening
+on the right - a computer monitor, a window or a doorway. Be strict: a bad hand, a
+stare into the lens or a stray word costs clicks and trust.
 
 Reject (ok=false) when ANY of these is clearly true:
 - hands: a visible hand without exactly five fingers, fused or extra fingers, a
-  malformed or melted hand, a pointing finger that bends wrongly.
+  malformed or melted hand, a finger that bends wrongly.
 - face: the face is distorted, asymmetric in an unnatural way, or melted.
-- gaze: the person looks into the camera instead of at the monitor.
-- screen: the monitor screen shows text, letters, symbols or an interface instead of
-  being blank.
-- text: any lettering, logo or watermark anywhere in the image.
+- gaze: the person looks into the camera instead of at the opening.
+- screen: the opening is not blank - the monitor, window or doorway shows text,
+  letters, symbols, an interface, a scene or a figure instead of empty even light.
+  A figure is painted into it afterwards, so it must arrive empty.
+- text: any lettering, logo or watermark anywhere in the image, including the garbled
+  half-words generators leave on signs and keys.
+- graphic: blood, injury, a wound, a weapon, a body, anything violent, or a child.
 Otherwise ok=true. Reply with valid JSON only."""
 
 THUMB_PROMPT = """For each image, in order, return:
-{"results":[{"i":<index>,"ok":true|false,"defect":"hands|face|gaze|screen|text|none",
+{"results":[{"i":<index>,"ok":true|false,
+"defect":"hands|face|gaze|screen|text|graphic|none",
 "note":"<a few words>",
 "screen":[[x,y],[x,y],[x,y],[x,y]],
 "face":[x0,y0,x1,y1],
-"score":<1-10, how strongly the image reads as genuine shock at something on screen>}]}
-"screen" is the four corners of the monitor's display area, clockwise from top-left;
-"face" is the box around the person's head. All coordinates are fractions 0-1."""
+"score":<1-10, how strongly the image reads as genuine fright at the opening>}]}
+"screen" is the four corners of the blank opening - the monitor's display area, the
+glass of the window or the lit doorway - clockwise from top-left; "face" is the box
+around the person's head. All coordinates are fractions 0-1."""
 
 
 def judge_thumbnails(paths, model=VISION_MODEL):
-    """{path: verdict} for thumbnail bases: hands, face, gaze, blank screen,
-    plus where the screen and the face are, and a score for picking the best."""
+    """{path: verdict} for thumbnail bases: hands, face, gaze, a blank opening and
+    nothing graphic, plus where the opening and the face are, and a score for
+    picking the best."""
     key = llm.get_key(llm.GEMINI_KEY_NAME)
     if not key:
         raise llm.LLMError(f"{llm.GEMINI_KEY_NAME} is not set")

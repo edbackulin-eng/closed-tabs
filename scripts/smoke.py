@@ -182,9 +182,18 @@ def thumbnail():
     im = Image.new("RGB", (1344, 768), (40, 60, 90))
     ImageDraw.Draw(im).rectangle((760, 160, 1240, 520), fill=(230, 232, 235))
     im.save(base)
-    out, size, exact = th.compose(base, [[0.56, 0.2], [0.93, 0.2], [0.93, 0.68], [0.56, 0.68]],
-                                  "STILL UNSOLVED", "Test", "A whole sentence on the screen.", 1)
-    check("thumbnail", out.size == (1280, 720) and exact, f"screen found: {exact}")
+    out, size, box, exact = th.compose(
+        base, [[0.56, 0.2], [0.93, 0.2], [0.93, 0.68], [0.56, 0.68]], "STILL UNSOLVED", 1)
+    check("thumbnail", out.size == (1280, 720) and exact, f"opening found: {exact}")
+    readable, m = th.readable_small(out, size, box)
+    check("thumbnail reads at 336x189", readable, str(m))
+    # the duration badge lands in the bottom right; nothing of ours may be under it
+    check("thumbnail badge corner clear", th.safe_clear(box), str(box))
+    frames = sorted((W / "stills").glob("*.png"))[:5]
+    if len(frames) >= 4:
+        sheet = th.collage(frames, [f"Case {i}" for i in range(len(frames))],
+                           "5 MOST DISTURBING", W / "roundup.jpg", 2)
+        check("round-up collage", Image.open(sheet).size == (1280, 720), sheet.name)
 
 
 def main():
