@@ -77,7 +77,10 @@ def _generate(prompts, seed, dest, label, force_window, tag=""):
         print(f"{ref} already holds this job; using it")
     else:
         ref = push.push(job, slug, slug, job_hours=hours, force_window=force_window)
-    if not push.wait(ref, poll_s=30, timeout_s=3 * 3600):
+    # The kernel now ends itself at twice its own budget (kaggle/job_template.py);
+    # wait a little past that and no longer. A flat three hours is how a job that
+    # should have taken eight minutes was allowed to burn two of the shared week.
+    if not push.wait(ref, poll_s=30, timeout_s=push.deadline_for(job) + 600):
         raise RuntimeError(f"Kaggle kernel {ref} did not complete")
     got = push.fetch(ref, dest / f"_{label}")
     images = sorted((dest / f"_{label}" / "images").glob("*.png"))

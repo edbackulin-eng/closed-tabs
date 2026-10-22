@@ -320,40 +320,48 @@ def write_report(verdicts, path):
     return payload
 
 
-THUMB_SYSTEM = """You judge candidate YouTube thumbnail photographs. Each shows a
-frightened person close in on the left of a dark room, staring at a blank lit opening
-on the right - a computer monitor, a window or a doorway. Be strict: a bad hand, a
-stare into the lens or a stray word costs clicks and trust.
+THUMB_SYSTEM = """You judge candidate YouTube thumbnail photographs. Each shows a dark
+room with a computer monitor, something breaking out through the monitor's screen -
+a long pale arm with very long fingers, or a distorted face pushing through the glass -
+and a frightened person close in on the LEFT, recoiling and looking at the monitor.
+
+There are two different things in these pictures and they are judged by opposite
+rules. THE PERSON must be anatomically right. THE CREATURE coming out of the screen
+is MEANT to be wrong: an arm too long for any body, fingers too long or too many,
+a smeared or melted face, grey skin. None of that is a defect. Never report the
+creature's arm, hand, fingers or face. Only the human's.
 
 Reject (ok=false) when ANY of these is clearly true:
-- hands: a visible hand without exactly five fingers, fused or extra fingers, a
-  malformed or melted hand, a finger that bends wrongly.
-- face: the face is distorted, asymmetric in an unnatural way, or melted.
-- gaze: the person looks into the camera instead of at the opening.
-- screen: the opening is not blank - the monitor, window or doorway shows text,
-  letters, symbols, an interface, a scene or a figure instead of empty even light.
-  A figure is painted into it afterwards, so it must arrive empty.
+- hands: THE PERSON's visible hand has other than exactly five fingers, or is fused,
+  melted or bent wrongly. The creature's hand does not count here, ever.
+- face: THE PERSON's face is distorted, asymmetric in an unnatural way, or melted.
+  The creature's face does not count here, ever.
+- gaze: the person looks into the camera instead of at the monitor.
 - text: any lettering, logo or watermark anywhere in the image, including the garbled
-  half-words generators leave on signs and keys.
+  half-words generators leave on signs, keyboards and screens.
 - graphic: blood, injury, a wound, a weapon, a body, anything violent, or a child.
+- lookalike: the thing from the screen copies a known film character - above all a
+  girl or woman with long black hair hanging over her face, or a figure in a white
+  dress or nightgown. The creature must be bald, grey and nobody's character.
+- empty: nothing is actually coming out of the monitor, or there is no monitor, or
+  there is no frightened person.
 Otherwise ok=true. Reply with valid JSON only."""
 
 THUMB_PROMPT = """For each image, in order, return:
 {"results":[{"i":<index>,"ok":true|false,
-"defect":"hands|face|gaze|screen|text|graphic|none",
+"defect":"hands|face|gaze|text|graphic|lookalike|empty|none",
 "note":"<a few words>",
-"screen":[[x,y],[x,y],[x,y],[x,y]],
 "face":[x0,y0,x1,y1],
-"score":<1-10, how strongly the image reads as genuine fright at the opening>}]}
-"screen" is the four corners of the blank opening - the monitor's display area, the
-glass of the window or the lit doorway - clockwise from top-left; "face" is the box
-around the person's head. All coordinates are fractions 0-1."""
+"score":<1-10, how strongly the image reads as something really coming out of the
+screen at a person who is really frightened>}]}
+"face" is the box around the HUMAN person's head, as fractions 0-1."""
 
 
 def judge_thumbnails(paths, model=VISION_MODEL):
-    """{path: verdict} for thumbnail bases: hands, face, gaze, a blank opening and
-    nothing graphic, plus where the opening and the face are, and a score for
-    picking the best."""
+    """{path: verdict} for thumbnail candidates: the human's hands, face and gaze,
+    no lettering, nothing graphic, nobody's film character, and something actually
+    coming out of the screen - plus where the human's face is, and a score for
+    picking the best. The creature's own anatomy is deliberately not judged."""
     key = llm.get_key(llm.GEMINI_KEY_NAME)
     if not key:
         raise llm.LLMError(f"{llm.GEMINI_KEY_NAME} is not set")
@@ -396,6 +404,6 @@ def judge_thumbnails(paths, model=VISION_MODEL):
             out[p] = ({"ok": False, "defect": "unchecked", "note": "no verdict", "score": 0}
                       if r is None else
                       {"ok": bool(r.get("ok", False)), "defect": (r.get("defect") or "none").lower(),
-                       "note": r.get("note", ""), "screen": r.get("screen"), "face": r.get("face"),
+                       "note": r.get("note", ""), "face": r.get("face"),
                        "score": float(r.get("score") or 0)})
     return out
