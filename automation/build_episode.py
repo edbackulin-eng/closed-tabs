@@ -30,7 +30,7 @@ sys.path.insert(0, str(ROOT))
 from core import llm, narrate, style  # noqa: E402
 from core.logger import get_logger  # noqa: E402
 from core.voice import SAMPLE_RATE  # noqa: E402
-from pipeline import edit, editplan, scriptwriter, sources  # noqa: E402
+from pipeline import edit, editplan, scriptwriter, sources, thumbnail  # noqa: E402
 
 log = get_logger("episode")
 
@@ -96,7 +96,7 @@ def stage_stock(b):
 
 def stage_stills(b, force_window):
     cmd = [sys.executable, str(ROOT / "automation" / "stills.py"), str(b / "plan.json"),
-           "--thumbs", "8"]
+           "--thumbs", str(thumbnail.CANDIDATES)]
     if force_window:
         cmd.append("--force-window")
     subprocess.run(cmd, check=True)
