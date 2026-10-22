@@ -68,7 +68,13 @@ def draw(rows, force_window=False):
            "steps": style.STEPS, "width": style.ASPECT["width"],
            "height": style.ASPECT["height"], "seed": 3301}
     hours = 0.25 + 0.012 * len(rows)
-    ref = push.push(job, "closedtabs-thumbs-v3", "closedtabs-thumbs-v3",
+    # A fresh slug every run, as What If does, so no run inherits a deleted or
+    # half-finished kernel's state. (It was NOT the cause of the instant ERRORs on
+    # the evening of 22.10: three kernels in a row - at fresh names, under the old
+    # template and the new - died in seconds with an empty log and no quota
+    # spent, and the fourth ran clean. That was Kaggle not handing out a session.)
+    slug = f"closedtabs-thumbs-v3-{int(time.time())}"
+    ref = push.push(job, slug, slug,
                     job_hours=hours, force_window=force_window)
     log.info("pushed %s; https://www.kaggle.com/code/%s", ref, ref)
     if not push.wait(ref, poll_s=30, timeout_s=push.deadline_for(job) + 600):
