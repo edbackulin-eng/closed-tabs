@@ -178,17 +178,32 @@ def checks(out, report, seconds):
 
 def thumbnail():
     from pipeline import thumbnail as th
-    base = W / "thumb_base.png"
+    base, other = W / "thumb_base.png", W / "thumb_creature.png"
     im = Image.new("RGB", (1344, 768), (40, 60, 90))
     ImageDraw.Draw(im).rectangle((760, 160, 1240, 520), fill=(230, 232, 235))
     im.save(base)
-    out, size, box, exact = th.compose(
-        base, [[0.56, 0.2], [0.93, 0.2], [0.93, 0.68], [0.56, 0.68]], "STILL UNSOLVED", 1)
-    check("thumbnail", out.size == (1280, 720) and exact, f"opening found: {exact}")
+    im2 = Image.new("RGB", (1344, 768), (20, 30, 50))
+    ImageDraw.Draw(im2).rectangle((300, 140, 1050, 620), fill=(60, 220, 200))
+    im2.save(other)
+
+    out, size, box = th.compose(base, "STILL UNSOLVED", 1)
+    check("thumbnail", out.size == (1280, 720), f"{out.size[0]}x{out.size[1]}")
     readable, m = th.readable_small(out, size, box)
     check("thumbnail reads at 336x189", readable, str(m))
     # the duration badge lands in the bottom right; nothing of ours may be under it
     check("thumbnail badge corner clear", th.safe_clear(box), str(box))
+
+    # the two-shot form, for the episodes one generation could not hold
+    pair, psize, pbox = th.compose_pair(base, other, "STILL UNSOLVED", 2)
+    check("thumbnail (person + creature)", pair.size == (1280, 720)
+          and th.readable_small(pair, psize, pbox)[0] and th.safe_clear(pbox))
+
+    # eight prompts, each naming the creature and writing the film lookalike out
+    prompts = th.base_prompts(3301)
+    check("thumbnail prompts", len(prompts) == th.CANDIDATES
+          and all("no long black hair" in p and "no white dress" in p for p in prompts),
+          f"{len(prompts)} prompts")
+
     frames = sorted((W / "stills").glob("*.png"))[:5]
     if len(frames) >= 4:
         sheet = th.collage(frames, [f"Case {i}" for i in range(len(frames))],

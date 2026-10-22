@@ -55,8 +55,8 @@ jobs:
         run: |
           extra=""
           [ "${{ inputs.force_window }}" = "true" ] && extra="--force-window"
-          # six bases: pipeline.thumbnail.CANDIDATES
-          python automation/stills.py "queue/${{ inputs.slug }}/build/hook_plan.json" --thumbs 6 $extra
+          # eight bases: pipeline.thumbnail.CANDIDATES
+          python automation/stills.py "queue/${{ inputs.slug }}/build/hook_plan.json" --thumbs 8 $extra
       - name: Build the hook
         run: python automation/build_hook.py "${{ inputs.slug }}"
       - name: Thumbnail

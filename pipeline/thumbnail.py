@@ -1,31 +1,35 @@
-"""Closed Tabs thumbnails: someone at 3 a.m. and the thing looking back at them.
+"""Closed Tabs thumbnails: something coming out of the monitor, and the person it
+is coming for.
 
-The reference is the cover that sold 8.1 million views on "62 SCARIEST TikToks":
-one shocked face, one pale wrong thing, a camcorder frame around both, and
-almost no words. The recipe, every episode:
+The recipe, every episode:
 
-  - FLUX draws a frightened person, 20-35, close in on the left of the frame -
-    eyes wide, mouth open, turned toward the right and not toward the lens. The
-    person changes every time (seeded from the episode). On the right is one
-    blank, evenly lit opening: a monitor, a window or a doorway, generated empty.
-  - Gemini gives the rough corners of that blank opening; code then finds the lit
-    blank panel itself in the pixels (refine_quad) and paints the figure into
-    exactly that shape. A candidate whose opening cannot be found is ranked below
-    every one whose opening was.
-  - In the opening stands the figure: pale, hair over its face, two hollow eyes.
-    It is drawn here rather than generated, so it never comes out with six
-    fingers, never spells anything, is nobody real, and cannot wander into blood
-    or a body - only a shape nobody wants in their window.
-  - Two or three words at most, in Anton, white with one word red and a heavy
-    black outline. An episode may also carry none; the picture is the hook.
-  - A camcorder viewfinder over all of it: corner brackets, REC and the 03:14 AM
-    stamp together in the top right, a light VHS layer.
+  - FLUX draws the whole scene. On the right, a monitor with something breaking
+    out of it: a pale elongated arm with long thin fingers reaching through the
+    glass, or a distorted face pushing through the screen as through a membrane.
+    The glass cracks, splinters and glitch shards fly into the room, the screen
+    burns turquoise and red. On the left, close in, a person of 20-35 recoils -
+    eyes wide, mouth open - looking at the monitor and never at the lens.
+  - Nothing graphic: no blood, no wound, no weapon. Nobody real, and nobody's
+    character either. The long black hair and white dress of the film everyone
+    would name is written out of the prompt and rejected by the vision check.
+  - Earlier versions painted the thing in the screen here in code. It read as
+    cheap, because it was: flat shapes cannot stand next to a photograph. FLUX
+    draws it now, and the code only frames it.
+  - When one generation will not hold both halves, the person and the monitor
+    are drawn as separate shots and joined here (`compose_pair`): the monitor
+    takes the right of the frame behind a feathered edge, and its light spills
+    back across the room so the two were lit by the same screen.
+  - Over the photograph: three words at most in Anton, white with one word red
+    and a heavy black outline, or none at all - the picture is the hook. Then a
+    camcorder viewfinder - corner brackets, REC and the 03:14 AM stamp together
+    in the top right, a light VHS layer.
   - The bottom right quarter stays empty. YouTube prints the duration badge there.
 
-Six candidates are drawn. Gemini rejects hands without five fingers, broken
-faces, eyes on the lens, lettering and anything graphic; the words must still
-read at 336x189, the size a thumbnail is actually seen at in search results;
-the best survivor wins.
+Eight candidates are drawn. Gemini rejects the human's hands and face when they
+come out wrong, eyes on the lens, lettering, anything graphic, and anything that
+copies a known film character - while leaving the creature alone, because the
+creature is supposed to be wrong. The words must still read at 336x189, the size
+a thumbnail is actually seen at in search results; the best survivor wins.
 
 The weekly round-up ("5 Most Disturbing...") wears the same frame around a
 collage of four to six captioned stills instead: `collage`.
@@ -35,7 +39,7 @@ import re
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageChops, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter
 
 from core import fonts
 from core.logger import get_logger
@@ -44,9 +48,9 @@ log = get_logger("thumbnail")
 
 W, H = 1280, 720
 SMALL = (336, 189)
-CANDIDATES = 6
+CANDIDATES = 8
 # YouTube prints the duration badge over this corner. Nothing that carries the
-# cover may sit in it - not a word, not the face, not the figure.
+# cover may sit in it - not a word, not the face, not the creature's hand.
 SAFE = (0.75, 0.80, 1.0, 1.0)
 # And the corner the viewfinder's own REC and timecode take, in pixels, which
 # nothing else may be laid into either.
@@ -65,225 +69,83 @@ PEOPLE = [
     "a man in his late twenties with wavy hair and a leather jacket",
 ]
 
-# Three openings, not one monitor: a window and a doorway carry the same dread
-# and stop ten episodes in a row looking like the same photograph. Every one of
-# them is asked for blank and evenly lit, because refine_quad finds the figure's
-# place by looking for exactly that - a bright, smooth, nearly grey panel.
-OPENINGS = [
-    "a large flat computer monitor filling the right half of the frame, square to the "
-    "camera, its screen a flat rectangle parallel to the image, the screen blank and "
-    "evenly lit pale grey-white, completely empty",
-    "a tall window filling the right half of the frame, square to the camera, its glass "
-    "a flat rectangle parallel to the image, the glass blank and evenly lit pale "
-    "grey-white, completely empty",
-    "an open doorway filling the right half of the frame, square to the camera, the "
-    "opening a flat rectangle parallel to the image, full of blank evenly lit pale "
-    "grey-white light, completely empty",
+# Two things come out of the screen, alternating, so ten covers in a row are not
+# ten photographs of the same arm.
+CREATURES = [
+    "a long pale emaciated arm with very long thin fingers bursting out through the "
+    "monitor's cracked screen and reaching into the room, the fingers spread wide, the "
+    "arm far too long for any body, grey-white skin",
+    "a gaunt distorted face pressing out through the monitor's screen as if the glass "
+    "were a thin membrane stretching around it, mouth open, features smeared and wrong, "
+    "grey-white skin, no hair",
 ]
+
+# FLUX.1-schnell runs without guidance, so there is no negative prompt to put
+# these in; they are written into the prompt as things the scene is made of.
+# "A ghost girl with long black hair in a white dress" is the one shape this
+# channel must never draw: it is a named character from a film, and it is also
+# what every generator reaches for when asked for something coming out of a
+# screen. It is written out here and rejected again in the vision check.
+CLEAN = ("no blood, no wound, no injury, no weapon, bloodless, "
+         "no text, no letters, no logos, no watermark")
+# only where a creature is actually in the shot
+CREATURE_CLEAN = ("the creature is bald and grey with no hair, not a girl, not a child, "
+                  "no long black hair, no white dress, no nightgown")
+# and only where a person is
+PERSON_CLEAN = "the person's own hands are ordinary with five fingers each"
+
+SCENE = ("the monitor's broken screen burning turquoise and red, cracked glass, glass "
+         "splinters and glitch shards flying out into the room, a dark bedroom at night "
+         "lit only by that screen, well exposed, colourful, cinematic, photorealistic, "
+         "35mm film still, shallow depth of field")
 
 
 def base_prompts(seed, n=CANDIDATES):
+    """One prompt per candidate: the whole scene in a single generation."""
     rng = random.Random(seed)
     who = rng.sample(PEOPLE, min(n, len(PEOPLE)))
     return [
-        f"{p}, in their twenties or thirties, terrified, eyes wide open, mouth open in a "
-        f"gasp, head and shoulders large in the left third of the frame, close up, seen in "
-        f"half profile, staring at {OPENINGS[(seed + i) % len(OPENINGS)]}, the person looks "
-        f"at it and never at the camera, a dark room at night lit by teal and magenta neon "
-        f"and the pale glow of the opening, well exposed, colourful, cinematic, "
-        f"photorealistic, 35mm film still, "
-        f"no text, no letters, no logos, five fingers on each hand"
+        f"{p}, recoiling in terror, pulling away, eyes wide open, mouth open in a scream, "
+        f"head and shoulders large in the left third of the frame, close up, seen in half "
+        f"profile, staring at a computer monitor on the right of the frame, looking at it "
+        f"and never at the camera; {CREATURES[(seed + i) % len(CREATURES)]}; "
+        f"{SCENE}, {CLEAN}, {CREATURE_CLEAN}, {PERSON_CLEAN}"
         for i, p in enumerate(who)]
 
 
-# --- what stands in the opening ---------------------------------------------------
-
-def screen_figure(seed, size=(1200, 900)):
-    """A pale face in the dark, hair closed around it, two hollow eyes, a mouth open.
-
-    Drawn rather than generated, deliberately: it has no fingers to get wrong, it
-    spells nothing, it is nobody real, and it cannot wander into blood or a body.
-
-    It is drawn at 240 px and blown up, with grain, scanlines and a dropped line
-    over the top. That is the whole trick: simple shapes at that size read as
-    something a bad camera caught, where the same shapes drawn sharp read as a
-    cartoon - the first four attempts at this figure all came out as a cartoon.
-    The hair is one mass exactly the width of the head with the face cut out of
-    it, never two shapes beside the head; shapes beside a head read as ears, and
-    every version that had them looked like an animal.
-    """
-    w, h = size
-    rng = np.random.default_rng(seed)
-    lw, lh = 240, max(60, round(240 * h / w))
-    t = np.linspace(0, 1, lh)[:, None]
-    back = (1 - t) * np.array([66, 74, 72.0]) + t * np.array([24, 29, 28.0])
-    im = Image.fromarray(np.repeat(back[:, None, :], lw, axis=1).astype(np.uint8))
-
-    R = lh * 0.19
-    cx = lw * (0.44 + 0.12 * rng.random())
-    cy = lh * 0.44
-    tilt = (rng.random() - 0.5) * R * 0.2            # never quite square to the lens
-
-    # head and shoulders, pale, and the light they throw back into the room
-    body = Image.new("L", (lw, lh), 0)
-    bd = ImageDraw.Draw(body)
-    bd.polygon([(cx - R * 2.0, lh), (cx - R * 0.78, cy + R * 1.15),
-                (cx + R * 0.78, cy + R * 1.15), (cx + R * 2.0, lh)], fill=92)
-    bd.ellipse((cx - R * 0.80, cy - R * 1.20, cx + R * 0.80, cy + R * 1.22), fill=188)
-    body = body.filter(ImageFilter.GaussianBlur(lh * 0.016))
-    pale = Image.new("RGB", (lw, lh), (202, 212, 208))
-    im.paste(pale, (0, 0), body)
-    glow = Image.new("RGB", (lw, lh), (0, 0, 0))
-    glow.paste(pale, (0, 0), body.filter(ImageFilter.GaussianBlur(lh * 0.09)))
-    im = Image.fromarray(np.clip(np.asarray(im, np.int16)
-                                 + np.asarray(glow, np.int16) // 4, 0, 255).astype(np.uint8))
-
-    # the hair: one mass, the face cut out of it
-    outer = Image.new("L", (lw, lh), 0)
-    ImageDraw.Draw(outer).ellipse((cx - R * 0.86 + tilt, cy - R * 1.36,
-                                   cx + R * 0.86 + tilt, cy + R * 2.6), fill=255)
-    window = Image.new("L", (lw, lh), 0)
-    ImageDraw.Draw(window).ellipse((cx - R * 0.52 + tilt, cy - R * 0.82,
-                                    cx + R * 0.52 + tilt, cy + R * 1.10), fill=255)
-    im.paste(Image.new("RGB", (lw, lh), (19, 23, 25)), (0, 0),
-             ImageChops.subtract(outer, window).filter(ImageFilter.GaussianBlur(lh * 0.012)))
-
-    # a brow and a jaw in shadow, so the face is not a flat white oval
-    shade = Image.new("L", (lw, lh), 0)
-    sd = ImageDraw.Draw(shade)
-    sd.ellipse((cx - R * 0.48 + tilt, cy - R * 0.74, cx + R * 0.48 + tilt, cy - R * 0.16), fill=105)
-    sd.ellipse((cx - R * 0.40 + tilt, cy + R * 0.64, cx + R * 0.40 + tilt, cy + R * 1.18), fill=115)
-    im.paste(Image.new("RGB", (lw, lh), (24, 30, 32)), (0, 0),
-             shade.filter(ImageFilter.GaussianBlur(lh * 0.020)))
-
-    # the eyes are sockets, not dots: a dark core inside a softer hollow
-    face = Image.new("L", (lw, lh), 0)
-    ed = ImageDraw.Draw(face)
-    for s in (-1, 1):
-        ex = cx + tilt + s * R * 0.25
-        dy = R * 0.04 * rng.random() * s
-        ed.ellipse((ex - R * 0.18, cy - R * 0.22 + dy, ex + R * 0.18, cy + R * 0.32 + dy), fill=120)
-        ed.ellipse((ex - R * 0.10, cy - R * 0.08 + dy, ex + R * 0.10, cy + R * 0.22 + dy), fill=255)
-    ed.ellipse((cx + tilt - R * 0.12, cy + R * 0.50, cx + tilt + R * 0.12, cy + R * 1.00), fill=140)
-    ed.ellipse((cx + tilt - R * 0.07, cy + R * 0.58, cx + tilt + R * 0.07, cy + R * 0.94), fill=255)
-    im.paste(Image.new("RGB", (lw, lh), (9, 12, 14)), (0, 0),
-             face.filter(ImageFilter.GaussianBlur(lh * 0.011)))
-
-    # blown up, then the tape it came off: grain, scanlines, one dropped line
-    im = im.resize(size, Image.BICUBIC).filter(ImageFilter.GaussianBlur(h * 0.004))
-    a = np.asarray(im, np.int16) + rng.integers(-18, 19, (h, w, 1))
-    a[::3] = (a[::3] * 0.88).astype(np.int16)
-    tear = int(rng.integers(0, max(1, h - 4)))
-    a[tear:tear + 3] = np.roll(a[tear:tear + 3], int(rng.integers(-14, 15)), axis=1)
-    yy, xx = np.mgrid[0:h, 0:w]
-    r = np.hypot((xx / w - 0.5) * 1.1, yy / h - 0.5) / 0.72
-    a = a * np.clip(1.05 - r ** 2 * 0.62, 0.34, 1.0)[..., None]
-    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+# When one generation will not hold both halves, each is drawn on its own and
+# joined by compose_pair. The person is asked for with the right of the frame
+# empty, so there is room for the monitor to be put there.
+def person_prompts(seed, n=CANDIDATES):
+    rng = random.Random(seed + 1)
+    who = rng.sample(PEOPLE, min(n, len(PEOPLE)))
+    return [
+        f"{p}, recoiling in terror, pulling away, eyes wide open, mouth open in a scream, "
+        f"head and shoulders large in the left third of the frame, close up, seen in half "
+        f"profile, looking to the right of the frame and never at the camera, the right half "
+        f"of the frame an empty dark wall, a dark bedroom at night lit from the right by a "
+        f"turquoise and red screen, well exposed, colourful, cinematic, photorealistic, "
+        f"35mm film still, {CLEAN}, {PERSON_CLEAN}"
+        for p in who]
 
 
-def refine_quad(base, quad):
-    """The blank lit panel itself, found in the pixels near Gemini's rough corners.
-
-    The opening was generated as an evenly lit pale panel: bright, nearly grey and
-    smooth. The largest such region overlapping the rough quad is the opening; its
-    four extreme points are the corners. Returns a quad in 0-1 or None."""
-    from scipy import ndimage
-    a = np.asarray(base.convert("RGB"), np.float32)
-    v = a.max(axis=2)
-    sat = (v - a.min(axis=2)) / (v + 1e-3)
-    grey = a.mean(axis=2)
-    smooth = ndimage.uniform_filter((grey - ndimage.uniform_filter(grey, 9)) ** 2, 9) ** 0.5
-    mask = (v > np.percentile(v, 80)) & (v > 120) & (sat < 0.35) & (smooth < 6)
-    mask = ndimage.binary_opening(mask, iterations=2)
-    mask = ndimage.binary_closing(mask, iterations=3)
-    lab, n = ndimage.label(mask)
-    if not n:
-        return None
-    h, w = mask.shape
-    if quad and valid_quad(quad):
-        q = np.array(quad, float) * [w, h]
-        x0, y0 = q.min(axis=0)
-        x1, y1 = q.max(axis=0)
-        rough_area = (x1 - x0) * (y1 - y0)
-    else:
-        x0, y0, x1, y1 = w * 0.45, 0, w, h * 0.9          # the right half, where it is asked for
-        rough_area = None
-    best, best_n = None, 0
-    for k in range(1, n + 1):
-        ys, xs = np.nonzero(lab[int(y0):int(y1) + 1, int(x0):int(x1) + 1] == k)
-        if len(xs) > best_n:
-            best, best_n = k, len(xs)
-    if not best:
-        return None
-    ys, xs = np.nonzero(lab == best)
-    area = len(xs)
-    if area < 0.04 * w * h:
-        return None
-    if rough_area and not 0.45 * rough_area <= area <= 1.6 * rough_area:
-        return None
-    # An opening is a convex quadrilateral that its pixels nearly fill.
-    tl = (xs + ys).argmin(); br = (xs + ys).argmax()
-    tr = (xs - ys).argmax(); bl = (xs - ys).argmin()
-    pts = np.array([[xs[tl], ys[tl]], [xs[tr], ys[tr]], [xs[br], ys[br]], [xs[bl], ys[bl]]], float)
-    quad_area = 0.5 * abs(np.dot(pts[:, 0], np.roll(pts[:, 1], 1))
-                          - np.dot(pts[:, 1], np.roll(pts[:, 0], 1)))
-    if quad_area <= 0 or area / quad_area < 0.85:
-        return None
-    # pull in by 1% toward the centre so the paint stays inside the frame or bezel
-    c = pts.mean(axis=0)
-    pts = c + (pts - c) * 0.995
-    out = [[round(float(x / w), 4), round(float(y / h), 4)] for x, y in pts]
-    return out if valid_quad(out) else None
+def creature_prompts(seed, n=CANDIDATES):
+    return [
+        f"a computer monitor on a desk, seen straight on, filling the frame; "
+        f"{CREATURES[(seed + i) % len(CREATURES)]}; {SCENE}, no person, nobody else in the "
+        f"room, {CLEAN}, {CREATURE_CLEAN}"
+        for i in range(n)]
 
 
-def _perspective_coeffs(src, dst):
-    """Coefficients for Image.transform(PERSPECTIVE) mapping dst quad onto src quad."""
-    a = []
-    for (x, y), (u, v) in zip(dst, src):
-        a.append([x, y, 1, 0, 0, 0, -u * x, -u * y])
-        a.append([0, 0, 0, x, y, 1, -v * x, -v * y])
-    b = np.array(src, np.float64).reshape(8)
-    return np.linalg.solve(np.array(a, np.float64), b).tolist()
+# --- framing ----------------------------------------------------------------------
 
-
-def paste_screen(base, quad, content):
-    """Warp `content` into the quad (four corners, clockwise from top left, 0-1)."""
-    dst = [(x * W, y * H) for x, y in quad]
-    cw, ch = content.size
-    src = [(0, 0), (cw, 0), (cw, ch), (0, ch)]
-    coeffs = _perspective_coeffs(src, dst)
-    warped = content.transform((W, H), Image.PERSPECTIVE, coeffs, Image.BICUBIC)
-    mask = Image.new("L", (W, H), 0)
-    ImageDraw.Draw(mask).polygon(dst, fill=255)
-    mask = mask.filter(ImageFilter.GaussianBlur(1.2))
-    out = base.copy()
-    out.paste(warped, (0, 0), mask)
-    # the opening glows: a soft bloom of its own light around the quad
-    glow = Image.new("RGB", (W, H), (0, 0, 0))
-    glow.paste(warped, (0, 0), mask)
-    glow = glow.filter(ImageFilter.GaussianBlur(26))
-    return Image.blend(out, Image.fromarray(np.clip(np.asarray(out, np.int16) +
-                                                    np.asarray(glow, np.int16) // 3, 0, 255)
-                                            .astype(np.uint8)), 0.8)
-
-
-def valid_quad(q):
-    if not (isinstance(q, list) and len(q) == 4):
-        return False
-    try:
-        pts = np.array(q, float)
-    except (TypeError, ValueError):
-        return False
-    if pts.shape != (4, 2) or (pts < 0).any() or (pts > 1).any():
-        return False
-    # convex and big enough to read
-    cross = []
-    for i in range(4):
-        a, b, c = pts[i], pts[(i + 1) % 4], pts[(i + 2) % 4]
-        cross.append(np.cross(b - a, c - b))
-    area = 0.5 * abs(np.dot(pts[:, 0], np.roll(pts[:, 1], 1))
-                     - np.dot(pts[:, 1], np.roll(pts[:, 0], 1)))
-    return (all(c > 0 for c in cross) or all(c < 0 for c in cross)) and area > 0.04
+def _fill(im):
+    """Resize and centre-crop a generated frame to the thumbnail's 1280x720."""
+    im = im.convert("RGB")
+    s_ = max(W / im.width, H / im.height)
+    im = im.resize((round(im.width * s_), round(im.height * s_)), Image.LANCZOS)
+    x, y = (im.width - W) // 2, (im.height - H) // 2
+    return im.crop((x, y, x + W, y + H))
 
 
 # --- words, the viewfinder, the checks --------------------------------------------
@@ -382,61 +244,80 @@ def readable_small(im, text_size, box):
                                                   "spread": round(float(spread), 1)}
 
 
-def compose(base_path, quad, words, seed, face=None):
-    """Returns (image, text size, word box, whether the opening was found)."""
+def compose(base_path, words, seed, face=None):
+    """One generated frame, framed. Returns (image, text size, word box)."""
     from pipeline import grade
-    base = Image.open(base_path).convert("RGB")
-    s_ = max(W / base.width, H / base.height)
-    base = base.resize((round(base.width * s_), round(base.height * s_)), Image.LANCZOS)
-    x, y = (base.width - W) // 2, (base.height - H) // 2
-    base = base.crop((x, y, x + W, y + H))
-    # The rough quad from Gemini is in the original frame; the crop above is a
-    # centred fill, so map it before refining.
-    if quad and valid_quad(quad):
-        bw, bh = base.width + 2 * x, base.height + 2 * y
-        quad = [[(qx * bw - x) / W, (qy * bh - y) / H] for qx, qy in quad]
-    exact = refine_quad(base, quad)
-    base = grade.grade(base)
-    if exact:
-        q = np.array(exact) * [W, H]
-        qw = np.linalg.norm(q[1] - q[0])
-        qh = np.linalg.norm(q[3] - q[0])
-        cw = 1200
-        content = screen_figure(seed, (cw, max(400, int(cw * qh / max(qw, 1)))))
-        base = paste_screen(base, exact, content)
-    else:
-        panel = screen_figure(seed, (720, 540)).resize((560, 420), Image.LANCZOS)
-        base.paste(panel, (W - 600, 190))
+    base = grade.grade(_fill(Image.open(base_path)))
     box, size = draw_words(base, words, face)
-    return viewfinder(base, seed), size, box, bool(exact)
+    return viewfinder(base, seed), size, box
 
 
-def choose(bases, verdicts, words, out_dir, seed):
-    """Compose every approved base, keep those that read small, return the best.
+def compose_pair(person_path, creature_path, words, seed, face=None, share=0.56):
+    """The two-shot form: the monitor frame set into the right of the person frame.
 
-    Returns (path of the winner, report). Falls back to the best-scored base when
-    none passes everything, and says so - a thumbnail is never left out."""
+    The seam is feathered rather than cut, and the monitor's light is blurred back
+    across the whole frame, because the giveaway in a joined thumbnail is never the
+    edge - it is two halves lit by different lamps.
+    Returns (image, text size, word box)."""
+    from pipeline import grade
+    person = grade.grade(_fill(Image.open(person_path)))
+    bw = int(W * share)
+    cre = Image.open(creature_path).convert("RGB")
+    s_ = max(bw / cre.width, H / cre.height)
+    cre = cre.resize((round(cre.width * s_), round(cre.height * s_)), Image.LANCZOS)
+    cx, cy = (cre.width - bw) // 2, (cre.height - H) // 2
+    cre = grade.grade(cre.crop((cx, cy, cx + bw, cy + H)))
+
+    layer = Image.new("RGB", (W, H), (0, 0, 0))
+    layer.paste(cre, (W - bw, 0))
+    mask = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(mask).rectangle((W - bw + 80, -1, W + 1, H + 1), fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(48))
+    out = person.copy()
+    out.paste(layer, (0, 0), mask)
+    # the screen lights the room both halves are standing in
+    glow = layer.filter(ImageFilter.GaussianBlur(70))
+    out = Image.fromarray(np.clip(np.asarray(out, np.int16)
+                                  + np.asarray(glow, np.int16) // 5, 0, 255).astype(np.uint8))
+    box, size = draw_words(out, words, face)
+    return viewfinder(out, seed), size, box
+
+
+def choose(bases, verdicts, words, out_dir, seed, pairs=None):
+    """Compose every candidate, keep those that read small, return the best.
+
+    `bases` are whole-scene frames. `pairs` is an optional list of
+    (person, creature) frames composed with compose_pair and judged the same way,
+    for the episodes one generation could not hold.
+
+    Returns (path of the winner, report). Falls back to the best-scored candidate
+    when none passes everything, and says so - a thumbnail is never left out."""
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     report, ranked = [], []
-    for k, b in enumerate(bases):
-        v = verdicts.get(Path(b), {})
-        im, size, box, exact = compose(b, v.get("screen"), words, seed + k, v.get("face"))
+    jobs = [("single", b, None) for b in bases]
+    jobs += [("pair", p, c) for p, c in (pairs or [])]
+    for k, (kind, a, b) in enumerate(jobs):
+        v = verdicts.get(Path(a), {})
+        if kind == "single":
+            im, size, box = compose(a, words, seed + k, v.get("face"))
+        else:
+            im, size, box = compose_pair(a, b, words, seed + k, v.get("face"))
         path = out_dir / f"thumb_{k}.jpg"
         im.save(path, quality=92)
         readable, m = readable_small(im, size, box)
         clear = safe_clear(box)
-        row = {"file": path.name, "ok": v.get("ok", False), "defect": v.get("defect"),
-               "readable": readable, "badge_corner_clear": clear, "opening_found": exact,
-               **m, "score": v.get("score", 0)}
+        row = {"file": path.name, "kind": kind, "ok": v.get("ok", False),
+               "defect": v.get("defect"), "readable": readable,
+               "badge_corner_clear": clear, **m, "score": v.get("score", 0)}
         report.append(row)
         if row["ok"] and readable and clear:
-            ranked.append((exact, row["score"], path))
+            ranked.append((row["score"], path))
     if ranked:
-        best = max(ranked, key=lambda r: (r[0], r[1]))[2]
+        best = max(ranked, key=lambda r: r[0])[1]
     else:
-        best = out_dir / max(report, key=lambda r: (r["opening_found"], r["readable"],
-                                                    r["badge_corner_clear"], r["score"]))["file"]
+        best = out_dir / max(report, key=lambda r: (r["readable"], r["badge_corner_clear"],
+                                                    r["score"]))["file"]
         log.warning("no candidate passed every check; using %s", best.name)
     final = out_dir / "thumbnail.jpg"
     Image.open(best).save(final, quality=92, optimize=True)
