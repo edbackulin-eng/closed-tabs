@@ -205,6 +205,18 @@ def push(job, slug, title, job_hours=None, force_window=False):
     raise RuntimeError("lost the GPU to a higher-priority channel four times running")
 
 
+def deadline_for(job):
+    """The deadline the kernel will set itself, in seconds.
+
+    The same arithmetic as kaggle/job_template.py, kept here so a caller can wait
+    exactly as long as the session can possibly live and not a flat three hours.
+    If the two ever drift apart the caller simply waits a little long or a little
+    short, which is survivable; a flat timeout was not."""
+    return 2 * float(job.get("budget_s") or (300
+                                             + 60 * len(job.get("image_prompts") or ())
+                                             + 3 * len(job.get("tts_sentences") or ())))
+
+
 def wait(ref, poll_s=30, timeout_s=3 * 3600):
     """Block until the kernel stops running, and log its GPU time to the ledger."""
     import gpu_budget

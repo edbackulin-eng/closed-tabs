@@ -71,7 +71,7 @@ def draw(rows, force_window=False):
     ref = push.push(job, "closedtabs-thumbs-v3", "closedtabs-thumbs-v3",
                     job_hours=hours, force_window=force_window)
     log.info("pushed %s; https://www.kaggle.com/code/%s", ref, ref)
-    if not push.wait(ref, poll_s=30, timeout_s=2 * 3600):
+    if not push.wait(ref, poll_s=30, timeout_s=push.deadline_for(job) + 600):
         raise RuntimeError(f"Kaggle kernel {ref} did not complete")
     pulled = push.fetch(ref, OUT / "_kernel")
     images = sorted((Path(pulled) / "images").glob("*.png"))
