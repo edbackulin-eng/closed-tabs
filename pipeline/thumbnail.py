@@ -70,14 +70,18 @@ PEOPLE = [
 ]
 
 # Two things come out of the screen, alternating, so ten covers in a row are not
-# ten photographs of the same arm.
+# ten photographs of the same arm. Both are asked for HUGE and bone-white against
+# the dark bezel: at 336x189, the size a cover is chosen at, a thin grey arm the
+# width of a finger is a smudge, and the whole cover rests on that one shape.
 CREATURES = [
-    "a long pale emaciated arm with very long thin fingers bursting out through the "
-    "monitor's cracked screen and reaching into the room, the fingers spread wide, the "
-    "arm far too long for any body, grey-white skin",
-    "a gaunt distorted face pressing out through the monitor's screen as if the glass "
-    "were a thin membrane stretching around it, mouth open, features smeared and wrong, "
-    "grey-white skin, no hair",
+    "a huge long pale white arm with very long thin fingers bursting out of the "
+    "monitor's cracked screen and reaching toward the camera, the arm and the wide-spread "
+    "hand filling the right half of the frame, the hand large and close, far too long for "
+    "any body, bone-white skin bright against the dark bezel",
+    "a huge gaunt pale white face pushing out through the monitor's screen as if the glass "
+    "were a thin membrane stretched over it, the face filling the whole screen and bulging "
+    "into the room, mouth open, features smeared and wrong, no hair, bone-white skin "
+    "bright against the dark bezel",
 ]
 
 # FLUX.1-schnell runs without guidance, so there is no negative prompt to put
@@ -94,10 +98,23 @@ CREATURE_CLEAN = ("the creature is bald and grey with no hair, not a girl, not a
 # and only where a person is
 PERSON_CLEAN = "the person's own hands are ordinary with five fingers each"
 
-SCENE = ("the monitor's broken screen burning turquoise and red, cracked glass, glass "
-         "splinters and glitch shards flying out into the room, a dark bedroom at night "
-         "lit only by that screen, well exposed, colourful, cinematic, photorealistic, "
-         "35mm film still, shallow depth of field")
+# Bright, not murky. The first v3 prompt asked for "a dark bedroom lit only by that
+# screen", and a cover that reads as a dark rectangle in a feed of bright ones is
+# scrolled past - the same lesson pipeline/grade.py learned for the video itself.
+SCENE = ("the monitor's broken screen blazing bright turquoise and red, cracked glass, "
+         "glass splinters and glitch shards flying out into the room, a bedroom at night "
+         "flooded with bright turquoise and red light from the screen and warm light from a "
+         "lamp, high key, bright and well exposed, no deep shadows, vivid saturated colours, "
+         "cinematic, photorealistic, 35mm film still")
+
+# The face must be seen. "Staring at the monitor" alone let FLUX turn the person
+# toward the screen and away from us - a back of a head sells nothing. Three
+# quarters toward the camera keeps the eyes on the monitor and the fear on show.
+FACE = ("terrified and screaming, eyes wide open, mouth wide open, the whole face clearly "
+        "visible and brightly lit, turned three-quarters toward the camera, head and "
+        "shoulders large in the left third of the frame, close up, eyes fixed on the right "
+        "of the frame, never looking into the lens, never seen from behind, never with the "
+        "back to the camera")
 
 
 def base_prompts(seed, n=CANDIDATES):
@@ -105,10 +122,8 @@ def base_prompts(seed, n=CANDIDATES):
     rng = random.Random(seed)
     who = rng.sample(PEOPLE, min(n, len(PEOPLE)))
     return [
-        f"{p}, recoiling in terror, pulling away, eyes wide open, mouth open in a scream, "
-        f"head and shoulders large in the left third of the frame, close up, seen in half "
-        f"profile, staring at a computer monitor on the right of the frame, looking at it "
-        f"and never at the camera; {CREATURES[(seed + i) % len(CREATURES)]}; "
+        f"{p}, recoiling from a computer monitor on the right of the frame, {FACE}; "
+        f"{CREATURES[(seed + i) % len(CREATURES)]}; "
         f"{SCENE}, {CLEAN}, {CREATURE_CLEAN}, {PERSON_CLEAN}"
         for i, p in enumerate(who)]
 
@@ -120,11 +135,9 @@ def person_prompts(seed, n=CANDIDATES):
     rng = random.Random(seed + 1)
     who = rng.sample(PEOPLE, min(n, len(PEOPLE)))
     return [
-        f"{p}, recoiling in terror, pulling away, eyes wide open, mouth open in a scream, "
-        f"head and shoulders large in the left third of the frame, close up, seen in half "
-        f"profile, looking to the right of the frame and never at the camera, the right half "
-        f"of the frame an empty dark wall, a dark bedroom at night lit from the right by a "
-        f"turquoise and red screen, well exposed, colourful, cinematic, photorealistic, "
+        f"{p}, recoiling, {FACE}, the right half of the frame an empty wall, a bedroom at "
+        f"night flooded with bright turquoise and red light from the right, high key, bright "
+        f"and well exposed, vivid saturated colours, cinematic, photorealistic, "
         f"35mm film still, {CLEAN}, {PERSON_CLEAN}"
         for p in who]
 
@@ -148,11 +161,46 @@ def _fill(im):
     return im.crop((x, y, x + W, y + H))
 
 
+# --- brightness ---------------------------------------------------------------------
+
+# A cover sits among bright ones, so it is held above the video's own grade
+# (pipeline/grade.py aims frames at 100). Not a filter for its own sake: the first
+# v3 covers were mostly night, and a dark thumbnail reads as an empty one.
+THUMB_MEAN = 118            # mean luma, 0-255, the cover is lifted toward
+DARK_FLOOR = 40             # a pixel under this is near-black
+DARK_SHARE_MAX = 0.22       # and no more than this share of the cover may be
+
+
+def brightness(im):
+    a = np.asarray(im.convert("L").resize((320, 180)), np.float32)
+    return {"mean": round(float(a.mean()), 1),
+            "dark_share": round(float((a < DARK_FLOOR).mean()), 3)}
+
+
+def bright_enough(im):
+    b = brightness(im)
+    return b["mean"] >= THUMB_MEAN - 10 and b["dark_share"] <= DARK_SHARE_MAX, b
+
+
+def brighten(im, target=THUMB_MEAN):
+    """Lift a dark cover toward `target` with a gamma curve: the shadows open, the
+    highlights stay where they were, nothing clips. A cover already bright enough
+    is left alone. The lift is capped so a black frame does not turn to grey fog."""
+    b = brightness(im)["mean"] / 255.0
+    if b >= target / 255.0 or b <= 0.02:
+        return im
+    gamma = max(0.55, min(1.0, np.log(target / 255.0) / np.log(b)))
+    a = np.asarray(im.convert("RGB"), np.float32) / 255.0
+    return Image.fromarray(np.clip((a ** gamma) * 255.0, 0, 255).astype(np.uint8))
+
+
 # --- words, the viewfinder, the checks --------------------------------------------
 
 def _words(text):
-    """Three words at most, or none at all. The reference cover sells the picture."""
-    return [w for w in re.findall(r"[\w'?!.-]+", (text or "").upper())][:3]
+    """Three words at most, or none at all. The reference cover sells the picture.
+    A number keeps its thousands separators: "80,000 VIDEOS" is two words, not
+    "80" and "000" and a lost noun."""
+    return re.findall(r"\d{1,3}(?:,\d{3})+|[\w'?!.-]+", (text or "").upper())[:3]
 
 
 def safe_clear(box):
@@ -247,7 +295,7 @@ def readable_small(im, text_size, box):
 def compose(base_path, words, seed, face=None):
     """One generated frame, framed. Returns (image, text size, word box)."""
     from pipeline import grade
-    base = grade.grade(_fill(Image.open(base_path)))
+    base = brighten(grade.grade(_fill(Image.open(base_path))))
     box, size = draw_words(base, words, face)
     return viewfinder(base, seed), size, box
 
@@ -279,22 +327,33 @@ def compose_pair(person_path, creature_path, words, seed, face=None, share=0.56)
     glow = layer.filter(ImageFilter.GaussianBlur(70))
     out = Image.fromarray(np.clip(np.asarray(out, np.int16)
                                   + np.asarray(glow, np.int16) // 5, 0, 255).astype(np.uint8))
+    out = brighten(out)
     box, size = draw_words(out, words, face)
     return viewfinder(out, seed), size, box
 
 
-def choose(bases, verdicts, words, out_dir, seed, pairs=None):
-    """Compose every candidate, keep those that read small, return the best.
+def choose(bases, verdicts, words, out_dir, seed, pairs=None, small_judge=None):
+    """Compose every candidate, check each one, return the best.
 
     `bases` are whole-scene frames. `pairs` is an optional list of
     (person, creature) frames composed with compose_pair and judged the same way,
     for the episodes one generation could not hold.
 
+    `small_judge`, when given, is shown every finished cover at 336x189 - the size a
+    viewer actually meets it at - and says whether the frightened face and the thing
+    coming out of the screen can still be made out there. Words and contrast are
+    measured here; whether an arm still reads as an arm takes eyes.
+
+    A candidate passes when the base was approved, its words read small, the badge
+    corner is clear, it is bright enough, and (with a judge) it reads at search size.
+    Each report row carries "passes_all", and the winner's row carries "winner".
+
     Returns (path of the winner, report). Falls back to the best-scored candidate
-    when none passes everything, and says so - a thumbnail is never left out."""
+    when none passes everything, and says so - a thumbnail is never left out, but a
+    fallback never carries passes_all, so nothing downstream mistakes it for a pass."""
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    report, ranked = [], []
+    report, paths = [], []
     jobs = [("single", b, None) for b in bases]
     jobs += [("pair", p, c) for p, c in (pairs or [])]
     for k, (kind, a, b) in enumerate(jobs):
@@ -305,24 +364,39 @@ def choose(bases, verdicts, words, out_dir, seed, pairs=None):
             im, size, box = compose_pair(a, b, words, seed + k, v.get("face"))
         path = out_dir / f"thumb_{k}.jpg"
         im.save(path, quality=92)
+        im.resize(SMALL, Image.LANCZOS).save(out_dir / f"thumb_{k}_small.jpg", quality=90)
         readable, m = readable_small(im, size, box)
-        clear = safe_clear(box)
-        row = {"file": path.name, "kind": kind, "ok": v.get("ok", False),
-               "defect": v.get("defect"), "readable": readable,
-               "badge_corner_clear": clear, **m, "score": v.get("score", 0)}
+        bright, b_ = bright_enough(im)
+        row = {"file": path.name, "kind": kind,
+               "ok": bool(v.get("ok", False)) and v.get("defect") != "unchecked",
+               "defect": v.get("defect"), "note": v.get("note", ""),
+               "readable": readable, "badge_corner_clear": safe_clear(box),
+               "bright": bright, **b_, **m, "score": v.get("score", 0)}
         report.append(row)
-        if row["ok"] and readable and clear:
-            ranked.append((row["score"], path))
-    if ranked:
-        best = max(ranked, key=lambda r: r[0])[1]
+        paths.append(path)
+
+    if small_judge:
+        small = small_judge([out_dir / f"thumb_{k}_small.jpg" for k in range(len(paths))])
+        for k, row in enumerate(report):
+            sv = small.get(out_dir / f"thumb_{k}_small.jpg", {})
+            row["small_ok"] = bool(sv.get("ok", False))
+            row["small_note"] = sv.get("note", "no verdict")
+    for row in report:
+        row["passes_all"] = bool(row["ok"] and row["readable"] and row["badge_corner_clear"]
+                                 and row["bright"] and row.get("small_ok", small_judge is None))
+
+    passing = [(r["score"], k) for k, r in enumerate(report) if r["passes_all"]]
+    if passing:
+        k = max(passing)[1]
     else:
-        best = out_dir / max(report, key=lambda r: (r["readable"], r["badge_corner_clear"],
-                                                    r["score"]))["file"]
-        log.warning("no candidate passed every check; using %s", best.name)
+        k = max(range(len(report)), key=lambda i: (report[i]["ok"], report[i]["readable"],
+                                                   report[i]["bright"], report[i]["score"]))
+        log.warning("no candidate passed every check; using %s", report[k]["file"])
+    report[k]["winner"] = True
     final = out_dir / "thumbnail.jpg"
-    Image.open(best).save(final, quality=92, optimize=True)
+    Image.open(paths[k]).save(final, quality=92, optimize=True)
     if final.stat().st_size > 2_000_000:
-        Image.open(best).save(final, quality=80, optimize=True)
+        Image.open(paths[k]).save(final, quality=80, optimize=True)
     return final, report
 
 

@@ -73,7 +73,7 @@ Write the full narration, about {words} words of spoken text.
 
 Return exactly this layout:
 TITLE: <a YouTube title under 70 characters, its own form - not a list, not "The Mystery of">
-THUMBNAIL: <two or three words for the thumbnail that add to the title rather than repeat it>
+THUMBNAIL: <one to three words for the thumbnail, concrete to THIS story and taken from the facts - a number, a name, a thing ("80,000 VIDEOS", "NO MACHINE FOUND") - that make someone need to know more; add to the title rather than repeat it; never a generic question that would fit any mystery ("SIGNAL OR JOKE?", "WHAT IS IT?")>
 ===SCRIPT===
 <the marked-up narration>
 ===CLAIMS===

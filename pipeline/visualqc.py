@@ -345,11 +345,17 @@ Reject (ok=false) when ANY of these is clearly true:
   dress or nightgown. The creature must be bald, grey and nobody's character.
 - empty: nothing is actually coming out of the monitor, or there is no monitor, or
   there is no frightened person.
+- back: the person is seen from behind or turned away, or their face is hidden, cut
+  off, or a dark silhouette. The face must be clearly visible - three-quarters or in
+  profile - and show strong fear.
+- small: the thing coming out of the monitor is small, thin, half hidden or hard to
+  make out. It must be big and stand out clearly against what is behind it.
+- dark: most of the picture is dark or murky rather than brightly lit.
 Otherwise ok=true. Reply with valid JSON only."""
 
 THUMB_PROMPT = """For each image, in order, return:
 {"results":[{"i":<index>,"ok":true|false,
-"defect":"hands|face|gaze|text|graphic|lookalike|empty|none",
+"defect":"hands|face|gaze|text|graphic|lookalike|empty|back|small|dark|none",
 "note":"<a few words>",
 "face":[x0,y0,x1,y1],
 "score":<1-10, how strongly the image reads as something really coming out of the
@@ -406,4 +412,71 @@ def judge_thumbnails(paths, model=VISION_MODEL):
                       {"ok": bool(r.get("ok", False)), "defect": (r.get("defect") or "none").lower(),
                        "note": r.get("note", ""), "face": r.get("face"),
                        "score": float(r.get("score") or 0)})
+    return out
+
+
+SMALL_SYSTEM = """You see YouTube thumbnails at the size they are shown in search
+results: 336 by 189 pixels. Judge each one exactly as it is, at this size - do not
+imagine a bigger version.
+
+ok=true only when ALL of these are clear at a glance, at this size:
+- a person's face is visible and plainly frightened;
+- something is coming out of a computer screen, and you can tell what it is - an arm
+  or hand, or a face;
+- any words on it can be read.
+If any of the three is a smudge, a guess or unreadable, ok=false and say which.
+Reply with valid JSON only."""
+
+SMALL_PROMPT = """For each image, in order, return:
+{"results":[{"i":<index>,"ok":true|false,"note":"<what is unclear, or 'clear'>"}]}"""
+
+
+def judge_small(paths, model=VISION_MODEL):
+    """{path: {"ok", "note"}} for finished covers already reduced to 336x189.
+
+    The base check judges the photograph at 1024 px, where a thin arm is plainly an
+    arm. The viewer chooses at 336x189, where it can be a smudge. A frame that no
+    one could look at - no key, a quota, a 503 - is not ok: unknown is not clean."""
+    paths = [Path(p) for p in paths]
+    key = llm.get_key(llm.GEMINI_KEY_NAME)
+    if not key:
+        return {p: {"ok": False, "note": "unchecked: no vision key"} for p in paths}
+    out = {}
+    for start in range(0, len(paths), 8):
+        batch = paths[start:start + 8]
+        parts = [{"text": SMALL_PROMPT}]
+        for i, p in enumerate(batch):
+            parts.append({"text": f"image {i}:"})
+            # max_side above the image's own size, so it goes over exactly as seen
+            parts.append({"inline_data": {"mime_type": "image/jpeg", "data": _encode(p, 400)}})
+        payload = {"contents": [{"role": "user", "parts": parts}],
+                   "systemInstruction": {"parts": [{"text": SMALL_SYSTEM}]},
+                   "generationConfig": {"maxOutputTokens": 1024, "temperature": 0.0,
+                                        "responseMimeType": "application/json"}}
+        data = None
+        for attempt in range(RETRIES):
+            _throttle()
+            req = urllib.request.Request(llm.GEMINI_URL.format(model=model),
+                                         data=json.dumps(payload).encode(), method="POST",
+                                         headers={"Content-Type": "application/json",
+                                                  "x-goog-api-key": key})
+            try:
+                with urllib.request.urlopen(req, timeout=180) as resp:
+                    data = json.loads(resp.read().decode("utf-8", "replace"))
+                break
+            except urllib.error.HTTPError as e:
+                if e.code not in (429, 500, 502, 503, 504):
+                    raise
+                time.sleep(4 * (attempt + 1))
+        results = []
+        if data:
+            cand = (data.get("candidates") or [{}])[0]
+            text = "".join(q.get("text", "") for q in cand.get("content", {}).get("parts", [])
+                           if "text" in q)
+            results = llm.extract_json(text).get("results", [])
+        by_i = {r.get("i"): r for r in results}
+        for i, p in enumerate(batch):
+            r = by_i.get(i)
+            out[p] = ({"ok": False, "note": "unchecked: no verdict"} if r is None else
+                      {"ok": bool(r.get("ok", False)), "note": r.get("note", "")})
     return out

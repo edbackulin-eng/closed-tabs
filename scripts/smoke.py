@@ -198,11 +198,33 @@ def thumbnail():
     check("thumbnail (person + creature)", pair.size == (1280, 720)
           and th.readable_small(pair, psize, pbox)[0] and th.safe_clear(pbox))
 
-    # eight prompts, each naming the creature and writing the film lookalike out
+    # eight prompts, each naming the creature, writing the film lookalike out, and
+    # asking for the face to be seen rather than the back of a head
     prompts = th.base_prompts(3301)
     check("thumbnail prompts", len(prompts) == th.CANDIDATES
-          and all("no long black hair" in p and "no white dress" in p for p in prompts),
+          and all("no long black hair" in p and "no white dress" in p
+                  and "never seen from behind" in p for p in prompts),
           f"{len(prompts)} prompts")
+
+    # a number keeps its thousands separator: "80,000" must not become "80" "000"
+    check("thumbnail words", th._words("80,000 VIDEOS") == ["80,000", "VIDEOS"],
+          str(th._words("80,000 VIDEOS")))
+
+    # a dark base comes out lifted to a cover's brightness
+    dark = W / "thumb_dark.png"
+    Image.new("RGB", (1344, 768), (28, 32, 40)).save(dark)
+    lit, _, _ = th.compose(dark, "", 3)
+    check("thumbnail brightened", th.brightness(lit)["mean"] > 60, str(th.brightness(lit)))
+
+    # choose(): every gate is recorded, exactly one winner, and a candidate whose
+    # small-size verdict is missing never counts as a pass
+    picked, rows = th.choose([base, other], {base: {"ok": True, "score": 7},
+                                             other: {"ok": True, "score": 9}},
+                             "80,000 VIDEOS", W / "choose", 4,
+                             small_judge=lambda ps: {ps[0]: {"ok": True}})
+    check("thumbnail choose", picked.exists() and sum(bool(r.get("winner")) for r in rows) == 1
+          and rows[1]["small_ok"] is False and rows[1]["passes_all"] is False,
+          str([(r["file"], r["passes_all"], r.get("winner", False)) for r in rows]))
 
     frames = sorted((W / "stills").glob("*.png"))[:5]
     if len(frames) >= 4:

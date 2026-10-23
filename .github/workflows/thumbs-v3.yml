@@ -1,0 +1,76 @@
+name: thumbs-v3
+
+# v3 covers: the next episode's, plus two samples (scripts/thumbs_v3.py). By hand only.
+#
+# It runs here rather than on a laptop because FLUX's weights sit behind Hugging
+# Face's gated repo and the token is a secret: on 22.10 the same script run locally
+# stopped at a 401. It can be started hours early - the script sleeps inside the
+# runner until the Closed Tabs GPU window opens at 20:00 UTC - so nobody's machine
+# has to stay awake for it.
+#
+# With "ship" set, that episode's best cover becomes its YouTube thumbnail, but only
+# if it passed every check and the video has not gone out yet. Otherwise nothing on
+# the channel changes and the report says why.
+on:
+  workflow_dispatch:
+    inputs:
+      ship:
+        description: episode slug whose best cover goes to YouTube if it passes every check (empty for none)
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  thumbs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360          # the whole wait for the window counts against this
+    env:
+      GEMINI_API_KEY_CT: ${{ secrets.GEMINI_API_KEY_CT }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+      GH_TOKEN: ${{ github.token }}          # lets push.py see whether What If is building
+      PYTHONUTF8: 1
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: System packages
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core
+      - name: Python packages
+        run: pip install -q -r requirements.txt
+      - name: Covers (waits for the window, Kaggle FLUX, Gemini checks)
+        env:
+          SHIP: ${{ inputs.ship }}        # through the environment, never pasted into the script
+        run: |
+          if [ -n "$SHIP" ]; then
+            python -u scripts/thumbs_v3.py --wait --ship "$SHIP"
+          else
+            python -u scripts/thumbs_v3.py --wait
+          fi
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: thumbs-v3
+          retention-days: 7
+          path: |
+            checkpoint/thumbs_v3/sample_*.jpg
+            checkpoint/thumbs_v3/report.json
+            checkpoint/thumbs_v3/*/thumb_*.jpg
+            checkpoint/thumbs_v3/*/thumbnail.jpg
+            checkpoint/thumbs_v3/bases/*.png
+            checkpoint/thumbs_v3/_kernel/report.json
+            checkpoint/thumbs_v3/_kernel/*.log
+      - name: Keep the GPU ledger
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/gpu_ledger.json
+          git diff --cached --quiet && exit 0
+          git commit -m "GPU ledger after thumbs-v3 ${{ github.run_id }}"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 10; done
+          exit 1

@@ -1,20 +1,26 @@
-"""Draw sample covers for the v3 recipe on Kaggle and compose them here.
+"""Draw v3 covers on Kaggle, check them, and ship one if it passes everything.
 
-    python scripts/thumbs_v3.py --dry-run     # print the job, submit nothing
-    python scripts/thumbs_v3.py --wait        # sleep until the GPU window, then run
-    python scripts/thumbs_v3.py               # run now (refused outside the window)
+    python scripts/thumbs_v3.py --dry-run                 # print the job, submit nothing
+    python scripts/thumbs_v3.py --wait                    # sleep until the GPU window, then run
+    python scripts/thumbs_v3.py --wait --ship webdriver-torso
 
-Three episodes, three candidates each, so the samples show three real covers with
-three real word sets rather than one picture three times. A production build still
-draws pipeline.thumbnail.CANDIDATES bases for a single episode.
+Run by .github/workflows/thumbs-v3.yml, where HF_TOKEN, the Gemini key and the
+YouTube token come from GitHub Secrets; from a machine without them FLUX stops at
+Hugging Face's gated repo and nothing can pass the vision checks.
+
+The episode that goes out next gets the full set of candidates; the two after it
+get three each, as samples of how the recipe reads on other stories.
 
 Closed Tabs may only use the GPU between 20:00 and 04:00 UTC (kaggle/gpu_budget.py):
 What If builds in the morning and owns the card until it is done. push.push refuses
 outside that window, and waits for any other channel's kernel to finish before it
-submits.
+submits. --wait sleeps until the window opens, so the job can be started early.
 
-Everything lands in checkpoint/thumbs_v3/: the raw bases, every composed candidate,
-and sample_1..3.jpg - the pick for each episode. Nothing is uploaded to YouTube.
+Everything lands in checkpoint/thumbs_v3/: the raw bases, every composed candidate
+and its 336x189 copy, sample_1..3.jpg - the pick for each episode in order - and
+report.json. --ship SLUG sets that episode's pick as its YouTube thumbnail, but only
+when the pick passed every check (thumbnail.choose's "passes_all") and the video has
+not been published yet. Anything less and nothing on YouTube changes.
 """
 import argparse
 import json
@@ -33,17 +39,18 @@ from pipeline import thumbnail, visualqc  # noqa: E402
 
 log = get_logger("thumbs_v3")
 OUT = ROOT / "checkpoint" / "thumbs_v3"
-EPISODES = ["cicada-3301", "max-headroom-hijack", "unfavorable-semicircle"]
-EACH = 3
+# (slug, candidates). The first is the cover that may ship; the rest are samples.
+EPISODES = [("webdriver-torso", thumbnail.CANDIDATES), ("polybius", 3),
+            ("markovian-parallax", 3)]
 
 
-def plan(episodes=EPISODES, each=EACH):
+def plan(episodes=EPISODES):
     """[(slug, words, prompt)] - every candidate this run will draw."""
     rows = []
-    for slug in episodes:
+    for slug, n in episodes:
         meta = json.loads((ROOT / "queue" / slug / "meta.json").read_text(encoding="utf-8"))
         words = meta.get("thumbnail_words") or meta["name"]
-        for p in thumbnail.base_prompts(sum(map(ord, slug)), each):
+        for p in thumbnail.base_prompts(sum(map(ord, slug)), n):
             rows.append((slug, words, p))
     return rows
 
@@ -96,17 +103,38 @@ def draw(rows, force_window=False):
 def judge(paths):
     """Gemini's verdicts, or an honest blank when the key is not on this machine.
 
-    GEMINI_API_KEY lives in GitHub Secrets, not in the local .env. Without it the
-    samples are still composed - they are for a human to look at - but every row
-    is marked unchecked rather than passed, so nobody reads a missing check as a
-    clean one."""
+    Without the key the samples are still composed - they are for a human to look
+    at - but every row is marked unchecked, and thumbnail.choose never lets an
+    unchecked row pass, so nothing unexamined can be shipped."""
     from core import llm
     if not llm.get_key(llm.GEMINI_KEY_NAME):
         log.warning("%s is not set here; composing without the vision check",
                     llm.GEMINI_KEY_NAME)
-        return {Path(p): {"ok": True, "defect": "unchecked", "note": "no key on this machine",
+        return {Path(p): {"ok": False, "defect": "unchecked", "note": "no key on this machine",
                           "score": 0} for p in paths}
     return visualqc.judge_thumbnails(paths)
+
+
+def ship(slug, entry):
+    """Set the pick as the episode's YouTube thumbnail, if and only if it passed every
+    check and the video is still waiting to go out. Returns a record of what happened."""
+    winner = next(r for r in entry["candidates"] if r.get("winner"))
+    if not winner.get("passes_all"):
+        failed = [k for k in ("ok", "readable", "badge_corner_clear", "bright", "small_ok")
+                  if not winner.get(k, False)]
+        return {"shipped": False, "why": f"the best candidate failed: {', '.join(failed)}",
+                "winner": winner["file"]}
+    episodes = json.loads((ROOT / "state" / "episodes.json").read_text(encoding="utf-8"))
+    ep = next((e for e in episodes if e["slug"] == slug), None)
+    if not ep or not ep.get("youtube_id"):
+        return {"shipped": False, "why": f"{slug} has no YouTube video in state/episodes.json"}
+    when = datetime.fromisoformat(ep["publish_at"].replace("Z", "+00:00"))
+    if when <= datetime.now(timezone.utc):
+        return {"shipped": False, "why": f"{slug} was already published at {ep['publish_at']}"}
+    from pipeline import youtube
+    youtube.attach(ep["youtube_id"], OUT / slug)          # sends OUT/slug/thumbnail.jpg
+    return {"shipped": True, "youtube_id": ep["youtube_id"], "publish_at": ep["publish_at"],
+            "winner": winner["file"], "at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
 
 def main():
@@ -116,6 +144,8 @@ def main():
     ap.add_argument("--force-window", action="store_true",
                     help="submit outside the window anyway (by hand only)")
     ap.add_argument("--bases", help="skip Kaggle and compose from a directory of bases")
+    ap.add_argument("--ship", default="",
+                    help="episode slug whose pick goes to YouTube if it passes every check")
     args = ap.parse_args()
 
     rows = plan()
@@ -127,7 +157,7 @@ def main():
 
     OUT.mkdir(parents=True, exist_ok=True)
     if args.bases:
-        drawn = [(slug, p) for slug in EPISODES
+        drawn = [(slug, p) for slug, _ in EPISODES
                  for p in sorted(Path(args.bases).glob(f"{slug}_*.png"))]
     else:
         if args.wait:
@@ -137,17 +167,25 @@ def main():
     verdicts = judge([p for _, p in drawn])
     words = {slug: w for slug, w, _ in rows}
     report = {"drawn": len(drawn), "episodes": {}}
-    for n, slug in enumerate(EPISODES, 1):
+    for n, (slug, _) in enumerate(EPISODES, 1):
         mine = [p for s, p in drawn if s == slug]
         if not mine:
             continue
         final, rows_ = thumbnail.choose(mine, verdicts, words[slug], OUT / slug,
-                                        sum(map(ord, slug)))
+                                        sum(map(ord, slug)), small_judge=visualqc.judge_small)
         sample = OUT / f"sample_{n}.jpg"
         shutil.copy(final, sample)
+        winner = next(r for r in rows_ if r.get("winner"))
         report["episodes"][slug] = {"words": words[slug], "sample": sample.name,
-                                    "candidates": rows_}
-        print(f"{slug:24} -> {sample}")
+                                    "passes_all": winner["passes_all"], "candidates": rows_}
+        print(f"{slug:24} -> {sample}   passes all checks: {winner['passes_all']}")
+
+    if args.ship:
+        if args.ship not in report["episodes"]:
+            report["ship"] = {"shipped": False, "why": f"no covers were made for {args.ship}"}
+        else:
+            report["ship"] = ship(args.ship, report["episodes"][args.ship])
+        print("ship:", json.dumps(report["ship"]))
     plain = lambda o: o.item() if hasattr(o, "item") else str(o)  # noqa: E731
     (OUT / "report.json").write_text(
         json.dumps(report, indent=1, ensure_ascii=False, default=plain), encoding="utf-8")
