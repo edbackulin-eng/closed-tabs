@@ -49,9 +49,9 @@ def shared_gpu():
     import gpu_shared
     ok = (gpu_shared.channel_of("u/whatif-main") == "whatif"
           and gpu_shared.channel_of("u/closedtabs-stills-a") == "closedtabs"
-          and gpu_shared.channel_of("u/prehistoric-recon") == "prehistoric"
+          and gpu_shared.channel_of("u/prehistoric-recon") is None
           and gpu_shared.channel_of("u/other") is None
-          and gpu_shared.CHANNELS["whatif"] < gpu_shared.CHANNELS["closedtabs"] < gpu_shared.CHANNELS["prehistoric"])
+          and gpu_shared.CHANNELS["whatif"] < gpu_shared.CHANNELS["closedtabs"])
     check("shared GPU lock", ok)
 
 

@@ -152,7 +152,7 @@ def whatif_building():
 
 
 def busy_kernels():
-    """Refs of kernels of ANY channel (What If, Closed Tabs, prehistoric) that
+    """Refs of kernels of ANY channel (What If, Closed Tabs) that
     are queued, running, or whose status could not be read. Shared with the
     other channels through kaggle/gpu_shared.py."""
     import gpu_shared

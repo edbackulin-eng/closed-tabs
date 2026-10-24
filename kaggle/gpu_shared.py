@@ -1,9 +1,10 @@
-"""One GPU, three channels: the shared view and lock for the Kaggle account.
+"""One GPU, two channels: the shared view and lock for the Kaggle account.
 
-The same file lives in kaggle/ of all three repositories (what-if, closed-tabs,
-prehistoric-channel); change it in all three, each through its smoke test.
+The same file lives in kaggle/ of what-if and closed-tabs; change it in both,
+each through its smoke test. The prehistoric channel moved its GPU work to
+Modal on 24.10 and no longer uses this account's GPU or its weekly hours.
 
-What it gives every channel before it submits a kernel:
+What it gives each channel before it submits a kernel:
   busy_kernels()   kernels of ANY channel that are queued or running. Only
                    kernels run in the last 12 h are asked about (a status call
                    is ~6 s each), every call has a time-out, and an answer that
@@ -14,12 +15,12 @@ What it gives every channel before it submits a kernel:
                    moment proves nothing).
   after_push()     the race two channels can still lose - both see a free GPU
                    and push within seconds of each other (it happened on
-                   18.10, 15 s apart). Priority decides: What If > Closed Tabs
-                   > prehistoric, and between equals the later push yields. The
+                   18.10, 15 s apart). Priority decides: What If > Closed Tabs,
+                   and between equals the later push yields. The
                    yielding channel deletes its own queued kernel and waits
                    again; What If never yields.
   week_hours()     GPU hours of all three channels over the last 7 days:
-                   Closed Tabs and prehistoric from their published ledgers,
+                   Closed Tabs from its published ledger,
                    What If measured from its kernels' logs (see closed-tabs
                    kaggle/gpu_budget.py for why it is measured that way).
 """
@@ -31,11 +32,10 @@ import time
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-CHANNELS = {"whatif": 0, "closedtabs": 1, "prehistoric": 2}     # lower = higher priority
+CHANNELS = {"whatif": 0, "closedtabs": 1}     # lower = higher priority
 WEEKLY_LIMIT_H = 25.0
 LEDGERS = {
     "closedtabs": "https://raw.githubusercontent.com/edbackulin-eng/closed-tabs/main/state/gpu_ledger.json",
-    "prehistoric": "https://raw.githubusercontent.com/edbackulin-eng/prehistoric-channel/main/state/gpu_ledger.json",
 }
 RECENT_H = 12
 CALL_TIMEOUT_S = 120
