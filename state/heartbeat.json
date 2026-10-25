@@ -1,6 +1,6 @@
 {
  "date": "2026-10-25",
- "checked_at": "2026-10-25T10:04:42Z",
+ "checked_at": "2026-10-25T10:19:50Z",
  "scheduled_ahead": [
   [
    "2026-10-26T17:00:00Z",
@@ -8,6 +8,6 @@
   ]
  ],
  "actions": [
-  "run 40138422983 failed 3 times; resume-episode started"
+  "only 1 scheduled ahead; waiting for 15:00 UTC to build"
  ]
 }
