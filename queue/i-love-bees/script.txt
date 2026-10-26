@@ -1,0 +1,262 @@
+> In 2004, a small website about honey and beekeeping appeared to be hacked.
+> Within weeks, thousands of strangers around the world were standing next to payphones, waiting for them to ring.
+< And when the phones rang, somebody was on the line.
+Somebody who had never heard of most of them.
+> So who built it? Why did it work? And what was the machine trapped inside that website?
+> The answer is coming. But first, the clues.
+[pause 0.7]
+
+> Start with the honey.
+Jars of honey began arriving in the mail.
+Not for everyone. For people who had already played something called an alternate reality game.
+> That is a story told through the real world. Websites, phone calls, emails, anything that can carry a clue.
+Inside each jar, a letter.
+The letter pointed to a website, and to a countdown.
+> The site was called ilovebees dot com.
+< At first glance, it was exactly what it sounded like. A site about honey sales and beekeeping.
+Except it was broken.
+> Random characters everywhere. Sentence fragments. Pages that did not make sense.
+There was also a weblog.
+> The woman who ran the site, Dana, wrote that something had gone wrong.
+Her site had been hacked.
+[pause 0.5]
+
+Now here is where it gets strange.
+At around the same time, a second trail was running somewhere else entirely.
+> Theatrical trailers for a video game called Halo 2.
+At the end, the Xbox logo appeared, and a web address.
+< And for a split second, that address flashed a link to ilovebees dot com.
+Just a flash.
+> Blink and you missed it.
+Many people did not blink.
+> The two trails, the honey and the trailer, were not publicly connected for several weeks.
+But curious people found the site from both directions.
+> And they did what curious people do on the internet. They shared the link.
+
+< Here is the part I cannot get over.
+Nobody told them what the game was.
+> There was no rulebook. No instructions. Little or no direction at all.
+Just a damaged website, and a crowd.
+And the crowd decided it was a mystery that could be unraveled.
+[pause 0.6]
+
+> So how many people showed up?
+One account says two hundred and fifty thousand people viewed the site when it launched in July 2004.
+> More than five hundred thousand came back every time the pages were updated.
+Over three months, accounts say more than three million visitors.
+Another count puts it at between two and three million unique visitors.
+> So the exact number is a little fuzzy. But the scale is not.
+< Millions of people, watching a fake hacked beekeeping site.
+
+But watching is not playing.
+> Roughly nine thousand people took part in the real-world side of the game.
+And the real world is where it gets weird.
+> That was not the strangest part. Not yet.
+
+Let me set the scene.
+Imagine it is early morning. You are at a bus stop.
+> A payphone beside you starts to ring.
+It rings for three minutes.
+You pick it up.
+A man's voice, in a panic. He calls you Jim.
+> "Run home and destroy the documents. Be sure there is nothing left."
+Then he hangs up.
+Next day, same time, same phone. Same message.
+> One journalist wrote about exactly that kind of encounter, and what happens next.
+You search for the phone number online.
+You find a discussion board.
+And you realise you have stumbled into a mystery spanning thousands of payphones around the world.
+That was a journalist's imagined scenario. But it was built on how the game really worked.
+[pause 0.7]
+
+So what was behind the calls?
+> Here is the puzzle the game handed to its players.
+< Two hundred and ten pairs of GPS coordinates. Each one with a time code.
+No explanation. No hint about what the places were.
+> Just numbers.
+Think about that for a moment.
+> Where would you even begin?
+The players worked it out.
+> The coordinates were payphones.
+The time codes were the moments those phones would ring.
+< Two hundred and ten of them.
+A global scavenger hunt, where the prize for arriving on time was a ringing phone.
+
+And some of those calls were not recordings.
+> Some were made by a live person, known as the Operator.
+She could talk back.
+> The players could interact with the characters in spontaneous, and sometimes funny, ways.
+Which brings me to a story one of the designers told afterward.
+[pause 0.6]
+
+A live call went out to a payphone in Texas.
+> A player picked up.
+The player tried to impress the Operator.
+> Said they could play the guitar.
+The Operator asked for a demonstration.
+And the player explained the guitar was locked in a car, on the other side of a building. Too far to fetch.
+< Back at the control room, one of the designers typed a single line to the Operator.
+> "Make him run."
+She said it. Put the phone down and go get your guitar. Run.
+Then the team heard a clank, as the receiver dropped against the payphone.
+> And the sound of sandals on concrete, fading into the distance.
+The designer said they all waited on mute. No idea what would happen next.
+He pictured the lawsuit paperwork. A tripped player. A smashed guitar. A smashed payphone.
+> About ninety seconds passed.
+Ninety seconds of silence feels very long.
+Then, footsteps. Getting louder. Faster.
+Fumbling, as the player lifted a dangling payphone while clutching a guitar, after what the designer described as a two hundred yard sprint.
+> "Operator?"
+< And then the player played Pink Floyd. "Wish You Were Here."
+The designer said you could feel the smiles breaking out across the muted phone lines in cities up and down the west coast.
+[pause 0.8]
+
+> But hold on.
+Why did anyone answer a ringing payphone in the first place?
+And what did the callers say?
+The designers had a worry.
+> Some of the calls included the sound of gunfire.
+Imagine a passer-by picking up a payphone and hearing that.
+So the designers set up passwords.
+< The caller had to repeat a password before the story would play.
+That way, anyone who was not in the game would not be frightened.
+> Small detail. But it tells you how seriously they thought about the real world.
+
+That real world was not always friendly.
+> One player stayed by a payphone while Hurricane Frances was only minutes away.
+Why?
+To recite answers to prerecorded questions.
+> Minutes away from a hurricane.
+That is commitment. Or it is madness. Maybe both.
+
+Now. The story itself.
+What was actually going on inside that website?
+> Here is the plot, as the audio chapters told it.
+A military spaceship crashes to Earth.
+It leaves its controlling artificial intelligence damaged.
+The AI goes by two names, the Operator, or Melissa.
+> She is not alone. Other AI programs share her system.
+To survive, and to reach any allies who might still be alive, she moves herself onto a web server in the San Francisco area.
+< A server that happens to host a bee enthusiast website.
+That is the "hack."
+Her signals showed up as codes, hidden in images and text, and they corrupted the site.
+> That is why the page looked broken.
+Dana, the webmaster, tried to fix it.
+She accidentally erased part of Melissa's memory.
+Melissa was furious.
+> She grabbed pictures of Dana through her own webcam, and promised revenge.
+Dana announced she was leaving, and took a planned trip to China earlier than expected.
+[pause 0.6]
+
+> Then came the memory dumps.
+Pieces of Melissa's history spilling onto the site.
+And inside her, a malicious Trojan horse.
+A virus, called the Pious Flea.
+> Every AI contains a program called SPDR. The Spider.
+It tried to erase the Flea.
+It was outwitted. Melissa erased the Spider instead.
+< The Flea kept rewriting her.
+In the end it was revealed to be something else. An espionage AI. The Seeker. Built by the Covenant.
+> Players had not been solving a game about bees. They had been rescuing a mind.
+How did they get her back?
+Each time players completed tasks, a new installment of an audio drama was released.
+> And that drama explained why the site was broken.
+In the story, the heroes break into a secure military installation.
+They deactivate a Forerunner device, which is implied to begin the firing sequence of the Halo installations.
+But there was a price.
+> A powerful energy transmission, alerting the Covenant to where Earth is.
+Melissa, whole again, sees how the Flea manipulated her.
+And the story ends with the Covenant invading Earth.
+< Which matches a major plot point in Halo 2.
+[pause 0.7]
+
+> So, who made this?
+The designers were a company called 42 Entertainment.
+Its founder, Jordan Weisman, was a former creative director of Microsoft's Xbox division.
+> They had done this before.
+Their earlier game, The Beast, promoted a Steven Spielberg film, A.I., in 2001.
+One of its creators said the name came from his estimate that the game had about six hundred and sixty six images.
+> The marketing connection was almost excused, because players loved it.
+This time, Microsoft, the publisher of Halo 2, commissioned it.
+> And here is a detail that surprises people.
+The developers of Halo 2 were busy making Halo 2.
+So they could not help with the story.
+< The tale was only loosely tied to the main Halo plot.
+Originally, it was not considered canon.
+> That changed. In a 2006 interview, a Bungie content manager said it was part of things they embrace as canon.
+Later official books referred back to it.
+
+Now the question you have been waiting for.
+> Why payphones?
+The designers first conceived the project as a radio drama.
+A marketing director said the similarity to War of the Worlds was intentional.
+> They wanted to stay true to the tradition of Orson Welles.
+And the payphones were a way to excite the players.
+Weisman put the ambition like this.
+< "If we could make your toaster print something, we would. Anything with an electric current running through it."
+A game, he said, that is life itself.
+[pause 0.8]
+
+> And the game kept growing.
+Players were sent emails.
+They were called on their cell phones.
+> They travelled to arranged meetings between players and characters.
+Then came the finale.
+Players were invited to one of four cinemas.
+> A chance to play Halo 2 before its release, and to collect a commemorative DVD.
+Think about what that means.
+< Strangers, who had never met, who learned the game together, finally in a room.
+
+Did it work?
+> A game analyst said it did what it was designed to do.
+Everyone started instant messaging about it, he said, and checking out the site.
+A former editor at a gaming magazine said it got gamers and other consumers talking about the universe of Halo.
+> It also reached mainstream press, not only gaming publications.
+Players were varied, too.
+The target was younger males.
+But one player noticed that even middle-aged men and women were involved.
+> Some players had no experience with Halo before they joined.
+And there was a moment during a televised presidential debate.
+A group of students in the audience held up a giant poster of a bee.
+< To the players, it was a rallying point.
+On national television, in front of millions, a signal only they understood.
+
+The awards followed.
+> The design team received an Innovation Award at the fifth Game Developers Choice Awards.
+And a Webby Award, in the Game-Related category.
+Its legacy was bigger than that.
+> A British newspaper said that before this, alternate reality games seemed destined for the dustbin of nice ideas that never caught on.
+Then broadband spread. Interest in codes returned.
+And I Love Bees became wildly successful.
+> Marketers who feared the cost of failure relaxed.
+Other developers wanted their own.
+Bungie later used another one, called Iris, for Halo 3.
+An author called it an example of collective thinking.
+> After the puppet masters began, he said, it showed the traits of a mass movement.
+Propelled by collective enthusiasm, in a matter of weeks.
+Years later, an artist who pioneered the Vaporwave genre said that it was a deep influence.
+> Hacked websites. Online communities. Real-world tasks. A blur between reality and fiction.
+[pause 0.7]
+
+So, what was it, really?
+Here is the best explanation.
+< It was a marketing campaign for a video game.
+Built to look like a broken beekeeping site.
+> Designed by people who had learned how to hide a story in the real world.
+One of those designers explained his rule.
+> Challenge people's perception of reality, without shaking the foundations of their world.
+He said they avoided stories about terrorism or bombs, because people would stop suspending disbelief.
+> So instead, they asked players to believe something harmless but absurd.
+That a future AI with a bee fetish was slowly going insane.
+< And it was enough.
+Here is the weak point in the tidy explanation.
+Accounts differ on small things. Visitor counts. Whether calls reached payphones across the United States, or around the world.
+> But no account disputes the central fact.
+Thousands of people really did stand by payphones.
+And the phones really did ring.
+Maybe the strangest part is not the technology.
+> It is that nobody was forced.
+They came because a website looked broken, and they wanted to fix it.
+
+> If you enjoy stories like this, subscribe to Closed Tabs.
+I will see you at the next one.
