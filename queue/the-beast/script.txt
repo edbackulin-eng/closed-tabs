@@ -1,0 +1,237 @@
+> Look at the credits on a movie poster in early 2001.
+> Among the real names, there is one that does not belong.
+< Jeanine Salla. Sentient machine therapist.
+[pause 0.7]
+> She did not exist. There was no such job. And yet that single line opened a door.
+> Behind it were more than forty websites, a murder set in the year 2142, and a crowd of strangers who would spend a whole summer trying to solve it.
+< No one told them it was a game.
+> So who put the credit there? Why did a studio hide a story inside its own advertising?
+> And how did one fake name end up on the real credits of a Steven Spielberg film?
+> The best explanation is coming. But first, you have to find the door.
+
+[pause 0.4]
+
+plain Start with the film.
+plain It was called A.I. Artificial Intelligence. It came out on June 29, 2001.
+plain A studio wants people to buy tickets. That is normal. You make a trailer. You print a poster.
+< This time, someone made a trailer and a poster that were also puzzles.
+> The project was called The Beast.
+> It was an alternate reality game, built by Microsoft to promote the film.
+> One account says the game's creators called each way in a "rabbit hole." There were three of them.
+> Rabbit hole one: the credit itself. Trailers and posters listed Jeanine Salla as the production's "sentient machine therapist."
+> Rabbit hole two: a phone number hidden in another trailer. Call it, and it eventually led to Jeanine.
+> Rabbit hole three: a promotional poster sent to technology and entertainment media.
+< It carried a code. It read: "Evan Chan was murdered. Jeanine is the key."
+[pause 0.7]
+plain Murdered. Who was Evan Chan?
+plain Nobody you could look up in 2001. He lived in the future.
+
+[pause 0.4]
+
+plain The story was set in 2142, roughly forty years after the events of the film.
+plain Evan Chan was said to have died in a boating accident.
+plain His boat was run by artificial intelligence. Its name was Cloudmaker.
+> Remember that name. It matters later.
+plain Then Dr. Jeanine Salla receives a cryptic message. Evan was not an accident victim. He was murdered.
+> She starts investigating.
+plain She learns that a companion bot named Venus had been reprogrammed to kill him.
+> Then the cover-up begins. And a cover-up needs more cover-ups.
+< More humans die. More artificial intelligences die.
+plain Meanwhile, in that same future, a law called the Mann Act is brought before the legislature and the president.
+plain It ends up in a public vote. The question: should artificial intelligence be treated as equal to human citizens?
+> A murder mystery, wrapped around a civil rights fight, for machines.
+> And you could only reach it through a movie advertisement.
+
+[pause 0.4]
+
+plain The game went live on March 8, 2001.
+plain So the internet must have exploded, right?
+< It did not.
+[pause 0.5]
+plain In the first few weeks, only roughly one hundred players found it.
+> One hundred.
+> A studio had built an enormous machine, and almost nobody had noticed.
+plain Why? Look at how it was hidden.
+> There was no logo. No "play now" button. No announcement.
+plain The websites were built by Warner Bros., but they were registered under fake names.
+plain Various individuals with the surname Ghaepetto.
+> That is a nod to Geppetto, the puppet maker in Pinocchio.
+plain The registrations also used fake phone numbers and fake addresses.
+< The point was to keep anyone from linking the sites to the film.
+plain Microsoft, too, initially denied any involvement.
+plain One account says this was believed to be part of keeping the mystery intact.
+> So the trail was real. The paperwork was fake. And almost no one was looking.
+> Then, in April, somebody gave it a push.
+
+[pause 0.4]
+
+plain The founder of a film news site called Ain't It Cool News received an email.
+plain It came from someone calling himself "claviusbase."
+> That is a reference to 2001: A Space Odyssey.
+plain The message urged him to search the internet for Jeanine Salla.
+> He did.
+plain He found numerous websites, all registered to the same IP address.
+plain One belonged to a Bangalore World University, supposedly founded in 2028.
+< It claimed to be Jeanine's employer.
+[pause 0.5]
+plain On April 11 he posted an article about what he had found.
+plain CNN stated that it was believed to be the first article written about the game.
+> What happened next?
+< On that one day, 25 million hits poured onto The Beast's websites.
+> Twenty-five million. In a day.
+plain Over the next two months, the news site collected more than 22,000 messages about the game.
+> A hundred players had become a crowd.
+> But a crowd of strangers needs somewhere to meet.
+
+[pause 0.4]
+
+plain The place they chose was a Yahoo! Group. They called it Cloudmakers.
+> Named after Evan Chan's boat.
+plain Before the film opened, 4,500 to nearly 5,000 users were registered to its message board.
+plain Another account, from a player, remembers about 6,000 people on the mailing list.
+> The numbers disagree. And the total number of players was never certain.
+plain But the group was said to include a majority of them.
+plain Its founder said in June 2001 that the list was generating tens of thousands of messages every week.
+< Tens of thousands. Every week. About a fictional murder.
+[pause 0.5]
+plain Now here is something that should not work.
+plain Games are normally finished before you play them.
+< The Beast was not.
+plain The game was being developed as it was played.
+> Most players arrived when the plotlines were already fixed.
+> But the Cloudmakers were on the cutting edge, pushing the designers, shaping the plot.
+plain Warnings and messages that members sent to characters in the story regularly turned up in the plot.
+plain Designs, blueprints and databases the group produced were referenced by in-game websites and magazines.
+plain Some were even featured on them.
+> The audience was writing back. And the story was listening.
+> Was that the strangest part?
+< Not even close.
+
+[pause 0.4]
+
+plain The clues did not stay on the internet.
+plain They were scattered through trailers, print ads, posters and telephone messages.
+plain And live events for the film.
+< And graffiti in public restrooms, in major cities across the United States.
+> Think about that.
+> A person with no idea what was happening could walk into a stall and read a clue.
+plain Online, the story arrived in text, photographs, video and audio.
+plain One player later described it as an experience that overlapped the real and the virtual world.
+plain He said there were multiple mysteries and dozens of subplots, all linked by fake websites, text messages, pictures and videos.
+[pause 0.5]
+plain In May, the film's team held a presentation at the Massachusetts Institute of Technology.
+plain The film's producer, Kathleen Kennedy, was there with actor Haley Joel Osment.
+plain A question came from the audience.
+plain It was about what it was like to work with Jeanine Salla.
+< The audience member was presumably planted.
+[pause 0.5]
+plain Kennedy took the question. She answered it as if Jeanine were real.
+plain Afterward, she handed out business cards for Jeanine.
+> Each one contained another clue.
+plain Later that month came the "Anti-Robot Militia" rallies, in New York City, Chicago and Los Angeles.
+plain Actors pretended to protest artificial intelligence.
+> A protest. About a law. In a future that had not happened.
+> On a real street. In front of real people who did not know.
+
+[pause 0.4]
+
+plain The scale kept growing.
+plain One count says over forty websites. Another says fifty, with about one thousand pages in total.
+> Sources differ on the exact number. Either way, it was enormous.
+plain Players had to solve problems that no single person could.
+plain Near the end, there was a puzzle that required understanding lute tablature.
+> That is a notation for a very old stringed instrument.
+> Somebody in the crowd knew it, or found someone who did.
+< And the Cloudmakers cracked it.
+plain Afterward, the designers admitted something.
+plain They had relied on the huge store of knowledge among the Cloudmakers and other player groups.
+> They had to build puzzles hard enough to stop a crowd with that much knowledge.
+plain A smaller group called SphereWatch was also folded into the story.
+plain Its efforts, too, appeared in the game.
+> The game had a name for the people who made it.
+< The Puppetmasters.
+
+[pause 0.4]
+
+plain Who were they?
+plain The concept came from Jordan Weisman.
+plain Elan Lee developed and designed it.
+plain Science fiction writer Sean Stewart was brought in as head writer.
+plain And Pete Fenlon, producer and content lead, was the fourth.
+plain Beneath them worked a larger creative team.
+> They did not stay quiet for long.
+plain The three of them, along with others from The Beast, later founded a company called 42 Entertainment.
+< Its specialty: alternate reality games.
+[pause 0.5]
+plain And remember the strange credit on the poster?
+plain It was not the only one.
+plain Jeanine Salla and other characters from The Beast are listed in the film's closing credits.
+plain The four original Puppetmasters were finally revealed and credited there as well.
+> They hid more game clues in those credits too.
+< So the fake name was never removed. It was printed in the film itself.
+
+[pause 0.4]
+
+plain Why would a studio do all this?
+plain The film's producer gave one answer.
+plain The game did not directly reference the film.
+plain Its intention was to develop the film's fictional setting.
+plain And to make a foundation for a series of video games, released over five years.
+plain She described it as part of a "very elaborate long term project with Microsoft and Xbox."
+> So it was not just an advertisement. In theory, it was a first chapter.
+> The game was meant to end on June 29, the day the film opened.
+< It did not.
+plain It kept running throughout the summer.
+> So what happened to the movie?
+
+[pause 0.4]
+
+plain Here is the part that stings.
+plain The Los Angeles Times called it "one of the most elaborate movie promotions ever conceived."
+plain "Unprecedented even by Hollywood standards."
+plain The Atlantic calls it the "first truly successful alternate reality game."
+plain Polygon said it was the first of its kind.
+< But it did not sell the movie.
+plain Despite its success, the game failed to draw an audience to A.I.
+plain The film's domestic gross was less than its budget.
+[pause 0.5]
+plain The Ain't It Cool News founder had a theory about the pressure.
+plain He believed the game's popularity pushed Spielberg and the studio to deliver a film innovative enough to match.
+plain He thought the production's secrecy had raised expectations.
+> That is one man's opinion. The sources do not settle it.
+plain He also compared the campaign to the marketing for The Blair Witch Project.
+plain He felt Blair Witch was more successful, because the concept had broader appeal.
+plain And the footage lasted longer.
+
+[pause 0.4]
+
+< So here is the best-supported answer.
+plain The question was: why did a hidden credit open the first great alternate reality game?
+plain Because the game had to begin in a place nobody would think to look.
+plain Not an ad for a game. A credit, on a poster, for a job that did not exist.
+plain The designers did not want the game to be found like a product.
+plain They wanted it found like a secret.
+plain The fake registrations, the denied involvement, the restroom graffiti: all of it served that one idea.
+> And it worked, but slowly.
+> A hundred players. Then one email. Then one article. Then twenty-five million hits.
+[pause 0.5]
+plain What are the weak points?
+plain We do not know how many people really played.
+plain The website counts disagree.
+plain And no source here proves the game changed how many tickets were sold.
+plain But we do know what it left behind.
+plain One player said that most of the people on that mailing list later became game designers.
+plain He said the game was incredibly influential for almost a generation.
+< That is one person's view, but it fits the history.
+plain In March 2022, The Beast received a Legacy Peabody Award in the Digital and Interactive category.
+
+[pause 0.4]
+
+> Think about it.
+plain Twenty years later, a fake therapist got an award.
+plain Her murder case is still unsolved in the real world, because it never happened.
+< But the people who solved it were real.
+> And the doors they walked through are still being built.
+[pause 0.5]
+plain If you enjoyed this one, subscribe to Closed Tabs.
+plain There are more doors like this.
