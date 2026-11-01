@@ -1,0 +1,279 @@
+< A radio station has been buzzing, around the clock, since before the internet existed.
+< It has been interrupted. It has been jammed. It has been hijacked to play Swan Lake.
+< And no missiles have ever flown.
+[pause 0.7]
+> So what is it for?
+> There is a best-supported answer. But it has holes in it.
+> And the strangest night in this story happened very recently.
+[pause 0.5]
+plain Let's start with what you would hear.
+plain Tune a shortwave receiver to 4625 kilohertz.
+plain Upper sideband mode.
+< And you hear a buzz.
+plain Short. Harsh. Monotonous.
+plain Roughly twenty-five of them every minute.
+plain Day and night.
+> One account puts each buzz at about one point two seconds, with a pause of up to a second and a bit between them.
+> The rate can drift anywhere from twenty-one to thirty-four a minute.
+plain Then it just repeats.
+plain And repeats.
+[pause 0.4]
+plain Listeners nicknamed it "the Buzzer."
+plain In Russian, "Zhuzhzhalka."
+> The same word, basically. A thing that buzzes.
+plain And it has no official owner.
+< Its purpose has never been confirmed by any government or broadcast official.
+[pause 0.7]
+> How old is it?
+plain The earliest preserved recording dates to 1982.
+plain Someone, somewhere, was listening to Soviet-era shortwave bands.
+plain They captured that same tone on that same frequency.
+< And at that time, nobody knew who was sending it, or from where.
+> Hold onto that. We will come back to where.
+[pause 0.5]
+plain For its first years, the buzz was all there was.
+plain A tone. No words. No name.
+< Then, in 1997, it spoke.
+[pause 0.7]
+plain A live voice, in Russian, broke into the buzz.
+plain It read out a callsign.
+plain That was the first known voice broadcast.
+> And it is how listeners finally learned the station's callsign, and where it was.
+plain The callsign was U, Z, B, seventy-six.
+< Not U, V, B.
+plain That is the part almost everybody gets wrong.
+> The name the whole world uses, UVB-76, was never used by the station itself.
+> It is a mistranscription. A mishearing.
+< The most famous name in this story is a typo.
+[pause 0.7]
+plain From 1997 to 2010, the station called itself UZB-76.
+plain After that, the main callsign began changing regularly.
+> And there were side callsigns too, used less often.
+> Whenever the main one changed, every old side callsign was thrown away.
+plain Somebody, somewhere, was keeping track of all this.
+plain Somebody was managing it.
+[pause 0.5]
+> Now. What do the voice messages actually say?
+plain They always come from a live voice.
+plain Always in Russian.
+plain And they follow three fixed formats.
+[pause 0.4]
+plain The first is called Monolith.
+> Callsigns, each read out twice.
+> Each callsign is four symbols, a Russian letter or a digit.
+> Then five-digit ID groups.
+> Then message blocks, each one a code word and eight digits.
+plain The most common version has exactly one of each.
+[pause 0.4]
+plain The second is called Uzor.
+> Callsigns again, read twice.
+> Then blocks of a code word and just four digits.
+plain After 2023, Uzor messages became rare.
+[pause 0.4]
+plain The third is Komanda.
+plain The rarest.
+> A callsign, read twice. Then a fixed phrase.
+< "Command announced."
+> Followed by a number.
+plain Nobody has heard one in years.
+plain Which may mean the format is no longer used.
+[pause 0.7]
+< But that was not the strangest part.
+> Because every so often, the mask slips.
+[pause 0.5]
+plain Listeners have noticed something behind the buzz.
+plain Distant conversations. Background noises.
+> Which suggests the tone is not generated inside a machine and sent straight out.
+< It suggests a device sitting near a live, open microphone.
+plain Because the pitch of the buzz sometimes wavers, one idea is a tonewheel.
+plain The same kind of part used in a Hammond organ.
+plain Or perhaps a microphone was switched on by accident.
+[pause 0.4]
+plain On the third of November, 2001, that seems to have happened.
+plain A conversation in Russian came over the air.
+plain Not a code. Just people talking.
+> A glimpse of a room.
+> Then the buzz returned.
+[pause 0.7]
+plain Then 2010 arrived.
+> And 2010 was a year of changes.
+plain Before June, one minute before every hour, the buzz stopped.
+plain It was replaced by a continuous alternating tone, for one minute.
+plain Then the short buzz resumed.
+> In June 2010, that habit ended.
+plain In September 2010, something odd.
+plain Portions of the buzz were replaced.
+< With excerpts from Tchaikovsky's Swan Lake.
+[pause 0.5]
+plain And in September 2010 the transmitter moved.
+plain Until then, it had stood near a place called Povarovo.
+> About ten kilometres northwest of Moscow.
+> Near the village of Lozhki.
+plain After the move it stood near Saint Petersburg.
+plain Near a place called Kerro Massiv.
+plain The reason isn't known.
+plain One possibility is a reorganization of the Russian military.
+> In November 2010, the length of each buzz changed too.
+> From roughly point eight of a second, to the longer tone.
+[pause 0.7]
+< Here is the part that pulls you in.
+plain In 2011, a group of urban explorers claimed to have found the old site.
+plain An abandoned military base.
+> And inside it, a radio log record.
+< Confirming a transmitter had operated at 4625 kilohertz.
+[pause 0.5]
+plain One visitor's account from the following year describes the place.
+plain A bunker under the ground, with only a small entrance above.
+> A maze of dark corridors and rooms.
+> Water on the floor, frozen into ice like glass.
+> Generators somewhere in the dark. Still humming.
+plain A map of the military town on a wall.
+plain Instructions for staff.
+> Fittings ripped out. Soot on the walls.
+plain It sounds like a place that was abandoned in a hurry.
+plain Or simply a place that nobody wanted anymore.
+< And the buzz had already moved on.
+[pause 0.7]
+plain It did not stay in Saint Petersburg either.
+plain Since the ninth of August, 2015, it has not broadcast from Kerro Massiv.
+plain Possibly another reorganization.
+> At present, it seems to come from a communication hub in Naro-Fominsk.
+> That is in the Moscow region.
+plain Not proven. Just "appears to."
+[pause 0.7]
+> So. Who is it for?
+> Let's go through the suspects.
+[pause 0.5]
+< Suspect one. The doomsday machine.
+plain You may have heard the nickname "Doomsday Radio."
+plain A BBC article described a theory.
+> The tower is linked to Russia's Perimeter missile system.
+> It sends a "dead hand" signal.
+> And if that signal stops, because of a nuclear attack, a retaliation begins.
+plain It's a chilling idea.
+< And it has a problem.
+plain The signal has been interrupted and stopped many times.
+plain It breaks down. It is switched off for maintenance.
+< No retaliation has ever been launched.
+plain The station is also not connected to the Dead Hand system.
+[pause 0.7]
+< Suspect two. A numbers station.
+plain Spy radio.
+plain Numbers read out over shortwave, for agents in the field.
+plain That could be the FSB, or the old KGB.
+plain And the Buzzer does read out strings of digits.
+> But some consider this unlikely.
+> The messages come at seemingly unpredictable times.
+> The frequency never changes.
+> And the transmitter power is low.
+< Likely unsuitable for reliable long-range communication.
+[pause 0.7]
+< Suspect three. A science experiment.
+plain A paper in the Russian Journal of Earth Sciences described an observatory.
+> It measures changes in the ionosphere.
+> By broadcasting a signal on 4625 kilohertz.
+plain The very same frequency.
+plain But that speculation does not explain the voices.
+plain Why would an observatory read out code words?
+[pause 0.7]
+< Suspect four. The military's own wire.
+plain A former Lithuanian minister of communications has written a view.
+> The voice messages are there to confirm that operators at receiving stations are alert.
+plain Another explanation is that military commissariats listen constantly.
+plain And what is the buzz itself?
+> A channel marker.
+> A sound to keep the frequency occupied.
+> To make it unattractive to anyone else.
+plain The tone could help tune an old analogue receiver.
+plain A mechanical detector, like a tuning fork, could pick it up.
+> That can silence the receiver's noise, and trigger an alarm if the signal ever drops.
+< A tripwire for a lost connection.
+[pause 0.7]
+> The best-supported theory?
+< A military command network for the Leningrad Military District.
+plain That is the answer with the most behind it.
+plain But look at the holes.
+> The purpose has never been confirmed.
+> The station has moved, and may no longer serve that district.
+> And the codes have never been decoded in public.
+plain There are other Russian stations like it.
+plain One nicknamed "The Pip."
+plain One nicknamed "The Squeaky Wheel."
+plain Same pattern. A constant sound. Rare coded voices.
+< So the Buzzer may be one of a family.
+[pause 0.7]
+< But the story did not end there.
+> Because the frequency started getting crowded.
+[pause 0.5]
+plain Fifteenth of May, 2020.
+plain Unknown French-speaking voices came over the air.
+plain In January 2022, a stranger sent signals.
+< Images, encoded into the sound, visible on a spectrum analyzer.
+plain There were reports of songs.
+> Many tied to internet memes.
+> Including the 2012 K-pop hit "Gangnam Style."
+plain A Vice article blamed pirates, hijacking and spamming the frequency.
+plain And questioned the pirates' nationality.
+> Against the backdrop of the Russo-Ukrainian crisis and war.
+[pause 0.7]
+< Then came May 2024.
+plain Night of the fourth of May. Twenty-one thirty-eight, Moscow time.
+plain The buzzer was not active.
+plain Perhaps on standby.
+plain An unknown Russian-speaking pirate got on the frequency.
+< And tried to talk to the station.
+plain They asked a series of improvised questions.
+< And the operator answered.
+plain Briefly, a conversation.
+[pause 0.7]
+plain One day earlier, according to the account, something else happened.
+plain An unknown pirate, possibly the same one, tried to interfere.
+> The on-duty operator reacted at once.
+> Three transmitters at once. One above 4625, one below, one at the centre.
+> Bursts, digital audio, tones in several states.
+> Together, a dense wall of signal.
+< Operators, the account says, frantically fought back.
+plain For around half an hour.
+plain Until the pirate gave up.
+> And the buzzer came back on.
+[pause 0.7]
+plain Think about what that means.
+plain Somebody was sitting there.
+< A live operator. Watching. Ready to answer.
+plain That is not a machine on a timer.
+[pause 0.7]
+> And the story kept moving.
+plain On the eleventh of November, 2025, the station broadcast twenty-four messages.
+plain Thirty different words.
+< The most verbose broadcast in its history.
+plain What did they mean?
+plain Nobody outside knows.
+[pause 0.5]
+plain Then the thirtieth of December, 2025.
+plain A hijacker played the theme from Swan Lake.
+plain And a song from the Soviet cartoon, The Bremen Town Musicians.
+> On the frequency, and on its Telegram channel.
+plain The next day, the thirty-first, it happened again.
+> Russian rap. Western pop. Songs from the nineties.
+plain More than three hours.
+< The hijackers are unknown.
+[pause 0.7]
+plain So here is where we stand.
+plain A buzz that has run since at least 1982.
+plain A first voice in 1997, and a name that was a mistake.
+plain A transmitter that moved at least twice.
+plain An empty bunker, and a hub that may be its replacement.
+< And a public that has never been told why.
+[pause 0.7]
+plain The best theory says a military network.
+plain A channel marker, holding a frequency.
+plain A voice that speaks only when someone needs to be sure the line is alive.
+< But that is a theory.
+< The station itself has never said a word about it.
+[pause 0.7]
+> Maybe the answer is boring.
+> Maybe it is exactly what it looks like.
+< A line that is kept open, so no one notices when it is used.
+[pause 0.5]
+plain If you want more stories from the strange corners of the internet, subscribe.
+plain And keep your receiver tuned to 4625.

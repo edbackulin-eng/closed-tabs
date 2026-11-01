@@ -1,0 +1,62 @@
+{
+  "slug": "uvb-76",
+  "name": "UVB-76",
+  "title": "A Buzz on 4625 kHz, and the Voice That Interrupts It",
+  "thumbnail_words": "4625 kHz",
+  "claims": [
+    "UVB-76 nicknamed \"the Buzzer\" broadcasts on 4625 kHz in upper sideband | 1",
+    "Buzz repeats at roughly 25 tones per minute, 24 hours a day | 1",
+    "Buzz lasts about 1.2 seconds, pauses 1–1.3 seconds, repeats 21–34 times per minute | 1",
+    "Russian nickname Zhuzhzhalka | 1",
+    "Purpose never confirmed by government or broadcast officials | 1",
+    "Earliest preserved recording is from 1982 | 1",
+    "Origin and operators unidentified at the time of early detection | 1",
+    "First voice transmission was in 1997 | 1",
+    "Location and callsign unknown until first known voice broadcast of 1997 | 1",
+    "Station identified itself as UZB-76 from 1997 to 2010 | 1",
+    "UVB-76 is a mistranscription and was never used by the station | 1",
+    "Main callsign changed regularly afterwards; side callsigns used less often and discarded when main callsign changes | 1",
+    "Voice messages always in Russian by a live voice, three formats: Monolith, Uzor, Komanda | 1",
+    "Monolith: callsigns read twice, four symbols each, five-digit ID groups, blocks of code word plus eight digits; most common has one of each | 1",
+    "Uzor: callsigns read twice, blocks of code word plus four digits; rarely sent after 2023 | 1",
+    "Komanda: rarest, callsign twice, phrase \"command announced\", then a number; not heard for years | 1",
+    "Background conversations and noises suggest tone made by a device near a live open microphone | 1",
+    "Pitch fluctuation suggests tonewheel like a Hammond organ; microphone may have been turned on accidentally | 1",
+    "3 November 2001 a conversation in Russian was heard | 1",
+    "Before June 2010 a continuous alternating tone replaced the buzz one minute before the hour; stopped in June 2010 | 1",
+    "September 2010 portions of buzzer replaced with Swan Lake excerpts | 1",
+    "Buzz tones lasted about 0.8 seconds until November 2010 | 1",
+    "Former transmitter near Povarovo, about 10 km northwest of Moscow near the village of Lozhki | 1",
+    "In September 2010 transmitter moved near Saint Petersburg (Kerro Massiv), possibly due to military reorganization | 1",
+    "Since 9 August 2015 not transmitting from Kerro Massiv; now appears to broadcast from the 69th Communication Hub in Naro-Fominsk | 1",
+    "In 2011 urban explorers claimed to find an abandoned military base at Povarovo with a radio log record confirming a 4625 kHz transmitter | 1",
+    "Underground bunker with small entrance structure, dark corridors and rooms, humming generators, flooded corridors frozen to ice, map of military town, instructions for staff, soot, ripped-out fittings | 2",
+    "The buzzer moved in summer 2010 | 2",
+    "Not related to Dead Hand system; interrupted many times with no retaliation | 1",
+    "BBC article theory: connected to Perimeter system, dead hand signal; unlikely because signal frequently breaks down or is switched off for maintenance | 1",
+    "Numbers-station theory (FSB/KGB) considered unlikely: unpredictable message times, static frequency, low transmitter power unsuitable for long-range | 1",
+    "Russian Journal of Earth Sciences speculation about ionosphere observatory at 4625 kHz | 1",
+    "Former Lithuanian communications minister wrote voice messages confirm receiving operators are alert; another explanation is military commissariats listening | 1",
+    "Buzz functions as channel marker keeping frequency occupied; usable for tuning, squelch, and signal-loss alarm | 1",
+    "Best-supported theory: military command network for the Leningrad Military District | 1",
+    "Similar stations nicknamed \"The Pip\" and \"The Squeaky Wheel\" | 1",
+    "15 May 2020 French-speaking persons heard | 1",
+    "January 2022 spectrogram-encoded images broadcast on the frequency | 1",
+    "Songs including \"Gangnam Style\" reported; Vice attributed to pirates and questioned their nationality in relation to Russo-Ukrainian crisis and war | 1",
+    "4 May 2024 at 21:38 MSK Russian-speaking pirate contacted the station while buzzer inactive or on standby, asked improvised questions, briefly conversed with operator | 1",
+    "Day before, interference prompted operator to combine three transmitters, with MS-5 burst, CIS-12 and tones, for around half an hour until pirate abandoned attempts and buzzer reactivated | 1",
+    "11 November 2025 twenty-four messages comprising thirty different words, most verbose in its history | 1",
+    "30 December 2025 hijacker broadcast Swan Lake theme and a Bremen Town Musicians song on the frequency and its Telegram channel | 1",
+    "31 December 2025 hijacked again to play Russian rap, Western pop and 1990s songs for over three hours; hijackers unknown | 1"
+  ],
+  "sources": [
+    {
+      "title": "Wikipedia: UVB-76",
+      "url": "https://en.wikipedia.org/wiki/UVB-76"
+    },
+    {
+      "title": "kwasd's blog » Небольшой фотоотчет с УВБ-76 («The Buzzer», «Жужжалка»)",
+      "url": "https://web.archive.org/web/20120910123245/http://blog.kwasd.ru/%D0%BD%D0%B5%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9-%D1%84%D0%BE%D1%82%D0%BE%D0%BE%D1%82%D1%87%D0%B5%D1%82-%D1%81-%D1%83%D0%B2%D0%B1-76-the-buzzer-%D0%B6%D1%83%D0%B6%D0%B6%D0%B0%D0%BB%D0%BA/"
+    }
+  ]
+}
