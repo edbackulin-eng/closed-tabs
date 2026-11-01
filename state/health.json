@@ -1,7 +1,9 @@
 {
- "open": [],
+ "open": [
+  "Kaggle-dead"
+ ],
  "last": {
-  "at": "2026-10-31T12:46:42Z",
+  "at": "2026-11-01T13:35:51Z",
   "results": {
    "YouTube": {
     "ok": true,
@@ -13,8 +15,8 @@
     "expires": "2027-10-14"
    },
    "Kaggle": {
-    "ok": true,
-    "note": "kernels listed"
+    "ok": false,
+    "note": "ckages/kaggle/api/kaggle_api_extended.py\", line 266, in <module>\n    from ..models.upload_file import UploadFile\n  File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/kaggle/models/upload_file.py\", line 22, in <module>\n    import six\nModuleNotFoundError: No module named 'six'\n"
    },
    "Gemini": {
     "ok": true,
