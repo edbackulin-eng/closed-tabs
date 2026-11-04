@@ -1,6 +1,6 @@
 {
  "date": "2026-11-04",
- "checked_at": "2026-11-04T14:46:05Z",
+ "checked_at": "2026-11-04T15:01:13Z",
  "scheduled_ahead": [
   [
    "2026-11-05T17:00:00Z",
@@ -8,6 +8,6 @@
   ]
  ],
  "actions": [
-  "only 1 scheduled ahead; waiting for 15:00 UTC to build"
+  "only 1 scheduled ahead; build started (force_window=true)"
  ]
 }
