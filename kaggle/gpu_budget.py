@@ -109,9 +109,31 @@ def _runtime_h(ref):
     return max(times) / 3600 if times else None
 
 
-def _whatif_builds(since):
-    """How many What If build runs went past the first half hour since `since`;
-    each of those used the GPU, under a kernel slug that is reused between runs."""
+PUSHED = b"successfully pushed"          # kaggle kernels push, in a What If build's log
+
+
+def _pushed(run_id):
+    """Did this What If build run push a kernel to Kaggle (its log says so)? None: unknown."""
+    import io
+    import zipfile
+    out = subprocess.run(["gh", "api", f"repos/{WHATIF_REPO}/actions/runs/{run_id}/logs"], capture_output=True)
+    if out.returncode != 0 or not out.stdout:
+        return None
+    try:
+        with zipfile.ZipFile(io.BytesIO(out.stdout)) as z:
+            return any(PUSHED in z.read(n) for n in z.namelist())
+    except zipfile.BadZipFile:
+        return None
+
+
+def _whatif_builds(since, cache=None):
+    """How many What If build runs since `since` ran a kernel on Kaggle (the build kernel's
+    slug is reused between runs, so its log on Kaggle shows only the last one).
+
+    Only runs whose log shows a kernel pushed count (05.11: the runs that waited 90 min for
+    a "busy" GPU and then died on the kaggle CLI's import - no kernel ran - were counted as
+    builds, What If came to ~14.8 h, and Closed Tabs drew 4 of 131 stills). A run still
+    going, or one whose log cannot be read, counts if it went past the first half hour."""
     import json as _j
     out = subprocess.run(["gh", "api", f"repos/{WHATIF_REPO}/actions/workflows/build-video.yml/runs",
                           "-X", "GET", "-f", f"created=>={since:%Y-%m-%d}", "-f", "per_page=50"],
@@ -120,6 +142,9 @@ def _whatif_builds(since):
         runs = _j.loads(out.stdout).get("workflow_runs", [])
     except ValueError:
         return None
+    own = cache is None                  # whatif_hours passes its cache and writes it itself
+    if own:
+        cache = _j.loads(WHATIF_CACHE.read_text(encoding="utf-8")) if WHATIF_CACHE.exists() else {}
     n = 0
     for r in runs:
         try:
@@ -127,8 +152,17 @@ def _whatif_builds(since):
             z = datetime.fromisoformat(r["updated_at"].replace("Z", "+00:00"))
         except (KeyError, TypeError, ValueError):
             continue
-        if (z - a).total_seconds() > 1800:
-            n += 1
+        if (z - a).total_seconds() <= 1800:
+            continue
+        key = f"build-run:{r['id']}"
+        if key not in cache and r.get("status") == "completed":
+            p = _pushed(r["id"])
+            if p is not None:
+                cache[key] = p
+        n += 1 if cache.get(key, True) else 0
+    if own:
+        WHATIF_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        WHATIF_CACHE.write_text(_j.dumps(cache, indent=1), encoding="utf-8")
     return n
 
 
@@ -157,7 +191,7 @@ def whatif_hours(now=None):
         if ref.endswith(("whatif-main", "whatif-retry")):
             main_h = max(main_h or 0, cache[key])
             seen_main = True
-    builds = _whatif_builds(since)
+    builds = _whatif_builds(since, cache)
     if seen_main and builds and main_h:
         total += main_h * max(0, builds - 1)          # earlier runs of the reused slug
     WHATIF_CACHE.parent.mkdir(parents=True, exist_ok=True)

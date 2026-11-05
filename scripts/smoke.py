@@ -53,6 +53,21 @@ def shared_gpu():
           and gpu_shared.channel_of("u/other") is None
           and gpu_shared.CHANNELS["whatif"] < gpu_shared.CHANNELS["closedtabs"])
     check("shared GPU lock", ok)
+    # What If's builds count only when their log shows a kernel pushed (05.11)
+    import gpu_budget
+    from datetime import datetime, timedelta, timezone
+    now = datetime.now(timezone.utc)
+    runs = [{"id": i, "status": "completed", "run_started_at": (now - timedelta(hours=5)).isoformat(),
+             "updated_at": (now - timedelta(hours=3)).isoformat()} for i in (1, 2, 3)]
+    saved = (gpu_budget.subprocess.run, gpu_budget._pushed)
+    gpu_budget.subprocess.run = lambda *a, **k: type("R", (), {"stdout": json.dumps({"workflow_runs": runs}),
+                                                               "returncode": 0})()
+    gpu_budget._pushed = lambda rid: rid == 2               # only run 2 ran a kernel
+    try:
+        n = gpu_budget._whatif_builds(now - timedelta(days=7), {})
+    finally:
+        gpu_budget.subprocess.run, gpu_budget._pushed = saved
+    check("GPU week: a What If build counts only if it pushed a kernel", n == 1, str(n))
 
 
 def imports():
