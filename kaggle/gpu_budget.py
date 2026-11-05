@@ -126,6 +126,45 @@ def _pushed(run_id):
         return None
 
 
+_JOURNAL = {}
+JOURNAL_URL = f"https://raw.githubusercontent.com/{WHATIF_REPO}/main/queue/journal.md"
+_LINE = None
+
+
+def _pushed_by_journal(run):
+    """The same answer from What If's public journal (queue/journal.md), for when the run's
+    log cannot be read - this repository's token may not read another repository's logs.
+    Inside the run's time: "Built ..." -> a kernel ran; "Build FAILED ... kernels push ...
+    failed" or "build skipped" only -> none ran; a failure of any other kind -> it may have."""
+    import re
+    import urllib.request
+    global _LINE
+    if "text" not in _JOURNAL:
+        try:
+            with urllib.request.urlopen(JOURNAL_URL, timeout=30) as r:
+                _JOURNAL["text"] = r.read().decode("utf-8", "replace")
+        except OSError:
+            _JOURNAL["text"] = None
+    if not _JOURNAL["text"]:
+        return None
+    _LINE = _LINE or re.compile(r"^- \*\*(\d{4}-\d\d-\d\d \d\d:\d\d) UTC\*\* - (.*)$", re.M)
+    a = datetime.fromisoformat(run["run_started_at"].replace("Z", "+00:00")) - timedelta(minutes=1)
+    z = datetime.fromisoformat(run["updated_at"].replace("Z", "+00:00")) + timedelta(minutes=1)
+    seen = []
+    for when, text in _LINE.findall(_JOURNAL["text"]):
+        t = datetime.strptime(when, "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
+        if a <= t <= z:
+            seen.append(text)
+    if any(s.startswith("Built ") for s in seen):
+        return True
+    fails = [s for s in seen if s.startswith("Build FAILED")]
+    if fails and all("kernels push" in s and "failed" in s for s in fails):
+        return False
+    if not fails and any("build skipped" in s or "Queue empty" in s for s in seen):
+        return False
+    return True if fails else None
+
+
 def _whatif_builds(since, cache=None):
     """How many What If build runs since `since` ran a kernel on Kaggle (the build kernel's
     slug is reused between runs, so its log on Kaggle shows only the last one).
@@ -157,6 +196,8 @@ def _whatif_builds(since, cache=None):
         key = f"build-run:{r['id']}"
         if key not in cache and r.get("status") == "completed":
             p = _pushed(r["id"])
+            if p is None:
+                p = _pushed_by_journal(r)
             if p is not None:
                 cache[key] = p
         n += 1 if cache.get(key, True) else 0
