@@ -1,17 +1,13 @@
 {
  "date": "2026-11-05",
- "checked_at": "2026-11-05T02:33:33Z",
+ "checked_at": "2026-11-05T17:08:10Z",
  "scheduled_ahead": [
-  [
-   "2026-11-05T17:00:00Z",
-   "gFU64aMwEGI"
-  ],
   [
    "2026-11-06T17:00:00Z",
    "UJKn6B6FaU0"
   ]
  ],
  "actions": [
-  "run 41944396414 failed 3 times; resume-episode started"
+  "only 1 scheduled ahead; build started (force_window=true)"
  ]
 }
