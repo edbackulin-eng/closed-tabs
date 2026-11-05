@@ -68,6 +68,14 @@ def shared_gpu():
     finally:
         gpu_budget.subprocess.run, gpu_budget._pushed = saved
     check("GPU week: a What If build counts only if it pushed a kernel", n == 1, str(n))
+    # this repository's token may not read What If's logs: its public journal answers instead
+    gpu_budget._JOURNAL["text"] = ("- **2026-11-04 09:46 UTC** - Build FAILED for 024: python -m kaggle kernels push -p x failed:\n"
+                                   "- **2026-11-05 03:02 UTC** - Built 018 in 142 min.\n")
+    r1 = {"run_started_at": "2026-11-04T08:00:00Z", "updated_at": "2026-11-04T09:47:00Z"}
+    r2 = {"run_started_at": "2026-11-05T00:14:00Z", "updated_at": "2026-11-05T03:04:00Z"}
+    j = (gpu_budget._pushed_by_journal(r1), gpu_budget._pushed_by_journal(r2))
+    gpu_budget._JOURNAL.clear()
+    check("GPU week: the journal tells a kernel run from a run that died before it", j == (False, True), str(j))
 
 
 def imports():
