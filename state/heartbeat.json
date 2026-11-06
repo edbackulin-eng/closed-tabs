@@ -1,13 +1,19 @@
 {
- "date": "2026-11-05",
- "checked_at": "2026-11-05T17:08:10Z",
+ "date": "2026-11-06",
+ "checked_at": "2026-11-06T00:09:35Z",
  "scheduled_ahead": [
   [
    "2026-11-06T17:00:00Z",
    "UJKn6B6FaU0"
+  ],
+  [
+   "2026-11-07T17:00:00Z",
+   "yyZp0xQPB1M"
+  ],
+  [
+   "2026-11-09T17:00:00Z",
+   "dz_GTE57Ly4"
   ]
  ],
- "actions": [
-  "only 1 scheduled ahead; build started (force_window=true)"
- ]
+ "actions": []
 }
