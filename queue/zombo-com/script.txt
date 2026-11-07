@@ -1,0 +1,348 @@
+> A website went live in 1999 with a single promise.
+> Anything is possible.
+< And more than two decades later, nothing on it has happened.
+[pause 0.7]
+> Nothing. Not one thing.
+> Yet people called it brilliant. People called it the most welcoming place on the internet.
+> So what is Zombo.com? A prank? A piece of art? A trap for your time?
+< And in February 2026, something strange happened to it.
+> We'll get there. First, let's load the page.
+
+> Imagine it's late 1999.
+> You type in an address. You press enter.
+> And you wait.
+plain Back then, waiting was part of the web.
+plain Some sites made the waiting feel fancy.
+plain They put up a flashy animated introduction while the real content loaded behind it.
+plain These were called Flash intro pages.
+> Everyone had seen one. Everyone had sat through one.
+< Zombo took that idea and pushed it as far as it would go.
+
+> Here's the plan for this video.
+> We'll walk through the site the way a visitor would.
+> One step at a time. In the order things appear.
+> And at each step, we'll ask what it really meant.
+
+[pause 0.4]
+< Step one. The date.
+
+plain The domain Zombo.com was registered on October 10, 1999.
+plain That's the first hard fact we have.
+plain The person who registered it was the site's creator.
+plain And the creator did not leave a manifesto.
+plain There was no mission statement.
+> There was just a name.
+
+< Step two. The name.
+
+plain What does "Zombo" even mean?
+plain In 2001, the creator was asked.
+plain And the answer was almost disappointingly simple.
+plain He said it meant a male zombie.
+plain A friend of his had learned the word in her English class.
+plain When it came time to name the site, he said, the word "just sort of popped up."
+[pause 0.5]
+> That's it. That's the origin story.
+> No grand design. A word surfaced, and it stuck.
+
+plain Keep that in mind.
+plain Because the whole site works like that.
+plain Something surfaces. And then nothing gets in its way.
+
+< Step three. The page loads.
+
+plain And here's what you see.
+plain Almost nothing.
+plain A blank page.
+plain A colorful title.
+plain And in the middle, a throbber.
+> A throbber is the little spinning animation that says "please wait."
+plain This one was made of seven brightly colored discs.
+plain They rotated very quickly, so they seemed to pulse.
+plain It looked like a loading screen.
+< But it was never loading anything.
+
+[pause 0.7]
+
+> Now, the sound.
+plain Along with the animation, there was an audio clip.
+plain A man's voice.
+plain He welcomed you to Zombo.com.
+plain The way he said it, it came out as one word. "Zombocom."
+plain And then he made the promise.
+< This is a place where everything is possible.
+[pause 0.7]
+plain Everything.
+plain You are looking at a blank page and seven spinning discs.
+plain And a calm voice is telling you that anything can happen here.
+
+> Did you click around? Of course you did.
+> Everyone did.
+> You moved the mouse. You waited for the page to open up.
+< It didn't.
+
+> Here's the thing, though.
+> That is not the strangest part.
+> The strangest part is what came next.
+
+< Step four. The newZletter.
+
+plain If you stayed on the page long enough, something appeared.
+plain An option to sign up for a newsletter.
+plain Except it was spelled with a Z in the middle.
+plain "newZletter."
+plain This was another joke.
+plain Online newsletters were a normal thing on the web, and the site was poking fun at them.
+> So you clicked.
+plain The link was short. It went to a page called join1.htm.
+plain And that page told you the option was not available yet.
+plain But it didn't say it plainly.
+plain It said it as a humorously written thank-you.
+plain In the same Z-spelled register as the newsletter itself.
+< "ThankZ for your patience."
+[pause 0.8]
+> Think about that.
+> You were promised everything.
+> You waited.
+> You were offered a way to sign up.
+> And you were thanked for being patient.
+< Because the thing you wanted wasn't ready.
+
+plain That's the structure of the whole site.
+plain One long introduction.
+plain And at the end of it, an invitation.
+plain And the invitation leads nowhere.
+> The introduction is the entire product.
+
+[pause 0.6]
+
+> But wait. There's a hidden layer.
+< Step five. The comment in the code.
+
+plain Visitors who looked at the page's HTML markup found a comment.
+plain It read: "Please Visit http://www.15footstick.com our other website ThankZ."
+plain Even the hidden note had the Z.
+> So what was at that other address?
+plain It led to a site with various art and music.
+plain And a page selling Zombo.com T-shirts.
+plain So there was a little world behind the joke.
+plain A place where you could wear the joke, if you wanted.
+< And today? That site has, in the words of one account, gone down for maintenance.
+plain Another thing that is waiting.
+
+> So here's the open question.
+> If the site does nothing, why did anyone care?
+> Why does a page with no content have a reputation?
+< Because of what people said about it.
+
+[pause 0.6]
+
+< Step six. The reviews.
+
+> Let's start with the people who were not impressed.
+> Or rather, the people who were impressed by how unimpressive it was.
+
+plain A web animator was asked to name the least useful website.
+plain He picked Zombo.com.
+plain His reason?
+plain It "doesn't do anything except tell you how wonderful it is."
+> Honestly, that's a perfect description.
+
+plain Two years earlier, in the same newspaper column, someone else had made the same pick.
+plain That person was working at a television network's kids' channel at the time.
+plain Their verdict on Zombo was three words long, and then three more.
+< "Utterly useless, absolutely brilliant."
+[pause 0.7]
+> Utterly useless. Absolutely brilliant.
+> Both at once.
+
+plain A computer magazine put Zombo on a list of the ten most useless websites on the internet.
+plain And the writer concluded, with a shrug you can almost hear:
+< "Well, in fact, nothing happens at zombo.com."
+
+> Now, the warmer reviews.
+plain In 2004, a newspaper writer called it "the most welcoming website on the Internet."
+plain And she had a point.
+plain Remember the voice. It welcomes you.
+plain It says everything is possible.
+plain Few sites have ever been so friendly about doing so little.
+plain In 2007, another writer called it "the ultimate time-waster."
+plain And a listing in a national newspaper said this:
+< "Zombo.com has just one joke, but it's a good one."
+
+> Think about those verdicts together.
+> Useless. Welcoming. A time-waster. One good joke.
+> Nobody was lying. They were all describing the same blank page.
+
+[pause 0.7]
+
+> But here is where the story turns.
+> Because not everyone treated Zombo as a joke to laugh at once.
+< Some people treated it as a favorite.
+
+< Step seven. The fans.
+
+plain One game industry figure, in a 2002 interview, listed his favorite sites.
+plain It was a long list of webcomics, humor and entertainment.
+plain And right in the middle of it, sitting there casually, was Zombo.com.
+plain A musician also named it as his favorite website.
+plain And he explained why.
+plain He said it "paraphrases the net."
+plain It "promises you the earth but delivers a bit of animation with a scratchy soundtrack!"
+[pause 0.6]
+> Read that again.
+> Promises you the earth. Delivers a bit of animation.
+> That's not an insult. That's a love letter.
+plain And on September 4, 2013, a webcomic creator named Zombo.com as his favorite website, in an interview with a running magazine.
+> A running magazine! Nobody planned that.
+plain Zombo had crossed over into places it had no business being.
+
+plain Later, the site showed up in a collection of internet artifacts.
+plain The kind of collection that treats old web pages like objects in a museum.
+plain And on January 23, 2020, a game programmer built a virtual reality version of Zombo.com.
+< Think about that. A VR headset. And inside it, the same promise.
+plain Everything is possible.
+plain Now in three dimensions.
+
+[pause 0.7]
+
+> So the site survived.
+> But the technology it was built on did not.
+< Step eight. The end of Flash.
+
+plain Zombo started out as a Flash animation.
+plain But Adobe Flash Player was discontinued on December 1, 2020.
+plain That should have been the end.
+plain Old Flash sites simply stopped working.
+> But Zombo moved.
+plain It switched to HTML5.
+plain And the new version was not quite the same.
+plain In the HTML5 version, the audio clip loops back to the start when it ends.
+< So the newZletter message is gone.
+[pause 0.7]
+plain The "ThankZ for your patience" joke no longer appears.
+plain The hidden comment in the markup was also removed.
+plain The discs in the center now spin at a smoother frame rate.
+plain They look less like they're changing color.
+> It's the same site.
+> But it's a little less strange.
+plain Now the voice welcomes you.
+plain And then welcomes you again.
+plain And again.
+plain It never reaches the part where it lets you down.
+< Is that better, or worse?
+
+> Hold on to that question.
+> Because the biggest change was still ahead.
+
+[pause 0.8]
+
+< Step nine. February 2026.
+
+plain On February 7, 2026, something happened.
+plain Visitors typing in the address of Zombo.com were redirected.
+plain They landed on a page listing Zombo.com as being up for sale.
+plain It was a GoDaddy listing.
+> A site that promised everything was now, itself, for sale.
+plain The redirect was quickly removed.
+plain But that was not the end.
+plain Over the next few days, a series of changes were made.
+plain The banner was redesigned.
+plain The audio was changed.
+plain The user interface was changed.
+plain The site that had been the same joke for years was suddenly different.
+< And it kept changing.
+
+plain The most recent change we know of was on February 9.
+plain That day, text was added at the bottom of the page.
+plain It welcomed the visitor to "New Management."
+plain And it said something else.
+plain It said the new owner was interested in purchasing the rights to the original content of Zombo.com from its owners.
+[pause 0.8]
+< Let that sink in.
+
+plain Someone bought the address.
+plain And now they say they want the original content.
+plain The voice. The discs. The joke.
+plain The thing that was never really a thing.
+> And what do we know about that new owner?
+< Nothing.
+
+plain What we have is the message on the page.
+plain It says "New Management."
+plain It says they'd like to buy the rights from the original owners.
+plain That's all.
+plain We don't know who they are.
+plain We don't know whether they'll succeed.
+plain And we don't know what the page will look like by the time you watch this.
+> The site that said "everything is possible" has an unanswered question at its center.
+< Who owns the joke?
+
+> Meanwhile, fans haven't waited.
+plain Since then, several fan-made websites have appeared.
+plain Each one tries to recreate the content of the original Zombo.com.
+plain The discs. The voice. The promise.
+plain The internet is rebuilding the blank page from memory.
+< And there's an archive too, so you can still see how it began.
+plain The Wayback Machine has a copy of the Flash version, archived in November 1999.
+plain That's just weeks after the domain was registered.
+plain It has a copy of the HTML version too, archived in March 2025.
+plain So the before is saved.
+plain The after is still being written.
+
+[pause 0.8]
+
+< So. What is Zombo.com?
+
+> Let's lay out the best explanation.
+plain It's a parody.
+plain That part isn't a theory. It's how it's described.
+plain It makes fun of Flash introduction pages, the ones that play while a site loads.
+plain It takes that idea to a humorous extreme.
+plain One long introduction page.
+plain And at the end, an invitation to sign up for a newsletter.
+plain A newsletter that isn't available yet.
+
+> Is that the whole answer?
+< Almost.
+
+plain Here's the weak point.
+plain A parody explains why the site exists.
+plain It doesn't explain why it lasted.
+plain Plenty of jokes from 1999 are gone.
+plain And this one has a blank page, a voice, and seven spinning discs.
+plain So why did it stay?
+plain Maybe it's the voice.
+plain "Everything is possible" is a sentence people want to believe.
+plain Maybe it's the honesty.
+plain The page never claims to do anything.
+plain It only says it can.
+plain And maybe it's the mirror it holds up.
+plain A musician put it best.
+plain A promise of the earth, and a bit of animation.
+plain Doesn't that sound a lot like the internet?
+[pause 0.7]
+plain We can't prove that's why people love it.
+plain Nobody in what we've read says so outright.
+plain But it's the idea that keeps coming back.
+plain In one way or another, every fan says it.
+
+< One last look at what we know.
+
+plain A man's voice, welcoming you to a place where everything is possible.
+plain Seven discs, spinning.
+plain A newsletter that wasn't ready.
+plain A thank-you for your patience.
+plain Twenty-six years of visitors, waiting for something to happen.
+> And in a way, it did.
+> Not on the page.
+< Around it.
+
+plain The page stayed the same.
+plain The world changed.
+plain Flash died. The site moved on. The domain went up for sale.
+plain And somewhere, a new owner is waiting too.
+
+[pause 0.8]
+plain If you enjoy stories like this one, from the odder corners of the internet, you can subscribe to Closed Tabs.
+> Thanks for your patience.
