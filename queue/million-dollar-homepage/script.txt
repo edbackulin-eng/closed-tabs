@@ -1,0 +1,231 @@
+> One web page. One million pixels. Every one of them was sold.
+< Today, hundreds of those ads lead nowhere at all.
+[pause 0.6]
+> A student in England sold a million pixels of advertising for a dollar each.
+> It made over a million dollars in five months.
+> And he promised the page would stay online for at least five years.
+< It is still online. Fifteen years after that promise ran out.
+> But what is it actually showing now?
+> And how many of those links still go anywhere?
+> We're going to count them. Stay with me, because the number is stranger than you'd think.
+[pause 0.7]
+
+> First, the idea.
+A student was about to start a three-year business course at a university.
+One month to go. No money in his bank account.
+He was worried about student debt.
+So one night he sat down with a notebook and a pen.
+< He wrote one question. "How can I become a millionaire?"
+[pause 0.5]
+Twenty minutes later, he had an answer.
+Sell a million pixels of advertising space on a website. One dollar each.
+He later said he thought it was a crazy, quirky idea. But it might just work.
+He had nothing to lose.
+> Now, why dollars?
+He was in England. He could have used pounds.
+But the United States had a bigger online population than Britain.
+He believed more people would relate to the idea if the price was in American money.
+There's another angle. At the time, a pound was worth about one dollar eighty.
+So a pound-priced pixel might have been too expensive for many buyers.
+[pause 0.5]
+> The setup was almost nothing.
+A domain name. A basic hosting package.
+One account says the setup cost fifty euros. Another says about a hundred dollars.
+Either way, it was pocket money.
+And the site was running in a couple of days.
+
+> The page itself was simple.
+A banner with the site's name. A counter showing pixels sold.
+A small navigation bar. And then a big, empty square.
+A thousand pixels wide. A thousand pixels tall.
+< Ten thousand blocks, waiting for someone to buy them.
+A single pixel is far too small to see. So the pixels were sold in blocks.
+Ten by ten. A hundred pixels.
+That meant the smallest purchase was a hundred dollars.
+Each buyer supplied a tiny image, a link, and a slogan that appeared when you hovered over it.
+The site went live on 26 August 2005.
+And he made a promise to buyers. The page would stay up for at least five years.
+> Remember that promise. It matters at the end.
+[pause 0.7]
+
+> So who bought the first block?
+Three days after launch, a music website run by a friend.
+It bought four hundred pixels.
+Then family and friends joined in.
+After two weeks, they had bought forty-seven hundred pixels between them.
+That's less than half of one percent of the page.
+< Not exactly a gold rush.
+One account says the early sales from friends and family were used to fund something clever.
+A press release.
+The idea was a story editors might like. Broke student has quirky way to pay for university.
+After the site had made a thousand dollars, the release went out.
+> The BBC picked it up.
+And then it snowballed.
+Bloggers. Online forums. Chat rooms.
+The technology site The Register ran two articles in September.
+By the end of that month, the page had taken in a quarter of a million dollars.
+It was ranked number three on Alexa's list of fastest movers.
+Ahead of it? Only the website of a famous pop star, and a photography trade site.
+> Now, a small disagreement.
+One account says that within two weeks, the student had sold forty thousand dollars of pixels.
+Enough to cover the whole three years of university.
+Another account puts the first two weeks far lower, at forty-seven hundred dollars in sales.
+< I can't tell you which is right. They don't match.
+What both agree on is the direction. Up. Fast.
+
+> On 6 October, the site reported sixty-five thousand unique visitors.
+It had fourteen hundred and sixty-five Diggs. One of the most-shared links of that week.
+Eleven days later, a hundred thousand visitors.
+By 26 October, two months in, more than half a million pixels were sold.
+To fourteen hundred customers.
+By New Year's Eve, the site was getting hits from twenty-five thousand unique visitors every hour.
+Its Alexa rank was 127.
+< And 999,000 of the million pixels were gone.
+[pause 0.6]
+> But that was not the strangest part.
+Because with a thousand pixels left, something odd happened.
+And so did something much worse.
+
+> Let's take the odd thing first.
+On 1 January 2006, the creator announced the last thousand pixels would go to auction.
+On eBay.
+His reasoning? Demand was so great that this was "the most fair and logical thing" to do.
+The alternative was a second page.
+And that, he said, would cost the idea its integrity and its exclusivity.
+The auction ran ten days.
+It drew ninety-nine legitimate bids.
+Some were enormous. One reached a hundred and sixty thousand dollars.
+< But those big bids weren't real.
+Many were retracted, or cancelled as hoaxes.
+He said he phoned some of the bidders himself. They weren't serious.
+So he removed them at the last minute.
+The winning bid was thirty-eight thousand one hundred dollars.
+It came from an online store selling diet products.
+He said he'd expected more, given all the media attention.
+The final tally? One million, thirty-seven thousand, one hundred dollars.
+Gross. In five months.
+After costs, taxes and a donation to a charity for young people, he expected to keep six hundred and fifty to seven hundred thousand.
+> One interview mentions that he had spent about forty thousand dollars on upkeep and publicity.
+[pause 0.7]
+
+> Now the worse thing.
+During that auction, on 7 January, an email arrived.
+It came from something calling itself "The Dark Group".
+It said the site would be hit by a distributed denial-of-service attack unless five thousand dollars was paid by 10 January.
+That's three days before the auction closed.
+Believing it was a hoax, he ignored it.
+A week later, a second email. The English was rough.
+< "Hello u website is under us atack to stop the DDoS send us 50000$."
+Fifty thousand this time.
+Again, he ignored it.
+> And the site was flooded.
+Extra traffic. A storm of emails. And it crashed.
+It stayed unreachable for a week.
+Until the host upgraded its security, and began filtering traffic through anti-DDoS software.
+He said he hadn't replied and wouldn't pay. He compared it to terrorism, and said if you pay, new attacks will start.
+British police and the American FBI investigated.
+< They believed the attack came from Russia.
+The sources I've seen don't say anyone was ever caught.
+> And the auction? It still closed. On 11 January.
+[pause 0.7]
+
+> So what was running behind the scenes?
+Because this was no calm, passive website.
+At first, he uploaded every image and every link by hand.
+Then hundreds of orders came flooding in.
+He had to hire two people to help with the database and customers.
+Then PayPal blocked his account.
+Its anti-fraud rules automatically block accounts with huge numbers of transactions.
+< He found a replacement payment method in three hours.
+PayPal eventually let him back in. He kept both.
+Media in thirty-five other countries had picked up the story.
+He took a week-long trip to the United States for interviews.
+He appeared on a British daytime TV show.
+The BBC News Magazine profiled him.
+The Wall Street Journal wrote that he had taken on celebrity status in the internet community.
+> Then there were the critics.
+Popular Mechanics called it an astonishing example of the power of viral marketing.
+It pointed out there was no content. Imagine a TV channel of nothing but commercials.
+A professor at his own university called it brilliant in its simplicity.
+But one Washington Post writer hated it.
+He called it an "advertising train wreck you can't not look at."
+Like getting every pop-up you ever saw, at once.
+< "The Internet equivalent of suddenly feeling like you want to take a shower."
+[pause 0.6]
+
+> And the copycats.
+Almost immediately, others started selling pixels.
+Within a while, he said, there were hundreds.
+His view? They'd all be fighting each other for scraps.
+The idea, he said, only works once. It relies on novelty.
+Copies would have, quote, "pure comedy value."
+> He was right about that.
+But he also may have been right about something else. Novelty fades.
+And that brings us to the dead.
+[pause 0.7]
+
+> So who were the buyers?
+Online casinos. Get-rich-quick schemes.
+Online dating. Personal loans. Free samples.
+Holidays. Website design.
+Small private businesses.
+But also some very big names.
+A film company, promoting a documentary about a huge retailer.
+A mobile phone brand. A British newspaper. A record label.
+A rock-comedy duo. A major internet portal.
+< The page became a snapshot of one corner of the web in 2005.
+Every block a small bet that someone would click.
+> And then time did what time does.
+
+Let's go to 2017.
+By then, the sub-pages of the site were gone. Every one returned a 404.
+Only the front page survived.
+Someone audited that front page.
+The grid had 2,816 original links.
+< Five hundred and forty-seven were dead.
+That's about a fifth.
+Those dead links covered 342,000 pixels. Pixels once sold for 342,000 dollars.
+And another 489 links redirected somewhere else entirely.
+A different domain. Covering 145,000 pixels.
+Add them together, and over a thousand of the 2,816 links no longer do what they were bought to do.
+> And the rest?
+The report said the majority of what's left don't seem to reflect their original purpose.
+So the site's own count of live, faithful links is a small fraction of the whole.
+I can't give you an exact figure. The numbers I've seen don't state one.
+By April 2019, the BBC put it at roughly forty percent of the links suffering from link rot.
+Two different counts, two years apart. They aren't measuring quite the same thing.
+< But the direction is the same. Down.
+[pause 0.7]
+
+> Here's the twist.
+That page is still getting visitors.
+As of 2019, several thousand a day.
+Traffic ranking peaked at 127. By May 2009, it had slid to about forty thousand.
+But it never went away.
+And the promise?
+Five years, until 26 August 2010.
+The site outlived it. Nobody has to keep a promise that long.
+But a million-dollar page of links, with hundreds of them pointing at nothing, is a strange thing to leave online.
+> What happened to the creator?
+After one term, he dropped out of the business degree the site was meant to pay for.
+A few years later he went on to start other companies.
+He'd said earlier that he planned to defer his studies, and that offers had come in from some of the biggest internet firms.
+That's the last we hear of the degree.
+[pause 0.7]
+
+> So, what is this thing?
+It isn't a mystery in the usual sense. There's no hidden villain.
+The idea was clever. The timing was perfect.
+< And the proof is on the page itself.
+Every dead link is a business that bought a spot in 2005 and then vanished, moved, or changed its purpose.
+Hundreds of small bets. Many lost.
+A million pixels, once hot property, now an archive of everything the web forgot.
+> One more question remains.
+The creator said the idea only works once.
+Did the novelty fade? Or did the page itself become the novelty?
+< Fifteen years on, thousands still look at it every day.
+Maybe the answer is that it works as a museum now.
+[pause 0.7]
+
+> If you enjoyed this, subscribe to Closed Tabs.
+> There's another strange corner of the internet waiting for you.
