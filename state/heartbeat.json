@@ -1,6 +1,6 @@
 {
  "date": "2026-11-10",
- "checked_at": "2026-11-10T04:54:40Z",
+ "checked_at": "2026-11-10T05:09:45Z",
  "scheduled_ahead": [
   [
    "2026-11-10T17:00:00Z",
@@ -12,6 +12,6 @@
   ]
  ],
  "actions": [
-  "reran the failed jobs of 42744271566 (attempt 3)"
+  "run 42744271566 failed 3 times; resume-episode started"
  ]
 }
