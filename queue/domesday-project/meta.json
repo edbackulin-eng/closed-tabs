@@ -1,0 +1,59 @@
+{
+  "slug": "domesday-project",
+  "name": "The BBC Domesday Project",
+  "title": "The Doomsday Book That Outlived Its Own Machines",
+  "thumbnail_words": "1 MILLION AUTHORS",
+  "claims": [
+    "The BBC Domesday Project was a partnership between Acorn Computers, Philips, Logica and the BBC, with some funding from the European Commission's ESPRIT programme | 1",
+    "It marked the 900th anniversary of the original Domesday Book, an 11th-century census of England | 1",
+    "The project was compiled between 1984 and 1986 and published in 1986 | 1",
+    "It included a survey of the UK written mostly by school children, linked with maps, photos, statistical data, video and virtual walks | 1",
+    "Over a million people participated, including children from more than 9,000 schools | 1",
+    "Initial estimates were 10,000 schools and about one million children | 1",
+    "Schools were assigned geographical areas, with parents and local societies collecting data and schools acting as a focus and providing the computer | 1",
+    "Questionnaires covered geography, amenities and land use, and contributors could also write about their area in their own words | 1",
+    "Country divided into blocks 4 km by 3 km based on Ordnance Survey grid references; each block up to 3 photographs and short reflections; most but not all blocks covered | 1",
+    "Larger blocks of 40 km by 30 km and regional views allowed zoom-in and zoom-out | 1",
+    "The National Disc contained 1981 census data, professional photographs and virtual-reality-like walkarounds, browsed via a virtual art gallery | 1",
+    "A natural language search was provided using the Porter stemming algorithm | 1",
+    "A contemporary reviewer said large quantities of images and data could for the first time be held together, and that this was \"just the start\" | 1",
+    "Stored on adapted LaserDiscs in LV-ROM format, with analogue video, stills and digital data, 300 MB per side | 1",
+    "Estimates of 2 GB per disc, 80,000 pictures and half a million text pages; delivered product about 1400 MB potential capacity, half filled | 1",
+    "Viewing required the BBC Master AIV: a BBC Master with a SCSI controller and Turbo co-processor, controlling a Philips VP415 player, with keyboard and trackball | 1",
+    "Still images were stored as single-frame analogue video overlaid by the computer's graphical interface; the project began before JPEG and widely available truecolour video cards | 1",
+    "Software was written in BCPL, a precursor to C, for portability; patches needed for the RM Nimbus; an Amiga version was considered but not initiated | 1",
+    "Acorn Video offered the platform as Master Video with a Philips or Pioneer player for £3220, or £3750 for a compact version | 1",
+    "The platform estimated 300,000 potential business customers | 1",
+    "Ecodisc simulated Slapton Ley nature reserve, priced at £169 plus VAT; Virgin's North Polar Expedition was described as a testbed for CDI applications | 1",
+    "Initial decision to support only English text caused a dispute with Welsh schools; quote about Welsh-first-language children | 1",
+    "Compromise allowed ten pages of Welsh with ten pages of English translation, cutting allocation from twenty pages to ten; some Welsh schools apparently boycotted | 1",
+    "Concerns that survey amenities were less common in rural areas, suggesting urban bias | 1",
+    "As many as 13,000 schools showed interest, mainly urban, leaving \"large gaps of knowledge\" in rural areas; team reached out to the Women's Institute, Scouts, Guides and farmers | 1",
+    "In 2002 concerns emerged that discs were potentially unreadable as machines and drives became rare | 1",
+    "A senior team member wrote in a November 2008 letter that the team worked with the UK National Data Archive from the start, funded by the ESRC and housed at the University of Essex, and that criticism of lack of foresight was unjust | 2",
+    "The archive's director sat on a steering committee of four senior academics | 2",
+    "The letter as available cuts off before completing the argument | 2",
+    "The deputy editor criticised the National Data Archive, arguing creators knew the technology was short-lived but archivists failed to preserve the material effectively | 1",
+    "CAMiLEON, a partnership between the University of Leeds and University of Michigan, developed an emulation system in 2002 | 1",
+    "Text and database files were transferred to a Linux computer via SCSI; images digitised at full resolution and stored uncompressed, about 70 GB per side per disc | 1",
+    "A modified BeebEm emulator was used, with support added for the Turbo co-processor, SCSI communication and laserdisc player functionality | 1",
+    "In 2003 a team working for the UK National Archives tracked down the original 1-inch videotape masters, digitised and archived to Digital Betacam | 1",
+    "A Windows PC version reverse-engineered from a Community disc, incorporating videotape-master images, was first available via terminal at the National Archives in Kew, then published as Domesday 1986 in July 2004 and taken offline early in 2008 | 1",
+    "BBC Learning republished much of the Community disc in 2011 as Domesday Reloaded, around 25,000 images, online May 2011, offline June 2018, then hosted in archived form at the National Archives | 1",
+    "Data extraction behind Domesday Reloaded was done in 2003 and 2004 | 1",
+    "Domesday86 (2020) aims to preserve the technologies and content, treat laserdiscs as artefacts, build hardware and software removing the need for specialist hardware, under free software and open hardware licences | 1",
+    "The Centre for Computing History in Cambridge preserved the data, has an emulator made with Domesday86, a working system on display, and possibly the largest Domesday and interactive laserdisc archive in the world | 1",
+    "The National Museum of Computing beside Bletchley Park has a working Domesday system in its BBC Micro Classroom | 1",
+    "Copyright issues involve contributions of an estimated 1 million participants and the technologies employed; likely not free of restrictions until at least 2090, assuming no extensions | 1"
+  ],
+  "sources": [
+    {
+      "title": "Wikipedia: BBC Domesday Project",
+      "url": "https://en.wikipedia.org/wiki/BBC_Domesday_Project"
+    },
+    {
+      "title": "The RISKS Digest Volume 25 Issue 44",
+      "url": "http://catless.ncl.ac.uk/Risks/25.44.html#subj7"
+    }
+  ]
+}

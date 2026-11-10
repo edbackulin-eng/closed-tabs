@@ -1,0 +1,292 @@
+> Over a million people helped write it.
+> More than nine thousand schools took part.
+< And sixteen years later, people feared that nobody could read it.
+[pause 0.7]
+> This was a record of Britain, made in 1986, to mark nine hundred years since the original Domesday Book.
+> Nine hundred years of parchment had survived.
+< The modern version was in trouble before it turned twenty.
+So what went wrong?
+> And here is the twist. The answer is not the one you have probably heard.
+
+> We are going to put this on trial.
+> Three suspects. The machine. The format. The people who were trusted to keep it.
+> And then we'll see who rescued it, and how.
+
+[pause 0.4]
+First, the crime scene. What was it?
+
+> The original Domesday Book was an eleventh-century census of England.
+> In the mid-1980s, a partnership set out to make a new one.
+> Acorn Computers. Philips. Logica. The BBC.
+> With some funding from the European Commission's ESPRIT programme.
+
+The new edition was compiled between 1984 and 1986. It was published in 1986.
+And it was not a list of landowners.
+< It was a survey of the whole United Kingdom, written largely by children.
+
+> Schools were assigned a patch of the country.
+> Pupils, parents and local societies gathered the facts.
+> The school would act, in the words of the plan, as "a focus", and provide the computer.
+Questionnaires about geography, amenities and land use.
+And then the part nobody could have predicted: space to write about your own area, in your own words.
+Or just about your daily life.
+
+The planners first estimated ten thousand schools and about a million children.
+< They got over a million participants, from more than nine thousand schools.
+
+[pause 0.7]
+Here is how the country was cut up.
+> Blocks. Four kilometres wide by three kilometres long, based on Ordnance Survey grid references.
+Each block could hold up to three photographs.
+And a number of short reflections on life in that area.
+Most blocks were covered. Not all.
+
+> Zoom out, and you got larger blocks, forty kilometres by thirty.
+> Zoom out again, and you got regional views.
+A whole country, you could fly across with a trackball.
+
+[pause 0.4]
+Now, the second disc.
+> The National Disc held professional photographs. Video. Data from the 1981 census.
+And what the team called walkarounds, virtual tours of major landmarks.
+< You could browse it by wandering a virtual art gallery.
+You clicked pictures on the wall. You walked through doors. Each door led somewhere real.
+There was even a natural language search, built on a stemming algorithm.
+
+> In 1986.
+> Before the web.
+
+A reviewer at the time wrote that, for the first time, large quantities of images and data could be held together.
+And that for publishers and knowledge workers, communication would never be quite the same.
+< "And this really is just the start."
+[pause 0.7]
+
+> But it was not the start of anything for the disc itself.
+< Because of what it was stored on.
+
+[pause 0.5]
+> Suspect number one. The machine.
+
+It was not a CD. CD-ROM did not yet offer a way out.
+It was a twelve-inch LaserDisc, adapted.
+The format was called LV-ROM. LaserVision Read Only Memory.
+Analogue video and still pictures, plus digital data.
+Three hundred megabytes on each side.
+
+The early estimates were grander.
+> Two gigabytes per disc.
+> Eighty thousand pictures, including satellite images.
+> Half a million pages of text.
+The delivered product was estimated at a total potential capacity of around fourteen hundred megabytes, with about half of that filled.
+
+And to read it, you needed a very particular rig.
+> A BBC Master computer.
+> Expanded with a SCSI controller.
+> Plus a Turbo co-processor.
+> Wired to a Philips laserdisc player.
+> Steered by a trackball.
+The whole thing was called the Master AIV.
+
+Now think about what that means.
+< Every piece of this had to keep existing, together, for the disc to be readable.
+
+[pause 0.7]
+> But that was not the strangest part.
+The pictures.
+
+Look at how the photographs were stored.
+They were not files.
+< They were single frames of analogue video.
+The computer laid its graphics over the top of them.
+
+> Why?
+Because the project began years before JPEG compression.
+Before truecolour video cards were widely available.
+So there was no easy way to pull a picture out and set it down somewhere else.
+You couldn't copy it. You had to film it, again, off the screen.
+
+[pause 0.4]
+There is one decision that worked in the project's favour.
+> The software was written in BCPL, a precursor to C.
+The aim was portability between platforms.
+It still needed patches to run on the RM Nimbus version of the system.
+And an Amiga version was considered, but never begun.
+
+So the machine is guilty of something.
+But hold that thought. Because the machine had a business plan.
+
+> Acorn set up a subsidiary called Acorn Video.
+> It sold the platform as Master Video.
+> With a Philips or Pioneer player, for three thousand, two hundred and twenty pounds.
+Or three thousand, seven hundred and fifty for a more compact version.
+The estimate for the market?
+< "Three hundred thousand potential business customers."
+
+Meanwhile, other discs followed.
+> Ecodisc, an ecological simulation of the Slapton Ley nature reserve. A hundred and sixty-nine pounds plus VAT.
+> A North Polar Expedition title from Virgin, described as a testbed for planned CDI applications.
+So the format was meant to be a platform.
+< It was meant to be the future.
+
+[pause 0.7]
+> Now, before the verdict on the machine, let me tell you about the fight over language.
+
+> The first plan only allowed text in English.
+In parts of Wales, where local authorities treated English and Welsh as first languages, that caused a dispute.
+One objection was blunt:
+< "There's no way you can ask children whose first language is Welsh to write about their local area in a foreign language."
+
+The compromise?
+Ten pages of Welsh text, each accompanied by ten pages of English translation.
+But that cut those schools from twenty pages to ten.
+And some Welsh schools were apparently boycotting the project in protest.
+
+> There was a second problem, too.
+The survey asked about amenities that are less common in rural areas.
+That suggested a bias toward towns and cities.
+And it showed.
+
+Around thirteen thousand schools expressed interest.
+But they were mainly urban.
+That left, in the phrase of the time, "large gaps of knowledge" in the countryside.
+> So the team went looking for help.
+> The Women's Institute. The Scouts. The Guides. Farmers.
+
+< Even the first Domesday had gaps. This one was honest enough to try to fill them.
+
+[pause 0.7]
+> Let's move forward.
+2002.
+< Sixteen years after publication, the alarm sounded.
+
+Computers capable of reading the format had become rare.
+Drives capable of accessing the discs were rarer still.
+Headlines followed. The data, it was said, was lost.
+
+> Here is where the second suspect, the people, comes in.
+
+Years later, a senior member of the project team wrote to a computing risks newsletter.
+The letter was dated November 2008.
+He said he had been stung, repeatedly, by the claim that the creators lacked foresight.
+< He said the opposite was true.
+
+He wrote that the team worked, from the start, with the UK's National Data Archive.
+It was funded by the Economic and Social Research Council, and housed at the University of Essex.
+Its director sat on a steering committee of four senior academics.
+And he said that the real problem about data preservation was something else.
+The letter, as it survives, cuts off before he finishes the argument.
+
+So we can't say what he thought the real problem was.
+But elsewhere, the project's deputy editor has been quoted criticising that same archive.
+His argument:
+> The creators knew the technology would be short-lived.
+> The archivists failed to preserve the material effectively.
+
+Two views.
+< The creators say they planned for the future. The deputy editor says the archive didn't follow through.
+And on the evidence we have, both can be true.
+[pause 0.7]
+
+> But here's what matters.
+< The data was never actually gone.
+
+[pause 0.5]
+> So let's meet the rescuers.
+
+> Rescue number one. 2002.
+A project called CAMiLEON. A partnership between the University of Leeds and the University of Michigan.
+They went after the discs with emulation.
+
+> Step one. Move the text and database files to a Linux computer, over a SCSI connection to the player.
+> Step two. Digitise every still image at full resolution, straight off the video.
+Stored uncompressed.
+< About seventy gigabytes. Per side. Per disc.
+> Step three. Take a free software emulator of the BBC Micro, BeebEm, and modify it.
+They taught it the Turbo co-processor. The SCSI communication. The laserdisc player itself.
+
+> Rescue number two. 2003.
+A team working for the UK National Archives, the home of the original Domesday Book, tracked down the original one-inch videotape masters.
+They were digitised.
+And archived to Digital Betacam.
+
+That matters.
+< The best-quality pictures turned out not to be on the discs at all.
+
+> Rescue number three. 2004.
+A version of a Community disc was reverse-engineered to run on a Windows PC.
+It used images from those videotape masters.
+At first it was only available on a terminal at the National Archives in Kew.
+In July 2004 it went on the web as Domesday 1986.
+It came offline early in 2008.
+
+[pause 0.7]
+> Rescue number four. 2011.
+BBC Learning republished much of the Community disc as Domesday Reloaded.
+Around twenty-five thousand images.
+The extraction behind it had been done back in 2003 and 2004.
+It went online in May 2011.
+
+< And in June 2018, it went offline.
+The data now lives in archived form at the National Archives.
+
+> That's the pattern, isn't it?
+Preserve it. Publish it. Watch the website fade.
+< The disc wasn't the only thing that could expire.
+
+[pause 0.5]
+> Rescue number five. 2020.
+A group called Domesday86 took a broader view.
+Not just the content. The technology, too.
+They treat the laserdiscs themselves as artefacts worth keeping.
+Their stated goal: build hardware and software so you can use the Domesday system without rare, expensive specialist hardware.
+And release it under free software and open hardware licences.
+
+Meanwhile, the Centre for Computing History in Cambridge has been preserving the data, with an emulator made in collaboration with Domesday86.
+It has a working Domesday system on display.
+Possibly the largest Domesday and interactive laserdisc archive in the world.
+And the National Museum of Computing, beside Bletchley Park, has a working system in its BBC Micro Classroom.
+< You can walk in and use one.
+
+[pause 0.7]
+> So. The verdict.
+
+The machine?
+< The Master AIV was a one-off. The pictures were trapped inside analogue video. That is a real weakness.
+But engineers worked out how to copy it, imitate it, and rebuild it.
+
+The people?
+< The creators say they planned ahead. The deputy editor says the archivists failed. We only have those competing views.
+
+> But there is a third suspect I haven't named yet.
+< Rights.
+
+The preservation effort doesn't just have to defeat old hardware.
+It has to untangle copyright.
+There are the contributions of an estimated million people who took part.
+There are rights tied to the technologies used.
+< And it is likely that the project will not be completely free of copyright restrictions until at least 2090.
+That assumes no further extensions of copyright terms.
+
+Think about that.
+> A school project from 1986.
+< Still locked until 2090.
+
+[pause 0.7]
+Now, back to that opening.
+> Was it unreadable in fifteen years?
+
+< Not quite.
+By 2002, people feared it was. Machines that could read it were rare.
+But it was never lost for good.
+The data was copied. The videotapes were found. The software was rebuilt.
+
+And the real lesson is less dramatic, and more useful.
+> Information survives when people keep choosing to save it.
+< Not when it's stored on something clever.
+
+The original Domesday Book sat on parchment for nine hundred years.
+The 1986 one needed a team in Leeds, a team in Michigan, an archive in Kew, a broadcaster, a museum, and a group of volunteers.
+< And still the work is not finished.
+
+> If you enjoy stories like this, from the stranger corners of the internet and its history, subscribe to Closed Tabs.
+We'll keep digging.
