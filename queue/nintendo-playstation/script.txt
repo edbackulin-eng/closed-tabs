@@ -1,0 +1,169 @@
+TITLE: The 360,000 Dollar Ghost Console
+THUMBNAIL: SFX-100
+===SCRIPTS===
+> Two hundred prototypes were built.
+[pause 0.7]
+< Then every single one of them was supposed to have been destroyed.
+
+[pause 0.4]
+> Except one.
+< Sitting in a dusty box.
+< Inside an attic.
+
+[pause 0.7]
+How did a machine that should not exist end up changing the entire history of video games?
+[pause 0.7]
+The answer is stranger than you think.
+[pause 0.4]
+And it starts in the 1990s.
+
+> The Super Nintendo Entertainment System was a massive hit.
+Outselling every rival in the 16-bit generation.
+< But the ground was shifting.
+
+[pause 0.4]
+Compact discs were arriving.
+Offering massive storage, full-motion video, and crystal-clear audio.
+Competitors like NEC and Sega were already releasing CD add-ons.
+[pause 0.7]
+Nintendo needed a counter-punch.
+So they turned to Sony.
+
+> A Sony engineer named Ken Kutaragi had secretly designed the sound chip for the SNES.
+Working without full corporate approval.
+Nearly getting fired for his trouble.
+< But he had the backing of a top executive.
+And he was convinced that CD-ROMs were the future.
+
+Kutaragi pitched a CD-ROM drive for the Super Nintendo.
+Nintendo was skeptical at first, worried about slow load times.
+< But they agreed to let development begin in late 1988.
+With one condition: Kutaragi claimed the drive was for multimedia, not games.
+
+> The result was a Sony-branded hybrid console called the PlayStation.
+It had a slot for Super Nintendo cartridges.
+And a tray-loading CD drive using a proprietary format called the Super Disc.
+< Early proposals even discussed adding the Super FX coprocessor.
+Allowing for rudimentary 3D graphics right out of the box.
+
+[pause 0.7]
+But behind closed doors, a corporate war was brewing.
+
+> Sony wanted total control.
+They demanded the rights to the Super Disc format, software licensing, and all music and movie content.
+< Nintendo president Hiroshi Yamauchi was furious.
+
+Yamauchi suspected Nintendo was being used to launch Sony's own gaming empire.
+He found the terms completely unacceptable.
+[pause 0.7]
+So he hatched a secret plan.
+
+> Behind Sony's back, Yamauchi sent his executives to the Netherlands.
+To negotiate a deal with Sony's arch-rival: Philips.
+< The goal was simple.
+Give Nintendo its software control back.
+< And gracefully destroy Sony's ambitions.
+
+[pause 0.7]
+The betrayal was executed with surgical precision.
+
+> Just two days before the Consumer Electronics Show in May 1991, a newspaper report broke the news.
+Nintendo was partnering with Philips.
+< Then, at CES in June 1991, Sony proudly unveiled the PlayStation to the public.
+The very next day, Nintendo announced Philips.
+
+[pause 0.4]
+Journalists would later call it the greatest betrayal in video game history.
+
+> But that was not the strangest part.
+Even after the public knife-in-the-back, the partnership didn't die instantly.
+< Two to three hundred prototypes of the Sony PlayStation were actually produced.
+Carrying the model number SFX-100.
+
+For a brief window, the two corporate giants kept talking.
+In early 1992, they even reached a deal.
+Sony could make the hardware, while Nintendo kept the game profits.
+[pause 0.7]
+< But the blood had already been poisoned.
+
+Kutaragi persuaded his company to walk away from Nintendo entirely.
+To drop SNES compatibility.
+And to build a standalone, next-generation machine.
+< In May 1992, Sony cut all ties.
+Scrapping the prototypes and leaving Nintendo in the dust.
+
+[pause 0.7]
+What happened to all those machines?
+[pause 0.4]
+They were supposed to have been tossed into the scrap heap.
+Erased from timelines.
+
+[pause 0.7]
+Instead, one of them vanished into the corporate ether.
+
+> Fast forward to a bankruptcy auction in 2009.
+A former worker at a company called Advanta acquired a lot of items.
+Among them: an abandoned console left behind by a former chief executive.
+< The box sat in an attic for years.
+Unopened.
+Unnoticed.
+< Until it was pulled out into the light.
+
+[pause 0.7]
+What did the find reveal?
+
+> A machine bearing two Super NES controller ports.
+A cartridge slot.
+A tray-loading dual-speed CD-ROM drive.
+RCA composite jacks, S-Video, and a headphone jack on the front.
+< A serial port labelled "NEXT" for debugging.
+And a mysterious expansion port underneath.
+
+It played Super Famicom cartridges and an included test cartridge.
+< But there was a catch.
+It was missing its original power supply.
+And the audio output and CD drive were completely dead.
+
+[pause 0.7]
+Could it be saved?
+
+> In 2016, the owner handed the ghost console to a hardware hacker.
+Who posted a complete tear-down video for the world to see.
+< The hacker discovered internal faults in several components.
+Replaced them.
+And built a custom power supply using a modified Sony Walkman connector.
+
+[pause 0.7]
+The impossible happened.
+< The machine came back to life.
+Playing game cartridges and audio CDs on hardware that officially never existed.
+
+[pause 0.7]
+But programmers wanted more.
+Since no original game CDs for the prototype had ever been found, a German duo decided to create one.
+< They built a homebrew game titled *Super Boss Gaiden*.
+A 16-bit platformer where a fictional corporate boss goes on a rampage through Sony's headquarters.
+Because his executives let the last SNES PlayStation prototype fall into the hands of the public.
+
+[pause 0.7]
+A game about the machine.
+Running on the machine.
+
+[pause 0.4]
+In February 2020, the prototype went to auction.
+Starting at fifteen thousand dollars.
+Within two days, bidding skyrocketed.
+< It finally sold for three hundred and sixty thousand dollars.
+Winning a Guinness World Record for the most expensive videogame console sold online.
+
+[pause 0.7]
+Today, the buyer plans to put it in a permanent museum.
+While Ken Kutaragi himself revealed in 2025 that he had quietly kept another pristine unit hidden in his closet all along.
+
+[pause 0.7]
+Two machines out of three hundred.
+Surviving from a timeline that was cancelled before it began.
+
+[pause 0.4]
+If you love these forgotten crossroads of technology, hit subscribe below.
+< We will see you next time.
