@@ -1,16 +1,17 @@
 {
- "open": [],
+ "open": [
+  "Claude-dead"
+ ],
  "last": {
-  "at": "2026-11-10T15:01:44Z",
+  "at": "2026-11-11T14:33:36Z",
   "results": {
    "YouTube": {
     "ok": true,
     "note": "channel TheClosedTabs"
    },
    "Claude": {
-    "ok": true,
-    "note": "answers",
-    "expires": "2027-10-14"
+    "ok": false,
+    "note": "Your organization has disabled Claude subscription access for Claude Code \u00b7 Use an Anthropic API key instead, or ask your admin to enable access\n"
    },
    "Kaggle": {
     "ok": true,
