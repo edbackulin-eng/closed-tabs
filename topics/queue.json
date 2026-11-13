@@ -349,25 +349,21 @@
         "https://en.wikipedia.org/wiki/11B-X-1371",
         "http://gadgetzz.com/2015/10/12/this-creepy-puzzle-arrived-in-our-mail/"
       ]
-    }
-  ],
-  "backup": [
-    {
-      "slug": "doctor-who-missing",
-      "name": "Doctor Who missing episodes",
-      "wikipedia": "Doctor Who missing episodes",
-      "status": "backup"
     },
     {
       "slug": "geocities",
       "name": "GeoCities",
       "wikipedia": "GeoCities",
-      "status": "backup",
+      "pitch": "",
+      "aliases": [],
       "sources_checked": [
         "https://en.wikipedia.org/wiki/GeoCities",
         "https://techcrunch.com/2009/04/23/yahoo-quietly-pulls-the-plug-on-geocities/"
-      ]
-    },
+      ],
+      "status": "queued"
+    }
+  ],
+  "backup": [
     {
       "slug": "mountain-eagle",
       "name": "The Mountain Eagle",

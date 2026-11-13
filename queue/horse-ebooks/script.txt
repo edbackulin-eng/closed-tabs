@@ -1,0 +1,102 @@
+> Everything happens so much.
+> And nobody knows why.
+> A sentence dropped like a Zen koan from a great height.
+[pause 0.7]
+> Registered in 2010.
+> Over 200,000 followers.
+> Hailed by major publications as one of the greatest Twitter accounts that ever existed.
+> Fans wore the t-shirts.
+> Artists drew the comics.
+> And everyone thought it was a broken machine.
+[pause 0.9]
+< But the truth was far stranger.
+< And when it finally came out, the internet was devastated.
+
+> Let's go back to how it all started.
+> A Twitter account named Horse_ebooks.
+> Apparently intended to promote e-books.
+> But what it actually posted were amusing non sequiturs.
+> Cryptic missives.
+> Fragments of modified text copied from other sources.
+> Mixed with occasional promotional links to websites selling e-books.
+> Associated with the affiliate marketing company ClickBank.
+
+> Look at some of the lines it spat out:
+> "I will make certain you never buy knives again,"
+> "We all agree, no one looks cool,"
+> "Is the dance floor calling? No,"
+> "Unfortunately, as you probably already know, people"
+> And of course:
+> "Everything happens so much"
+
+> How did it generate this strange poetry?
+> Investigators at Splitsider and Gawker pieced together the puzzle.
+> The creator was believed to be a web developer and spammer based in Russia.
+> Named Alexei Kouznetsov, also romanized as Alexey Kuznetsov.
+> He owned as many as 170 domains associated with similar efforts.
+> Other accounts in the network included companyebooks, action_ebooks, and mystery_ebooks.
+> The bot pulled snippets of text from books and other sources.
+> Scrambling them together.
+> Apparently in an effort to evade spam detection.
+
+> But here is what made Horse_ebooks different from the rest.
+> Unlike many other Twitter spam accounts, it did not employ typical spammer techniques.
+> No mass-following.
+> No unsolicited replies to Twitter users.
+> Because it avoided those classic moves, the account was never closed down the way Twitter spam accounts frequently are.
+> Instead, it sat there.
+> Spitting out surreal fragments about horses and other things.
+> Becoming a never-ending fountain of inspiration and amusement for a certain sliver of the internet.
+
+> Artists took notice.
+> Burton Durand started a Tumblr blog called Horse E-Comics, featuring comic strips inspired by the account.
+> Other artists posted drawings based on messages like "leg butt" or "Too many horses. Throw a horse away."
+> Fans created fan art, fan fiction, and unofficial merchandise like T-shirts.
+> UGO Networks named it one of the best Twitter feeds in 2011.
+> Time.com followed suit in 2012.
+> John Herrman wrote at Splitsider that Horse_ebooks "might be the best Twitter account that has ever existed."
+> The Atlantic eventually called it "the most successful piece of cyber fiction."
+
+> But that was not the strangest part.
+> Because behind the curtain, a quiet takeover had already happened.
+> On September 14, 2011, followers noticed something odd.
+> The account began tweeting "via web" instead of "via Horse ebooks".
+> The frequency of tweets promoting ClickBank significantly dropped.
+> Meanwhile, the number of funny tweets increased.
+> Many followers speculated wildly.
+> Had the spam algorithm been changed?
+> Had a hacker acquired the account's password?
+> Was a different person running it now?
+
+> The answers stayed hidden for two years.
+> Until September 24, 2013.
+> That was the day everything clicked into place.
+> It was revealed that the @Horse_ebooks account had actually been sold back in 2011.
+> The buyer?
+> An employee at BuzzFeed named Jacob Bakkila.
+> Bakkila had approached Kuznetsov in 2011 with the intent of buying the account.
+> Kuznetsov agreed.
+> And since 2011, Horse_ebooks had been operated by Bakkila.
+
+> It was all part of a multi-year performance art piece.
+> Staged as an alternate reality game developed for viral marketing.
+> Toward a larger art project by the art collective Synydyne.
+> Synydyne was formed in 2006, led by internet artists Thomas Bender and Jacob Bakkila.
+> Their projects included Horse_ebooks, Bear Stearns Bravo, Pronunciation Book, and This is My Milwaukee.
+> Bear Stearns Bravo was a series of interactive videos about the 2007 subprime mortgage financial crisis.
+> In a 2015 interview, Bakkila explained the collective's approach:
+> "Most of what Synydyne has created thus far is either designed to spread as quickly as possible—@Horse_ebooks and Pronunciation Book being the obvious examples—or to be as difficult as possible to access."
+
+> On the exact day of the big reveal in September 2013, the Twitter account stopped updating entirely.
+> Bakkila, along with others who contributed to the project, performed at an art installation.
+> Fans could call in and have various horse_ebooks tweets read to them.
+> The Independent reported that Twitter was 'devastated' by the revelation that the beloved bot was actually human-run.
+> What felt like a glitching machine, a mechanical accident of the internet age, turned out to be a carefully crafted work of cyber fiction.
+
+[pause 0.8]
+> A spam bot that became a work of art.
+> And a human artist who pretended to be a spam bot.
+[pause 0.5]
+> Did you follow Horse_ebooks back when it was tweeting?
+> Let us know in the comments below.
+> And if you want to uncover more strange digital mysteries with us, hit subscribe.
