@@ -361,19 +361,21 @@
         "https://techcrunch.com/2009/04/23/yahoo-quietly-pulls-the-plug-on-geocities/"
       ],
       "status": "queued"
-    }
-  ],
-  "backup": [
+    },
     {
       "slug": "mountain-eagle",
       "name": "The Mountain Eagle",
       "wikipedia": "The Mountain Eagle",
-      "status": "backup",
+      "pitch": "",
+      "aliases": [],
       "sources_checked": [
         "https://en.wikipedia.org/wiki/The_Mountain_Eagle",
-        "http://old.bfi.org.uk/nationalarchive/news/mostwanted/mountain-eagle.html"
-      ]
-    },
+        "https://www.theguardian.com/film/2010/jul/05/missing-alfred-hitchcock-movie"
+      ],
+      "status": "queued"
+    }
+  ],
+  "backup": [
     {
       "slug": "lincolnshire-poacher",
       "name": "Lincolnshire Poacher",
