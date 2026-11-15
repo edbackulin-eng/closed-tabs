@@ -373,18 +373,19 @@
         "https://www.theguardian.com/film/2010/jul/05/missing-alfred-hitchcock-movie"
       ],
       "status": "queued"
-    }
-  ],
-  "backup": [
+    },
     {
       "slug": "lincolnshire-poacher",
       "name": "Lincolnshire Poacher",
       "wikipedia": "Lincolnshire Poacher (numbers station)",
-      "status": "backup",
+      "pitch": "",
+      "aliases": [],
       "sources_checked": [
         "https://en.wikipedia.org/wiki/Lincolnshire_Poacher_(numbers_station)",
         "https://web.archive.org/web/20190202060629/http://www.simonmason.karoo.net/page14.html"
-      ]
+      ],
+      "status": "queued"
     }
-  ]
+  ],
+  "backup": []
 }
