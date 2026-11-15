@@ -24,8 +24,8 @@ from core.logger import get_logger  # noqa: E402
 log = get_logger("daily")
 STATE = ROOT / "state" / "episodes.json"
 QUEUE = ROOT / "topics" / "queue.json"
-BUFFER = 3
-MIN_READY = 2
+BUFFER = 2                 # owner 16.11: two a week, a week ahead
+MIN_READY = 1
 
 
 def _state():

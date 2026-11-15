@@ -1,7 +1,7 @@
 """YouTube for Closed Tabs: upload, schedule, thumbnail, branding.
 
 Every upload goes up private with a publishAt, on the nearest free slot of the
-channel's week (Mon, Tue, Thu, Fri, Sat at 17:00 UTC) that is at least
+channel's week (Mon and Thu at 17:00 UTC; owner 16.11) that is at least
 MIN_LEAD away. Every video declares containsSyntheticMedia=true and madeForKids=false
 and sits in Entertainment.
 
@@ -31,7 +31,7 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
           "https://www.googleapis.com/auth/youtube"]
 
 CATEGORY_ENTERTAINMENT = "24"
-SLOT_WEEKDAYS = (0, 1, 3, 4, 5)        # Mon, Tue, Thu, Fri, Sat
+SLOT_WEEKDAYS = (0, 3)                 # owner 16.11: two a week - Mon, Thu (was Mon, Tue, Thu, Fri, Sat)
 SLOT_HOUR_UTC = 17
 MIN_LEAD = timedelta(minutes=30)       # YouTube needs only a future time; What If uses 30 min too
 CHUNK_MB = 8
