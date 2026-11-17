@@ -118,7 +118,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/ topics/queue.json queue/*/out/uploaded.json 2>/dev/null || true
+          for f in state topics/queue.json queue/*/out/uploaded.json; do if [ -e "$f" ]; then git add -f -- "$f"; fi; done   # 17.11: one path at a time
           git diff --cached --quiet && exit 0
           cp state/episodes.json "$RUNNER_TEMP/episodes.json"
           git commit -m "State after finish-episode ${{ github.run_id }} (${{ steps.run.outcome }})"

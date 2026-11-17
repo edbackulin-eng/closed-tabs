@@ -72,9 +72,33 @@ def schedule(slug, rows, replace=False):
         slot = datetime.fromisoformat(old["publish_at"].replace("Z", "+00:00"))
         # the upload marker of the old video must not stop the new upload
         (out / "uploaded.json").unlink(missing_ok=True)
-    else:
-        slot = youtube.next_slot([r["publish_at"] for r in rows])
-    vid = youtube.upload(out, meta["title"], meta["description"], meta["tags"], slot)
+    # owner 17.11 (core/ytguard.py, the same in every channel): the token is this channel's, the whole
+    # list of videos is read; an episode already up (its [ref: closedtabs/<slug>] or title) is recorded,
+    # not uploaded; the days held on YouTube are never taken again; in doubt nothing goes up
+    from core import ytguard
+    cfg = json.loads((ROOT / "config.json").read_text(encoding="utf-8")) if (ROOT / "config.json").exists() else {}
+    yt = youtube.service()
+    try:
+        ytguard.check_channel(yt, cfg.get("youtube_channel_id") or "UCkWx-ioMzWcO_cxyfFIGRsQ")
+        videos = ytguard.all_uploads(yt, [r.get("youtube_id") for r in rows if r.get("youtube_id")])
+    except ytguard.Doubt as e:
+        ytguard.notify(f"Closed Tabs: upload of {slug} cancelled (not sure about the channel)", str(e))
+        raise SystemExit(f"{slug}: not sure about the channel, nothing uploaded: {e}")
+    marker = ytguard.ref("closedtabs", slug)
+    same = None if old else ytguard.find_existing(videos, marker, meta["title"])
+    if same:
+        log.warning("%s is on the channel already as %s; recorded, not uploaded again", slug, same["id"])
+        rows.append({"slug": slug, "youtube_id": same["id"], "title": same["title"],
+                     "publish_at": same["publish_at"] or same["published_at"], "found_on_channel": True})
+        _save_state(rows)
+        ytguard.persist(["state/episodes.json"], f"state: {slug} already {same['id']}")
+        return rows[-1]
+    if not old:
+        slot = youtube.next_slot([r["publish_at"] for r in rows] + ytguard.channel_dates(videos))
+    desc = meta["description"]
+    if marker not in desc:
+        desc = desc[:5000 - len(marker) - 2].rstrip() + "\n\n" + marker
+    vid = youtube.upload(out, meta["title"], desc, meta["tags"], slot, yt=yt)
     # recorded the moment YouTube has it: nothing after this may lose the row
     if old:
         rows.remove(old)
@@ -83,6 +107,8 @@ def schedule(slug, rows, replace=False):
                  **({"replaces": old["youtube_id"],
                      "replaced_by_run": os.environ.get("GITHUB_RUN_ID", "")} if old else {})})
     _save_state(rows)
+    from core import ytguard
+    ytguard.persist(["state/episodes.json", f"queue/{slug}/out/uploaded.json"], f"state: {slug} uploaded as {vid}")
     if old:
         youtube.unschedule(old["youtube_id"])
     try:
