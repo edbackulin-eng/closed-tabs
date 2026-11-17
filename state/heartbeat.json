@@ -1,15 +1,13 @@
 {
  "date": "2026-11-17",
- "checked_at": "2026-11-17T00:13:16Z",
+ "checked_at": "2026-11-17T17:04:14Z",
  "scheduled_ahead": [
-  [
-   "2026-11-17T17:00:00Z",
-   "UTqPv-pQSus"
-  ],
   [
    "2026-11-19T17:00:00Z",
    "OBi9ghcicR4"
   ]
  ],
- "actions": []
+ "actions": [
+  "only 1 scheduled ahead; build started (force_window=true)"
+ ]
 }
