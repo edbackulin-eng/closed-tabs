@@ -1,0 +1,166 @@
+TITLE: A Million People Played One Game of Pokémon
+THUMBNAIL: HELIX FOSSIL
+===SCRIPTS===
+> One million people.
+[pause 0.7]
+> Typing at the exact same time.
+[pause 0.7]
+> Controlling a single character in a video game.
+> And somehow, they finished it.
+[pause 1.0]
+< But the way they got there was a complete disaster.
+
+> It started on February 12th, 2014.
+> Developed by an anonymous Australian programmer known simply as the Streamer.
+> The setup was surprisingly simple.
+> An IRC bot written in Python.
+> A Game Boy emulator running VisualBoyAdvance.
+> And a live JavaScript web app tracking a tally of moves.
+> The rules were straightforward.
+> Any viewer could type directional commands, A, B, select, or start into the Twitch chat room.
+> The script would capture those messages case-insensitively.
+> Then it would feed them directly into the emulator as button inputs.
+> The Streamer chose *Pokémon Red and Blue* for a very specific reason.
+> Nostalgia for the early games.
+> The forgiving turn-based structure.
+> A complete lack of reaction-based gameplay to compensate for massive input lag.
+> And a belief that even when played very poorly, it was difficult not to make progress in *Pokémon*.
+
+> But the Streamer had severely underestimated the internet.
+
+> For the first day and a half, the stream was relatively inactive.
+> But then it went viral.
+> By February 14th, total viewership hit 175,000 as players beat the first gym.
+> By February 17th, it reached over 6.5 million total views.
+> By February 20th, over 17 million total views.
+> Concurrent viewership averaged between 60,000 and 80,000 people.
+> With at least 10 percent of them actively participating in the chat at any given moment.
+> Peak simultaneous participation reached 121,000.
+> The chat system faced enormous, unforeseen stress.
+> Twitch engineers had to move the chat to a higher-capacity server normally reserved for major e-sports events.
+
+> And what were all those people doing?
+> They were turning the protagonist, Red, into a digital patient who had just been lobotomized.
+
+> [pause 0.7]
+> Red got stuck in corners.
+> He walked in endless circles.
+> He compulsively checked his Pokédex over and over again.
+> He saved the game repeatedly in an unending loop.
+> Commands streamed in from the chat channel much faster than the game could possibly process them.
+> Add in the video lag factor, and the "help" of gleeful trolls.
+> Progress became difficult to impossible.
+
+> But that was not the strangest part.
+> What happened next turned a chaotic programming experiment into a full-scale digital religion.
+
+> Fans began tracking the madness through a Reddit liveblog and a Google document.
+> An active community emerged, developing memes and intricate lore around every stumble.
+> Early in the game, Red acquired an item sitting in his inventory.
+> The Helix Fossil.
+> It was entirely functionless for most of the game, waiting to be revived into an Omanyte much later.
+> But because the chat selected the Start menu so often, the Helix Fossil was clicked constantly.
+> Players turned it into an inside joke.
+> Then, they turned it into a deity.
+> The player-character was humorously treated as constantly consulting the fossil for divine advice.
+> Fans published entire "bibles" for the Helix religion.
+> It became a symbol representing a sect supporting total chaos.
+> Meanwhile, its counterpart—the Dome Fossil, which revives a Kabuto—was treated as a rival deity for those who wanted order.
+
+> Pokémon captured along the way gained massive fan followings.
+> Two early catches—a Charmeleon named ABBBBBBK( and a Rattata named JLVWNNOOOO—were affectionately nicknamed "Abby" and "Jay Leno."
+> The team's Pidgeot, which grew to a high level and carried the team through brutal battles, was dubbed "Bird Jesus."
+> A Zapdos caught later was nicknamed the "Archangel of Justice," or "Anarchy Bird."
+> But not every Pokémon was blessed.
+> When players accidentally caught a Flareon instead of a Vaporeon needed to learn the "Surf" move, the creature was dubbed the "False Prophet."
+> And things were about to get much worse for the team.
+
+> [pause 0.7]
+> The game required precise, coordinated movements.
+> Areas involving mazes and sliding ledges brought everything to a grinding halt.
+> Ledges were particularly punishing.
+> Trolls would intentionally spam "down" commands, forcing Red to jump off the ledges and undo hours of hard work.
+> Players spent the better part of a day stuck in or near the exact same room in Team Rocket’s lair.
+> Users repeatedly sent "start" commands to open the pause menu, opening the inventory to select random items.
+> A system to throttle inputs on the Start button eventually had to be added.
+> But the true disaster struck on the eleventh day of the event—a Sunday.
+
+> While trying to obtain a Zapdos from the PC, disaster unfolded.
+> An incident now referred to as "Bloody Sunday."
+> A total of twelve Pokémon were accidentally released—permanently deleted from the game.
+> Among them were the beloved Abby and Jay Leno.
+> Bone-deep sadness swept through the community.
+> Yet, somehow, the hivemind pushed forward.
+> Players attempted to coordinate through infographics and user scripts that hid command messages from the chat window to allow actual conversation.
+> A computer program was even created to automatically identify and flag trolls.
+
+> But the game was still breaking under the weight of the experiment.
+> On February 18th, after major difficulties with the Team Rocket hideout puzzle, a brand new mechanic was introduced.
+> Democracy mode.
+
+> [pause 0.7]
+> Up until then, the stream had run entirely on "Anarchy mode"—a pure, unbridled mess of random inputs.
+> Democracy mode changed the rules.
+> All inputs received over a 30-second period were tallied.
+> The winning command would be executed at the end of that window.
+> Users could even append numbers to their movements, like "right3" for three consecutive steps.
+> Many people were outraged.
+> Protest broke out instantly in the Twitch chat.
+> The protesters weaponized the "start9" command—opening and closing the pause menu nine times in a row to actively sabotage progress and fight the system.
+> This became known as the "Start9 protests."
+
+> The broadcaster reworked the mechanic in response.
+> Users could now vote to switch between Anarchy and Democracy mode using an on-screen meter.
+> A change to Democracy required a supermajority vote.
+> A change back to Anarchy required only a simple majority.
+> It was deeply divisive.
+> Many players believed Democracy mode conflicted with the core concept of the stream, destroying the pure randomness that had built the elaborate mythology in the first place.
+
+> Yet, the molasses-slow progress continued.
+> After more than 16 continuous days of gameplay, the impossible happened.
+> On March 1st, 2014, *Pokémon Red* was completed.
+> Twitch estimated that over 1.16 million people had participated.
+> A total of 55 million views were logged during the experiment.
+> The run earned a Guinness World Record for having the most users to input a command to play a live-streamed videogame, with 1,165,140 participants.
+> It later won a Game Award in the "Best Fan Creation" category.
+
+> But the Streamer was not done.
+> Not by a long shot.
+
+> On March 2nd, a new game began.
+> *Pokémon Crystal*.
+> This time, Democracy mode was automatically activated at the top of every hour.
+> By March 14th, players reached a major battle on Mt. Silver against Red—a trainer representing the player-character from the previous game.
+> The game data had been intentionally modified.
+> Red’s team consisted of the exact same Pokémon that were used to beat the Elite Four in the original *Red* playthrough, fulfilling Game Freak’s original conceptual intent for the second-generation games.
+> *Crystal* was beaten on March 15th, after more than 13 days of playtime.
+
+> Then came *Pokémon Emerald* on March 21st.
+> Democracy mode was initially disabled entirely.
+> The game was repeatedly restarted due to its soft reset ability, forcing the broadcaster to fix the issue.
+> As years passed, the channel exhausted the official games.
+> They moved on to unofficial ROM hacks and fan-created mods.
+> When they reached *Pokémon X*—a game for the Nintendo 3DS—there was no PC-based emulator available.
+> The stream had to be conducted on actual hardware.
+> Using a hard-mod known as the 3DS Streaming Console with External Control Interface, developed by a Reddit user known as dekuNukem or Twitch_plays_3ds.
+> This USB-based interface allowed direct control of inputs on the physical console and captured video output from both screens.
+> It even unlocked the 3DS's Wi-Fi capabilities.
+> Random players across the internet could directly interact with the stream's player via the Nintendo Network, engaging in online battles, trades, and using internet-enabled features.
+
+> For the one-year anniversary in February 2015, they ran *Red* again with a new goal: catch all 151 Pokémon.
+> They accomplished it in around 39 days.
+> For the fourth anniversary, they played *Red and Blue* simultaneously.
+> Commands alternated between the two games, and whenever Democracy mode was active, the winning vote was executed in both games at once.
+> For the sixth anniversary, the channel ran an unbroken gauntlet of six games in a row.
+
+> Through all the intra-group hostility and collaborator disagreements that eventually led the original Streamer to step down in November 2017 and hand control to another collaborator, the experiment fundamentally changed how the platform viewed streaming.
+> Twitch used the phenomenon to explore how to make streaming more interactive for viewers, ultimately promoting more streams with built-in audience participation.
+
+> A million strangers.
+> Typing blindly into a chat box.
+> Fighting trolls, worshiping fossilized shells, and accidentally deleting their favorite companions.
+> Proving that even when humanity is entirely uncoordinated, chaotic, and stumbling over its own feet...
+> Given enough time, and enough button presses...
+> We can still beat the game.
+
+> If you enjoyed diving into the strange history of the internet, hit that subscribe button below, and join us for more real internet mysteries on Closed Tabs.
