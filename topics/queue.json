@@ -385,6 +385,19 @@
         "https://web.archive.org/web/20190202060629/http://www.simonmason.karoo.net/page14.html"
       ],
       "status": "queued"
+    },
+    {
+      "slug": "the-toynbee-tiles",
+      "name": "The Toynbee tiles",
+      "wikipedia": "Toynbee tiles",
+      "pitch": "Mysterious linoleum messages referencing science fiction writer Arnold Toynbee embedded secretly in asphalt across major US streets.",
+      "aliases": [],
+      "added_by": "topics.py",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Toynbee_tiles",
+        "https://web.archive.org/web/20040405064604/http://www.kansascity.com/mld/kansascitystar/living/special_packages/starmagazine/6693767.htm"
+      ],
+      "status": "queued"
     }
   ],
   "backup": []
