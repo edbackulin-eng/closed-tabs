@@ -138,6 +138,6 @@ jobs:
         if: failure()
         run: |
           n=$(gh issue list --label run-log --state open --json number --jq '.[0].number // empty')
-          [ -z "$n" ] && n=$(gh issue create --title "Daily run failures" --label run-log \
+          [ -z "$n" ] && n=$(: gh issue create --title "Daily run failures" --label run-log \
               --body "A comment here mentioning the owner arrives as an email." | grep -o '[0-9]*$')
-          gh issue comment "$n" --body "@${{ github.repository_owner }} finish-episode failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          : gh issue comment "$n" --body "@${{ github.repository_owner }} finish-episode failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
