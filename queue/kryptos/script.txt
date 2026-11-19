@@ -1,0 +1,83 @@
+> It is one of the most famous unsolved codes in the world. [pause 0.7]
+> Sitting right in the courtyard of the Central Intelligence Agency. [pause 0.7]
+> And for more than thirty years, the final passage has refused to yield its secrets. [pause 0.5]
+> But the answer—or at least a way to buy it—finally arrived. [pause 0.5]
+
+> Back in November 1990, [fast] a copper sculpture called Kryptos was dedicated at the CIA headquarters in Langley, Virginia. [pause 0.7]
+> Built by artist Jim Sanborn in collaboration with a retiring CIA employee named Edward Scheidt, [plain] the sculpture was designed to embody the theme of intelligence gathering. [pause 0.7]
+> Its name comes from the ancient Greek word for hidden. [pause 0.5]
+> And hidden it remains. [pause 0.7]
+
+> The most prominent feature of the piece is a large vertical S-shaped copper screen. [pause 0.7]
+> It resembles a scroll, [fast] or a piece of paper emerging from a computer printer. [pause 0.7]
+> Cut right out of the copper plates are thousands of characters from the Latin alphabet, along with four question marks. [pause 0.7]
+> The left-hand side contains 869 characters in total. [pause 0.7]
+> The right-hand side comprises a keyed Vigenère encryption tableau consisting of 867 letters. [pause 0.5]
+
+> Edward Scheidt stated that the difficulty of the encryption was around a nine out of ten. [pause 0.7]
+> His intention was for it to be solved in five to ten years. [pause 0.7]
+> But that was not the strangest part. [pause 0.5]
+> Across the installation, Sanborn included other pieces of art. [pause 0.7]
+> Large granite slabs with sandwiched copper sheets bearing Morse code messages. [pause 0.7]
+> A compass rose pointing to a lodestone. [pause 0.7]
+> A fish pond with opposing wooden benches, a reflecting pool, and a triangle-shaped black stone slab. [pause 0.7]
+> The ciphers' increasing complexity through the entrance into the courtyard was intended to be as if it were a fossil. [pause 0.5]
+
+> Out of the four encrypted messages on the main sculpture, [slow] the first three were eventually solved. [pause 0.7]
+> The first passage was decoded using a Vigenère cipher and the keyword PALIMPSEST. [pause 0.7]
+> It revealed the plaintext: <between subtle shading and the absence of light lies the nuance of iqlusion.> [pause 0.7]
+> Notice that last word? [pause 0.5]
+> Iqlusion. [pause 0.7]
+> It was claimed to be an intentional misspelling by the creator. [pause 0.5]
+
+> The second passage yielded an even more striking message, decoded using the keyword ABSCISSA. [pause 0.7]
+> It described an invisible transmission of information sent underground, [fast] ending with geographic coordinates. [pause 0.7]
+> <thirty eight degrees fifty seven minutes six point five seconds north seventy seven degrees eight minutes forty four seconds west.> [pause 0.7]
+> Measured out, those coordinates point to a spot about 174 feet southeast of the sculpture. [pause 0.7]
+> And the message closed with a cryptic teaser: <who knows the exact location? only ww.> [pause 0.7]
+> Sanborn later confirmed that WW stood for William Webster, who was the Director of the CIA at the time Kryptos was installed. [pause 0.5]
+
+> The third passage shifted methods entirely, using a transposition cipher. [pause 0.7]
+> When decoded, it spelled out a paraphrased quotation from Howard Carter’s account of opening the tomb of Tutankhamun in November 1922. [pause 0.7]
+> <slowly desparatly slowly the remains of passage debris that encumbered the lower part of the doorway was removed...> [pause 0.7]
+> Ending with the question: <can you see anything q?> [pause 0.5]
+
+> But what about the fourth passage? [pause 0.7]
+> The remaining 97 characters at the bottom of the left-hand side. [pause 0.7]
+> Despite decades of intense scrutiny by professional cryptanalysts and amateur solvers alike, [slow] it remains completely uncracked. [pause 0.7]
+> Or does it? [pause 0.5]
+
+> Over the years, Jim Sanborn dropped a series of tantalizing clues. [pause 0.7]
+> In November 2010, he revealed that the 64th to 69th letters in passage four, <nypvtt>, become <berlin> after decryption. [pause 0.7]
+> Four years later, he offered another piece to The New York Times: the letters <mzpfpk> become <clock>. [pause 0.7]
+> He added that solvers had better delve into that particular clock, noting there are several really interesting clocks in Berlin. [pause 0.7]
+> In 2025, he confirmed that the plaintext referred specifically to the World Clock. [pause 0.5]
+
+> Then, in January 2020, came another clue. [pause 0.7]
+> Ciphertext <qqprngkss> at positions 26 to 34 translates to the word <northeast>. [pause 0.7]
+> And in August 2020, he revealed that the four letters in positions 22 through 25, ciphertext <flrv>, spell out <east>. [pause 0.7]
+
+> Yet even with these pieces, the rest of the puzzle stayed locked behind an impenetrable wall. [pause 0.7]
+> Did Sanborn make mistakes in this final section, just as he did in the earlier passages? [pause 0.7]
+> After all, the first three passages contained intentional misspellings and transcription errors. [pause 0.7]
+> Sanborn once remarked: <you could not make any mistake with 1,800 letters. it could not be repaired.> [pause 0.5]
+> He also noted that most of his things are rife with mistakes on purpose. [pause 0.7]
+> But for the fourth passage, no one has yet proven what is an error and what is deliberate design. [pause 0.5]
+
+> As the years ticked by, speculation grew about what would happen if the creator passed away before the code was broken. [pause 0.7]
+> Sanborn had stated in a 2005 interview that should he die before the entire sculpture is deciphered, he had put in place a method by which a correct solution could be confirmed. [pause 0.7]
+> By 2020, he stated that he planned to put the secret to the solution up for auction once he died. [pause 0.5]
+
+> Then plans changed. [pause 0.7]
+> In August 2025, Sanborn announced in a letter to The Washington Post that he would auction off the solution for the final passage himself. [pause 0.7]
+> Alongside the K4 solution, the auction was set to include a prototype sculpture, encryption tables, and other related ephemera. [pause 0.7]
+> He wrote that he hoped the buyer would keep the fourth passage a secret, offering this thought: <if they don't then what's the point? power resides with a secret not without it.> [pause 0.5]
+
+> The auction was formally posted by RR Auction as part of a sale titled Decoding History: Kryptos, Enigma and the Rosetta Stone, running from October 16 to November 20, 2025—coinciding with Sanborn’s eightieth birthday. [pause 0.7]
+> It had been expected to fetch a price between $300,000 and $500,000. [pause 0.5]
+
+> Whether the buyer will respect the artist's wishes and keep the final translation locked away, [slow] or whether the true meaning of the CIA's most famous hidden message will finally spill out into the open, [pause 0.7]
+> remains to be seen. [pause 0.7]
+
+> If you want to dive deeper into unsolved mysteries and forgotten history, [fast] hit that subscribe button below. [pause 0.5]
+> We will see you next time. [pause]

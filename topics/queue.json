@@ -398,6 +398,19 @@
         "https://web.archive.org/web/20040405064604/http://www.kansascity.com/mld/kansascitystar/living/special_packages/starmagazine/6693767.htm"
       ],
       "status": "queued"
+    },
+    {
+      "slug": "petscop",
+      "name": "Petscop",
+      "wikipedia": "Petscop",
+      "pitch": "A famous web series presents the Let's Play footage of an unfinished 1997 PlayStation game that grows increasingly disturbing and surreal.",
+      "aliases": [],
+      "added_by": "topics.py",
+      "sources_checked": [
+        "https://en.wikipedia.org/wiki/Petscop",
+        "https://www.splicetoday.com/digital/the-journey-across-newmaker-plane"
+      ],
+      "status": "queued"
     }
   ],
   "backup": []
